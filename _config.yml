@@ -1,5 +1,0 @@
-# Имя вашего репозитория на GitHub (например, 'my-website' если ссылка
-# имеет вид username.github.io/my-website/)
-# Если ваш сайт размещен в корне (username.github.io), оставьте это пустым: baseurl: ""
-baseurl: "Site" 
-title: Киев Окна Сервис
