@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>{{ page.title }} | Київ Вікна Сервіс (КВС)</title>
+  <meta content="Профессиональный ремонт, регулировка и обслуживание пластиковых и деревянных окон в Киеве и области. Гарантия до 5 лет. Бесплатный выезд мастера." name="description">
+  <meta content="ремонт окон киев, регулировка окон, замена фурнитуры, замена уплотнителя" name="keywords">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QMT9NJ5M5H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-QMT9NJ5M5H');
+  </script>
+  
+  <link href="{{ site.baseurl }}/assets/img/favicon.png" rel="icon">
+  <link href="{{ site.baseurl }}/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --font-default: 'Roboto', sans-serif;
+      --font-primary: 'Montserrat', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-default);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--font-primary);
+    }
+  </style>
+
+  <link href="{{ site.baseurl }}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ site.baseurl }}/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="{{ site.baseurl }}/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="{{ site.baseurl }}/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="{{ site.baseurl }}/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="{{ site.baseurl }}/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="{{ site.baseurl }}/assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header id="header" class="header d-flex align-items-center">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="{{ site.baseurl }}/index.html" class="logo d-flex align-items-center">
+        <h1>Київ Вікна Сервіс<span>.</span></h1>
+      </a>
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{{ site.baseurl }}/index.html" class="active">Главная</a></li>
+          <li><a href="{{ site.baseurl }}/about.html">О нас</a></li>
+          <li><a href="{{ site.baseurl }}/services.html">Услуги</a></li>
+          <li><a href="{{ site.baseurl }}/projects.html">Проекты</a></li>
+          <li><a href="{{ site.baseurl }}/blog.html">Блог</a></li>
+          <li class="dropdown"><a href="#"><span>Меню</span> <i
+                class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="#">Ремонт фурнитуры</a></li>
+              <li class="dropdown"><a href="#"><span>Продукция</span> <i
+                    class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li><a href="#">Фурнитура MACO</a></li>
+                  <li><a href="#">Профиль REHAU</a></li>
+                  <li><a href="#">Стеклопакеты</a></li>
+                  <li><a href="#">Уплотнитель</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Регулировка</a></li>
+              <li><a href="#">Уход за окнами</a></li>
+            </ul>
+          </li>
+          <li><a href="{{ site.baseurl }}/contact.html">Контакты</a></li>
+        </ul>
+      </nav></div>
+  </header>
