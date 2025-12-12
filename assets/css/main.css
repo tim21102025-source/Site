@@ -2688,3 +2688,125 @@ section {
 .footer .footer-legal .credits a {
   color: var(--color-primary);
 }
+
+
+
+/* ============================================== */
+/* Стили для линии єВідновлення (ОКОНЧАТЕЛЬНАЯ ВЕРСИЯ С МАСШТАБИРОВАНИЕМ) */
+/* ============================================== */
+
+/* 1. Анимация непрерывного перелива градиента (постоянно активна) */
+@keyframes moving-gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: -200% 50%; /* Движение слева направо */
+    }
+}
+
+/* 2. Анимация покачивания всего блока при наведении */
+@keyframes bar-wobble {
+    0%, 100% { transform: translateX(0); }
+    15% { transform: translateX(-1px); } /* Небольшое смещение для всего блока */
+    30% { transform: translateX(1px); }
+    45% { transform: translateX(-1px); }
+    60% { transform: translateX(1px); }
+    75% { transform: translateX(-0.5px); }
+}
+
+
+/* ФИКС: Смещение основного навигационного блока */
+#header {
+    margin-top: 45px !important; 
+}
+
+/* Общий контейнер */
+#topbar-vidnovlennya {
+    z-index: 1000000 !important; /* Гарантия кликабельности */
+    position: relative; 
+    cursor: pointer;
+    
+    padding: 10px 0 !important;
+    background: #f9f9f9; 
+    border-bottom: 3px solid #feb900 !important; 
+    transition: all 0.2s ease-in-out; 
+    
+    /* Тень по умолчанию */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) !important; 
+}
+
+/* Эффект при наведении (Hover) */
+#topbar-vidnovlennya:hover {
+    background-color: #f0f0f0 !important; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3) !important; 
+    animation: bar-wobble 0.8s ease-in-out;
+}
+
+/* Эффект при нажатии (Active) */
+#topbar-vidnovlennya:active {
+    background-color: #e9e9e9 !important; 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important; 
+}
+
+/* Разрешаем выделение текста принудительно */
+#topbar-vidnovlennya * {
+    user-select: text !important; 
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+}
+
+/* Стили для ссылки (контейнер иконки и текста) */
+#topbar-vidnovlennya a {
+    color: #364d59; 
+    text-decoration: none; 
+    font-weight: 600; 
+    font-size: 17px; 
+    text-transform: none; 
+    display: flex;
+    align-items: center; 
+    transition: transform 0.2s ease; /* Плавность для масштабирования всей ссылки */
+}
+
+/* НОВЫЙ ЭФФЕКТ: Масштабирование всей ссылки при наведении */
+#topbar-vidnovlennya:hover a {
+    transform: scale(1.01); /* Легкое масштабирование всей строки */
+}
+
+.vidnovlennya-gradient-text {
+  /* Градиентные стили */
+  background: linear-gradient(90deg, #0057B8 0%, #FFED00 25%, #0057B8 50%, #FFED00 75%, #0057B8 100%);
+  background-size: 400% auto; 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  display: inline-block; 
+  /* Постоянный запуск анимации градиента */
+  animation: moving-gradient 8s linear infinite; 
+}
+
+.vidnovlennya-icon {
+    height: 26px; 
+    width: auto;
+    vertical-align: middle; 
+    margin-right: 10px;
+}
+
+/* АДАПТИВНОСТЬ */
+@media (max-width: 575.98px) {
+    #topbar-vidnovlennya {
+        padding: 5px 0 !important;
+    }
+    #topbar-vidnovlennya a {
+        font-size: 14px !important;
+    }
+    .vidnovlennya-icon {
+        height: 22px; 
+        margin-right: 5px; 
+    }
+    #header {
+        margin-top: 35px !important;
+    }
+}
+/* ============================================== */
