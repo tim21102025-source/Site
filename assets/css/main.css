@@ -2810,3 +2810,113 @@ section {
     }
 }
 /* ============================================== */
+
+
+
+
+
+
+
+/* --- СТИЛИ ДЛЯ ВЫДЕЛЕННОГО ТЕЛЕФОНА (prominent-phone-link) --- */
+
+.prominent-phone-link {
+    color: #fff; /* ФИКС: Текст номера - БЕЛЫЙ */
+    /* Стили рамки */
+    padding: 6px 14px; 
+    border: 1.5px solid var(--color-primary); 
+    border-radius: 50px; 
+    font-weight: 700;
+    font-size: 16px;
+    margin-left: 15px; 
+    transition: all 0.3s;
+    text-decoration: none; 
+    white-space: nowrap; 
+}
+
+.prominent-phone-link i {
+    font-size: 18px;
+    color: var(--color-primary); /* Иконка в нормальном состоянии - ЖЕЛТАЯ */
+}
+
+/* Эффект наведения */
+.prominent-phone-link:hover {
+    background: var(--color-primary); /* Фон ЖЕЛТЫЙ */
+    color: var(--color-default); /* Текст номера - ТЕМНЫЙ */
+    border-color: var(--color-primary);
+    text-decoration: none;
+}
+.prominent-phone-link:hover i {
+    /* ФИКС: Иконка должна стать ТЕМНОЙ на желтом фоне, а не сереть/белеть */
+    color: var(--color-default); 
+}
+
+/* --- СТИЛИ ДЛЯ ПЕРЕКЛЮЧАТЕЛЯ ЯЗЫКА (language-switcher) --- */
+.language-switcher {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.language-switcher .active {
+    color: var(--color-primary); /* Активный язык (RU) - ЖЕЛТЫЙ */
+    font-weight: 700 !important;
+}
+
+.language-switcher a {
+    color: #fff; /* ФИКС: Неактивный язык (UA) - БЕЛЫЙ */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.language-switcher a:hover {
+    color: var(--color-primary); 
+}
+
+/* ФИКС: Стиль для белого разделителя */
+.language-switcher .separator-white {
+    color: #fff; /* Разделитель - БЕЛЫЙ */
+}
+
+
+/* --- АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ (< 1200px) --- */
+@media (max-width: 1200px) {
+    /* ФИКС: Телефон на мобильных должен быть слева от бургер-меню */
+    
+    /* Убеждаемся, что header-tools и бургер-иконка находятся в правильном порядке */
+    
+    /* 1. Позиционируем телефонный блок */
+    .header-tools {
+        display: flex !important; /* Убеждаемся, что блок виден */
+        order: 1; /* Размещаем телефон вначале правой части контейнера */
+    }
+    
+    /* 2. Отделяем телефон от бургер-меню */
+    .prominent-phone-link {
+        padding: 5px 10px;
+        font-size: 14px;
+        margin-left: 0;
+        margin-right: 15px; /* Зазор между телефоном и бургер-иконкой */
+    }
+    
+    /* 3. Убеждаемся, что бургер-иконки находятся после телефона */
+    .mobile-nav-toggle {
+        order: 2; /* Бургер идет после телефона */
+        margin-right: 0 !important; /* Удаляем стандартные отступы, чтобы не конфликтовать */
+        margin-left: 0 !important;
+    }
+    
+
+    
+    /* ФИКС: Убираем d-none d-md-inline из HTML для мобильной версии, 
+       чтобы было видно только "+38 (098)" */
+    .prominent-phone-link .d-none.d-md-inline {
+        display: none !important;
+    }
+    .prominent-phone-link .d-md-none {
+        display: inline !important;
+    }
+}
+
+
+
