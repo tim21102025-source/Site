@@ -5,9 +5,18 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Контакты | КВС - Окна и Остекление в Киеве</title>
+  <title>Контакты | UWS (Ukrainian Window Systems) - Ремонт и Обслуживание Окон</title>
   <meta content="Свяжитесь с КВС для бесплатной консультации, расчета стоимости окон или оформления заказа в Киеве." name="description">
   <meta content="окна киев, контакты, заказать окна, установка окон, КВС, KVS" name="keywords">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QMT9NJ5M5H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-QMT9NJ5M5H');
+  </script>
 
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -30,125 +39,200 @@
 
 <body>
 
-  <header id="header" class="header d-flex align-items-center">
+  <div id="topbar-vidnovlennya" class="d-flex align-items-center">
+  <div class="container d-flex justify-content-center justify-content-md-center">
+    
+    <a href="vidnovlennya.html" class="vidnovlennya-link">
+      
+      <img src="assets/img/diia-icon.png" class="vidnovlennya-icon" alt="Логотип Дія">
+
+      Працюємо з програмою 
+      <span class="vidnovlennya-gradient-text" style="font-weight: 800; margin-left: 5px;">єВідновлення</span>
+    </a>
+  </div>
+</div>
+
+<header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
-        <h1>КВС Окна<span>.</span></h1>
+        <img src="assets/img/logo.png" alt="UWS Logo" class="img-fluid me-2">
+        <h1>UWS<span>.</span></h1>
       </a>
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.html">Главная</a></li>
+          <li><a href="index.html" class="active">Главная</a></li>
           <li><a href="about.html">О нас</a></li>
-          <li><a href="services.html">Услуги</a></li>
-          <li><a href="projects.html">Проекты</a></li>
-          <li><a href="blog.html">Блог</a></li>
-          <li class="dropdown"><a href="#"><span>Меню</span> <i
+          <li class="dropdown"><a href="#"><span>Услуги</span> <i
                 class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="#">Типы Окон</a></li>
-              <li class="dropdown"><a href="#"><span>Фурнитура</span> <i
-                    class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Премиум</a></li>
-                  <li><a href="#">Стандарт</a></li>
-                  <li><a href="#">Эконом</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Балконы и Лоджии</a></li>
-              <li><a href="#">Стеклопакеты</a></li>
+              <li><a href="#">Ремонт Окон</a></li>
+              <li><a href="#">Регулировка Окон</a></li>
+              <li><a href="#">Замена Фурнитуры</a></li>
+              <li><a href="#">Замена Стеклопакетов</a></li>
+              <li><a href="#">Замена Уплотнителя</a></li>
             </ul>
           </li>
-          <li><a href="contact.html" class="active">Контакты</a></li>
+          <li><a href="vidnovlennya.html">єВідновлення</a></li>
+          <li><a href="blog.html">Блог</a></li>
+          <li><a href="contact.html">Контакты</a></li>
         </ul>
-      </nav></div>
-  </header><main id="main">
+      </nav>
+      
+
+    
+      <div class="header-tools d-flex align-items-center">
+        
+        <div class="language-switcher d-none d-lg-flex me-3">
+          <span class="active me-1 fw-bold">RU</span>
+          <span class="separator-white">/</span>
+          <a href="index.html?lang=ua" class="ms-1">UA</a>
+        </div>
+        
+        <div class="dropdown">
+            <button class="btn dropdown-phone-btn d-flex align-items-center dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-telephone"></i>
+                <span class="d-none d-md-inline ms-2">Связаться</span>
+                <span class="d-md-none ms-2">Звонок</span> 
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton" style="min-width: 220px;">
+                <li>
+                    <a class="dropdown-item d-flex align-items-center" href="tel:+380660575202">
+                        +38 (066) 057-52-02 <span class="operator-label vodafone-color">Vodafone</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center" href="tel:+380989478772">
+                        +38 (098) 947-87-72 <span class="operator-label kyivstar-color">Kyivstar</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center" href="tel:+380633664769">
+                        +38 (063) 366-47-69 <span class="operator-label lifecell-color">Lifecell</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+  </div>
+
+
+  </header>
+
+<main id="main">
 
     <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
       <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
-
         <h2>Контакты</h2>
         <ol>
           <li><a href="index.html">Главная</a></li>
           <li>Контакты</li>
         </ol>
-
       </div>
-    </div><section id="contact" class="contact">
+    </div><section id="contact" class="contact section-bg">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row gy-4">
-          <div class="col-lg-6">
-            <div class="info-item  d-flex flex-column justify-content-center align-items-center">
-              <i class="bi bi-map"></i>
-              <h3>Адрес нашего Шоурума в Киеве</h3>
-              <p>г. Киев, ул. [Название Улицы], [Номер Дома/Офиса]</p>
-            </div>
-          </div><div class="col-lg-3 col-md-6">
-            <div class="info-item d-flex flex-column justify-content-center align-items-center">
-              <i class="bi bi-envelope"></i>
-              <h3>Свяжитесь по Email</h3>
-              <p><a href="mailto:info@kvs-okna.com">info@kvs-okna.com</a></p>
-            </div>
-          </div><div class="col-lg-3 col-md-6">
-            <div class="info-item  d-flex flex-column justify-content-center align-items-center">
-              <i class="bi bi-phone"></i>
-              <h3>Позвоните нам</h3>
-              <p><a href="tel:+38044XXXXXXX">+38 (044) XXX XX XX</a></p>
-            </div>
-          </div></div>
+        <div class="section-header">
+          <h2>Свяжитесь с нами</h2>
+          <p>Профессиональная консультация, вызов мастера на замер и расчет стоимости ремонта окон в Киеве и области.</p>
+        </div>
 
-        <div class="row gy-4 mt-1">
+        <div class="row justify-content-center gy-4">
 
-          <div class="col-lg-6 ">
-            <iframe
-              src="https://maps.google.com/maps?q=%D0%9C%D0%B0%D0%B9%D0%B4%D0%B0%D0%BD%20%D0%9D%D0%B5%D0%B7%D0%B0%D0%BB%D0%B5%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8,%20%D0%9A%D0%B8%D0%B5%D0%B2&t=&z=14&ie=UTF8&iwloc=&output=embed"
-              frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div><div class="col-lg-6">
-            <form action="https://formspree.io/f/xrbnljka" method="post" role="form" class="php-email-form">
-                <h3>Получите бесплатный замер и расчет</h3>
-                <p>Заполните форму, и наш менеджер свяжется с вами.</p>
-                
-                <div class="row">
-                  <div class="col-md-12 form-group mb-1">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Ваше Имя" required>
+          <div class="col-lg-5">
+            <div class="info-container d-flex flex-column justify-content-between h-100" style="background: #fff; padding: 30px; border-radius: 4px; border: 1px solid #eee; box-shadow: 0 0 20px rgba(0,0,0,0.05);">
+              
+              <div>
+                <div class="contact-card-mini mb-4">
+                  <div class="d-flex align-items-center mb-3">
+                    <div class="icon-box d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; background: rgba(254, 185, 0, 0.1); border-radius: 50%; margin-right: 15px;">
+                      <i class="bi bi-telephone" style="font-size: 1.2rem; color: var(--color-primary);"></i>
+                    </div>
+                    <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--color-secondary); margin: 0;">Телефоны</h3>
                   </div>
-                  <div class="col-md-12 form-group mb-1">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Email для связи" required>
+                  <div class="d-flex flex-column ps-2" style="gap: 8px;">
+                    <a href="tel:+380660575202" style="font-size: 1.1rem; color: #444; font-weight: 600;">+38 (066) 057-52-02 <span class="operator-label vodafone-color">Vodafone</span></a>
+                    <a href="tel:+380989478772" style="font-size: 1.1rem; color: #444; font-weight: 600;">+38 (098) 947-87-72 <span class="operator-label kyivstar-color">Kyivstar</span></a>
+                    <a href="tel:+380633664769" style="font-size: 1.1rem; color: #444; font-weight: 600;">+38 (063) 366-47-69 <span class="operator-label lifecell-color">Lifecell</span></a>
                   </div>
                 </div>
 
-                <div class="form-group mb-1">
-                  <div class="input-group">
-                    <span class="input-group-text" id="phone-prefix">+38</span>
-                    <input type="tel" class="form-control" name="phone" id="phone" 
-                      placeholder="098 123 45 67" 
-                      pattern="^(\s*\d){10}\s*$"
-                      title="Введите 10 цифр номера (например: 098 123 45 67 или 0981234567)"
-                      required>
+                <div class="contact-card-mini mb-4">
+                  <div class="d-flex align-items-center mb-3">
+                    <div class="icon-box d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; background: rgba(254, 185, 0, 0.1); border-radius: 50%; margin-right: 15px;">
+                      <i class="bi bi-envelope" style="font-size: 1.2rem; color: var(--color-primary);"></i>
+                    </div>
+                    <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--color-secondary); margin: 0;">Email</h3>
+                  </div>
+                  <div class="ps-2">
+                    <a href="mailto:kiev.rks@gmail.com" style="font-size: 1.1rem; color: #444; font-weight: 600;">kiev.rks@gmail.com</a>
                   </div>
                 </div>
 
-                <div class="form-group mb-1">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Сообщение или описание проблемы" required></textarea>
+                <div class="contact-card-mini">
+                  <div class="d-flex align-items-center mb-3">
+                    <div class="icon-box d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; background: rgba(254, 185, 0, 0.1); border-radius: 50%; margin-right: 15px;">
+                      <i class="bi bi-clock" style="font-size: 1.2rem; color: var(--color-primary);"></i>
+                    </div>
+                    <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--color-secondary); margin: 0;">Режим работы</h3>
+                  </div>
+                  <div class="ps-2">
+                    <p style="margin-bottom: 5px; color: #444;"><strong>Пн — Пт:</strong> 09:00 — 19:00</p>
+                    <p style="margin: 0; color: #444;"><strong>Сб — Вс:</strong> 10:00 — 17:00</p>
+                  </div>
                 </div>
+              </div>
 
-                <div class="my-3">
-                  <div class="loading">Загрузка</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Ваш запрос успешно отправлен. Мы свяжемся с вами в ближайшее время!</div>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <form action="https://formspree.io/f/xrbnljka" method="post" role="form" class="php-email-form h-100" style="padding: 35px; background: #fff; border-radius: 4px; border: 1px solid #eee; box-shadow: 0 0 20px rgba(0,0,0,0.05);">
+              <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--color-secondary); margin-bottom: 10px;">Напишите нам</h3>
+              <p class="mb-4 text-muted">Заполните форму ниже, и наш специалист свяжется с вами для уточнения деталей заказа.</p>
+              
+              <div class="form-group mb-2">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Ваше Имя" required style="padding: 12px; border: 1px solid #ddd;">
+              </div>
+              
+              <div class="form-group mb-2">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Ваш Email" required style="padding: 12px; border: 1px solid #ddd;">
+              </div>
+
+              <div class="form-group mb-2"> 
+                <div class="input-group">
+                  <span class="input-group-text" style="background: #f8f9fa; border: 1px solid #ddd;">+38</span>
+                  <input type="tel" class="form-control" name="phone" id="phone" placeholder="0XX XXX XX XX" pattern="^(\s*\d){10}\s*$" required style="padding: 12px; border: 1px solid #ddd;">
                 </div>
+              </div>
 
-                <div class="text-center"><button type="submit">Отправить Запрос</button></div>
+              <div class="form-group mb-3"> 
+                <textarea class="form-control" name="message" rows="4" placeholder="Опишите вашу проблему (например: замена уплотнителя, регулировка балконной двери)" required style="padding: 12px; border: 1px solid #ddd;"></textarea>
+              </div>
+
+              <div class="my-3 text-start">
+                <div class="loading">Загрузка</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Ваш запрос успешно отправлен! Мы свяжемся с вами в ближайшее время.</div>
+              </div>
+
+              <div class="text-center">
+                <button type="submit" style="width: 100%; padding: 15px; font-weight: 700; background: var(--color-primary); border: 0; color: #fff; text-transform: uppercase; letter-spacing: 1px; border-radius: 4px;">Отправить сообщение</button>
+              </div>
             </form>
-          </div></div>
+          </div>
+
+        </div>
 
       </div>
-    </section></main><footer id="footer" class="footer">
+    </section></main>
+    
+  <footer id="footer" class="footer">
 
     <div class="footer-content position-relative">
       <div class="container">
@@ -156,12 +240,16 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="footer-info">
-              <h3>КВС Окна</h3>
+              <img src="assets/img/logo.png" alt="UWS Logo" class="img-fluid me-2 mb-2 footer-logo">
+              <h3>UWS</h3>
               <p>
-                г. Киев, ул. [Название Улицы], [Номер Дома/Офиса]<br>
-                [Индекс]<br><br>
-                <strong>Телефон:</strong> <a href="tel:+38044XXXXXXX">+38 (044) XXX XX XX</a><br>
-                <strong>Email:</strong> <a href="mailto:info@kvs-okna.com">info@kvs-okna.com</a><br>
+                <br>
+                <strong>Телефоны:</strong> <br>
+                <a href="tel:+380660575202">+38 (066) 057-52-02 <span class="operator-label vodafone-color">Vodafone</span></a><br>
+                <a href="tel:+380989478772">+38 (098) 947-87-72 <span class="operator-label kyivstar-color">Kyivstar</span></a><br>
+                <a href="tel:+380633664769">+38 (063) 366-47-69 <span class="operator-label lifecell-color">Lifecell</span></a><br>
+                <br>
+                <strong>Email:</strong> <a href="mailto:kiev.rks@gmail.com">kiev.rks@gmail.com</a><br>
               </p>
               <div class="social-links d-flex mt-3">
                 <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-twitter"></i></a>
@@ -170,7 +258,8 @@
                 <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
-          </div><div class="col-lg-2 col-md-3 footer-links">
+          </div>
+          <div class="col-lg-2 col-md-3 footer-links">
             <h4>Основные Ссылки</h4>
             <ul>
               <li><a href="#">Главная</a></li>
@@ -179,48 +268,52 @@
               <li><a href="#">Условия</a></li>
               <li><a href="#">Политика конфиденциальности</a></li>
             </ul>
-          </div><div class="col-lg-2 col-md-3 footer-links">
+          </div>
+          <div class="col-lg-2 col-md-3 footer-links">
             <h4>Наши Услуги</h4>
             <ul>
-              <li><a href="#">Установка ПВХ Окон</a></li>
-              <li><a href="#">Остекление Балконов</a></li>
-              <li><a href="#">Ремонт Окон</a></li>
-              <li><a href="#">Изготовление по размерам</a></li>
-              <li><a href="#">Энергосберегающие пакеты</a></li>
+              <li><a href="#">Ремонт фурнитуры</a></li>
+              <li><a href="#">Регулировка окон</a></li>
+              <li><a href="#">Замена уплотнителя</a></li>
+              <li><a href="#">Установка стеклопакетов</a></li>
+              <li><a href="#">Ремонт балконных дверей</a></li>
             </ul>
-          </div><div class="col-lg-2 col-md-3 footer-links">
+          </div>
+          <div class="col-lg-2 col-md-3 footer-links">
             <h4>Продукция</h4>
             <ul>
-              <li><a href="#">Профиль REHAU</a></li>
-              <li><a href="#">Профиль Salamander</a></li>
               <li><a href="#">Фурнитура MACO</a></li>
-              <li><a href="#">Панорамные окна</a></li>
-              <li><a href="#">Двери</a></li>
+              <li><a href="#">Профиль REHAU</a></li>
+              <li><a href="#">Стеклопакеты</a></li>
+              <li><a href="#">Ручки с ключом</a></li>
+              <li><a href="#">Москитные сетки</a></li>
             </ul>
-          </div><div class="col-lg-2 col-md-3 footer-links">
-            <h4>Другие Страницы</h4>
+          </div>
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Полезное</h4>
             <ul>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Отзывы</a></li>
-              <li><a href="#">Карьера</a></li>
-              <li><a href="#">Гарантия</a></li>
+              <li><a href="#">Прайс-лист</a></li>
+              <li><a href="#">Уход за окнами</a></li>
+              <li><a href="#">Диагностика</a></li>
+              <li><a href="#">Акции</a></li>
+              <li><a href="#">Вопрос-ответ</a></li>
             </ul>
-          </div></div>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="footer-legal text-center position-relative">
       <div class="container">
         <div class="copyright">
-          © Copyright <strong><span>КВС Окна (KVS)</span></strong>. Все права защищены
-        </div>
-        <div class="credits">
-          Разработано <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          &copy; Copyright <strong><span>UWS</span></strong>. Все права защищены
         </div>
       </div>
     </div>
 
   </footer>
+
+
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
 
@@ -235,6 +328,18 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <script src="assets/js/main.js"></script>
+
+    <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/692cb90e2e3bec197df70da2/1jbbb5o2q';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
 
 </body>
 

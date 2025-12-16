@@ -3012,3 +3012,148 @@ section {
         top: 60px !important; 
         right: 15px !important; /* Убедимся, что она справа */
     }
+
+
+
+
+    /**
+* Template Name: UpConstruction - v1.3.0
+* Template URL: https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+/*--------------------------------------------------------------
+# Set main reusable colors and fonts using CSS variables
+# Learn more about CSS variables at https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
+--------------------------------------------------------------*/
+/* Fonts */
+:root {
+  --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-primary: "Roboto", sans-serif;
+  --font-secondary: "Work Sans", sans-serif;
+}
+
+/* Colors */
+:root {
+  --color-default: #364d59;
+  --color-primary: #feb900;
+  --color-secondary: #52565e;
+}
+
+/* Smooth scroll behavior */
+:root {
+  scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+  font-family: var(--font-default);
+  color: var(--color-default);
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffc732;
+}
+
+
+
+
+
+/* --------------------------------------------------------------
+* V. CUSTOM STYLES ADDED FOR UWS (ФИНАЛЬНАЯ ВЕРСИЯ)
+* -------------------------------------------------------------- */
+
+/* 1. Header and Footer Logo Styling */
+
+.logo img {
+    max-height: 40px;
+    margin-right: 8px;
+}
+
+.footer-info img.footer-logo {
+    max-height: 60px; /* Увеличение логотипа в футере вдвое */
+}
+
+
+/* 2. Call Button (Dropdown) Styling */
+
+.dropdown-phone-btn {
+    /* Базовый стиль: белый текст, желтая рамка, скругленная форма (Pill shape) */
+    padding: 8px 15px;
+    border-radius: 50px; /* Скругление как у кнопки "Вызвать мастера" */
+    color: white; /* Белый текст */
+    background: transparent;
+    border: 2px solid var(--color-primary); /* Желтая округленная рамка */
+    transition: background 0.3s, border-color 0.3s, color 0.3s;
+    font-weight: 600; 
+}
+
+/* Интерактивность (При наведении/открытии) */
+.dropdown-phone-btn:hover,
+.dropdown-phone-btn:focus,
+.dropdown-phone-btn.show {
+    background: var(--color-primary); /* Сплошная желтая заливка */
+    border-color: var(--color-primary);
+    color: var(--color-default); /* Темный текст на желтом фоне для лучшего контраста */
+}
+
+/* Стилизация выпадающего меню */
+.dropdown-menu {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 2px solid var(--color-primary); /* Желтая рамка для меню */
+    padding: 0;
+}
+
+.dropdown-item {
+    padding: 10px 15px;
+    white-space: nowrap; 
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: var(--color-primary);
+    color: var(--color-default); /* Темный текст на желтом фоне при наведении */
+}
+
+/* Стилизация операторов (Бейдж) */
+.operator-label {
+    font-size: 0.65em; /* Базовый размер для шапки */
+    padding: 2px 8px; /* Базовый padding для шапки */
+    border-radius: 50px; /* Полное скругление (Pill shape) */
+    font-weight: 700;
+    margin-left: 10px;
+    display: inline-block; 
+}
+
+/* ИЗМЕНЕНИЕ: Увеличение размера шрифта в футере при сохранении минимальной высоты */
+.footer-info .operator-label {
+    font-size: 0.8em; /* ИЗМЕНЕНИЕ: Увеличенный размер шрифта */
+    padding: 0px 8px; /* Сохраняем минимальный вертикальный padding */
+}
+
+/* Цвета операторов */
+.vodafone-color {
+    background-color: #e60000; /* Красный */
+    color: white;
+}
+
+.kyivstar-color {
+    background-color: #1188D4; /* Синий Киевстар */
+    color: white; 
+}
+
+.lifecell-color {
+    background-color: var(--color-primary); /* Желтый сайта #feb900 */
+    color: var(--color-default); /* Темный текст для контраста */
+}

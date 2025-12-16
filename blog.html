@@ -5,9 +5,18 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>UpConstruction Bootstrap Template - Blog</title>
+  <title>Блог | UWS (Ukrainian Window Systems) - Ремонт и Обслуживание Окон</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QMT9NJ5M5H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-QMT9NJ5M5H');
+  </script>
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -41,68 +50,106 @@
 
 <body>
 
+  <div id="topbar-vidnovlennya" class="d-flex align-items-center">
+  <div class="container d-flex justify-content-center justify-content-md-center">
+    
+    <a href="vidnovlennya.html" class="vidnovlennya-link">
+      
+      <img src="assets/img/diia-icon.png" class="vidnovlennya-icon" alt="Логотип Дія">
+
+      Працюємо з програмою 
+      <span class="vidnovlennya-gradient-text" style="font-weight: 800; margin-left: 5px;">єВідновлення</span>
+    </a>
+  </div>
+</div>
+
   <!-- ======= Header ======= -->
-  <header id="header" class="header d-flex align-items-center">
+  <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>UpConstruction<span>.</span></h1>
+        <img src="assets/img/logo.png" alt="UWS Logo" class="img-fluid me-2">
+        <h1>UWS<span>.</span></h1>
       </a>
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="blog.html" class="active">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i
+          <li><a href="index.html" class="active">Главная</a></li>
+          <li><a href="about.html">О нас</a></li>
+          <li class="dropdown"><a href="#"><span>Услуги</span> <i
                 class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                    class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
+              <li><a href="#">Ремонт Окон</a></li>
+              <li><a href="#">Регулировка Окон</a></li>
+              <li><a href="#">Замена Фурнитуры</a></li>
+              <li><a href="#">Замена Стеклопакетов</a></li>
+              <li><a href="#">Замена Уплотнителя</a></li>
             </ul>
           </li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="vidnovlennya.html">єВідновлення</a></li>
+          <li><a href="blog.html">Блог</a></li>
+          <li><a href="contact.html">Контакты</a></li>
         </ul>
-      </nav><!-- .navbar -->
+      </nav>
+      
 
+    
+      <div class="header-tools d-flex align-items-center">
+        
+        <div class="language-switcher d-none d-lg-flex me-3">
+          <span class="active me-1 fw-bold">RU</span>
+          <span class="separator-white">/</span>
+          <a href="index.html?lang=ua" class="ms-1">UA</a>
+        </div>
+        
+        <div class="dropdown">
+            <button class="btn dropdown-phone-btn d-flex align-items-center dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-telephone"></i>
+                <span class="d-none d-md-inline ms-2">Связаться</span>
+                <span class="d-md-none ms-2">Звонок</span> 
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton" style="min-width: 220px;">
+                <li>
+                    <a class="dropdown-item d-flex align-items-center" href="tel:+380660575202">
+                        +38 (066) 057-52-02 <span class="operator-label vodafone-color">Vodafone</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center" href="tel:+380989478772">
+                        +38 (098) 947-87-72 <span class="operator-label kyivstar-color">Kyivstar</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center" href="tel:+380633664769">
+                        +38 (063) 366-47-69 <span class="operator-label lifecell-color">Lifecell</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-  </header><!-- End Header -->
 
-  <main id="main">
+  </div>
 
-    <!-- ======= Breadcrumbs ======= -->
+
+  </header>
+
+
+<main id="main">
+
     <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
       <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
-        <h2>Blog</h2>
+        <h2>Блог и полезные советы</h2>
         <ol>
-          <li><a href="index.html">Home</a></li>
-          <li>Blog</li>
+          <li><a href="index.html">Главная</a></li>
+          <li>Блог</li>
         </ol>
 
       </div>
-    </div><!-- End Breadcrumbs -->
-
-    <!-- ======= Blog Section ======= -->
-    <section id="blog" class="blog">
+    </div><section id="blog" class="blog">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4 posts-list">
@@ -111,241 +158,174 @@
             <div class="post-item position-relative h-100">
 
               <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-1.jpg" class="img-fluid" alt="">
-                <span class="post-date">December 12</span>
+                <img src="assets/img/blog/blog-1.jpg" class="img-fluid" alt="Ремонт окон по программе єВідновлення">
+                <span class="post-date">Ноябрь 20</span>
               </div>
 
               <div class="post-content d-flex flex-column">
-
-                <h3 class="post-title">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</h3>
-
+                <h3 class="post-title">Как заменить окна по программе єВідновлення: пошаговое руководство</h3>
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">John Doe</span>
+                    <i class="bi bi-person"></i> <span class="ps-2">UWS Expert</span>
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Politics</span>
+                    <i class="bi bi-folder2"></i> <span class="ps-2">єВідновлення</span>
                   </div>
                 </div>
-
                 <p>
-                  Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et
-                  laboriosam eius aut nostrum quidem aliquid dicta.
+                  Разбираем процесс подачи заявки в Дії, выбор подрядчика и требования к документации для получения компенсации на восстановление жилья.
                 </p>
-
                 <hr>
-
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                    class="bi bi-arrow-right"></i></a>
-
+                <a href="blog-details.html" class="readmore stretched-link"><span>Читать далее</span><i class="bi bi-arrow-right"></i></a>
               </div>
 
             </div>
-          </div><!-- End post list item -->
-
-          <div class="col-xl-4 col-md-6">
+          </div><div class="col-xl-4 col-md-6">
             <div class="post-item position-relative h-100">
 
               <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-2.jpg" class="img-fluid" alt="">
-                <span class="post-date">March 19</span>
+                <img src="assets/img/blog/blog-2.jpg" class="img-fluid" alt="Энергоэффективные окна">
+                <span class="post-date">Октябрь 15</span>
               </div>
 
               <div class="post-content d-flex flex-column">
-
-                <h3 class="post-title">Nisi magni odit consequatur autem nulla dolorem</h3>
-
+                <h3 class="post-title">Как сэкономить на отоплении: выбираем энергоэффективный стеклопакет</h3>
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Julia Parker</span>
+                    <i class="bi bi-person"></i> <span class="ps-2">Сервис-мастер</span>
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Economics</span>
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Энергосбережение</span>
                   </div>
                 </div>
-
                 <p>
-                  Incidunt voluptate sit temporibus aperiam. Quia vitae aut sint ullam quis illum voluptatum et. Quo
-                  libero rerum voluptatem pariatur nam.
+                  Почему обычного двухкамерного пакета уже недостаточно и как инертный газ аргон вместе с I-стеклом сохраняют тепло в вашем доме.
                 </p>
-
                 <hr>
-
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                    class="bi bi-arrow-right"></i></a>
-
+                <a href="blog-details.html" class="readmore stretched-link"><span>Читать далее</span><i class="bi bi-arrow-right"></i></a>
               </div>
 
             </div>
-          </div><!-- End post list item -->
-
-          <div class="col-xl-4 col-md-6">
+          </div><div class="col-xl-4 col-md-6">
             <div class="post-item position-relative h-100">
 
               <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-3.jpg" class="img-fluid" alt="">
-                <span class="post-date">June 24</span>
+                <img src="assets/img/blog/blog-3.jpg" class="img-fluid" alt="Регулировка фурнитуры">
+                <span class="post-date">Сентябрь 28</span>
               </div>
 
               <div class="post-content d-flex flex-column">
-
-                <h3 class="post-title">Possimus soluta ut id suscipit ea ut. In quo quia et soluta libero sit sint.</h3>
-
+                <h3 class="post-title">Подготовка окон к зиме: когда нужна профессиональная регулировка</h3>
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Maria Doe</span>
+                    <i class="bi bi-person"></i> <span class="ps-2">Технический отдел</span>
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Sports</span>
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Обслуживание</span>
                   </div>
                 </div>
-
                 <p>
-                  Aut iste neque ut illum qui perspiciatis similique recusandae non. Fugit autem dolorem labore omnis
-                  et. Eum temporibus fugiat voluptate enim tenetur sunt omnis.
+                  Признаки того, что фурнитура требует настройки, и почему своевременное ТО продлевает жизнь окна на 10 и более лет.
                 </p>
-
                 <hr>
-
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                    class="bi bi-arrow-right"></i></a>
-
+                <a href="blog-details.html" class="readmore stretched-link"><span>Читать далее</span><i class="bi bi-arrow-right"></i></a>
               </div>
 
             </div>
-          </div><!-- End post list item -->
-
-          <div class="col-xl-4 col-md-6">
+          </div><div class="col-xl-4 col-md-6">
             <div class="post-item position-relative h-100">
 
               <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-4.jpg" class="img-fluid" alt="">
-                <span class="post-date">August 05</span>
+                <img src="assets/img/blog/blog-4.jpg" class="img-fluid" alt="Замена уплотнителя на окнах">
+                <span class="post-date">Август 12</span>
               </div>
 
               <div class="post-content d-flex flex-column">
-
-                <h3 class="post-title">Non rem rerum nam cum quo minus. Dolor distinctio deleniti explicabo eius
-                  exercitationem.</h3>
-
+                <h3 class="post-title">Дует из окна? Все, что нужно знать о замене уплотнительной резины</h3>
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Maria Doe</span>
+                    <i class="bi bi-person"></i> <span class="ps-2">Мастер замера</span>
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Sports</span>
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Ремонт</span>
                   </div>
                 </div>
-
                 <p>
-                  Aspernatur rerum perferendis et sint. Voluptates cupiditate voluptas atque quae. Rem veritatis rerum
-                  enim et autem. Saepe atque cum eligendi eaque iste omnis a qui.
+                  Сравниваем резиновые, силиконовые и TPE-уплотнители. Как отличить качественный материал от дешевой подделки.
                 </p>
-
                 <hr>
-
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                    class="bi bi-arrow-right"></i></a>
-
+                <a href="blog-details.html" class="readmore stretched-link"><span>Читать далее</span><i class="bi bi-arrow-right"></i></a>
               </div>
 
             </div>
-          </div><!-- End post list item -->
-
-          <div class="col-xl-4 col-md-6">
+          </div><div class="col-xl-4 col-md-6">
             <div class="post-item position-relative h-100">
 
               <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-5.jpg" class="img-fluid" alt="">
-                <span class="post-date">September 17</span>
+                <img src="assets/img/blog/blog-5.jpg" class="img-fluid" alt="Фурнитура для окон">
+                <span class="post-date">Июль 05</span>
               </div>
 
               <div class="post-content d-flex flex-column">
-
-                <h3 class="post-title">Accusamus quaerat aliquam qui debitis facilis consequatur</h3>
-
+                <h3 class="post-title">Рейтинг оконной фурнитуры 2024: Maco, Roto или Siegenia?</h3>
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">John Parker</span>
+                    <i class="bi bi-person"></i> <span class="ps-2">UWS Аналитика</span>
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Politics</span>
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Комплектующие</span>
                   </div>
                 </div>
-
                 <p>
-                  In itaque assumenda aliquam voluptatem qui temporibus iusto nisi quia. Autem vitae quas aperiam
-                  nesciunt mollitia tempora odio omnis. Ipsa odit sit ut amet necessitatibus. Quo ullam ut corrupti
-                  autem consequuntur totam dolorem.
+                  Обзор лидеров рынка. Какую фурнитуру лучше выбрать для тяжелых балконных дверей и защиты от взлома.
                 </p>
-
                 <hr>
-
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                    class="bi bi-arrow-right"></i></a>
-
+                <a href="blog-details.html" class="readmore stretched-link"><span>Читать далее</span><i class="bi bi-arrow-right"></i></a>
               </div>
 
             </div>
-          </div><!-- End post list item -->
-
-          <div class="col-xl-4 col-md-6">
+          </div><div class="col-xl-4 col-md-6">
             <div class="post-item position-relative h-100">
 
               <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-6.jpg" class="img-fluid" alt="">
-                <span class="post-date">December 07</span>
+                <img src="assets/img/blog/blog-6.jpg" class="img-fluid" alt="Конденсат на окнах">
+                <span class="post-date">Июнь 18</span>
               </div>
 
               <div class="post-content d-flex flex-column">
-
-                <h3 class="post-title">Distinctio provident quibusdam numquam aperiam aut</h3>
-
+                <h3 class="post-title">Окна "плачут": как навсегда избавиться от конденсата и плесени</h3>
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Julia White</span>
+                    <i class="bi bi-person"></i> <span class="ps-2">Эксперт</span>
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Economics</span>
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Советы</span>
                   </div>
                 </div>
-
                 <p>
-                  Expedita et temporibus eligendi enim molestiae est architecto praesentium dolores. Illo laboriosam
-                  officiis quis. Labore officia quia sit voluptatem nisi est dignissimos totam. Et voluptate et
-                  consectetur voluptatem id dolor magni impedit. Omnis dolores sit.
+                  Пять практических советов по вентиляции и микропроветриванию, которые помогут сохранить здоровый климат в квартире.
                 </p>
-
                 <hr>
-
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                    class="bi bi-arrow-right"></i></a>
-
+                <a href="blog-details.html" class="readmore stretched-link"><span>Читать далее</span><i class="bi bi-arrow-right"></i></a>
               </div>
 
             </div>
-          </div><!-- End post list item -->
-
-        </div><!-- End blog posts list -->
-
-        <div class="blog-pagination">
+          </div></div><div class="blog-pagination">
           <ul class="justify-content-center">
-            <li><a href="#">1</a></li>
-            <li class="active"><a href="#">2</a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
             <li><a href="#">3</a></li>
           </ul>
-        </div><!-- End blog pagination -->
+        </div></div>
+    </section></main>
 
-      </div>
-    </section><!-- End Blog Section -->
 
-  </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
@@ -356,12 +336,16 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="footer-info">
-              <h3>UpConstruction</h3>
+              <img src="assets/img/logo.png" alt="UWS Logo" class="img-fluid me-2 mb-2 footer-logo">
+              <h3>UWS</h3>
               <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
+                <br>
+                <strong>Телефоны:</strong> <br>
+                <a href="tel:+380660575202">+38 (066) 057-52-02 <span class="operator-label vodafone-color">Vodafone</span></a><br>
+                <a href="tel:+380989478772">+38 (098) 947-87-72 <span class="operator-label kyivstar-color">Kyivstar</span></a><br>
+                <a href="tel:+380633664769">+38 (063) 366-47-69 <span class="operator-label lifecell-color">Lifecell</span></a><br>
+                <br>
+                <strong>Email:</strong> <a href="mailto:kiev.rks@gmail.com">kiev.rks@gmail.com</a><br>
               </p>
               <div class="social-links d-flex mt-3">
                 <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-twitter"></i></a>
@@ -370,52 +354,47 @@
                 <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
-          </div><!-- End footer info column-->
-
+          </div>
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Основные Ссылки</h4>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Terms of service</a></li>
-              <li><a href="#">Privacy policy</a></li>
+              <li><a href="#">Главная</a></li>
+              <li><a href="#">О нас</a></li>
+              <li><a href="#">Услуги</a></li>
+              <li><a href="#">Условия</a></li>
+              <li><a href="#">Политика конфиденциальности</a></li>
             </ul>
-          </div><!-- End footer links column-->
-
+          </div>
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Our Services</h4>
+            <h4>Наши Услуги</h4>
             <ul>
-              <li><a href="#">Web Design</a></li>
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">Product Management</a></li>
-              <li><a href="#">Marketing</a></li>
-              <li><a href="#">Graphic Design</a></li>
+              <li><a href="#">Ремонт фурнитуры</a></li>
+              <li><a href="#">Регулировка окон</a></li>
+              <li><a href="#">Замена уплотнителя</a></li>
+              <li><a href="#">Установка стеклопакетов</a></li>
+              <li><a href="#">Ремонт балконных дверей</a></li>
             </ul>
-          </div><!-- End footer links column-->
-
+          </div>
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Hic solutasetp</h4>
+            <h4>Продукция</h4>
             <ul>
-              <li><a href="#">Molestiae accusamus iure</a></li>
-              <li><a href="#">Excepturi dignissimos</a></li>
-              <li><a href="#">Suscipit distinctio</a></li>
-              <li><a href="#">Dilecta</a></li>
-              <li><a href="#">Sit quas consectetur</a></li>
+              <li><a href="#">Фурнитура MACO</a></li>
+              <li><a href="#">Профиль REHAU</a></li>
+              <li><a href="#">Стеклопакеты</a></li>
+              <li><a href="#">Ручки с ключом</a></li>
+              <li><a href="#">Москитные сетки</a></li>
             </ul>
-          </div><!-- End footer links column-->
-
+          </div>
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Nobis illum</h4>
+            <h4>Полезное</h4>
             <ul>
-              <li><a href="#">Ipsam</a></li>
-              <li><a href="#">Laudantium dolorum</a></li>
-              <li><a href="#">Dinera</a></li>
-              <li><a href="#">Trodelas</a></li>
-              <li><a href="#">Flexo</a></li>
+              <li><a href="#">Прайс-лист</a></li>
+              <li><a href="#">Уход за окнами</a></li>
+              <li><a href="#">Диагностика</a></li>
+              <li><a href="#">Акции</a></li>
+              <li><a href="#">Вопрос-ответ</a></li>
             </ul>
-          </div><!-- End footer links column-->
-
+          </div>
         </div>
       </div>
     </div>
@@ -423,15 +402,7 @@
     <div class="footer-legal text-center position-relative">
       <div class="container">
         <div class="copyright">
-          &copy; Copyright <strong><span>UpConstruction</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a
-            href="https://themewagon.com">ThemeWagon</a>
+          &copy; Copyright <strong><span>UWS</span></strong>. Все права защищены
         </div>
       </div>
     </div>
@@ -455,6 +426,18 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+    <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/692cb90e2e3bec197df70da2/1jbbb5o2q';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
 
 </body>
 
