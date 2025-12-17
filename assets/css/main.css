@@ -3157,3 +3157,129 @@ a:hover {
     background-color: var(--color-primary); /* Желтый сайта #feb900 */
     color: var(--color-default); /* Темный текст для контраста */
 }
+
+
+
+/* Унификация выпадающих списков */
+.navbar .dropdown ul, 
+.dropdown-menu {
+  border-radius: 15px !important; /* Скругление */
+  overflow: hidden;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0,0,0,0.05) !important;
+  padding: 10px 0 !important;
+}
+
+.navbar .dropdown ul a,
+.dropdown-item {
+  transition: 0.2s ease-in-out;
+}
+
+.navbar .dropdown ul a:hover,
+.dropdown-item:hover {
+  background-color: var(--color-primary) !important;
+  color: #fff !important;
+}
+
+/* --- Кнопка языка (Общие стили) --- */
+.navbar .lang-btn-style {
+  border: 1px solid var(--color-default); /* Цвет как у текста */
+  border-radius: 20px;
+  padding: 4px 12px !important;
+  margin-left: 15px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.navbar .lang-btn-style i {
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.navbar .lang-btn-style:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* --- КОМПАКТНОСТЬ В МОБИЛЬНОЙ ВЕРСИИ (Бургер-меню) --- */
+@media (max-width: 1279px) {
+  .navbar .lang-selector {
+    display: inline-block; /* Позволяет кнопке не растягиваться на всю ширину */
+    margin: 10px 0 10px 20px; /* Отступы в меню */
+  }
+
+  .navbar .lang-btn-style {
+    margin-left: 0;
+    padding: 3px 10px !important; /* Еще более компактные поля */
+    font-size: 13px; /* Уменьшаем шрифт для мобилок */
+    border-color: rgba(54, 77, 89, 0.5); /* Делаем рамку чуть мягче */
+  }
+  
+  /* Убираем лишние отступы у выпадающего списка в мобилке */
+  .navbar .lang-selector ul {
+    position: static;
+    display: none;
+    margin: 5px 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+  }
+  
+  .navbar .lang-selector.dropdown-active ul {
+    display: block;
+  }
+}
+
+/* --- ОБЩИЕ СКРУГЛЕНИЯ (Пункт 4 вашего запроса) --- */
+.navbar .dropdown ul, 
+.dropdown-menu {
+  border-radius: 12px !important; /* Красивое современное скругление */
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.1) !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+
+
+/* Стили для главной кнопки на страницах услуг */
+.btn-service-main {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  color: #364d59 !important; /* Темный текст для контраста */
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 18px 35px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 20px rgba(254, 185, 0, 0.3);
+  border: none;
+  text-decoration: none;
+}
+
+.btn-service-main:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(254, 185, 0, 0.5);
+  background-color: #ffc732;
+  color: #000 !important;
+}
+
+.btn-service-main:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Адаптация под мобильные устройства */
+@media (max-width: 768px) {
+  .btn-service-main {
+    font-size: 0.9rem;
+    padding: 15px 20px;
+    width: 100%; /* На весь экран в мобилках */
+  }
+}

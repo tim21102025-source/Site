@@ -62,21 +62,30 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.html" class="active">Главная</a></li>
+          <li><a href="index.html">Главная</a></li>
           <li><a href="about.html">О нас</a></li>
-          <li class="dropdown"><a href="#"><span>Услуги</span> <i
-                class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="#">Ремонт Окон</a></li>
-              <li><a href="#">Регулировка Окон</a></li>
-              <li><a href="#">Замена Фурнитуры</a></li>
-              <li><a href="#">Замена Стеклопакетов</a></li>
-              <li><a href="#">Замена Уплотнителя</a></li>
-            </ul>
-          </li>
-          <li><a href="vidnovlennya.html">єВідновлення</a></li>
+          <li class="dropdown">
+  <a href="services.html"><span>Услуги</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+  <ul>
+    <li><a href="service-details-1.html">Ремонт окон и дверей</a></li>
+    <li><a href="service-details-2.html">Москитные сетки</a></li>
+    <li><a href="service-details-3.html">Замена Стеклопакетов</a></li>
+    <li><a href="service-details-4.html">Спутниковые антенны</a></li>
+    <li><a href="service-details-5.html">Доводчики для дверей</a></li>
+  </ul>
+</li>
+          <li><a href="vidnovlennya.html" class="active">єВідновлення</a></li>
           <li><a href="blog.html">Блог</a></li>
           <li><a href="contact.html">Контакты</a></li>
+          <li class="dropdown lang-selector">
+  <a href="#" class="lang-btn-style">
+    <i class="bi bi-globe"></i><span>RU</span> <i class="bi bi-chevron-down dropdown-indicator"></i>
+  </a>
+  <ul>
+    <li><a href="#"> RU</a></li>
+    <li><a href="#"> UA</a></li>
+  </ul>
+</li>
         </ul>
       </nav>
       
@@ -84,11 +93,6 @@
     
       <div class="header-tools d-flex align-items-center">
         
-        <div class="language-switcher d-none d-lg-flex me-3">
-          <span class="active me-1 fw-bold">RU</span>
-          <span class="separator-white">/</span>
-          <a href="index.html?lang=ua" class="ms-1">UA</a>
-        </div>
         
         <div class="dropdown">
             <button class="btn dropdown-phone-btn d-flex align-items-center dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -112,6 +116,12 @@
                         +38 (063) 366-47-69 <span class="operator-label lifecell-color">Lifecell</span>
                     </a>
                 </li>
+                <li><hr class="dropdown-divider"></li>
+    <li>
+        <a class="dropdown-item d-flex align-items-center" href="#get-started">
+            <i class="bi bi-pencil-square me-2"></i> Оставить заявку
+        </a>
+    </li>
             </ul>
         </div>
     </div>

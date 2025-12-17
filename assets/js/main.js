@@ -210,3 +210,28 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+
+
+
+// Раскрытие выпадающих списков при наведении на десктопе
+if (window.innerWidth > 1280) {
+  document.querySelectorAll('.header .dropdown').forEach(function(everydropdown){
+    everydropdown.addEventListener('mouseenter', function(e){
+      let el_link = this.querySelector('a[data-bs-toggle="dropdown"], button[data-bs-toggle="dropdown"]');
+      if(el_link != null){
+        let nextEl = el_link.nextElementSibling;
+        el_link.classList.add('show');
+        nextEl.classList.add('show');
+      }
+    });
+    everydropdown.addEventListener('mouseleave', function(e){
+      let el_link = this.querySelector('a[data-bs-toggle="dropdown"], button[data-bs-toggle="dropdown"]');
+      if(el_link != null){
+        let nextEl = el_link.nextElementSibling;
+        el_link.classList.remove('show');
+        nextEl.classList.remove('show');
+      }
+    });
+  });
+}
