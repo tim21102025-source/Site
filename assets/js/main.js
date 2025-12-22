@@ -237,11 +237,5 @@ if (window.innerWidth > 1280) {
 }
 
 
-document.querySelectorAll('.lang-selector ul li a').forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const lang = link.textContent.trim().toLowerCase();
-    window.location.href = `/${lang}/` + window.location.pathname.split('/').pop();
-  });
-});
+
 
