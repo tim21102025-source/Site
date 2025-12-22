@@ -3327,3 +3327,32 @@ a:hover {
 .portfolio-link:hover .portfolio-info {
   transform: translateY(-10px);
 }
+
+
+
+/* Контейнер для видео */
+.about-video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 600px; /* Обязательно, чтобы блок не был нулевой высоты */
+  overflow: hidden;
+  border-radius: 15px; /* Красивое скругление как у фото */
+}
+
+/* Само видео */
+.about-video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Растягивает видео на весь блок без черных полос */
+}
+
+@media (max-width: 992px) {
+  .about-video-wrapper {
+    min-height: 300px;
+    margin-bottom: 20px;
+  }
+}
