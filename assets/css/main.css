@@ -3356,3 +3356,25 @@ a:hover {
     margin-bottom: 20px;
   }
 }
+
+
+
+
+
+  .faq-nav-list .list-group-item {
+    transition: all 0.3s ease;
+  }
+  
+  .faq-nav-list .list-group-item:hover {
+    background-color: #fff9e6 !important; /* Дуже світлий жовтий фон */
+    padding-left: 1.5rem !important;
+  }
+
+  .faq-nav-list .list-group-item:hover span {
+    color: #000 !important; /* Текст стає чорним при наведенні */
+  }
+  
+  /* Колір жовтої іконки (warning) */
+  .text-warning {
+    color: #feb900 !important;
+  }
