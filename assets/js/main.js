@@ -234,70 +234,89 @@ if (window.innerWidth > 1280) {
 
 
 /**
-* Універсальна відправка форм у Telegram через Cloudflare Proxy
-*/
-let selectedFiles = []; 
+ * Універсальна відправка форм у Telegram через Cloudflare Proxy (Альбомний режим)
+ */
+
+// Глобальний масив для зберігання вибраних файлів
+let selectedFiles = [];
 
 document.querySelectorAll('.telegram-form').forEach(form => {
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
-    if (this.hp_field.value) return; // Якщо поле заповнене — це бот, припиняємо роботу
+
+    // 1. Захист від ботів (Honeypot)
+    if (this.hp_field && this.hp_field.value) {
+      console.warn("Spam bot detected");
+      return;
+    }
 
     const PROXY_URL = "https://tg-proxy-master.tim21102025.workers.dev";
-    const CHAT_ID = "8283677886";
-
     const loading = this.querySelector('.loading');
     const success = this.querySelector('.sent-message');
     const btn = this.querySelector('button[type="submit"]');
     const filePreview = document.getElementById('file-preview');
-    const filesCount = selectedFiles.length;
 
+    // Показуємо завантаження
     if (loading) loading.style.display = 'block';
+    if (success) success.style.display = 'none';
     btn.disabled = true;
 
-    // 1. Формуємо текст
-    let text = `<b>🔔 НОВА ЗАЯВКА З САЙТУ</b>\n`;
-    text += `--------------------------\n`;
-    text += `<b>👤 Клієнт:</b> ${this.name.value}\n`;
-    text += `<b>📞 Телефон:</b> +38${this.phone.value}\n`;
-    text += `<b>📝 Проблема:</b> ${this.message.value}\n`;
-
-    if (filesCount > 0) {
-      text += `<b>📎 Додано файлів:</b> ${filesCount}`;
-    }
-
     try {
-      // 2. Відправляємо текст через проксі
-      await fetch(PROXY_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: CHAT_ID, parse_mode: 'html', text: text })
-      });
+      // 2. Формуємо дані клієнта
+      const name = this.name.value;
+      const phone = this.phone.value;
+      const message = this.message.value;
 
-      // 3. Відправляємо файли через проксі
-      if (filesCount > 0) {
-        for (let file of selectedFiles) {
-          const formData = new FormData();
-          formData.append('chat_id', CHAT_ID);
-          formData.append('method', file.type.includes('video') ? 'sendVideo' : 'sendPhoto');
-          formData.append(file.type.includes('video') ? 'video' : 'photo', file);
+      let response;
 
-          await fetch(PROXY_URL, {
-            method: 'POST',
-            body: formData
-          });
-        }
+      if (selectedFiles.length > 0) {
+        // --- ВАРІАНТ А: ВІДПРАВКА АЛЬБОМОМ (МЕДІАГРУПА) ---
+        const formData = new FormData();
+        
+        // Додаємо всі файли в один об'єкт
+        selectedFiles.forEach(file => {
+          formData.append('files', file);
+        });
+
+        // Передаємо дані для підпису до альбому
+        formData.append('name', name);
+        formData.append('phone', phone);
+        formData.append('message', message);
+        formData.append('is_album', 'true');
+
+        response = await fetch(PROXY_URL, {
+          method: 'POST',
+          body: formData // Воркер сам зрозуміє, що це FormData
+        });
+      } else {
+        // --- ВАРІАНТ Б: ВІДПРАВКА ТІЛЬКИ ТЕКСТУ ---
+        response = await fetch(PROXY_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: name,
+            phone: phone,
+            message: message,
+            is_album: 'false'
+          })
+        });
       }
 
-      if (success) success.style.display = 'block';
-      
-      // Очищення
-      selectedFiles = []; 
-      if (filePreview) filePreview.innerHTML = ''; 
-      this.reset();
-      
+      const result = await response.json();
+
+      if (result.ok) {
+        // Успіх
+        if (success) success.style.display = 'block';
+        this.reset();
+        selectedFiles = [];
+        if (filePreview) filePreview.innerHTML = '';
+      } else {
+        throw new Error(result.description || "Помилка API");
+      }
+
     } catch (err) {
-      alert("Виникла помилка. Спробуйте ще раз або зателефонуйте нам.");
+      console.error(err);
+      alert("Виникла помилка при відправці. Будь ласка, спробуйте ще раз або зателефонуйте нам.");
     } finally {
       if (loading) loading.style.display = 'none';
       btn.disabled = false;
@@ -305,40 +324,65 @@ document.querySelectorAll('.telegram-form').forEach(form => {
   });
 });
 
-// Логіка вибору та відображення файлів (залишається майже без змін)
+/**
+ * Логіка вибору файлів та створення прев'ю
+ */
 const fileInput = document.getElementById('files') || document.getElementById('files-home');
 const filePreview = document.getElementById('file-preview');
 
-if (fileInput) {
+if (fileInput && filePreview) {
   fileInput.addEventListener('change', function () {
     const files = Array.from(this.files);
+
     files.forEach(file => {
+      // Перевірка на ліміт у 10 файлів для Telegram MediaGroup
+      if (selectedFiles.length >= 10) {
+        alert("Можна додати не більше 10 файлів");
+        return;
+      }
+
       selectedFiles.push(file);
+
       const reader = new FileReader();
       const wrapper = document.createElement('div');
-      wrapper.className = 'position-relative border rounded p-1 text-center bg-white';
+      wrapper.className = 'position-relative border rounded p-1 text-center bg-white shadow-sm';
       wrapper.style.width = '85px';
 
+      // Кнопка видалення файлу
       const removeBtn = document.createElement('span');
       removeBtn.innerHTML = '&times;';
-      removeBtn.style = 'position:absolute; top:-5px; right:-5px; background:red; color:white; border-radius:50%; width:20px; height:20px; cursor:pointer; line-height:18px; font-weight:bold; font-size:14px; z-index:10;';
-      removeBtn.onclick = () => {
+      removeBtn.style = `
+        position: absolute; top: -8px; right: -8px; 
+        background: #dc3545; color: white; 
+        border-radius: 50%; width: 22px; height: 22px; 
+        cursor: pointer; line-height: 20px; 
+        font-weight: bold; font-size: 16px; 
+        z-index: 10; border: 2px solid white;
+      `;
+
+      removeBtn.onclick = function () {
         selectedFiles = selectedFiles.filter(f => f !== file);
         wrapper.remove();
       };
 
-      reader.onload = (e) => {
+      reader.onload = function (e) {
         if (file.type.startsWith('image/')) {
           wrapper.innerHTML = `<img src="${e.target.result}" class="rounded" style="width: 100%; height: 60px; object-fit: cover;">`;
         } else {
-          wrapper.innerHTML = `<div class="bg-light rounded d-flex align-items-center justify-content-center" style="height: 60px;"><i class="bi bi-play-btn fs-2 text-secondary"></i></div>`;
+          wrapper.innerHTML = `
+            <div class="bg-light rounded d-flex align-items-center justify-content-center" style="height: 60px;">
+              <i class="bi bi-play-btn fs-2 text-secondary"></i>
+            </div>`;
         }
-        wrapper.innerHTML += `<div class="small text-truncate" style="font-size: 10px; margin-top:2px;">${file.name}</div>`;
+        wrapper.innerHTML += `<div class="small text-truncate mt-1" style="font-size: 10px;">${file.name}</div>`;
         wrapper.appendChild(removeBtn);
       };
+
       reader.readAsDataURL(file);
       filePreview.appendChild(wrapper);
     });
+
+    // Скидаємо інпут, щоб можна було вибрати той самий файл знову
     this.value = '';
   });
 }
