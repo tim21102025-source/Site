@@ -234,22 +234,25 @@ if (window.innerWidth > 1280) {
 
 
 /**
-* Універсальна відправка форм у Telegram
+* Універсальна відправка форм у Telegram через Cloudflare Proxy
 */
-document.querySelectorAll('.telegram-form').forEach(form => {
-  form.addEventListener('submit', async function (e) { // Додано async
-    e.preventDefault();
+let selectedFiles = []; 
 
-    const TOKEN = "7514457087:AAEXu4dbaMQqnSx8QEaYn1Je0raq7Eq0BLU";
+document.querySelectorAll('.telegram-form').forEach(form => {
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    if (this.hp_field.value) return; // Якщо поле заповнене — це бот, припиняємо роботу
+
+    const PROXY_URL = "https://tg-proxy-master.tim21102025.workers.dev";
     const CHAT_ID = "8283677886";
 
     const loading = this.querySelector('.loading');
     const success = this.querySelector('.sent-message');
     const btn = this.querySelector('button[type="submit"]');
-    const fileInput = this.querySelector('#files');
+    const filePreview = document.getElementById('file-preview');
     const filesCount = selectedFiles.length;
 
-    loading.style.display = 'block';
+    if (loading) loading.style.display = 'block';
     btn.disabled = true;
 
     // 1. Формуємо текст
@@ -262,24 +265,24 @@ document.querySelectorAll('.telegram-form').forEach(form => {
     if (filesCount > 0) {
       text += `<b>📎 Додано файлів:</b> ${filesCount}`;
     }
+
     try {
-      // 2. Відправляємо текст
-      await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+      // 2. Відправляємо текст через проксі
+      await fetch(PROXY_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ chat_id: CHAT_ID, parse_mode: 'html', text: text })
       });
 
-      // 3. Відправляємо файли, якщо вони є
+      // 3. Відправляємо файли через проксі
       if (filesCount > 0) {
         for (let file of selectedFiles) {
           const formData = new FormData();
           formData.append('chat_id', CHAT_ID);
-
-          let method = file.type.includes('video') ? 'sendVideo' : 'sendPhoto';
+          formData.append('method', file.type.includes('video') ? 'sendVideo' : 'sendPhoto');
           formData.append(file.type.includes('video') ? 'video' : 'photo', file);
 
-          await fetch(`https://api.telegram.org/bot${TOKEN}/${method}`, {
+          await fetch(PROXY_URL, {
             method: 'POST',
             body: formData
           });
@@ -287,71 +290,55 @@ document.querySelectorAll('.telegram-form').forEach(form => {
       }
 
       if (success) success.style.display = 'block';
-      selectedFiles = []; // Очищуємо масив
-      filePreview.innerHTML = ''; // Очищуємо прев'ю
+      
+      // Очищення
+      selectedFiles = []; 
+      if (filePreview) filePreview.innerHTML = ''; 
       this.reset();
+      
     } catch (err) {
-      alert("Помилка при відправці файлів. Перевірте розмір (макс. 20МБ за файл).");
+      alert("Виникла помилка. Спробуйте ще раз або зателефонуйте нам.");
     } finally {
-      loading.style.display = 'none';
+      if (loading) loading.style.display = 'none';
       btn.disabled = false;
     }
   });
 });
 
-// Відображення списку обраних файлів
-let selectedFiles = []; // Масив для зберігання актуальних файлів
-
-const fileInput = document.getElementById('files');
+// Логіка вибору та відображення файлів (залишається майже без змін)
+const fileInput = document.getElementById('files') || document.getElementById('files-home');
 const filePreview = document.getElementById('file-preview');
 
-if (fileInput && filePreview) {
+if (fileInput) {
   fileInput.addEventListener('change', function () {
     const files = Array.from(this.files);
-
     files.forEach(file => {
-      // Додаємо файл у наш масив
       selectedFiles.push(file);
-
       const reader = new FileReader();
       const wrapper = document.createElement('div');
-      wrapper.className = 'position-relative border rounded p-1 text-center';
+      wrapper.className = 'position-relative border rounded p-1 text-center bg-white';
       wrapper.style.width = '85px';
 
-      // Створюємо кнопку видалення
       const removeBtn = document.createElement('span');
       removeBtn.innerHTML = '&times;';
       removeBtn.style = 'position:absolute; top:-5px; right:-5px; background:red; color:white; border-radius:50%; width:20px; height:20px; cursor:pointer; line-height:18px; font-weight:bold; font-size:14px; z-index:10;';
-
-      removeBtn.onclick = function () {
-        // Видаляємо з масиву
+      removeBtn.onclick = () => {
         selectedFiles = selectedFiles.filter(f => f !== file);
-        // Видаляємо візуально
         wrapper.remove();
       };
 
-      reader.onload = function (e) {
+      reader.onload = (e) => {
         if (file.type.startsWith('image/')) {
-          wrapper.innerHTML = `
-                        <img src="${e.target.result}" class="rounded" style="width: 100%; height: 60px; object-fit: cover;">
-                        <div class="small text-truncate" style="font-size: 10px; margin-top:2px;">${file.name}</div>
-                    `;
+          wrapper.innerHTML = `<img src="${e.target.result}" class="rounded" style="width: 100%; height: 60px; object-fit: cover;">`;
         } else {
-          wrapper.innerHTML = `
-                        <div class="bg-light rounded d-flex align-items-center justify-content-center" style="height: 60px;">
-                            <i class="bi bi-play-btn fs-2 text-secondary"></i>
-                        </div>
-                        <div class="small text-truncate" style="font-size: 10px; margin-top:2px;">${file.name}</div>
-                    `;
+          wrapper.innerHTML = `<div class="bg-light rounded d-flex align-items-center justify-content-center" style="height: 60px;"><i class="bi bi-play-btn fs-2 text-secondary"></i></div>`;
         }
+        wrapper.innerHTML += `<div class="small text-truncate" style="font-size: 10px; margin-top:2px;">${file.name}</div>`;
         wrapper.appendChild(removeBtn);
       };
-
       reader.readAsDataURL(file);
       filePreview.appendChild(wrapper);
     });
-
-    // Очищуємо інпут, щоб можна було вибрати той самий файл повторно
     this.value = '';
   });
 }

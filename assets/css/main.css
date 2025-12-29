@@ -3702,3 +3702,39 @@ a:hover {
 .muted-placeholder:-ms-input-placeholder { color: #adb5bd !important; }
 .muted-placeholder::-ms-input-placeholder { color: #adb5bd !important; }
 
+
+
+
+
+  /* Спільні стилі для кнопок */
+  .messenger-btn {
+    border-radius: 10px;
+    transition: 0.3s;
+    font-size: 0.95rem;
+    font-weight: 600;
+    min-width: 160px; /* Однакова фіксована ширина для всіх пристроїв */
+  }
+
+  .viber-bg { background-color: #7360f2; }
+  .telegram-bg { background-color: #0088cc; }
+  .whatsapp-bg { background-color: #25d366; }
+
+  .messenger-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+    color: white;
+  }
+
+  /* Мобільна адаптація */
+  @media (max-width: 576px) {
+    .messenger-buttons-group {
+      flex-direction: column; /* Кожна кнопка в окремому рядку */
+      align-items: center;    /* Центрування кнопок по горизонталі */
+    }
+    
+    .messenger-btn {
+      width: 100%;           /* На мобільних розтягуємо на всю ширину для зручності */
+      max-width: 280px;      /* Але обмежуємо максимальну ширину, щоб не були занадто довгими */
+      padding: 12px 0;       /* Робимо їх трохи вищими для пальців */
+    }
+  }
