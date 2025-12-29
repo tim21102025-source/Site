@@ -226,6 +226,24 @@
               oninput="this.setCustomValidity('')"></textarea>
   </div>
 
+<div class="form-group mb-3">
+  <div class="d-flex align-items-center mb-2">
+    <label class="form-label small fw-bold mb-0">Фото або відео проблеми</label>
+    <span class="ms-2 small opacity-50" style="font-size: 0.75rem;">(можна обрати декілька)</span>
+  </div>
+  
+  <input type="file" id="files" class="d-none" accept="image/*,video/*" multiple>
+  
+  <button type="button" class="btn btn-outline-secondary w-100 py-2 d-flex align-items-center justify-content-center" onclick="document.getElementById('files').click()" style="border-style: dashed;">
+    <i class="bi bi-camera me-2 fs-5"></i>
+    <span>Додати медіафайли</span>
+  </button>
+  
+  <div id="file-preview" class="d-flex flex-wrap gap-2 mt-2"></div>
+</div>
+
+
+
   <div class="my-3">
     <div class="loading text-center" style="display: none;">Надсилаємо...</div>
     

@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileNavHide = document.querySelector('.mobile-nav-hide');
 
   document.querySelectorAll('.mobile-nav-toggle').forEach(el => {
-    el.addEventListener('click', function(event) {
+    el.addEventListener('click', function (event) {
       event.preventDefault();
       mobileNavToogle();
     })
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navDropdowns = document.querySelectorAll('.navbar .dropdown > a');
 
   navDropdowns.forEach(el => {
-    el.addEventListener('click', function(event) {
+    el.addEventListener('click', function (event) {
       if (document.querySelector('.mobile-nav-active')) {
         event.preventDefault();
         this.classList.toggle('active');
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   const scrollTop = document.querySelector('.scroll-top');
   if (scrollTop) {
-    const togglescrollTop = function() {
+    const togglescrollTop = function () {
       window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
     }
     window.addEventListener('load', togglescrollTop);
@@ -111,8 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       let menuFilters = document.querySelectorAll('.portfolio-isotope .portfolio-flters li');
-      menuFilters.forEach(function(el) {
-        el.addEventListener('click', function() {
+      menuFilters.forEach(function (el) {
+        el.addEventListener('click', function () {
           document.querySelector('.portfolio-isotope .portfolio-flters .filter-active').classList.remove('filter-active');
           this.classList.add('filter-active');
           portfolioIsotope.arrange({
@@ -210,18 +210,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Раскрытие выпадающих списков при наведении на десктопе
 if (window.innerWidth > 1280) {
-  document.querySelectorAll('.header .dropdown').forEach(function(everydropdown){
-    everydropdown.addEventListener('mouseenter', function(e){
+  document.querySelectorAll('.header .dropdown').forEach(function (everydropdown) {
+    everydropdown.addEventListener('mouseenter', function (e) {
       let el_link = this.querySelector('a[data-bs-toggle="dropdown"], button[data-bs-toggle="dropdown"]');
-      if(el_link != null){
+      if (el_link != null) {
         let nextEl = el_link.nextElementSibling;
         el_link.classList.add('show');
         nextEl.classList.add('show');
       }
     });
-    everydropdown.addEventListener('mouseleave', function(e){
+    everydropdown.addEventListener('mouseleave', function (e) {
       let el_link = this.querySelector('a[data-bs-toggle="dropdown"], button[data-bs-toggle="dropdown"]');
-      if(el_link != null){
+      if (el_link != null) {
         let nextEl = el_link.nextElementSibling;
         el_link.classList.remove('show');
         nextEl.classList.remove('show');
@@ -237,63 +237,121 @@ if (window.innerWidth > 1280) {
 * Універсальна відправка форм у Telegram
 */
 document.querySelectorAll('.telegram-form').forEach(form => {
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+  form.addEventListener('submit', async function (e) { // Додано async
+    e.preventDefault();
 
-        const TOKEN = "7514457087:AAEXu4dbaMQqnSx8QEaYn1Je0raq7Eq0BLU";
-        const CHAT_ID = "8283677886";
-        const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
-        
-        const loading = this.querySelector('.loading');
-        const success = this.querySelector('.sent-message');
-        const errorMsg = this.querySelector('.error-message');
-        const btn = this.querySelector('button[type="submit"]');
+    const TOKEN = "7514457087:AAEXu4dbaMQqnSx8QEaYn1Je0raq7Eq0BLU";
+    const CHAT_ID = "8283677886";
 
-        // Показуємо стан завантаження
-        if (loading) loading.style.display = 'block';
-        if (success) success.style.display = 'none';
-        if (errorMsg) errorMsg.style.display = 'none';
-        btn.disabled = true;
+    const loading = this.querySelector('.loading');
+    const success = this.querySelector('.sent-message');
+    const btn = this.querySelector('button[type="submit"]');
+    const fileInput = this.querySelector('#files');
+    const filesCount = selectedFiles.length;
 
-        // Визначаємо з якої сторінки прийшла заявка
-        const pageTitle = document.title;
+    loading.style.display = 'block';
+    btn.disabled = true;
 
-        // Формуємо текст
-        let text = `<b>🔔 НОВА ЗАЯВКА З САЙТУ</b>\n`;
-        // text += `<b>📍 Сторінка:</b> ${pageTitle}\n`;
-        text += `--------------------------\n`;
-        text += `<b>👤 Клієнт:</b> ${this.name.value}\n`;
-        text += `<b>📞 Телефон:</b> +38${this.phone.value}\n`;
-        text += `<b>📝 Повідомлення:</b> ${this.message.value}`;
+    // 1. Формуємо текст
+    let text = `<b>🔔 НОВА ЗАЯВКА З САЙТУ</b>\n`;
+    text += `--------------------------\n`;
+    text += `<b>👤 Клієнт:</b> ${this.name.value}\n`;
+    text += `<b>📞 Телефон:</b> +38${this.phone.value}\n`;
+    text += `<b>📝 Проблема:</b> ${this.message.value}\n`;
 
-        fetch(URI_API, {
+    if (filesCount > 0) {
+      text += `<b>📎 Додано файлів:</b> ${filesCount}`;
+    }
+    try {
+      // 2. Відправляємо текст
+      await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: CHAT_ID, parse_mode: 'html', text: text })
+      });
+
+      // 3. Відправляємо файли, якщо вони є
+      if (filesCount > 0) {
+        for (let file of selectedFiles) {
+          const formData = new FormData();
+          formData.append('chat_id', CHAT_ID);
+
+          let method = file.type.includes('video') ? 'sendVideo' : 'sendPhoto';
+          formData.append(file.type.includes('video') ? 'video' : 'photo', file);
+
+          await fetch(`https://api.telegram.org/bot${TOKEN}/${method}`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                chat_id: CHAT_ID,
-                parse_mode: 'html',
-                text: text
-            })
-        })
-        .then(response => {
-            if (response.ok) {
-                if (success) success.style.display = 'block';
-                this.reset();
-            } else {
-                throw new Error('Помилка сервера');
-            }
-        })
-        .catch(err => {
-            if (errorMsg) {
-                errorMsg.style.display = 'block';
-                errorMsg.innerHTML = "Помилка відправки. Спробуйте ще раз.";
-            } else {
-                alert("Помилка відправки. Спробуйте пізніше.");
-            }
-        })
-        .finally(() => {
-            if (loading) loading.style.display = 'none';
-            btn.disabled = false;
-        });
-    });
+            body: formData
+          });
+        }
+      }
+
+      if (success) success.style.display = 'block';
+      selectedFiles = []; // Очищуємо масив
+      filePreview.innerHTML = ''; // Очищуємо прев'ю
+      this.reset();
+    } catch (err) {
+      alert("Помилка при відправці файлів. Перевірте розмір (макс. 20МБ за файл).");
+    } finally {
+      loading.style.display = 'none';
+      btn.disabled = false;
+    }
+  });
 });
+
+// Відображення списку обраних файлів
+let selectedFiles = []; // Масив для зберігання актуальних файлів
+
+const fileInput = document.getElementById('files');
+const filePreview = document.getElementById('file-preview');
+
+if (fileInput && filePreview) {
+  fileInput.addEventListener('change', function () {
+    const files = Array.from(this.files);
+
+    files.forEach(file => {
+      // Додаємо файл у наш масив
+      selectedFiles.push(file);
+
+      const reader = new FileReader();
+      const wrapper = document.createElement('div');
+      wrapper.className = 'position-relative border rounded p-1 text-center';
+      wrapper.style.width = '85px';
+
+      // Створюємо кнопку видалення
+      const removeBtn = document.createElement('span');
+      removeBtn.innerHTML = '&times;';
+      removeBtn.style = 'position:absolute; top:-5px; right:-5px; background:red; color:white; border-radius:50%; width:20px; height:20px; cursor:pointer; line-height:18px; font-weight:bold; font-size:14px; z-index:10;';
+
+      removeBtn.onclick = function () {
+        // Видаляємо з масиву
+        selectedFiles = selectedFiles.filter(f => f !== file);
+        // Видаляємо візуально
+        wrapper.remove();
+      };
+
+      reader.onload = function (e) {
+        if (file.type.startsWith('image/')) {
+          wrapper.innerHTML = `
+                        <img src="${e.target.result}" class="rounded" style="width: 100%; height: 60px; object-fit: cover;">
+                        <div class="small text-truncate" style="font-size: 10px; margin-top:2px;">${file.name}</div>
+                    `;
+        } else {
+          wrapper.innerHTML = `
+                        <div class="bg-light rounded d-flex align-items-center justify-content-center" style="height: 60px;">
+                            <i class="bi bi-play-btn fs-2 text-secondary"></i>
+                        </div>
+                        <div class="small text-truncate" style="font-size: 10px; margin-top:2px;">${file.name}</div>
+                    `;
+        }
+        wrapper.appendChild(removeBtn);
+      };
+
+      reader.readAsDataURL(file);
+      filePreview.appendChild(wrapper);
+    });
+
+    // Очищуємо інпут, щоб можна було вибрати той самий файл повторно
+    this.value = '';
+  });
+}
