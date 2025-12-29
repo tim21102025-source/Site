@@ -3378,3 +3378,245 @@ a:hover {
   .text-warning {
     color: #feb900 !important;
   }
+
+
+
+
+
+  /* Стиль контейнера іконки */
+  .alt-services .icon-circle {
+    width: 50px;
+    height: 50px;
+    background: #f8f9fa; /* Світло-сірий фон за замовчуванням */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(254, 185, 0, 0.2);
+  }
+
+  /* Стиль заголовків */
+  .alt-services .icon-box h4 a {
+    color: #2a3d47;
+    transition: 0.3s;
+  }
+
+  /* Ефект при наведенні на весь блок */
+  .alt-services .icon-box:hover .icon-circle {
+    background-color: #feb900; /* Жовтий фон */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(254, 185, 0, 0.3);
+  }
+
+  /* Головний секрет: при наведенні іконка міняє колір на темно-синій, щоб її було видно на жовтому */
+  .alt-services .icon-box:hover i {
+    color: #1a252b !important; 
+  }
+
+  .alt-services .icon-box:hover h4 a {
+    color: #feb900;
+  }
+
+  /* Компактні відступи для мобільних */
+  @media (max-width: 768px) {
+    .alt-services .img-bg {
+      min-height: 300px;
+      margin-bottom: 20px;
+    }
+  }
+
+
+
+
+/* Стилізація вкладок */
+.features .nav-tabs .nav-link {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  margin: 5px;
+  background: #fff;
+  transition: 0.3s;
+  color: #2a3d47;
+}
+
+.features .nav-tabs .nav-link.active {
+  border-color: #feb900;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.features .nav-tabs .nav-link.active i {
+  color: #feb900 !important;
+}
+
+.features .nav-tabs .nav-link h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.features .tab-pane img {
+  max-height: 400px;
+  object-fit: cover;
+  width: 100%;
+}
+
+
+
+
+/* Стилі для плаваючої іконки над фото */
+.service-card { transition: transform 0.3s ease, box-shadow 0.3s ease; border: none; }
+.service-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important; }
+
+.service-icon-floating {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: #feb900;
+    color: #1a252b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border: 5px solid #fff;
+    box-shadow: 0 5px 15px rgba(254, 185, 0, 0.3);
+    z-index: 2;
+}
+
+.service-card:hover .service-icon-floating {
+    background: #1a252b;
+    color: #feb900;
+    transition: 0.3s;
+}
+
+
+  .service-card { transition: all 0.3s ease; border: none; }
+  .service-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important; }
+  .service-icon-floating { 
+    position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); 
+    width: 60px; height: 60px; background: #feb900; color: #1a252b; 
+    border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+    font-size: 22px; border: 5px solid #fff; box-shadow: 0 5px 15px rgba(254, 185, 0, 0.2); z-index: 2; 
+  }
+  .service-card:hover .service-icon-floating { background: #1a252b; color: #feb900; }
+  
+  .cta-service-box { border-left: 10px solid #1a252b; }
+  .icon-circle { flex-shrink: 0; }
+  
+  @media (max-width: 991px) {
+    .cta-service-box { text-align: center; flex-direction: column; }
+    .cta-service-box .d-flex { flex-direction: column; }
+    .cta-service-box .icon-circle { margin-right: 0 !important; margin-bottom: 1rem; }
+  }
+
+
+
+  .transition-all {
+    transition: all 0.3s ease;
+  }
+  .btn-warning:hover {
+    transform: scale(1.05);
+    background-color: #ffc107;
+    box-shadow: 0 10px 20px rgba(254, 185, 0, 0.3) !important;
+  }
+  .btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: #fff;
+  }
+
+
+
+
+  .services-cards {
+    padding: 60px 0;
+  }
+  .info-card {
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent !important;
+  }
+  .info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+    border-color: #feb900 !important;
+  }
+  .info-card .icon-box i {
+    display: inline-block;
+    padding: 10px;
+    background: rgba(254, 185, 0, 0.1);
+    border-radius: 10px;
+    line-height: 1;
+  }
+  .info-card h4 {
+    font-size: 1.15rem;
+    color: #1a252b;
+  }
+  .info-card ul li i {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+
+
+
+  .contact-link { color: #444; font-weight: 600; text-decoration: none; transition: 0.3s; font-size: 1.1rem; }
+  .contact-link:hover { color: #feb900; }
+  
+  .operator-tag { font-size: 0.65rem; padding: 2px 8px; border-radius: 4px; color: #fff; vertical-align: middle; margin-left: 5px; font-weight: 700; text-transform: uppercase; }
+  .vodafone-bg { background: #e60000; }
+  .kyivstar-bg { background: #00a1ff; }
+  .lifecell-bg { background: #ffcc00; color: #000; }
+
+  /* Месенджери */
+  .btn-viber { background: #7360f2; color: #fff; border: none; }
+  .btn-viber:hover { background: #5a49d1; color: #fff; transform: translateY(-2px); }
+  .btn-telegram { background: #0088cc; color: #fff; border: none; }
+  .btn-telegram:hover { background: #0071a9; color: #fff; transform: translateY(-2px); }
+  .btn-whatsapp { background: #25d366; color: #fff; border: none; }
+  .btn-whatsapp:hover { background: #1ebd5b; color: #fff; transform: translateY(-2px); }
+
+  /* Форма */
+  .form-control:focus { border-color: #feb900; box-shadow: 0 0 0 0.25rem rgba(254, 185, 0, 0.1); }
+  .btn-warning:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(254, 185, 0, 0.3); }
+  
+  /* Корекція повідомлення успіху у стилях шаблону */
+  .php-email-form .sent-message {
+    background-color: #d4edda !important;
+    color: #155724 !important;
+    padding: 15px !important;
+    font-weight: 600 !important;
+    text-align: center;
+    border-radius: 8px;
+  }
+
+
+
+@media (max-width: 768px) {
+  .section-header h2:before,
+  .section-header h2:after {
+    display: none; /* Прибираємо бокові лінії */
+  }
+
+  .section-header h2 {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Створюємо одну лінію знизу по центру */
+  .section-header h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--color-primary);
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    margin: 0; /* Скидаємо стандартні маргінали */
+  }
+}
