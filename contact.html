@@ -132,7 +132,7 @@
 
     <div class="row justify-content-center gy-4">
 
-      <div class="col-lg-5">
+      <div class="col-lg-5 mobile-fluid">
         <div class="info-container d-flex flex-column gap-4 h-100 p-4 p-md-5 bg-white shadow-sm rounded-4 border-0">
           
           <div class="contact-info-item d-flex">
@@ -191,16 +191,16 @@
         </div>
       </div>
 
-      <div class="col-lg-7">
+      <div class="col-lg-7 mobile-fluid">
         <div class="form-wrapper bg-white shadow-sm rounded-4 p-4 p-md-5 border-0">
           <h3 class="fw-bold mb-3" style="color: #1a252b;">Швидка заявка</h3>
           <p class="text-muted mb-4">Опишіть проблему, і ми зателефонуємо вам для консультації.</p>
 
-<form action="https://formspree.io/f/xrbnljka" method="post" role="form" class="php-email-form">
+<form action="" method="post" class="telegram-form shadow-lg p-4 p-md-5 rounded-4 bg-white">
   <div class="row">
     <div class="col-md-6 form-group mb-3">
       <label for="name" class="form-label small fw-bold">Ваше ім'я</label>
-      <input type="text" name="name" class="form-control rounded-3 py-2" id="name" placeholder="Олександр" 
+      <input type="text" name="name" class="form-control muted-placeholder rounded-3 py-2" id="name" placeholder="Олександр" 
              required 
              oninvalid="this.setCustomValidity('Будь ласка, введіть ваше ім\'я')" 
              oninput="this.setCustomValidity('')">
@@ -209,7 +209,7 @@
       <label for="phone" class="form-label small fw-bold">Номер телефону</label>
       <div class="input-group">
         <span class="input-group-text bg-light border-end-0 rounded-start-3">+38</span>
-        <input type="tel" class="form-control border-start-0 rounded-end-3 py-2" name="phone" id="phone" placeholder="0661234567" 
+        <input type="tel" class="form-control muted-placeholder border-start-0 rounded-end-3 py-2" name="phone" id="phone" placeholder="0661234567" 
                pattern="[0-9]{10}" 
                required 
                oninvalid="this.setCustomValidity('Введіть 10 цифр номера (наприклад: 0661234567)')" 
@@ -220,22 +220,22 @@
   
   <div class="form-group mb-4">
     <label for="message" class="form-label small fw-bold">Опис проблеми</label>
-    <textarea class="form-control rounded-3" name="message" rows="4" placeholder="Наприклад: заміна ущільнювача та регулювання вікна." 
+    <textarea class="form-control muted-placeholder rounded-3" name="message" rows="4" placeholder="Наприклад: заміна ущільнювача та регулювання вікна." 
               required 
               oninvalid="this.setCustomValidity('Будь ласка, коротко опишіть, що потрібно зробити')" 
               oninput="this.setCustomValidity('')"></textarea>
   </div>
 
   <div class="my-3">
-    <div class="loading">Надсилаємо...</div>
-    <div class="error-message"></div>
-    <div class="sent-message p-3 rounded-3" style="background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; display: none;">
+    <div class="loading text-center" style="display: none;">Надсилаємо...</div>
+    
+    <div class="sent-message p-3 rounded-3 text-center" style="background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; display: none;">
       <i class="bi bi-check-circle-fill me-2"></i>
       <strong>Дякуємо!</strong> Ваша заявка отримана. Майстер зателефонує вам найближчим часом.
     </div>
   </div>
 
-  <button type="submit" class="btn btn-warning w-100 py-3 rounded-pill fw-bold text-uppercase shadow-sm transition-all">
+  <button type="submit" id="submit-btn" class="btn btn-warning w-100 py-3 rounded-pill fw-bold text-uppercase shadow-sm">
     Замовити безкоштовну консультацію
   </button>
 </form>

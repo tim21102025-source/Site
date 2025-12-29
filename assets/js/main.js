@@ -232,3 +232,68 @@ if (window.innerWidth > 1280) {
 
 
 
+
+/**
+* Універсальна відправка форм у Telegram
+*/
+document.querySelectorAll('.telegram-form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const TOKEN = "7514457087:AAEXu4dbaMQqnSx8QEaYn1Je0raq7Eq0BLU";
+        const CHAT_ID = "8283677886";
+        const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+        
+        const loading = this.querySelector('.loading');
+        const success = this.querySelector('.sent-message');
+        const errorMsg = this.querySelector('.error-message');
+        const btn = this.querySelector('button[type="submit"]');
+
+        // Показуємо стан завантаження
+        if (loading) loading.style.display = 'block';
+        if (success) success.style.display = 'none';
+        if (errorMsg) errorMsg.style.display = 'none';
+        btn.disabled = true;
+
+        // Визначаємо з якої сторінки прийшла заявка
+        const pageTitle = document.title;
+
+        // Формуємо текст
+        let text = `<b>🔔 НОВА ЗАЯВКА З САЙТУ</b>\n`;
+        // text += `<b>📍 Сторінка:</b> ${pageTitle}\n`;
+        text += `--------------------------\n`;
+        text += `<b>👤 Клієнт:</b> ${this.name.value}\n`;
+        text += `<b>📞 Телефон:</b> +38${this.phone.value}\n`;
+        text += `<b>📝 Повідомлення:</b> ${this.message.value}`;
+
+        fetch(URI_API, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: CHAT_ID,
+                parse_mode: 'html',
+                text: text
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                if (success) success.style.display = 'block';
+                this.reset();
+            } else {
+                throw new Error('Помилка сервера');
+            }
+        })
+        .catch(err => {
+            if (errorMsg) {
+                errorMsg.style.display = 'block';
+                errorMsg.innerHTML = "Помилка відправки. Спробуйте ще раз.";
+            } else {
+                alert("Помилка відправки. Спробуйте пізніше.");
+            }
+        })
+        .finally(() => {
+            if (loading) loading.style.display = 'none';
+            btn.disabled = false;
+        });
+    });
+});

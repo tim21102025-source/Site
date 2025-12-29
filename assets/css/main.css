@@ -3620,3 +3620,85 @@ a:hover {
     margin: 0; /* Скидаємо стандартні маргінали */
   }
 }
+
+
+
+
+@media (max-width: 576px) {
+  /* 1. Форма та контакти на всю ширину */
+  .mobile-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .info-container, .form-wrapper {
+    padding: 25px 15px !important; /* Внутрішні відступи для тексту */
+    border-radius: 0 !important; /* Прибираємо заокруглення, щоб блок прилягав до країв */
+    box-shadow: none !important; /* Прибираємо тінь для чистого вигляду */
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+
+  /* 2. Номери телефонів як великі кнопки */
+  .contact-info-item .flex-column {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .contact-link {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    padding: 12px 15px !important;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    color: #1a252b !important;
+  }
+
+  .contact-link:active {
+    background: #feb900;
+    border-color: #feb900;
+  }
+
+  /* 3. Ущільнення форми */
+  .php-email-form .form-label {
+    margin-bottom: 2px !important; /* Відстань від назви до поля */
+    font-size: 0.85rem !important;
+    color: #555;
+  }
+
+  .form-group {
+    margin-bottom: 12px !important; /* Відстань між самими полями */
+  }
+
+  /* 4. Месенджери на всю ширину */
+  .contact-info-item .flex-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px !important;
+  }
+
+  .btn-viber, .btn-telegram, .btn-whatsapp {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 12px !important;
+    font-size: 1rem !important;
+    justify-content: center;
+  }
+}
+
+
+/* Новий клас для стилізації підказок */
+.muted-placeholder::placeholder {
+  color: #a0a7ad !important; /* Світло-сірий колір Bootstrap */
+  font-weight: 400;          /* Тонший шрифт, щоб не зливався з жирним label */
+}
+
+/* Для підтримки в старих браузерах */
+.muted-placeholder:-ms-input-placeholder { color: #adb5bd !important; }
+.muted-placeholder::-ms-input-placeholder { color: #adb5bd !important; }
+
