@@ -3740,4 +3740,14 @@ a:hover {
   }
 
 
-  
+  #contact {
+  /* Налаштуйте цифру під висоту вашої шапки сайту */
+  scroll-margin-top: 100px; 
+}
+
+/* Для мобільних можна зробити відступ меншим */
+@media (max-width: 768px) {
+  #contact {
+    scroll-margin-top: 70px;
+  }
+}
