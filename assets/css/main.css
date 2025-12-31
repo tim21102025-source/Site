@@ -3719,11 +3719,17 @@ a:hover {
   .telegram-bg { background-color: #0088cc; }
   .whatsapp-bg { background-color: #25d366; }
 
-  .messenger-btn:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
-    color: white;
-  }
+/* Виправлений блок для кнопок месенджерів */
+.messenger-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.85; /* Робимо кнопку трохи прозорішою замість зміни кольору */
+  color: white !important; /* Примусово залишаємо текст білим */
+}
+
+/* Додаємо специфічні кольори фону при наведенні, щоб вони не ставали білими */
+.viber-bg:hover { background-color: #6554d4 !important; }
+.telegram-bg:hover { background-color: #0077b3 !important; }
+.whatsapp-bg:hover { background-color: #21bd5c !important; }
 
   /* Мобільна адаптація */
   @media (max-width: 576px) {
@@ -3750,4 +3756,94 @@ a:hover {
   #contact {
     scroll-margin-top: 70px;
   }
+}
+
+
+
+/* Ефекти при наведенні */
+.btn-animate:hover {
+  background: #ffcc00 !important; /* Трохи світліший жовтий */
+  transform: translateY(-3px) scale(1.02); /* Піднімається вгору і збільшується */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important; /* Посилюємо тінь */
+  color: #000 !important;
+}
+
+/* Ефект при натисканні */
+.btn-animate:active {
+  transform: translateY(-1px) scale(0.98); /* Наче втискається */
+}
+
+/* Анімація появи (інтерактивність при відображенні) */
+.btn-animate {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Опціонально: постійне легке пульсування, щоб привернути увагу */
+@keyframes pulse-yellow {
+  0% { box-shadow: 0 0 0 0 rgba(254, 185, 0, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(254, 185, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(254, 185, 0, 0); }
+}
+
+/* Додайте цей клас до кнопки, якщо хочете, щоб вона постійно пульсувала */
+.btn-pulse {
+  animation: pulse-yellow 2s infinite;
+}
+
+
+
+
+.floating-contact-btn {
+  position: fixed;
+  left: 30px;
+  bottom: 30px;
+  background: #feb900;
+  color: #1a252b;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.floating-contact-btn:hover {
+  transform: translateY(-5px);
+  background: #e5a700;
+}
+
+.floating-contact-btn i {
+  font-size: 1.4rem;
+}
+
+/* На мобільних показуємо тільки іконку для економії місця */
+@media (max-width: 576px) {
+  .floating-contact-btn span {
+    display: none;
+  }
+  .floating-contact-btn {
+    padding: 15px;
+    left: 20px;
+    bottom: 20px;
+  }
+}
+
+.border-dashed {
+  border-style: dashed !important;
 }

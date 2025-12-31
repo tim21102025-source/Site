@@ -215,7 +215,7 @@
       </div>
       
       <div class="row justify-content-around gy-4 alt-services-item" data-aos="fade-up" data-aos-delay="100">
-        <div class="col-lg-6 img-bg" style="background-image: url('assets/img/service-care-1.jpg');"></div>
+        <div class="col-lg-6 img-bg" style="background-image: url('assets/img/alt-services-2.jpg');"></div>
         <div class="col-lg-5 d-flex flex-column justify-content-center">
           <h3>Ми бачимо те, що не помітно неозброєним оком</h3>
           <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
@@ -364,17 +364,57 @@
 
 <script src="assets/js/main.js"></script>
 
-<script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/692cb90e2e3bec197df70da2/1jbbb5o2q';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
-</script>
+<button type="button" class="floating-contact-btn btn-pulse" data-bs-toggle="modal" data-bs-target="#contactModal">
+  <i class="bi bi-chat-dots-fill"></i>
+  <span>Надіслати повідомлення</span>
+</button>
+
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 border-0">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title fw-bold" id="contactModalLabel">Швидке повідомлення</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="telegram-form p-2">
+          <div class="mb-3">
+            <input type="text" name="name" class="form-control rounded-3 shadow-none" placeholder="Ваше Ім'я" required>
+          </div>
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text bg-light border-end-0">+38</span>
+              <input type="tel" class="form-control shadow-none" name="phone" placeholder="066 057 52 02" pattern="^(\s*\d){10}\s*$" required title="Введіть 10 цифр номера телефону">
+            </div>
+          </div>
+          <div class="mb-3">
+            <textarea class="form-control rounded-3 shadow-none" name="message" rows="3" placeholder="Опишіть проблему (наприклад: розбите скло, заміна ущільнювача...)" required></textarea>
+          </div>
+          
+          <div class="mb-3">
+            <input type="file" id="modal-files" class="d-none" accept="image/*,video/*" multiple>
+            <button type="button" class="btn btn-outline-secondary w-100 py-2 d-flex align-items-center justify-content-center border-dashed" onclick="document.getElementById('modal-files').click()">
+              <i class="bi bi-camera me-2"></i> Додати фото/відео
+            </button>
+            <div id="modal-file-preview" class="d-flex flex-wrap gap-2 mt-2"></div>
+          </div>
+
+          <input type="text" name="hp_field" style="display:none !important" tabindex="-1" autocomplete="off">
+          
+          <button type="submit" class="btn btn-warning w-100 py-3 fw-bold rounded-3 shadow-sm mt-2">Надіслати майстру</button>
+          
+          <div class="loading mt-3 text-center" style="display:none;">
+            <div class="spinner-border spinner-border-sm text-warning me-2" role="status"></div>
+            Надсилаємо повідомлення...
+          </div>
+          <div class="sent-message mt-3 text-success text-center" style="display:none;">
+            <i class="bi bi-check-circle-fill me-1"></i> Надіслано! Майстер скоро зв'яжеться з вами.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

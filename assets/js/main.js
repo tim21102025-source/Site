@@ -234,155 +234,142 @@ if (window.innerWidth > 1280) {
 
 
 /**
- * Універсальна відправка форм у Telegram через Cloudflare Proxy (Альбомний режим)
- */
+* Універсальна відправка форм у Telegram через Cloudflare Proxy
+*/
+let selectedFiles = []; 
 
-// Глобальний масив для зберігання вибраних файлів
-let selectedFiles = [];
+// Використовуємо делегування подій для стабільної роботи всіх форм (і в модалці, і на сторінці)
+document.addEventListener('submit', async function (e) {
+  const form = e.target.closest('.telegram-form');
+  if (!form) return;
 
-document.querySelectorAll('.telegram-form').forEach(form => {
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    // 1. Захист від ботів (Honeypot)
-    if (this.hp_field && this.hp_field.value) {
-      console.warn("Spam bot detected");
-      return;
+  // 1. Захист від ботів (Honeypot)
+  if (form.hp_field && form.hp_field.value) return;
+
+  const PROXY_URL = "https://tg-proxy-master.tim21102025.workers.dev";
+  
+  // Шукаємо елементи саме всередині поточної форми
+  const loading = form.querySelector('.loading');
+  const success = form.querySelector('.sent-message');
+  const errorMsg = form.querySelector('.error-message');
+  const btn = form.querySelector('button[type="submit"]');
+  const filePreview = document.getElementById('file-preview') || document.getElementById('modal-file-preview');
+
+  if (loading) loading.style.display = 'block';
+  if (success) success.style.display = 'none';
+  if (errorMsg) errorMsg.style.display = 'none';
+  btn.disabled = true;
+
+  try {
+    const name = form.name.value;
+    const phone = form.phone.value;
+    const message = form.message.value;
+
+    let response;
+
+    // Перевіряємо чи є файли для відправки
+    if (selectedFiles.length > 0) {
+      const formData = new FormData();
+      selectedFiles.forEach(file => formData.append('files', file));
+      formData.append('name', name);
+      formData.append('phone', phone);
+      formData.append('message', message);
+      formData.append('is_album', 'true');
+
+      response = await fetch(PROXY_URL, { method: 'POST', body: formData });
+    } else {
+      response = await fetch(PROXY_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, phone, message, is_album: 'false' })
+      });
     }
 
-    const PROXY_URL = "https://tg-proxy-master.tim21102025.workers.dev";
-    const loading = this.querySelector('.loading');
-    const success = this.querySelector('.sent-message');
-    const btn = this.querySelector('button[type="submit"]');
-    const filePreview = document.getElementById('file-preview');
+    const result = await response.json();
 
-    // Показуємо завантаження
-    if (loading) loading.style.display = 'block';
-    if (success) success.style.display = 'none';
-    btn.disabled = true;
-
-    try {
-      // 2. Формуємо дані клієнта
-      const name = this.name.value;
-      const phone = this.phone.value;
-      const message = this.message.value;
-
-      let response;
-
-      if (selectedFiles.length > 0) {
-        // --- ВАРІАНТ А: ВІДПРАВКА АЛЬБОМОМ (МЕДІАГРУПА) ---
-        const formData = new FormData();
-        
-        // Додаємо всі файли в один об'єкт
-        selectedFiles.forEach(file => {
-          formData.append('files', file);
-        });
-
-        // Передаємо дані для підпису до альбому
-        formData.append('name', name);
-        formData.append('phone', phone);
-        formData.append('message', message);
-        formData.append('is_album', 'true');
-
-        response = await fetch(PROXY_URL, {
-          method: 'POST',
-          body: formData // Воркер сам зрозуміє, що це FormData
-        });
-      } else {
-        // --- ВАРІАНТ Б: ВІДПРАВКА ТІЛЬКИ ТЕКСТУ ---
-        response = await fetch(PROXY_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: name,
-            phone: phone,
-            message: message,
-            is_album: 'false'
-          })
-        });
+    if (result.ok) {
+      if (success) success.style.display = 'block';
+      form.reset();
+      selectedFiles = [];
+      // Очищуємо прев'ю (шукаємо обидва можливі ID)
+      document.querySelectorAll('[id*="file-preview"]').forEach(el => el.innerHTML = '');
+      
+      // Якщо форма в модалці — закриваємо її через 3 сек
+      const modalElement = form.closest('.modal');
+      if (modalElement) {
+        setTimeout(() => {
+          const modalInstance = bootstrap.Modal.getInstance(modalElement);
+          if (modalInstance) modalInstance.hide();
+          if (success) success.style.display = 'none';
+        }, 3000);
       }
-
-      const result = await response.json();
-
-      if (result.ok) {
-        // Успіх
-        if (success) success.style.display = 'block';
-        this.reset();
-        selectedFiles = [];
-        if (filePreview) filePreview.innerHTML = '';
-      } else {
-        throw new Error(result.description || "Помилка API");
-      }
-
-    } catch (err) {
-      console.error(err);
-      alert("Виникла помилка при відправці. Будь ласка, спробуйте ще раз або зателефонуйте нам.");
-    } finally {
-      if (loading) loading.style.display = 'none';
-      btn.disabled = false;
+    } else {
+      throw new Error(result.description || "Server Error");
     }
-  });
+
+  } catch (err) {
+    console.error("Помилка відправки:", err);
+    if (errorMsg) {
+      errorMsg.style.display = 'block';
+      errorMsg.innerText = "Помилка відправки. Спробуйте ще раз.";
+    } else {
+      alert("Виникла помилка. Спробуйте ще раз або зателефонуйте нам.");
+    }
+  } finally {
+    if (loading) loading.style.display = 'none';
+    btn.disabled = false;
+  }
 });
 
 /**
- * Логіка вибору файлів та створення прев'ю
+ * Логіка вибору файлів (універсальна)
  */
-const fileInput = document.getElementById('files') || document.getElementById('files-home');
-const filePreview = document.getElementById('file-preview');
+function initFilePicker(inputId, previewId) {
+  const fileInput = document.getElementById(inputId);
+  const filePreview = document.getElementById(previewId);
 
-if (fileInput && filePreview) {
+  if (!fileInput || !filePreview) return;
+
   fileInput.addEventListener('change', function () {
     const files = Array.from(this.files);
-
     files.forEach(file => {
-      // Перевірка на ліміт у 10 файлів для Telegram MediaGroup
-      if (selectedFiles.length >= 10) {
-        alert("Можна додати не більше 10 файлів");
-        return;
-      }
-
+      if (selectedFiles.length >= 10) return;
       selectedFiles.push(file);
 
       const reader = new FileReader();
       const wrapper = document.createElement('div');
       wrapper.className = 'position-relative border rounded p-1 text-center bg-white shadow-sm';
-      wrapper.style.width = '85px';
+      wrapper.style.width = '80px';
 
-      // Кнопка видалення файлу
       const removeBtn = document.createElement('span');
       removeBtn.innerHTML = '&times;';
-      removeBtn.style = `
-        position: absolute; top: -8px; right: -8px; 
-        background: #dc3545; color: white; 
-        border-radius: 50%; width: 22px; height: 22px; 
-        cursor: pointer; line-height: 20px; 
-        font-weight: bold; font-size: 16px; 
-        z-index: 10; border: 2px solid white;
-      `;
-
-      removeBtn.onclick = function () {
+      removeBtn.style = "position:absolute; top:-8px; right:-8px; background:red; color:white; border-radius:50%; width:22px; height:22px; cursor:pointer; line-height:20px; font-weight:bold; text-align:center; border:1px solid white; z-index:10;";
+      
+      removeBtn.onclick = () => {
         selectedFiles = selectedFiles.filter(f => f !== file);
         wrapper.remove();
       };
 
-      reader.onload = function (e) {
+      reader.onload = (e) => {
         if (file.type.startsWith('image/')) {
-          wrapper.innerHTML = `<img src="${e.target.result}" class="rounded" style="width: 100%; height: 60px; object-fit: cover;">`;
+          wrapper.innerHTML = `<img src="${e.target.result}" class="rounded" style="width:100%; height:60px; object-fit:cover;">`;
         } else {
-          wrapper.innerHTML = `
-            <div class="bg-light rounded d-flex align-items-center justify-content-center" style="height: 60px;">
-              <i class="bi bi-play-btn fs-2 text-secondary"></i>
-            </div>`;
+          wrapper.innerHTML = `<div class="bg-light rounded d-flex align-items-center justify-content-center" style="height:60px;"><i class="bi bi-play-btn fs-2 text-secondary"></i></div>`;
         }
         wrapper.innerHTML += `<div class="small text-truncate mt-1" style="font-size: 10px;">${file.name}</div>`;
         wrapper.appendChild(removeBtn);
       };
-
       reader.readAsDataURL(file);
       filePreview.appendChild(wrapper);
     });
-
-    // Скидаємо інпут, щоб можна було вибрати той самий файл знову
-    this.value = '';
+    this.value = ''; // Скидаємо інпут для повторного вибору
   });
 }
+
+// Ініціалізація для всіх відомих ID
+document.addEventListener('DOMContentLoaded', () => {
+  initFilePicker('files', 'file-preview');         // Основна форма
+  initFilePicker('modal-files', 'modal-file-preview'); // Модальне вікно
+});
