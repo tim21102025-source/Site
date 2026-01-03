@@ -1893,7 +1893,7 @@ section {
 
 @media (max-width: 768px) {
   .hero .info {
-    padding: 0 50px;
+    padding: 0 10px;
   }
 }
 
@@ -4854,3 +4854,34 @@ a:hover {
 }
 
 
+
+
+
+
+/* Скрываем стрелки карусели на мобильных (по желанию) */
+@media (max-width: 767.98px) {
+  #hero-carousel .carousel-control-prev,
+  #hero-carousel .carousel-control-next {
+    display: none !important;
+  }
+}
+
+
+
+
+
+/* Ещё меньше для самых маленьких экранов (xs, <576px) — опционально */
+@media (max-width: 390px) {
+  #hero h1 {
+    padding: 120px 0 0 0;
+    font-size: 2rem !important;
+  }
+
+  #hero h2 {
+    font-size: 1.5rem !important;
+  }
+
+  #hero p {
+    font-size: 1.2rem !important;
+  }
+}
