@@ -4873,7 +4873,7 @@ a:hover {
 /* Ещё меньше для самых маленьких экранов (xs, <576px) — опционально */
 @media (max-width: 390px) {
   #hero h1 {
-    padding: 100px 0 0 0;
+    padding: 90px 0 0 0;
     font-size: 2rem !important;
   }
 
