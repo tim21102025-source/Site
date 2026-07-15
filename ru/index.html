@@ -11,11 +11,6 @@
   <!-- Meta Description – 155–160 символів, ключі, вигоди, заклик -->
   <meta name="description"
     content="Установка металлопластиковых окон, дверей, балконов в Киеве. Ремонт, регулировка, замена фурнитуры, уплотнителя, стеклопакетов. Гарантия до 5 лет, бесплатный выезд мастера." />
-
-  <!-- Meta Keywords -->
-  <meta name="keywords"
-    content="установка окон киев, ремонт окон киев, регулировка пластиковых окон, замена фурнитуры киев, остекление балконов киев, москитные сетки киев, замена стеклопакетов, устранение сквозняков, доводчики дверей, обслуживание окон" />
-
   <!-- Google Analytics / GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QMT9NJ5M5H"></script>
   <script>
@@ -71,14 +66,13 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-    rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"></noscript>
 
   <!-- Vendor CSS -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
   <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
@@ -98,8 +92,11 @@
   <div id="topbar-vidnovlennya" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-center">
       <a href="ru/vidnovlennya.html" class="vidnovlennya-link">
-        <img src="../assets/img/diia-icon.png" class="vidnovlennya-icon"
+        <picture>
+          <source srcset="../assets/img/diia-icon.webp" type="image/webp">
+          <img src="../assets/img/diia-icon.png" class="vidnovlennya-icon"
           alt="Программа єВідновлення — компенсация за поврежденное жилье">
+        </picture>
         Работаем по программе
         <span class="vidnovlennya-gradient-text" style="font-weight: 800; margin-left: 5px;">єВідновлення</span>
       </a>
@@ -112,7 +109,10 @@
 
       <!-- Логотип -->
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="../assets/img/logo.png" alt="UWS — Установка и ремонт окон в Киеве" class="img-fluid me-2">
+        <picture>
+          <source srcset="../assets/img/logo.webp" type="image/webp">
+          <img src="../assets/img/logo.png" alt="UWS — Установка и ремонт окон в Киеве" class="img-fluid me-2">
+        </picture>
         <span class="logo-text">UWS<span>.</span></span>
       </a>
 
@@ -406,8 +406,11 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
               <div class="card-img-top position-relative">
-                <img src="../assets/img/services/install.jpg" class="img-fluid w-100"
-                  alt="Установка металлопластиковых окон и дверей Киев" style="height: 200px; object-fit: cover;">
+                <picture>
+                  <source srcset="../assets/img/services/install.webp" type="image/webp">
+                  <img src="../assets/img/services/install.jpg" class="img-fluid w-100"
+                  alt="Установка металлопластиковых окон и дверей Киев" style="height: 200px; object-fit: cover;" loading="lazy">
+                </picture>
                 <div class="service-icon-floating"><i class="bi bi-window-plus"></i></div>
               </div>
               <div class="p-4 pt-5 text-center">
@@ -426,8 +429,11 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
               <div class="card-img-top position-relative">
-                <img src="../assets/img/services/repair.jpg" class="img-fluid w-100"
-                  alt="Ремонт и регулировка пластиковых окон Киев" style="height: 200px; object-fit: cover;">
+                <picture>
+                  <source srcset="../assets/img/services/repair.webp" type="image/webp">
+                  <img src="../assets/img/services/repair.jpg" class="img-fluid w-100"
+                  alt="Ремонт и регулировка пластиковых окон Киев" style="height: 200px; object-fit: cover;" loading="lazy">
+                </picture>
                 <div class="service-icon-floating"><i class="bi bi-tools"></i></div>
               </div>
               <div class="p-4 pt-5 text-center">
@@ -446,8 +452,11 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
               <div class="card-img-top position-relative">
-                <img src="../assets/img/services/balkony.jpg" class="img-fluid w-100"
-                  alt="Остекление и утепление балконов и лоджий Киев" style="height: 200px; object-fit: cover;">
+                <picture>
+                  <source srcset="../assets/img/services/balkony.webp" type="image/webp">
+                  <img src="../assets/img/services/balkony.jpg" class="img-fluid w-100"
+                  alt="Остекление и утепление балконов и лоджий Киев" style="height: 200px; object-fit: cover;" loading="lazy">
+                </picture>
                 <div class="service-icon-floating"><i class="bi bi-house-door"></i></div>
               </div>
               <div class="p-4 pt-5 text-center">
@@ -466,8 +475,11 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
               <div class="card-img-top position-relative">
-                <img src="../assets/img/services/glass.jpg" class="img-fluid w-100" alt="Замена стеклопакетов в окнах Киев"
-                  style="height: 200px; object-fit: cover;">
+                <picture>
+                  <source srcset="../assets/img/services/glass.webp" type="image/webp">
+                  <img src="../assets/img/services/glass.jpg" class="img-fluid w-100" alt="Замена стеклопакетов в окнах Киев"
+                  style="height: 200px; object-fit: cover;" loading="lazy">
+                </picture>
                 <div class="service-icon-floating"><i class="bi bi-aspect-ratio"></i></div>
               </div>
               <div class="p-4 pt-5 text-center">
@@ -486,8 +498,11 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
               <div class="card-img-top position-relative">
-                <img src="../assets/img/services/moskitki.jpg" class="img-fluid w-100"
-                  alt="Изготовление и установка москитных сеток Киев" style="height: 200px; object-fit: cover;">
+                <picture>
+                  <source srcset="../assets/img/services/moskitki.webp" type="image/webp">
+                  <img src="../assets/img/services/moskitki.jpg" class="img-fluid w-100"
+                  alt="Изготовление и установка москитных сеток Киев" style="height: 200px; object-fit: cover;" loading="lazy">
+                </picture>
                 <div class="service-icon-floating"><i class="bi bi-shield-check"></i></div>
               </div>
               <div class="p-4 pt-5 text-center">
@@ -507,8 +522,11 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
               <div class="card-img-top position-relative">
-                <img src="../assets/img/services/dovodyachi.jpg" class="img-fluid w-100"
-                  alt="Установка доводчиков на двери Киев" style="height: 200px; object-fit: cover;">
+                <picture>
+                  <source srcset="../assets/img/services/dovodyachi.webp" type="image/webp">
+                  <img src="../assets/img/services/dovodyachi.jpg" class="img-fluid w-100"
+                  alt="Установка доводчиков на двери Киев" style="height: 200px; object-fit: cover;" loading="lazy">
+                </picture>
                 <div class="service-icon-floating"><i class="bi bi-door-closed"></i></div>
               </div>
               <div class="p-4 pt-5 text-center">
@@ -674,8 +692,11 @@
                 </a>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="../assets/img/features-1.jpg" alt="Устранение сквозняков из пластиковых окон Киев"
-                  class="img-fluid rounded-4 shadow">
+                <picture>
+                  <source srcset="../assets/img/features-1.webp" type="image/webp">
+                  <img src="../assets/img/features-1.jpg" alt="Устранение сквозняков из пластиковых окон Киев"
+                  class="img-fluid rounded-4 shadow" loading="lazy">
+                </picture>
               </div>
             </div>
           </div>
@@ -702,8 +723,11 @@
                 </a>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="../assets/img/features-2.jpg" alt="Замена фурнитуры пластиковых окон Киев"
-                  class="img-fluid rounded-4 shadow">
+                <picture>
+                  <source srcset="../assets/img/features-2.webp" type="image/webp">
+                  <img src="../assets/img/features-2.jpg" alt="Замена фурнитуры пластиковых окон Киев"
+                  class="img-fluid rounded-4 shadow" loading="lazy">
+                </picture>
               </div>
             </div>
           </div>
@@ -729,8 +753,11 @@
                 </a>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="../assets/img/features-3.jpg" alt="Устранение конденсата на пластиковых окнах Киев"
-                  class="img-fluid rounded-4 shadow">
+                <picture>
+                  <source srcset="../assets/img/features-3.webp" type="image/webp">
+                  <img src="../assets/img/features-3.jpg" alt="Устранение конденсата на пластиковых окнах Киев"
+                  class="img-fluid rounded-4 shadow" loading="lazy">
+                </picture>
               </div>
             </div>
           </div>
@@ -756,8 +783,11 @@
                 </a>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="../assets/img/features-4.jpg" alt="Разблокирование и ремонт заедания пластиковых окон Киев"
-                  class="img-fluid rounded-4 shadow">
+                <picture>
+                  <source srcset="../assets/img/features-4.webp" type="image/webp">
+                  <img src="../assets/img/features-4.jpg" alt="Разблокирование и ремонт заедания пластиковых окон Киев"
+                  class="img-fluid rounded-4 shadow" loading="lazy">
+                </picture>
               </div>
             </div>
           </div>
@@ -792,8 +822,11 @@
           <a href="../assets/img/projects/projects-9.jpg" class="glightbox portfolio-link"
             data-gallery="portfolio-gallery">
             <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <img src="../assets/img/projects/projects-9.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                alt="Ремонт фурнитуры пластиковых окон Киев">
+              <picture>
+                <source srcset="../assets/img/projects/projects-9.webp" type="image/webp">
+                <img src="../assets/img/projects/projects-9.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
+                alt="Ремонт фурнитуры пластиковых окон Киев" loading="lazy">
+              </picture>
               <div class="portfolio-overlay d-flex align-items-center justify-content-center">
                 <i class="bi bi-zoom-in text-white fs-1"></i>
               </div>
@@ -809,8 +842,11 @@
           <a href="../assets/img/projects/projects-1.jpg" class="glightbox portfolio-link"
             data-gallery="portfolio-gallery">
             <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <img src="../assets/img/projects/projects-1.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                alt="Установка энергосберегающего стеклопакета Киев">
+              <picture>
+                <source srcset="../assets/img/projects/projects-1.webp" type="image/webp">
+                <img src="../assets/img/projects/projects-1.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
+                alt="Установка энергосберегающего стеклопакета Киев" loading="lazy">
+              </picture>
               <div class="portfolio-overlay d-flex align-items-center justify-content-center">
                 <i class="bi bi-zoom-in text-white fs-1"></i>
               </div>
@@ -826,8 +862,11 @@
           <a href="../assets/img/projects/projects-10.jpg" class="glightbox portfolio-link"
             data-gallery="portfolio-gallery">
             <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <img src="../assets/img/projects/projects-10.jpg" class="img-fluid w-100 h-100"
-                style="object-fit: cover;" alt="Регулировка балконных дверей Киев">
+              <picture>
+                <source srcset="../assets/img/projects/projects-10.webp" type="image/webp">
+                <img src="../assets/img/projects/projects-10.jpg" class="img-fluid w-100 h-100"
+                style="object-fit: cover;" alt="Регулировка балконных дверей Киев" loading="lazy">
+              </picture>
               <div class="portfolio-overlay d-flex align-items-center justify-content-center">
                 <i class="bi bi-zoom-in text-white fs-1"></i>
               </div>
@@ -843,8 +882,11 @@
           <a href="../assets/img/projects/projects-8.jpg" class="glightbox portfolio-link"
             data-gallery="portfolio-gallery">
             <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <img src="../assets/img/projects/projects-8.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                alt="Установка детской ручки на окно Киев">
+              <picture>
+                <source srcset="../assets/img/projects/projects-8.webp" type="image/webp">
+                <img src="../assets/img/projects/projects-8.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
+                alt="Установка детской ручки на окно Киев" loading="lazy">
+              </picture>
               <div class="portfolio-overlay d-flex align-items-center justify-content-center">
                 <i class="bi bi-zoom-in text-white fs-1"></i>
               </div>
@@ -860,8 +902,11 @@
           <a href="../assets/img/projects/projects-12.jpg" class="glightbox portfolio-link"
             data-gallery="portfolio-gallery">
             <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <img src="../assets/img/projects/projects-12.jpg" class="img-fluid w-100 h-100"
-                style="object-fit: cover;" alt="Замена уплотнителя на окнах Киев">
+              <picture>
+                <source srcset="../assets/img/projects/projects-12.webp" type="image/webp">
+                <img src="../assets/img/projects/projects-12.jpg" class="img-fluid w-100 h-100"
+                style="object-fit: cover;" alt="Замена уплотнителя на окнах Киев" loading="lazy">
+              </picture>
               <div class="portfolio-overlay d-flex align-items-center justify-content-center">
                 <i class="bi bi-zoom-in text-white fs-1"></i>
               </div>
@@ -877,8 +922,11 @@
           <a href="../assets/img/projects/projects-11.jpg" class="glightbox portfolio-link"
             data-gallery="portfolio-gallery">
             <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <img src="../assets/img/projects/projects-11.jpg" class="img-fluid w-100 h-100"
-                style="object-fit: cover;" alt="Ремонт дверного замка Киев">
+              <picture>
+                <source srcset="../assets/img/projects/projects-11.webp" type="image/webp">
+                <img src="../assets/img/projects/projects-11.jpg" class="img-fluid w-100 h-100"
+                style="object-fit: cover;" alt="Ремонт дверного замка Киев" loading="lazy">
+              </picture>
               <div class="portfolio-overlay d-flex align-items-center justify-content-center">
                 <i class="bi bi-zoom-in text-white fs-1"></i>
               </div>
@@ -894,8 +942,11 @@
           <a href="../assets/img/projects/projects-2.jpg" class="glightbox portfolio-link"
             data-gallery="portfolio-gallery">
             <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <img src="../assets/img/projects/projects-2.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                alt="Сезонная регулировка пластиковых окон Киев">
+              <picture>
+                <source srcset="../assets/img/projects/projects-2.webp" type="image/webp">
+                <img src="../assets/img/projects/projects-2.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
+                alt="Сезонная регулировка пластиковых окон Киев" loading="lazy">
+              </picture>
               <div class="portfolio-overlay d-flex align-items-center justify-content-center">
                 <i class="bi bi-zoom-in text-white fs-1"></i>
               </div>
@@ -911,8 +962,11 @@
           <a href="../assets/img/projects/projects-6.jpg" class="glightbox portfolio-link"
             data-gallery="portfolio-gallery">
             <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <img src="../assets/img/projects/projects-6.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                alt="Установка москитных сеток Киев">
+              <picture>
+                <source srcset="../assets/img/projects/projects-6.webp" type="image/webp">
+                <img src="../assets/img/projects/projects-6.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
+                alt="Установка москитных сеток Киев" loading="lazy">
+              </picture>
               <div class="portfolio-overlay d-flex align-items-center justify-content-center">
                 <i class="bi bi-zoom-in text-white fs-1"></i>
               </div>
@@ -928,8 +982,11 @@
           <a href="../assets/img/projects/projects-7.jpg" class="glightbox portfolio-link"
             data-gallery="portfolio-gallery">
             <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <img src="../assets/img/projects/projects-7.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                alt="Чистка и смазка фурнитуры окон Киев">
+              <picture>
+                <source srcset="../assets/img/projects/projects-7.webp" type="image/webp">
+                <img src="../assets/img/projects/projects-7.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
+                alt="Чистка и смазка фурнитуры окон Киев" loading="lazy">
+              </picture>
               <div class="portfolio-overlay d-flex align-items-center justify-content-center">
                 <i class="bi bi-zoom-in text-white fs-1"></i>
               </div>
@@ -945,8 +1002,11 @@
           <a href="../assets/img/projects/projects-3.jpg" class="glightbox portfolio-link"
             data-gallery="portfolio-gallery">
             <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <img src="../assets/img/projects/projects-3.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                alt="Монтаж внешних отливов на окна Киев">
+              <picture>
+                <source srcset="../assets/img/projects/projects-3.webp" type="image/webp">
+                <img src="../assets/img/projects/projects-3.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
+                alt="Монтаж внешних отливов на окна Киев" loading="lazy">
+              </picture>
               <div class="portfolio-overlay d-flex align-items-center justify-content-center">
                 <i class="bi bi-zoom-in text-white fs-1"></i>
               </div>
@@ -962,8 +1022,11 @@
           <a href="../assets/img/projects/projects-4.jpg" class="glightbox portfolio-link"
             data-gallery="portfolio-gallery">
             <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <img src="../assets/img/projects/projects-4.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                alt="Ремонт пластиковых окон после взлома Киев">
+              <picture>
+                <source srcset="../assets/img/projects/projects-4.webp" type="image/webp">
+                <img src="../assets/img/projects/projects-4.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
+                alt="Ремонт пластиковых окон после взлома Киев" loading="lazy">
+              </picture>
               <div class="portfolio-overlay d-flex align-items-center justify-content-center">
                 <i class="bi bi-zoom-in text-white fs-1"></i>
               </div>
@@ -979,8 +1042,11 @@
           <a href="../assets/img/projects/projects-5.jpg" class="glightbox portfolio-link"
             data-gallery="portfolio-gallery">
             <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <img src="../assets/img/projects/projects-5.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                alt="Установка сетки Антикошка на окна Киев">
+              <picture>
+                <source srcset="../assets/img/projects/projects-5.webp" type="image/webp">
+                <img src="../assets/img/projects/projects-5.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
+                alt="Установка сетки Антикошка на окна Киев" loading="lazy">
+              </picture>
               <div class="portfolio-overlay d-flex align-items-center justify-content-center">
                 <i class="bi bi-zoom-in text-white fs-1"></i>
               </div>
@@ -1015,8 +1081,11 @@
         <div class="swiper-slide">
           <div class="testimonial-wrap">
             <div class="testimonial-item rounded-4">
-              <img src="../assets/img/testimonials/testimonials-1.jpg" class="testimonial-img"
-                alt="Отзыв Анны об устранении сквозняков из окон в Киеве">
+              <picture>
+                <source srcset="../assets/img/testimonials/testimonials-1.webp" type="image/webp">
+                <img src="../assets/img/testimonials/testimonials-1.jpg" class="testimonial-img"
+                alt="Отзыв Анны об устранении сквозняков из окон в Киеве" loading="lazy">
+              </picture>
               <h3>Анна</h3>
               <h4>Владелица квартиры в Киеве</h4>
               <div class="stars">
@@ -1037,8 +1106,11 @@
         <div class="swiper-slide">
           <div class="testimonial-wrap">
             <div class="testimonial-item rounded-4">
-              <img src="../assets/img/testimonials/testimonials-2.jpg" class="testimonial-img"
-                alt="Отзыв Марины о регулировке пластиковых окон в частном доме Киев">
+              <picture>
+                <source srcset="../assets/img/testimonials/testimonials-2.webp" type="image/webp">
+                <img src="../assets/img/testimonials/testimonials-2.jpg" class="testimonial-img"
+                alt="Отзыв Марины о регулировке пластиковых окон в частном доме Киев" loading="lazy">
+              </picture>
               <h3>Марина</h3>
               <h4>Владелица частного дома</h4>
               <div class="stars">
@@ -1059,8 +1131,11 @@
         <div class="swiper-slide">
           <div class="testimonial-wrap">
             <div class="testimonial-item rounded-4">
-              <img src="../assets/img/testimonials/testimonials-3.jpg" class="testimonial-img"
-                alt="Отзыв Елены о замене фурнитуры на балконных дверях Киев">
+              <picture>
+                <source srcset="../assets/img/testimonials/testimonials-3.webp" type="image/webp">
+                <img src="../assets/img/testimonials/testimonials-3.jpg" class="testimonial-img"
+                alt="Отзыв Елены о замене фурнитуры на балконных дверях Киев" loading="lazy">
+              </picture>
               <h3>Елена</h3>
               <h4>Офисное помещение в центре Киева</h4>
               <div class="stars">
@@ -1081,8 +1156,11 @@
         <div class="swiper-slide">
           <div class="testimonial-wrap">
             <div class="testimonial-item rounded-4">
-              <img src="../assets/img/testimonials/testimonials-4.jpg" class="testimonial-img"
-                alt="Отзыв Виталия о замене разбитого стеклопакета Киев">
+              <picture>
+                <source srcset="../assets/img/testimonials/testimonials-4.webp" type="image/webp">
+                <img src="../assets/img/testimonials/testimonials-4.jpg" class="testimonial-img"
+                alt="Отзыв Виталия о замене разбитого стеклопакета Киев" loading="lazy">
+              </picture>
               <h3>Виталий</h3>
               <h4>Владелец гаража</h4>
               <div class="stars">
@@ -1165,8 +1243,11 @@
         <div class="col-lg-4 col-md-6">
           <div class="footer-info">
             <div class="d-flex align-items-center mb-4 footer-logo-wrapper">
-              <img src="../assets/img/logo.png" alt="UWS — Сервис окон и дверей Киев"
+              <picture>
+                <source srcset="../assets/img/logo.webp" type="image/webp">
+                <img src="../assets/img/logo.png" alt="UWS — Сервис окон и дверей Киев"
                 class="img-fluid footer-logo me-3" style="max-height: 70px;">
+              </picture>
               <div>
                 <h3 class="fw-bold mb-1 text-warning">UWS</h3>
                 <p class="text-white-75 mb-0" style="font-size: 0.85rem; line-height: 1.4;">
@@ -1263,15 +1344,15 @@
 
 <div id="preloader"></div>
 
-<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/vendor/aos/aos.js"></script>
-<script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
-<script src="../assets/vendor/php-email-form/validate.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+<script src="../assets/vendor/aos/aos.js" defer></script>
+<script src="../assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+<script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+<script src="../assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+<script src="../assets/vendor/purecounter/purecounter_vanilla.js" defer></script>
+<script src="../assets/vendor/php-email-form/validate.js" defer></script>
 
-<script src="../assets/js/main.js"></script>
+<script src="../assets/js/main.js" defer></script>
 
 <button type="button" class="floating-contact-btn btn-pulse" data-bs-toggle="modal" data-bs-target="#contactModal">
   <i class="bi bi-chat-dots-fill"></i>
