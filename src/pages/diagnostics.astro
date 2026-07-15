@@ -1,0 +1,287 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactModal from '../components/ContactModal.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "UWS — Встановлення та Ремонт Вікон Київ",
+  "image": "https://uws.com.ua/assets/img/logo.png",
+  "telephone": [
+    "+380660575202",
+    "+380989478772",
+    "+380633664769"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Київ",
+    "addressRegion": "Київська область",
+    "postalCode": "01001",
+    "addressCountry": "UA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.4501,
+    "longitude": 30.5234
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "description": "Професійне встановлення металопластикових вікон, дверей та балконів. Ремонт, регулювання, обслуговування у Києві та області. Гарантія до 5 років.",
+  "url": "https://uws.com.ua/",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.facebook.com/uws.kyiv",
+    "https://www.instagram.com/uws_kyiv"
+  ]
+};
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center" style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+      <div class="container position-relative"></div>
+    </div>
+
+
+
+    <!-- Вступний блок з H1 -->
+    <section id="diagnostics-hero" class="py-5 bg-light">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 text-center">
+            <div class="mb-4">
+              <i class="bi bi-search d-block mx-auto"
+                style="font-size: 3rem; color: var(--color-primary); filter: drop-shadow(0 4px 12px rgba(254,185,0,0.25));"></i>
+            </div>
+            <h1 class="display-5 fw-bold mb-3" style="color: var(--color-default);">
+              Професійна діагностика вікон та дверей у Києві
+            </h1>
+            <p class="lead text-muted mb-0" style="max-width: 760px; margin: 0 auto;">
+              Виявимо приховані проблеми до того, як вони стануть критичними. Безкоштовний виїзд майстра, точний
+              кошторис та рекомендації.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Чому важлива діагностика -->
+    <section id="why-diagnostics" class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="p-4 p-md-5 bg-white shadow-lg rounded-4 position-relative"
+              style="border-left: 5px solid var(--color-primary);">
+              <h2 class="fw-bold mb-4" style="color: var(--color-default);">Чому професійний огляд важливіший, ніж
+                здається</h2>
+              <p class="lead text-muted mb-4">
+                Більшість проблем з вікнами (продування, важкий хід, просідання стулки) не видно неозброєним оком. Наша
+                діагностика дозволяє точно визначити причину та уникнути дорогої заміни всієї конструкції.
+              </p>
+              <div class="row gy-3">
+                <div class="col-md-6">
+                  <ul class="list-unstyled">
+                    <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Виявлення джерел втрати
+                      тепла</li>
+                    <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Аналіз зносу фурнітури
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <ul class="list-unstyled">
+                    <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Перевірка герметичності
+                      склопакетів</li>
+                    <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Тепловізійний контроль (за
+                      запитом)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Що перевіряємо -->
+    <section id="diagnostic-steps" class="section-bg py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header text-center pb-5">
+          <h2 class="fw-bold" style="color: var(--color-default);">Що саме перевіряє наш майстер</h2>
+          <p class="text-muted">Повний технічний чек-лист стану ваших вікон</p>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-moisture" style="font-size: 3.5rem; color: var(--color-primary);"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Герметичність</h4>
+              <p class="text-muted">Перевірка притиску стулки, виявлення щілин та протягів за допомогою спеціальних
+                щупів.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-aspect-ratio" style="font-size: 3.5rem; color: var(--color-primary);"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Геометрія стулки</h4>
+              <p class="text-muted">Перевірка діагоналей, виявлення провисання, яке заважає нормальному закриванню.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-gear-wide-connected" style="font-size: 3.5rem; color: var(--color-primary);"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Стан фурнітури</h4>
+              <p class="text-muted">Огляд запірних механізмів на виробітку, корозію, бруд та знос.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-droplet-half" style="font-size: 3.5rem; color: var(--color-primary);"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Якість ущільнювача</h4>
+              <p class="text-muted">Тест еластичності гуми, виявлення тріщин та деформацій.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-thermometer-half" style="font-size: 3.5rem; color: var(--color-primary);"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Тепловізійний контроль</h4>
+              <p class="text-muted">Пошук містків холоду та дефектів монтажного шва (за запитом).</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-shield-check" style="font-size: 3.5rem; color: var(--color-primary);"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Безпека конструкції</h4>
+              <p class="text-muted">Перевірка кріплення петель, ручок та цілісності зварних швів.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Що отримує клієнт -->
+    <section id="results" class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="text-center mb-5">
+              <h2 class="fw-bold" style="color: var(--color-default);">Що ви отримуєте після діагностики</h2>
+              <p class="text-muted lead">Не просто слова — а конкретний технічний висновок</p>
+            </div>
+
+            <div class="row gy-4">
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-list-check fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h4 class="fw-bold mb-2">Детальний перелік несправностей</h4>
+                    <p class="mb-0 text-muted">Ви точно знатимете, що потребує термінового ремонту, а що може почекати.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-calculator fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h4 class="fw-bold mb-2">Точний кошторис</h4>
+                    <p class="mb-0 text-muted">Розрахунок вартості ремонту на місці. Ціна фіксується та не змінюється.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-info-square fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h4 class="fw-bold mb-2">Рекомендації з догляду</h4>
+                    <p class="mb-0 text-muted">Навчимо правильно регулювати та змащувати вікна самостійно.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-file-earmark-check fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h4 class="fw-bold mb-2">Офіційний висновок</h4>
+                    <p class="mb-0 text-muted">Письмовий акт з фотофіксацією проблем (за бажанням).</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Фінальний CTA -->
+    <section class="py-5">
+      <div class="container" data-aos="zoom-in">
+        <div class="p-5 rounded-4 text-center shadow-lg"
+          style="background: linear-gradient(135deg, #2a3d47 0%, #1a252b 100%); color: white;">
+          <i class="bi bi-search d-block mb-4" style="font-size: 5.5rem; color: var(--color-primary);"></i>
+          <h3 class="mb-4 fw-bold display-6">Потрібна точна діагностика вікон?</h3>
+          <p class="lead mb-5 opacity-90">
+            Не чекайте, поки проблема стане критичною. Замовте професійний огляд вже сьогодні — безкоштовно.
+          </p>
+          <a href="/contact#contact" class="btn btn-warning btn-lg px-5 py-4 fw-bold shadow-lg fs-5">
+            <i class="bi bi-calendar-plus me-2"></i> Записатися на діагностику
+          </a>
+        </div>
+      </div>
+    </section>
+
+  `;
+---
+
+<BaseLayout
+  lang="uk"
+  title={"Професійна діагностика вікон та дверей у Києві | UWS 2026"}
+  description={"Комплексна безкоштовна діагностика вікон Київ: виявлення продувань, перевірка фурнітури, ущільнювача, геометрії стулки. Тепловізійний контроль, точний кошторис, рекомендації. Виклик майстра безкоштовно."}
+  canonicalPath={"/diagnostics"}
+  structuredData={structuredData}
+>
+  <Header lang="uk" activePage="diagnostics" />
+
+  <Fragment set:html={mainHtml} />
+
+  <ContactModal lang="uk" />
+  <Footer lang="uk" />
+</BaseLayout>

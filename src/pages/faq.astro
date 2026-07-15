@@ -1,0 +1,677 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactModal from '../components/ContactModal.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "UWS — Встановлення та Ремонт Вікон Київ",
+  "image": "https://uws.com.ua/assets/img/logo.png",
+  "telephone": [
+    "+380660575202",
+    "+380989478772",
+    "+380633664769"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Київ",
+    "addressRegion": "Київська область",
+    "postalCode": "01001",
+    "addressCountry": "UA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.4501,
+    "longitude": 30.5234
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "description": "Професійний ремонт, регулювання та встановлення металопластикових вікон у Києві. Відповіді на часті питання клієнтів, гарантія до 5 років.",
+  "url": "https://uws.com.ua/faq.html",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.facebook.com/uws.kyiv",
+    "https://www.instagram.com/uws_kyiv"
+  ]
+};
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center" style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+      <div class="container position-relative"></div>
+    </div>
+
+
+
+    <section id="faq" class="faq py-5">
+      <div class="container" data-aos="fade-up">
+
+        <!-- Головний заголовок сторінки H1 -->
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">Питання та відповіді (FAQ) про ремонт, регулювання та встановлення
+            вікон у Києві</h1>
+          <p class="lead text-muted mt-3">Відповіді на найпоширеніші запитання клієнтів UWS. Не знайшли своє питання?
+            Зателефонуйте — майстер проконсультує безкоштовно!</p>
+        </header>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="nav-panel sticky-top" style="top: 100px; z-index: 10;">
+              <div class="bg-white p-4 shadow-sm rounded-4 border-start border-4 border-warning">
+                <h4 class="fw-bold mb-4">Розділи питань</h4>
+                <div class="list-group list-group-flush faq-nav-list" id="faq-nav">
+                  <a href="#cat-1"
+                    class="list-group-item list-group-item-action border-0 d-flex align-items-center py-3 rounded-3 mb-1">
+                    <i class="bi bi-tools text-warning me-3 fs-5"></i>
+                    <span class="fw-medium" style="color: #2a3d47;">Ремонт та сервіс</span>
+                  </a>
+                  <a href="#cat-2"
+                    class="list-group-item list-group-item-action border-0 d-flex align-items-center py-3 rounded-3 mb-1">
+                    <i class="bi bi-moisture text-warning me-3 fs-5"></i>
+                    <span class="fw-medium" style="color: #2a3d47;">Конденсат та холод</span>
+                  </a>
+                  <a href="#cat-3"
+                    class="list-group-item list-group-item-action border-0 d-flex align-items-center py-3 rounded-3 mb-1">
+                    <i class="bi bi-shield-check text-warning me-3 fs-5"></i>
+                    <span class="fw-medium" style="color: #2a3d47;">Фурнітура та замки</span>
+                  </a>
+                  <a href="#cat-4"
+                    class="list-group-item list-group-item-action border-0 d-flex align-items-center py-3 rounded-3 mb-1">
+                    <i class="bi bi-window-split text-warning me-3 fs-5"></i>
+                    <span class="fw-medium" style="color: #2a3d47;">Склопакети та сітки</span>
+                  </a>
+                  <a href="#cat-5"
+                    class="list-group-item list-group-item-action border-0 d-flex align-items-center py-3 rounded-3 mb-1">
+                    <i class="bi bi-wallet2 text-warning me-3 fs-5"></i>
+                    <span class="fw-medium" style="color: #2a3d47;">Оплата та єВідновлення</span>
+                  </a>
+                  <a href="#cat-6"
+                    class="list-group-item list-group-item-action border-0 d-flex align-items-center py-3 rounded-3 mb-1">
+                    <i class="bi bi-house-gear text-warning me-3 fs-5"></i>
+                    <span class="fw-medium" style="color: #2a3d47;">Експлуатація та догляд</span>
+                  </a>
+                </div>
+                <div class="mt-4 p-3 rounded-4 border shadow-sm" style="background-color: #f8f9fa;">
+                  <p class="small fw-bold mb-3 text-center" style="color: #2a3d47;">Потрібна консультація?</p>
+
+                  <div class="d-flex flex-column gap-2">
+                    <div class="d-flex gap-2">
+                      <a href="https://t.me/+380730705280" class="btn btn-sm text-white flex-fill fw-bold py-2"
+                        style="background-color: #0088cc; border-radius: 8px;">
+                        <i class="bi bi-telegram"></i> Telegram
+                      </a>
+                      <a href="viber://chat?number=%2B380730705280" class="btn btn-sm text-white flex-fill fw-bold py-2"
+                        style="background-color: #7360f2; border-radius: 8px;">
+                        <i class="bi bi-chat-dots"></i> Viber
+                      </a>
+                    </div>
+                    <a href="tel:+380660575202" class="btn btn-sm btn-warning fw-bold py-2 text-dark"
+                      style="border-radius: 8px;">
+                      <i class="bi bi-telephone-outbound me-1"></i> Зателефонувати майстру
+                    </a>
+
+                    <hr class="my-2 opacity-10">
+
+                    <a href="/contact#contact" class="btn btn-outline-dark btn-sm fw-bold py-2"
+                      style="border-radius: 8px;">
+                      Всі контакти
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <div class="accordion accordion-flush" id="faqlist">
+
+              <div id="cat-1" class="pt-2 mb-5">
+                <h2 class="fw-bold mb-4 h4"><i class="bi bi-tools text-warning me-2"></i> Ремонт та сервіс</h2>
+                <div class="faq-group">
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q1">Чи виїжджаєте ви за межі Києва?</button>
+                    </h3>
+                    <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Так, ми працюємо по Києву та всій Київській області (Буча,
+                        Ірпінь, Бровари, Бориспіль тощо).</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q2">Скільки коштує виклик майстра?</button>
+                    </h3>
+                    <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Виїзд майстра з діагностикою коштує 200-300 грн, але при
+                        виконанні ремонту ця сума зазвичай входить у вартість робіт.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q3">Ви ремонтуєте дерев'яні вікна?</button>
+                    </h3>
+                    <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Ми спеціалізуємося на металопластикових, алюмінієвих та
+                        сучасних дерев'яних євровікнах зі склопакетами. Старі радянські вікна не обслуговуємо.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q4">Як швидко приїде майстер?</button>
+                    </h3>
+                    <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">В середньому виїзд здійснюється протягом дня або на
+                        наступний день після заявки.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q5">Чи можна зробити ремонт в день звернення?</button>
+                    </h3>
+                    <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Прості роботи (регулювання, заміна ручки) виконуються
+                        одразу. Заміна склопакета або ущільнювача потребує виготовлення або підбору матеріалу.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q6">Чи ремонтуєте ви розсувні системи?</button>
+                    </h3>
+                    <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Так, ми обслуговуємо похило-зсувні (PSK) та підйомно-зсувні
+                        (HS) системи.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q7">Які інструменти використовує майстер?</button>
+                    </h3>
+                    <div id="q7" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Використовуємо професійні набори ключів, лазерні рівні та
+                        за потреби тепловізор.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="cat-2" class="pt-2 mb-5">
+                <h2 class="fw-bold mb-4 h4"><i class="bi bi-moisture text-warning me-2"></i> Конденсат та холод</h2>
+                <div class="faq-group">
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q8">Чому вікна пітніють зсередини?</button>
+                    </h3>
+                    <div id="q8" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Через високу вологість та погану вентиляцію. Також причиною
+                        може бути слабкий однокамерний склопакет.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q9">З вікна дує з боку петель, що робити?</button>
+                    </h3>
+                    <div id="q9" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Потрібно відрегулювати притиск середнього замка або
+                        перевірити цілісність ущільнювача біля петлі.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q10">Чи допомагає енергозберігаюча плівка?</button>
+                    </h3>
+                    <div id="q10" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Це тимчасове рішення. Краще замінити склопакет на
+                        енергоефективний з аргоном та i-напиленням.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q11">Що таке місток холоду?</button>
+                    </h3>
+                    <div id="q11" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Це ділянка (зазвичай відкос або підвіконня), через яку йде
+                        найбільша втрата тепла через погану ізоляцію монтажного шва.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q12">Чому на підвіконні з'являється лід?</button>
+                    </h3>
+                    <div id="q12" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Це критичне промерзання через сильний протяг або
+                        відсутність герметизації під відливом.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q13">Як прибрати плісняву на відкосах?</button>
+                    </h3>
+                    <div id="q13" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Потрібно усунути причину промерзання, обробити антисептиком
+                        та перевірити роботу витяжки.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q14">Чи можна утеплити вже встановлене вікно?</button>
+                    </h3>
+                    <div id="q14" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Так, через заміну склопакета на двокамерний та заміну
+                        ущільнювача на більш товстий/якісний.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="cat-3" class="pt-2 mb-5">
+                <h2 class="fw-bold mb-4 h4"><i class="bi bi-shield-check text-warning me-2"></i> Фурнітура та замки</h2>
+                <div class="faq-group">
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q15">Ручка вікна прокручується на 360 градусів, що це?</button>
+                    </h3>
+                    <div id="q15" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Зламався основний запор (редуктор). Потрібна його заміна.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q16">Вікно відкрилося одночасно у двох режимах, що робити?</button>
+                    </h3>
+                    <div id="q16" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Притисніть стулку до рами, натисніть блокіратор на
+                        фурнітурі та поверніть ручку в горизонтальне положення.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q17">Чи можна встановити замок від дітей?</button>
+                    </h3>
+                    <div id="q17" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Так, є ручки з ключем або спеціальні блокіратори (дитячі
+                        замки) на нижню частину стулки.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q18">Як часто потрібно міняти ручки?</button>
+                    </h3>
+                    <div id="q18" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Ручки міняються тільки при механічній поломці або якщо ви
+                        хочете змінити колір/дизайн.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q19">Що таке протизламна фурнітура?</button>
+                    </h3>
+                    <div id="q19" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Це фурнітура з грибоподібними цапфами, які неможливо
+                        віджати ломом зовні.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q20">Чи можна змінити звичайне відкривання на похило-поворотне?</button>
+                    </h3>
+                    <div id="q20" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Так, шляхом доукомплектування фурнітури механізмом ножиць.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q21">Ручка закривається дуже туго, це нормально?</button>
+                    </h3>
+                    <div id="q21" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Ні, це ознака того, що фурнітура потребує змащування або
+                        вікно просіло і чіпляє раму.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="cat-4" class="pt-2 mb-5">
+                <h2 class="fw-bold mb-4 h4"><i class="bi bi-window-split text-warning me-2"></i> Склопакети та сітки
+                </h2>
+                <div class="faq-group">
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q22">Чи можна поміняти склопакет без заміни вікна?</button>
+                    </h3>
+                    <div id="q22" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Так, це займає 15-20 хвилин. Старий виймається, новий
+                        ставиться.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q23">Склопакет тріснув сам по собі, чому?</button>
+                    </h3>
+                    <div id="q23" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Найімовірніше — термошок (різкий перепад температур) або
+                        перекіс рами під час усадки будинку.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q24">Що краще: двокамерний чи енергозберігаючий пакет?</button>
+                    </h3>
+                    <div id="q24" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Найкраще — двокамерний з енергозберігаючим напиленням. Це
+                        "золотий стандарт" для України.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q25">Чим відрізняється сітка «Антикішка»?</button>
+                    </h3>
+                    <div id="q25" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Вона має металеве або надміцне синтетичне полотно, яке
+                        тварина не зможе розірвати кігтями.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q26">Чи робите ви сітки на магнітах?</button>
+                    </h3>
+                    <div id="q26" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Ми робимо рамкові, дверні (на петлях) та ролетні сітки.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q27">Чи можна замовити тонований склопакет?</button>
+                    </h3>
+                    <div id="q27" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Так, ми пропонуємо склопакети з дзеркальним або кольоровим
+                        тонуванням.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q28">Склопакет пітніє ВСЕРЕДИНІ (між склом), що це?</button>
+                    </h3>
+                    <div id="q28" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Це розгерметизація. Такий склопакет не підлягає ремонту,
+                        тільки заміні.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="cat-5" class="pt-2 mb-5">
+                <h2 class="fw-bold mb-4 h4"><i class="bi bi-wallet2 text-warning me-2"></i> Оплата та єВідновлення</h2>
+                <div class="faq-group">
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q29">Які форми оплати ви приймаєте?</button>
+                    </h3>
+                    <div id="q29" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Готівка, переказ на карту, безготівковий розрахунок (для
+                        юр. осіб) та оплата карткою єВідновлення.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q30">Чи потрібна передоплата?</button>
+                    </h3>
+                    <div id="q30" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Для регулювання — ні. Для замовлення склопакетів або нових
+                        вікон — зазвичай 50-70%.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q31">Як знайти вас у програмі єВідновлення?</button>
+                    </h3>
+                    <div id="q31" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Наш менеджер надасть вам всі необхідні реквізити для
+                        проведення оплати через додаток Дія або банк.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q32">Чи видаєте ви чеки?</button>
+                    </h3>
+                    <div id="q32" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Так, ми надаємо договір та акти виконаних робіт, які
+                        підтверджують факт оплати.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q33">Чи є знижки для пенсіонерів?</button>
+                    </h3>
+                    <div id="q33" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Так, у нас діє постійна знижка 10% для пенсіонерів та ВПО.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q34">Чи працюєте ви за договором?</button>
+                    </h3>
+                    <div id="q34" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Так, на всі великі роботи (заміна склопакетів, вікон)
+                        укладається офіційний договір.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q35">Чи можна платити частинами?</button>
+                    </h3>
+                    <div id="q35" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Обговорюється індивідуально для великих об'єктів.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="cat-6" class="pt-2 mb-5">
+                <h2 class="fw-bold mb-4 h4"><i class="bi bi-house-gear text-warning me-2"></i> Експлуатація та догляд
+                </h2>
+                <div class="faq-group">
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q36">Чим мити пластикові профілі?</button>
+                    </h3>
+                    <div id="q36" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Звичайним мильним розчином. Уникайте агресивних розчинників
+                        та абразивних порошків.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q37">Як перевести вікна в "зимовий режим"?</button>
+                    </h3>
+                    <div id="q37" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Потрібно повернути цапфи на торці стулки позначкою в бік
+                        приміщення. Але краще викликати майстра, щоб не пережати ущільнювач.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q38">Як прибрати жовтизну з пластику?</button>
+                    </h3>
+                    <div id="q38" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Якщо профіль пожовтів від сонця (дешевий пластик), прибрати
+                        це майже неможливо. Якщо це бруд — допоможуть професійні очисники (наприклад, Cosmofen).</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q39">Чи можна фарбувати пластикові вікна?</button>
+                    </h3>
+                    <div id="q39" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Так, спеціальними фарбами для ПВХ, але це потребує
+                        професійного обладнання.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q40">Навіщо потрібні отвори на зовнішній стороні рами?</button>
+                    </h3>
+                    <div id="q40" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Це дренажні отвори для відведення води, яка може потрапити
+                        всередину профілю.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q41">Чому вікна скриплять при відкриванні?</button>
+                    </h3>
+                    <div id="q41" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Бруд у петлях або відсутність мастила. Потрібне чищення та
+                        сервіс.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                    <h3 class="accordion-header">
+                      <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#q42">Чи можна ставити кондиціонер, якщо вікно не відкривається?</button>
+                    </h3>
+                    <div id="q42" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                      <div class="accordion-body text-muted">Краще переробити глуху частину стулки на відкривну перед
+                        монтажем кондиціонера.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact py-0 pb-5" data-aos="fade-up">
+      <div class="container">
+        <div class="p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+          style="background: linear-gradient(135deg, #2a3d47 0%, #1a252b 100%); border: 1px solid rgba(254, 185, 0, 0.3);">
+
+          <div class="position-absolute"
+            style="top: -50px; right: -50px; width: 150px; height: 150px; background: #feb900; opacity: 0.05; border-radius: 50%;">
+          </div>
+
+          <div class="position-relative">
+            <div class="mb-4">
+              <i class="bi bi-patch-question text-warning" style="font-size: 3.5rem;"></i>
+            </div>
+
+            <h3 class="text-white mb-3" style="font-weight: 700; font-size: 2rem;">
+              Вашої проблеми немає у списку?
+            </h3>
+
+            <div class="row justify-content-center mb-4">
+              <div class="col-lg-8">
+                <p class="text-white-50" style="font-size: 1.1rem; line-height: 1.6;">
+                  Кожен випадок індивідуальний. Опишіть вашу ситуацію або <span class="text-white">надішліть фото/відео
+                    поломки</span> у месенджери. Майстер безкоштовно проаналізує проблему та назве орієнтовну вартість
+                  ремонту.
+                </p>
+              </div>
+            </div>
+
+            <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+              <a href="/contact#contact"
+                class="btn btn-warning px-5 py-3 fw-bold shadow text-dark d-inline-flex align-items-center justify-content-center">
+                <i class="bi bi-chat-left-text-fill me-2"></i> Отримати консультацію
+              </a>
+
+              <a href="viber://chat?number=%2B380730705280"
+                class="btn btn-outline-light px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+                <i class="bi bi-chat-dots text-warning me-2"></i> Запитати у Viber
+              </a>
+            </div>
+
+            <div class="mt-4 d-flex align-items-center justify-content-center flex-wrap gap-4">
+              <div class="d-flex align-items-center text-white-50 small">
+                <i class="bi bi-lightning-charge-fill me-2 text-warning"></i> Відповідь за 5-10 хв
+              </div>
+              <div class="d-flex align-items-center text-white-50 small">
+                <i class="bi bi-camera-fill me-2 text-warning"></i> Оцінка по фото
+              </div>
+              <div class="d-flex align-items-center text-white-50 small">
+                <i class="bi bi-person-check-fill me-2 text-warning"></i> Поради експерта
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  `;
+---
+
+<BaseLayout
+  lang="uk"
+  title={"Питання-Відповіді (FAQ) | Ремонт та Встановлення Вікон Київ — UWS"}
+  description={"Найпоширеніші питання про ремонт вікон у Києві: регулювання, заміна фурнітури, конденсат, єВідновлення, гарантія. Відповіді від майстрів UWS. Безкоштовна консультація за телефоном."}
+  canonicalPath={"/faq"}
+  structuredData={structuredData}
+>
+  <Header lang="uk" activePage="faq" />
+
+  <Fragment set:html={mainHtml} />
+
+  <ContactModal lang="uk" />
+  <Footer lang="uk" />
+</BaseLayout>

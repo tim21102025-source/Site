@@ -1,0 +1,245 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "UWS — Установка и Ремонт Окон Киев",
+  "image": "https://uws.com.ua/assets/img/logo.png",
+  "telephone": [
+    "+380660575202",
+    "+380989478772",
+    "+380633664769"
+  ],
+  "email": "uws.kyiv@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Киев",
+    "addressRegion": "Киевская область",
+    "postalCode": "01001",
+    "addressCountry": "UA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.4501,
+    "longitude": 30.5234
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "19:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "10:00",
+      "closes": "17:00"
+    }
+  ],
+  "description": "Контакты UWS: телефоны, мессенджеры, форма заявки. Бесплатная консультация и выезд мастера по Киеву.",
+  "url": "https://uws.com.ua/ru/contact",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.facebook.com/uws.kyiv",
+    "https://www.instagram.com/uws_kyiv"
+  ]
+};
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center"
+    style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+    <div class="container position-relative">
+    </div>
+  </div>
+
+  <main id="main">
+
+    <section class="contact section-bg py-5">
+      <div class="container" data-aos="fade-up">
+
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">Контакты UWS — Ремонт и Установка Окон Киев</h1>
+          <p class="lead text-muted mt-3">Позвоните или оставьте заявку — мастер свяжется с вами в течение 15 минут. Бесплатная консультация и выезд по Киеву.</p>
+        </header>
+
+        <div class="row justify-content-center gy-5">
+
+          <div id="contact" class="col-lg-5">
+            <div id="contact2"
+              class="info-container d-flex flex-column gap-4 h-100 p-4 p-md-5 bg-white shadow-sm rounded-4">
+
+              <div class="contact-info-item d-flex">
+                <div
+                  class="icon-box flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle text-warning"
+                  style="width: 50px; height: 50px; background: rgba(254, 185, 0, 0.1);">
+                  <i class="bi bi-telephone-outbound" style="font-size: 1.5rem;"></i>
+                </div>
+                <div class="ms-3">
+                  <h4 class="fw-bold mb-2" style="color: #1a252b;">Наши телефоны</h4>
+                  <div class="d-flex flex-column gap-1">
+                    <a href="tel:+380660575202" class="contact-link">(066) 057-52-02 <span
+                        class="operator-tag vodafone-bg">Vodafone</span></a>
+                    <a href="tel:+380989478772" class="contact-link">(098) 947-87-72 <span
+                        class="operator-tag kyivstar-bg">Kyivstar</span></a>
+                    <a href="tel:+380633664769" class="contact-link">(063) 366-47-69 <span
+                        class="operator-tag lifecell-bg">Lifecell</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-info-item d-flex">
+                <div
+                  class="icon-box flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle text-success"
+                  style="width: 50px; height: 50px; background: rgba(25, 135, 84, 0.1);">
+                  <i class="bi bi-chat-dots" style="font-size: 1.5rem;"></i>
+                </div>
+                <div class="ms-3">
+                  <h4 class="fw-bold mb-2" style="color: #1a252b;">Мессенджеры (фото/видео)</h4>
+                  <p class="text-muted small mb-2">Напишите нам для быстрой оценки стоимости по фото:</p>
+                  <div class="d-flex flex-wrap gap-2">
+                    <a href="viber://chat?number=%2B380730705280" class="btn btn-viber btn-sm rounded-pill px-3"><i
+                        class="bi bi-chat-left-text me-1"></i> Viber</a>
+                    <a href="https://t.me/+380730705280" target="_blank"
+                      class="btn btn-telegram btn-sm rounded-pill px-3"><i class="bi bi-send me-1"></i> Telegram</a>
+                    <a href="https://wa.me/380730705280" target="_blank"
+                      class="btn btn-whatsapp btn-sm rounded-pill px-3"><i class="bi bi-whatsapp me-1"></i> WhatsApp</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row gy-4">
+                <div class="col-12">
+                  <div class="contact-info-item d-flex">
+                    <div
+                      class="icon-box flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle text-warning"
+                      style="width: 50px; height: 50px; background: rgba(254, 185, 0, 0.1);">
+                      <i class="bi bi-envelope" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h4 class="fw-bold mb-1" style="color: #1a252b;">Email</h4>
+                      <a href="mailto:uws.kyiv@gmail.com" class="contact-link">uws.kyiv@gmail.com</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="contact-info-item d-flex">
+                    <div
+                      class="icon-box flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle text-warning"
+                      style="width: 50px; height: 50px; background: rgba(254, 185, 0, 0.1);">
+                      <i class="bi bi-clock" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h4 class="fw-bold mb-1" style="color: #1a252b;">График работы</h4>
+                      <p class="mb-0 text-muted">Пн-Пт: 09:00 - 19:00<br>Сб-Вс: 10:00 - 17:00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="form-wrapper bg-white shadow-sm rounded-4 p-4 p-md-5">
+              <h3 class="fw-bold mb-3" style="color: #1a252b;">Быстрая заявка</h3>
+              <p class="text-muted mb-4">Опишите проблему, и мы перезвоним вам для консультации в течение 15 минут.</p>
+
+              <form action="" method="post" class="telegram-form shadow-lg p-4 p-md-5 rounded-4 bg-white">
+                <div class="row">
+                  <div class="col-md-6 form-group mb-3">
+                    <label for="name" class="form-label small fw-bold">Ваше имя</label>
+                    <input type="text" name="name" class="form-control muted-placeholder rounded-3 py-2" id="name"
+                      placeholder="Александр" required
+                      oninvalid="this.setCustomValidity('Пожалуйста, введите ваше имя')"
+                      oninput="this.setCustomValidity('')">
+                  </div>
+                  <div class="col-md-6 form-group mb-3">
+                    <label for="phone" class="form-label small fw-bold">Номер телефона</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light border-end-0 rounded-start-3">+38</span>
+                      <input type="tel" class="form-control muted-placeholder border-start-0 rounded-end-3 py-2"
+                        name="phone" id="phone" placeholder="0661234567" pattern="[0-9]{10}" required
+                        oninvalid="this.setCustomValidity('Введите 10 цифр номера (например: 0661234567)')"
+                        oninput="this.setCustomValidity('')">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group mb-4">
+                  <label for="message" class="form-label small fw-bold">Описание проблемы</label>
+                  <textarea class="form-control muted-placeholder rounded-3" name="message" rows="4"
+                    placeholder="Например: замена уплотнителя и регулировка окна." required
+                    oninvalid="this.setCustomValidity('Пожалуйста, кратко опишите, что нужно сделать')"
+                    oninput="this.setCustomValidity('')"></textarea>
+                </div>
+
+                <div class="form-group mb-3">
+                  <div class="d-flex align-items-center mb-2">
+                    <label class="form-label small fw-bold mb-0">Фото или видео проблемы</label>
+                    <span class="ms-2 small opacity-50" style="font-size: 0.75rem;">(можно выбрать несколько)</span>
+                  </div>
+
+                  <input type="file" id="files" class="d-none" accept="image/*,video/*" multiple>
+
+                  <button type="button"
+                    class="btn btn-outline-secondary w-100 py-2 d-flex align-items-center justify-content-center"
+                    onclick="document.getElementById('files').click()" style="border-style: dashed;">
+                    <i class="bi bi-camera me-2 fs-5"></i>
+                    <span>Добавить медиафайлы</span>
+                  </button>
+
+                  <div id="file-preview" class="d-flex flex-wrap gap-2 mt-2"></div>
+                </div>
+
+                <div class="my-3">
+                  <div class="loading text-center" style="display: none;">Отправляем...</div>
+
+                  <div class="sent-message p-3 rounded-3 text-center"
+                    style="background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; display: none;">
+                    <i class="bi bi-check-circle-fill me-2"></i>
+                    <strong>Спасибо!</strong> Ваша заявка получена. Мастер перезвонит вам в ближайшее время.
+                  </div>
+                </div>
+                <input type="text" name="hp_field" style="display:none !important" tabindex="-1" autocomplete="off">
+                <button type="submit" id="submit-btn"
+                  class="btn btn-warning w-100 py-3 rounded-pill fw-bold text-uppercase shadow-sm">
+                  Заказать бесплатную консультацию
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>`;
+---
+
+<BaseLayout
+  lang="ru"
+  title={"Контакты UWS Киев | Ремонт и Установка Окон"}
+  description={"Свяжитесь с UWS: телефоны, мессенджеры, форма заявки. Бесплатная консультация и выезд мастера по Киеву. Ремонт окон, балконы, єВідновлення."}
+  canonicalPath={"/ru/contact"}
+  structuredData={structuredData}
+>
+  <Header lang="ru" activePage="contact" />
+
+  <Fragment set:html={mainHtml} />
+
+  <ContactModal lang="ru" />
+  <Footer lang="ru" />
+</BaseLayout>

@@ -1,0 +1,401 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "UWS — Установка и Ремонт Окон Киев",
+  "image": "https://uws.com.ua/assets/img/logo.png",
+  "telephone": [
+    "+380660575202",
+    "+380989478772",
+    "+380633664769"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Киев",
+    "addressRegion": "Киевская область",
+    "postalCode": "01001",
+    "addressCountry": "UA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.4501,
+    "longitude": 30.5234
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "description": "Актуальные цены на ремонт, регулировку, установку окон и дверей в Киеве на 2026 год. Прозрачный прайс, гарантия, работа с программой єВідновлення.",
+  "url": "https://uws.com.ua/ru/price",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.facebook.com/uws.kyiv",
+    "https://www.instagram.com/uws_kyiv"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Прайс-лист услуг UWS 2026",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Регулировка створки окна"
+        },
+        "price": "300",
+        "priceCurrency": "UAH"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Замена двухкамерного стеклопакета"
+        },
+        "price": "2600",
+        "priceCurrency": "UAH",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "unitText": "м²"
+        }
+      }
+    ]
+  }
+};
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center"
+    style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+    <div class="container position-relative">
+    </div>
+  </div>
+
+  <main id="main">
+
+    <section id="pricing" class="pricing py-5">
+      <div class="container" data-aos="fade-up">
+
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">Прайс-лист на ремонт и установку окон в Киеве 2026</h1>
+          <p class="lead text-muted mt-3">Актуальные цены UWS без скрытых доплат. Бесплатный выезд мастера для
+            точного замера при заключении договора.</p>
+        </header>
+
+        <div class="row gy-5">
+
+          <div class="col-12" data-aos="fade-up" data-aos-delay="100">
+            <div class="pricing-item featured pb-4 shadow-sm rounded-4">
+              <h2 class="h4 fw-bold text-start ps-4 pt-3"><i class="bi bi-window-plus text-warning me-2"></i>
+                Установка окон и дверей</h2>
+              <div class="table-responsive p-4">
+                <table class="table table-hover align-middle">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col">Услуга</th>
+                      <th scope="col" class="text-end">Цена (от)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Монтаж ПВХ окна (стандартный)</td>
+                      <td class="text-end fw-bold">750 грн/м²</td>
+                    </tr>
+                    <tr>
+                      <td>Монтаж входных дверей (металлические/ПВХ)</td>
+                      <td class="text-end fw-bold">2800 грн/шт</td>
+                    </tr>
+                    <tr>
+                      <td>Демонтаж старых конструкций</td>
+                      <td class="text-end fw-bold">250 грн/м²</td>
+                    </tr>
+                    <tr>
+                      <td>Установка подоконника</td>
+                      <td class="text-end fw-bold">300 грн/м.п.</td>
+                    </tr>
+                    <tr>
+                      <td>Установка отливов / козырьков</td>
+                      <td class="text-end fw-bold">200 грн/м.п.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12" data-aos="fade-up" data-aos-delay="200">
+            <div class="pricing-item featured pb-4 shadow-sm rounded-4">
+              <h2 class="h4 fw-bold text-start ps-4 pt-3"><i class="bi bi-tools text-warning me-2"></i> Ремонт и
+                обслуживание окон</h2>
+              <div class="table-responsive p-4">
+                <table class="table table-hover align-middle">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col">Услуга</th>
+                      <th scope="col" class="text-end">Цена (от)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Техническое обслуживание (смазка + чистка)</td>
+                      <td class="text-end fw-bold">250 грн/створка</td>
+                    </tr>
+                    <tr>
+                      <td>Регулировка створки окна / дверей</td>
+                      <td class="text-end fw-bold">300 грн/шт</td>
+                    </tr>
+                    <tr>
+                      <td>Замена уплотнителя (Германия, силикон)</td>
+                      <td class="text-end fw-bold">120 грн/м.п.</td>
+                    </tr>
+                    <tr>
+                      <td>Замена фурнитуры (полный комплект)</td>
+                      <td class="text-end fw-bold">2200 грн/шт</td>
+                    </tr>
+                    <tr>
+                      <td>Замена оконной ручки (Hoope/стандарт)</td>
+                      <td class="text-end fw-bold">350 грн/шт</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12" data-aos="fade-up" data-aos-delay="300">
+            <div class="pricing-item featured pb-4 shadow-sm rounded-4">
+              <h2 class="h4 fw-bold text-start ps-4 pt-3"><i class="bi bi-building text-warning me-2"></i> Остекление
+                балконов и лоджий под ключ</h2>
+              <div class="table-responsive p-4">
+                <table class="table table-hover align-middle">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col">Услуга</th>
+                      <th scope="col" class="text-end">Цена (от)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Остекление балкона (профиль 60-70мм)</td>
+                      <td class="text-end fw-bold">4200 грн/м²</td>
+                    </tr>
+                    <tr>
+                      <td>Сварка выноса (расширение по подоконнику)</td>
+                      <td class="text-end fw-bold">1800 грн/м.п.</td>
+                    </tr>
+                    <tr>
+                      <td>Внешняя обшивка сайдингом / профнастилом</td>
+                      <td class="text-end fw-bold">850 грн/м²</td>
+                    </tr>
+                    <tr>
+                      <td>Внутреннее утепление (стеродур/минвата)</td>
+                      <td class="text-end fw-bold">400 грн/м²</td>
+                    </tr>
+                    <tr>
+                      <td>Внутренняя отделка (вагонка/гипсокартон)</td>
+                      <td class="text-end fw-bold">650 грн/м²</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12" data-aos="fade-up" data-aos-delay="400">
+            <div class="pricing-item featured pb-4 shadow-sm rounded-4">
+              <h2 class="h4 fw-bold text-start ps-4 pt-3"><i class="bi bi-grid-3x3 text-warning me-2"></i> Москитные
+                сетки</h2>
+              <div class="table-responsive p-4">
+                <table class="table table-hover align-middle">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col">Услуга</th>
+                      <th scope="col" class="text-end">Цена (от)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Рамочная сетка (белая/коричневая) Anwis</td>
+                      <td class="text-end fw-bold">450 грн/шт</td>
+                    </tr>
+                    <tr>
+                      <td>Сетка "Антикошка" (усиленное полотно)</td>
+                      <td class="text-end fw-bold">1200 грн/шт</td>
+                    </tr>
+                    <tr>
+                      <td>Сетка на двери (на петлях)</td>
+                      <td class="text-end fw-bold">1600 грн/шт</td>
+                    </tr>
+                    <tr>
+                      <td>Сетка "Антипыль" (Micro-mesh)</td>
+                      <td class="text-end fw-bold">950 грн/шт</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12" data-aos="fade-up" data-aos-delay="500">
+            <div class="pricing-item featured pb-4 shadow-sm rounded-4">
+              <h2 class="h4 fw-bold text-start ps-4 pt-3"><i class="bi bi-layers text-warning me-2"></i> Замена
+                стеклопакетов</h2>
+              <div class="table-responsive p-4">
+                <table class="table table-hover align-middle">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col">Услуга</th>
+                      <th scope="col" class="text-end">Цена (от)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Однокамерный стеклопакет (24мм)</td>
+                      <td class="text-end fw-bold">1900 грн/м²</td>
+                    </tr>
+                    <tr>
+                      <td>Двухкамерный энергосберегающий (Low-E + Argon)</td>
+                      <td class="text-end fw-bold">2600 грн/м²</td>
+                    </tr>
+                    <tr>
+                      <td>Стеклопакет с мультифункциональным стеклом (Solar)</td>
+                      <td class="text-end fw-bold">3100 грн/м²</td>
+                    </tr>
+                    <tr>
+                      <td>Срочная замена (замер + доставка + монтаж)</td>
+                      <td class="text-end fw-bold">800 грн</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12" data-aos="fade-up" data-aos-delay="600">
+            <div class="pricing-item featured pb-4 shadow-sm rounded-4">
+              <h2 class="h4 fw-bold text-start ps-4 pt-3"><i class="bi bi-door-closed text-warning me-2"></i> Доводчики
+                для дверей</h2>
+              <div class="table-responsive p-4">
+                <table class="table table-hover align-middle">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col">Услуга</th>
+                      <th scope="col" class="text-end">Цена (от)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Установка доводчика (работа)</td>
+                      <td class="text-end fw-bold">650 грн/шт</td>
+                    </tr>
+                    <tr>
+                      <td>Доводчик Dorma / Geze (до 80 кг) с монтажом</td>
+                      <td class="text-end fw-bold">2400 грн/шт</td>
+                    </tr>
+                    <tr>
+                      <td>Доводчик для тяжёлых дверей (до 120 кг) с монтажом</td>
+                      <td class="text-end fw-bold">3800 грн/шт</td>
+                    </tr>
+                    <tr>
+                      <td>Регулировка и сервис доводчика</td>
+                      <td class="text-end fw-bold">400 грн/шт</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="mt-5 info-box text-center p-4 shadow-sm rounded-4" style="background-color: #f8f9fa;">
+                <h4 class="fw-bold text-primary"><i class="bi bi-info-circle-fill me-2"></i> Важные примечания к прайсу
+                  2026:</h4>
+                <p class="mb-0 lead">Минимальный заказ по Киеву — <strong>500 грн</strong>. Выезд мастера для замера
+                  при заключении договора — <strong>бесплатный</strong>. Работаем официально с НДС и по программе
+                  <strong>єВідновлення</strong>.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="contact py-0 pb-5 text-white" data-aos="fade-up">
+      <div class="container">
+        <div class="p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+          style="background: linear-gradient(135deg, #2a3d47 0%, #1a252b 100%); border: 1px solid rgba(254, 185, 0, 0.3);">
+
+          <div class="position-absolute"
+            style="top: -50px; right: -50px; width: 150px; height: 150px; background: #feb900; opacity: 0.05; border-radius: 50%;">
+          </div>
+
+          <div class="position-relative">
+            <div class="mb-4">
+              <i class="bi bi-calculator-fill text-warning" style="font-size: 3rem;"></i>
+            </div>
+
+            <h3 class="mb-3" style="font-weight: 700; font-size: 2rem;">
+              Нужна точная смета вашего проекта?
+            </h3>
+
+            <div class="row justify-content-center mb-4">
+              <div class="col-lg-8">
+                <p class="text-white-50" style="font-size: 1.1rem;">
+                  Цены в прайсе являются ориентировочными. Закажите <span class="text-white">бесплатный профессиональный замер</span>,
+                  чтобы получить фиксированную стоимость, которая не изменится во время выполнения работ.
+                </p>
+              </div>
+            </div>
+
+            <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+              <a href="contact.html#contact"
+                class="btn btn-warning px-5 py-3 fw-bold shadow text-dark d-inline-flex align-items-center justify-content-center">
+                <i class="bi bi-file-earmark-spreadsheet me-2"></i> Получить точный расчёт
+              </a>
+              <a href="contact.html#contact"
+                class="btn btn-outline-light px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+                <i class="bi bi-telegram text-warning me-2"></i> Прислать фото для оценки
+              </a>
+            </div>
+
+            <div class="mt-4 d-flex align-items-center justify-content-center flex-wrap gap-4">
+              <div class="d-flex align-items-center text-white-50 small"><i
+                  class="bi bi-check2-circle me-2 text-warning"></i> Прозрачные цены</div>
+              <div class="d-flex align-items-center text-white-50 small"><i
+                  class="bi bi-check2-circle me-2 text-warning"></i> Без скрытых платежей</div>
+              <div class="d-flex align-items-center text-white-50 small"><i
+                  class="bi bi-check2-circle me-2 text-warning"></i> Официальный договор</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>`;
+---
+
+<BaseLayout
+  lang="ru"
+  title={"Цены на Ремонт и Установку Окон Киев 2026 | Прайс-лист UWS"}
+  description={"Актуальный прайс-лист UWS на 2026 год: ремонт окон от 300 грн, установка от 750 грн/м², остекление балконов, москитные сетки, замена стеклопакетов. Бесплатный замер, работа с єВідновлення."}
+  canonicalPath={"/ru/price"}
+  structuredData={structuredData}
+>
+  <Header lang="ru" activePage="price" />
+
+  <Fragment set:html={mainHtml} />
+
+  <ContactModal lang="ru" />
+  <Footer lang="ru" />
+</BaseLayout>

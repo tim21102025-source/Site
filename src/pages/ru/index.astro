@@ -1,0 +1,1107 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "UWS — Установка и Ремонт Окон Киев",
+  "image": "https://uws.com.ua/assets/img/logo.png",
+  "telephone": [
+    "+380660575202",
+    "+380989478772",
+    "+380633664769"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Киев",
+    "addressRegion": "Киевская область",
+    "postalCode": "01001",
+    "addressCountry": "UA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.4501,
+    "longitude": 30.5234
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "description": "Профессиональная установка металлопластиковых окон, дверей и балконов. Ремонт, регулировка, обслуживание в Киеве и области. Гарантия до 5 лет.",
+  "url": "https://uws.com.ua/ru/",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.facebook.com/uws.kyiv",
+    "https://www.instagram.com/uws_kyiv"
+  ]
+};
+
+const mainHtml = `<!-- Головний блок (Hero) -->
+  <section id="hero" class="hero">
+    <div class="info d-flex align-items-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 text-center">
+            <!-- Єдиний H1 на сторінці – головний комерційний запит + місто -->
+            <h1 data-aos="fade-down">Установка и Ремонт Окон Киев</h1>
+
+            <!-- Підзаголовок H2 – ключові послуги + вигоди -->
+            <h2 data-aos="fade-up">Регулировка пластиковых окон · Замена фурнитуры · Гарантия до 5 лет · Бесплатный
+              выезд</h2>
+
+            <!-- Короткий опис з ключовими словами -->
+            <p data-aos="fade-up">Профессиональная установка металлопластиковых окон, дверей, балконов. Ремонт,
+              устранение сквозняков, замена уплотнителя и стеклопакетов в Киеве и области.</p>
+
+            <!-- Кнопка CTA -->
+            <a data-aos="fade-up" data-aos-delay="200" href="#get-started" class="btn-get-started">Вызвать мастера</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Карусель фонових зображень – без змін -->
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+      <div class="carousel-item active" style="background-image: url(/assets/img/hero-carousel/hero-carousel-1.jpg)">
+      </div>
+      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-2.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-3.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-4.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-5.jpg)"></div>
+
+      <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+      <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+    </div>
+  </section>
+
+  <main id="main">
+
+    <section class="get-started py-5">
+      <div class="container">
+        <div class="row justify-content-between gy-4">
+
+          <!-- Ліва частина: текст та переваги -->
+          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-up">
+            <div class="content ps-lg-4">
+
+              <!-- Єдиний H2 у блоці — головний сенс + ключові слова -->
+              <h2 class="fw-bold mb-4" style="color: #1a252b;">
+                Почему выбирают нас для ремонта и регулировки пластиковых окон в Киеве
+              </h2>
+
+              <p class="mb-4 text-secondary" style="font-size: 1rem;">
+                Не ждите, пока из окна начнет дуть или сломается ручка. Мы возвращаем тепло, тишину и безопасность в ваш
+                дом за один визит, экономя до 40% на отоплении.
+              </p>
+
+              <!-- Переваги — без заголовків H6, з сильним текстом -->
+              <div class="features-mini mb-4">
+                <div class="d-flex align-items-start mb-3">
+                  <div class="icon-box bg-warning-light p-2 rounded-3 me-3">
+                    <i class="bi bi-patch-check-fill text-warning fs-4"></i>
+                  </div>
+                  <div>
+                    <strong class="fw-bold d-block mb-1">Бесплатный выезд и диагностика</strong>
+                    <p class="text-muted mb-0" style="font-size: 0.85rem;">
+                      При заключении договора мастер проведет полный технический осмотр всех окон бесплатно.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start mb-3">
+                  <div class="icon-box bg-warning-light p-2 rounded-3 me-3">
+                    <i class="bi bi-camera-fill text-warning fs-4"></i>
+                  </div>
+                  <div>
+                    <strong class="fw-bold d-block mb-1">Мгновенный расчет стоимости</strong>
+                    <p class="text-muted mb-0" style="font-size: 0.85rem;">
+                      Пришлите фото или видео проблемы — наш эксперт оценит стоимость ремонта за 5 минут.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start mb-3">
+                  <div class="icon-box bg-warning-light p-2 rounded-3 me-3">
+                    <i class="bi bi-shield-lock-fill text-warning fs-4"></i>
+                  </div>
+                  <div>
+                    <strong class="fw-bold d-block mb-1">Гарантия 12 месяцев + официальный договор</strong>
+                    <p class="text-muted mb-0" style="font-size: 0.85rem;">
+                      Используем только оригинальные комплектующие (Германия, Австрия) и предоставляем официальный чек.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Блок месенджерів — H6 замінено на strong -->
+              <div class="p-3 rounded-4 bg-white shadow-sm border-start border-warning border-5 mb-4">
+                <strong class="fw-bold d-block mb-2" style="font-size: 0.95rem;">Получите консультацию прямо
+                  сейчас:</strong>
+                <p class="text-muted mb-3" style="font-size: 0.8rem;">Наши мастера онлайн в удобном мессенджере:</p>
+
+                <div class="d-flex flex-wrap gap-2 messenger-buttons-group">
+                  <a href="viber://chat?number=%2B380730705280"
+                    class="btn text-white px-4 py-2 d-flex align-items-center justify-content-center messenger-btn viber-bg">
+                    <i class="bi bi-chat-dots-fill me-2"></i> Viber
+                  </a>
+
+                  <a href="https://t.me/+380730705280"
+                    class="btn text-white px-4 py-2 d-flex align-items-center justify-content-center messenger-btn telegram-bg">
+                    <i class="bi bi-telegram me-2"></i> Telegram
+                  </a>
+
+                  <a href="https://wa.me/380730705280"
+                    class="btn text-white px-4 py-2 d-flex align-items-center justify-content-center messenger-btn whatsapp-bg">
+                    <i class="bi bi-whatsapp me-2"></i> WhatsApp
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Права частина: форма -->
+          <div id="get-started" class="col-lg-5" data-aos="fade">
+            <form action="" method="post" class="php-email-form telegram-form shadow-lg p-4 p-md-5 rounded-4 bg-white">
+              <!-- H3 — підзаголовок форми, логічно після H2 -->
+              <h3 class="fs-4 fw-bold mb-2">Быстрая заявка на ремонт окон в Киеве</h3>
+              <p class="text-muted small mb-4">Оставьте контакты — мастер перезвонит в течение 15 минут</p>
+
+              <div class="row gy-3">
+                <div class="col-md-12 form-group">
+                  <input type="text" name="name" class="form-control" placeholder="Ваше имя" required
+                    oninvalid="this.setCustomValidity('Пожалуйста, введите ваше имя')"
+                    oninput="this.setCustomValidity('')" style="border-radius: 8px; padding: 12px;">
+                </div>
+                <div class="col-md-12 form-group">
+                  <div class="input-group">
+                    <span class="input-group-text" style="background: #f8f9fa; border-radius: 8px 0 0 8px;">+38</span>
+                    <input type="tel" class="form-control" name="phone" placeholder="066 057 52 02"
+                      pattern="^(\\s*\\d){10}\\s*\$" required
+                      oninvalid="this.setCustomValidity('Введите корректный номер телефона (10 цифр)')"
+                      oninput="this.setCustomValidity('')" style="border-radius: 0 8px 8px 0; padding: 12px;">
+                  </div>
+                </div>
+                <div class="col-md-12 form-group">
+                  <textarea class="form-control" name="message" rows="3"
+                    placeholder="Опишите, что произошло (например: дует из окна, сломалась ручка)" required
+                    oninvalid="this.setCustomValidity('Пожалуйста, опишите вашу проблему')"
+                    oninput="this.setCustomValidity('')" style="border-radius: 8px; padding: 12px;"></textarea>
+                </div>
+
+                <div class="form-group mb-3">
+                  <div class="d-flex align-items-center mb-2">
+                    <label class="form-label small fw-bold mb-0">Фото или видео проблемы</label>
+                    <span class="ms-2 small opacity-50" style="font-size: 0.75rem;">(можно выбрать несколько)</span>
+                  </div>
+
+                  <input type="file" id="files" class="d-none" accept="image/*,video/*" multiple>
+
+                  <button type="button"
+                    class="btn btn-outline-secondary w-100 py-2 d-flex align-items-center justify-content-center"
+                    onclick="document.getElementById('files').click()" style="border-style: dashed;">
+                    <i class="bi bi-camera me-2 fs-5"></i>
+                    <span>Добавить медиафайлы</span>
+                  </button>
+
+                  <div id="file-preview" class="d-flex flex-wrap gap-2 mt-2"></div>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Загрузка</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message bi bi-check-circle-fill"> Спасибо! Ваша заявка принята. Ожидайте звонка.
+                  </div>
+                  <input type="text" name="hp_field" style="display:none !important" tabindex="-1" autocomplete="off">
+                  <button type="submit" class="w-100 py-3 fw-bold text-dark border-0 shadow-sm btn-animate"
+                    style="background: #feb900; border-radius: 8px; transition: 0.3s;">
+                    Получить бесплатную консультацию
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Секція послуг -->
+    <section id="services" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <!-- Заголовок секції — H2 з ключовими словами -->
+        <div class="section-header">
+          <h2 class="fw-bold">Полный спектр услуг по установке и ремонту окон в Киеве</h2>
+          <p>От срочного ремонта и регулировки до комплексного остекления балконов — профессиональный подход к каждому
+            окну</p>
+        </div>
+
+        <div class="row gy-4">
+
+          <!-- Картка 1 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/install.webp" type="image/webp">
+                  <img src="/assets/img/services/install.jpg" class="img-fluid w-100"
+                  alt="Установка металлопластиковых окон и дверей Киев" style="height: 200px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-window-plus"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h3 class="fw-bold">Установка окон и дверей</h3>
+                <p class="text-muted small">Монтаж энергоэффективных систем по стандартам ДСТУ. Гарантия теплоизоляции
+                  и долговечности.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/ru/service-details-install.html" class="stretched-link text-warning fw-bold text-decoration-none">
+                  Подробнее <i class="bi bi-chevron-right small"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Картка 2 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/repair.webp" type="image/webp">
+                  <img src="/assets/img/services/repair.jpg" class="img-fluid w-100"
+                  alt="Ремонт и регулировка пластиковых окон Киев" style="height: 200px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-tools"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h3 class="fw-bold">Ремонт окон и дверей</h3>
+                <p class="text-muted small">Устранение сквозняков, замена фурнитуры и регулировка. Возвращаем
+                  функциональность за один визит.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/ru/service-details-repair.html" class="stretched-link text-warning fw-bold text-decoration-none">
+                  Подробнее <i class="bi bi-chevron-right small"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Картка 3 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/balkony.webp" type="image/webp">
+                  <img src="/assets/img/services/balkony.jpg" class="img-fluid w-100"
+                  alt="Остекление и утепление балконов и лоджий Киев" style="height: 200px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-house-door"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h3 class="fw-bold">Балконы и лоджии</h3>
+                <p class="text-muted small">Комплексное остекление, утепление и внутренняя отделка. Превращаем балкон
+                  в уютную комнату.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/ru/service-details-balkony.html" class="stretched-link text-warning fw-bold text-decoration-none">
+                  Подробнее <i class="bi bi-chevron-right small"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Картка 4 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/glass.webp" type="image/webp">
+                  <img src="/assets/img/services/glass.jpg" class="img-fluid w-100" alt="Замена стеклопакетов в окнах Киев"
+                  style="height: 200px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-aspect-ratio"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h3 class="fw-bold">Замена стеклопакетов</h3>
+                <p class="text-muted small">Замена разбитых или энергосберегающих пакетов. Улучшение шумоизоляции и
+                  энергоэффективности.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/ru/service-details-glass.html" class="stretched-link text-warning fw-bold text-decoration-none">
+                  Подробнее <i class="bi bi-chevron-right small"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Картка 5 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/moskitki.webp" type="image/webp">
+                  <img src="/assets/img/services/moskitki.jpg" class="img-fluid w-100"
+                  alt="Изготовление и установка москитных сеток Киев" style="height: 200px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-shield-check"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h3 class="fw-bold">Москитные сетки</h3>
+                <p class="text-muted small">Все виды сеток: рамочные, рулонные, «Антикошка». Изготовление по вашим
+                  размерам за 1-2 дня.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/ru/service-details-moskitki.html"
+                  class="stretched-link text-warning fw-bold text-decoration-none">
+                  Подробнее <i class="bi bi-chevron-right small"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Картка 6 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/dovodyachi.webp" type="image/webp">
+                  <img src="/assets/img/services/dovodyachi.jpg" class="img-fluid w-100"
+                  alt="Установка доводчиков на двери Киев" style="height: 200px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-door-closed"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h3 class="fw-bold">Доводчики для дверей</h3>
+                <p class="text-muted small">Профессиональный подбор и монтаж доводчиков на пластиковые и металлические
+                  двери. Плавность хода гарантирована.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/ru/service-details-dovodyachi.html"
+                  class="stretched-link text-warning fw-bold text-decoration-none">
+                  Подробнее <i class="bi bi-chevron-right small"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Блок єВідновлення — H4, бо це підтема після H2 -->
+        <div
+          class="mt-5 p-4 rounded-4 shadow-sm bg-white border-start border-warning border-4 d-flex align-items-center justify-content-between flex-wrap gap-3"
+          data-aos="fade-up">
+          <div>
+            <h4 class="fw-bold mb-1"><i class="bi bi-patch-check text-warning me-2"></i> Работаем по программе
+              єВідновлення</h4>
+            <p class="mb-0 text-muted">Предоставляем официальные документы и принимаем оплату картой для восстановления
+              вашего жилья.</p>
+          </div>
+          <a href="/ru/vidnovlennya.html" class="btn btn-warning fw-bold px-4">Узнать больше</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Секція: 5 причин, чому обирають UWS -->
+    <section id="alt-services" class="alt-services">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-around gy-4">
+
+          <!-- Фото зліва — без змін -->
+          <div class="col-lg-6 img-bg"
+            style="background-image: url(/assets/img/alt-services.jpg); border-radius: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.1);"
+            data-aos="zoom-in" data-aos-delay="100"></div>
+
+          <!-- Права частина: текст -->
+          <div class="col-lg-5 d-flex flex-column justify-content-center">
+
+            <!-- H2 — головний заголовок секції з ключовими словами -->
+            <h2 class="fw-bold mb-3">5 причин доверить установку и ремонт окон именно UWS</h2>
+
+            <!-- Підзаголовок (p) — пояснення -->
+            <p class="text-muted mb-4">Мы сочетаем 10+ лет опыта и современные стандарты сервиса, чтобы ваши окна
+              служили десятилетиями:</p>
+
+            <!-- Переваги — без H4, тільки strong + p -->
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
+              <i class="bi bi-award flex-shrink-0 text-warning" style="font-size: 2rem;"></i>
+              <div>
+                <strong class="fw-bold d-block mb-1"><a href="#get-started" class="stretched-link">10+ лет
+                    опыта</a></strong>
+                <p>Знаем все тонкости работы с любыми профильными системами: от классических до элитных.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-shield-check flex-shrink-0 text-warning" style="font-size: 2rem;"></i>
+              <div>
+                <strong class="fw-bold d-block mb-1"><a href="#get-started" class="stretched-link">Официальная
+                    гарантия</a></strong>
+                <p>Предоставляем гарантийный сертификат на выполненные работы и установленные запчасти.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-gear-wide-connected flex-shrink-0 text-warning" style="font-size: 2rem;"></i>
+              <div>
+                <strong class="fw-bold d-block mb-1"><a href="#get-started" class="stretched-link">Европейские
+                    комплектующие</a></strong>
+                <p>Никаких дешевых аналогов — используем только оригинальную фурнитуру (Maco, Roto, Siegenia).</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-lightning-charge flex-shrink-0 text-warning" style="font-size: 2rem;"></i>
+              <div>
+                <strong class="fw-bold d-block mb-1"><a href="#get-started"
+                    class="stretched-link">Оперативность</a></strong>
+                <p>Собственный склад запчастей позволяет выполнять 90% ремонтов прямо во время первого визита.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="500">
+              <i class="bi bi-cash-coin flex-shrink-0 text-warning" style="font-size: 2rem;"></i>
+              <div>
+                <strong class="fw-bold d-block mb-1"><a href="#get-started" class="stretched-link">Честная
+                    стоимость</a></strong>
+                <p>Фиксируем цену в смете до начала работ. Вы точно знаете, за что платите.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <!-- Заголовок секції — H2 з найсильнішим комерційним запитом -->
+        <div class="section-header text-center">
+          <h2 class="fw-bold">Какую проблему с окнами решить? — Ремонт и регулировка в Киеве</h2>
+          <p>Выберите свою ситуацию — мы покажем быстрое и профессиональное решение</p>
+        </div>
+
+        <!-- Навігація вкладок — H4 для кожної вкладки (ідеально для SEO) -->
+        <ul class="nav nav-tabs row g-2 d-flex border-0 mb-4">
+          <li class="nav-item col-6 col-md-3">
+            <a class="nav-link active show d-flex flex-column align-items-center py-3" data-bs-toggle="tab"
+              data-bs-target="#tab-1">
+              <i class="bi bi-wind text-warning mb-2 fs-3"></i>
+              <h4>Сквозняки из окон</h4>
+            </a>
+          </li>
+          <li class="nav-item col-6 col-md-3">
+            <a class="nav-link d-flex flex-column align-items-center py-3" data-bs-toggle="tab" data-bs-target="#tab-2">
+              <i class="bi bi-gear-wide-connected text-warning mb-2 fs-3"></i>
+              <h4>Проблемы с фурнитурой</h4>
+            </a>
+          </li>
+          <li class="nav-item col-6 col-md-3">
+            <a class="nav-link d-flex flex-column align-items-center py-3" data-bs-toggle="tab" data-bs-target="#tab-3">
+              <i class="bi bi-thermometer-snow text-warning mb-2 fs-3"></i>
+              <h4>Конденсат на окнах</h4>
+            </a>
+          </li>
+          <li class="nav-item col-6 col-md-3">
+            <a class="nav-link d-flex flex-column align-items-center py-3" data-bs-toggle="tab" data-bs-target="#tab-4">
+              <i class="bi bi-lock text-warning mb-2 fs-3"></i>
+              <h4>Блокировка / заедание окон</h4>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Вміст вкладок — H3 для кожного рішення -->
+        <div class="tab-content bg-white p-4 p-lg-5 rounded-4 shadow-sm">
+          <div class="tab-pane active show" id="tab-1">
+            <div class="row align-items-center">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                <h3 class="fw-bold color-primary">Устранение сквозняков и холода из пластиковых окон</h3>
+                <p class="fst-italic text-muted">Окно снова станет герметичным, как в первый день после установки.</p>
+                <ul class="list-unstyled mt-3">
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>
+                    <strong>Диагностика:</strong> Выявим все места продувания.
+                  </li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>
+                    <strong>Замена уплотнителя:</strong> Сертифицированный EPDM (REHAU, Veka).
+                  </li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>
+                    <strong>Регулировка:</strong> Максимальный зимний прижим.
+                  </li>
+                </ul>
+                <a href="/ru/contact.html#contact"
+                  class="btn btn-warning fw-bold mt-3 align-self-start py-2 px-4 shadow-sm">
+                  Устранить сквозняки сейчас
+                </a>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <picture>
+                  <source srcset="/assets/img/features-1.webp" type="image/webp">
+                  <img src="/assets/img/features-1.jpg" alt="Устранение сквозняков из пластиковых окон Киев"
+                  class="img-fluid rounded-4 shadow" loading="lazy">
+                </picture>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="tab-2">
+            <div class="row align-items-center">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                <h3 class="fw-bold color-primary">Ремонт и замена фурнитуры пластиковых окон</h3>
+                <p class="fst-italic text-muted">Если окно заедает, скрипит или ручка прокручивается — мы это исправим
+                  быстро.</p>
+                <ul class="list-unstyled mt-3">
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>
+                    <strong>Ремонт механизмов:</strong> Восстановление без полной замены.
+                  </li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>
+                    <strong>Оригинальная фурнитура:</strong> MACO, Roto, GU, Siegenia.
+                  </li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>
+                    <strong>Профилактика:</strong> Чистка + смазка в подарок.
+                  </li>
+                </ul>
+                <a href="/ru/contact.html#contact" class="btn btn-warning fw-bold mt-3 align-self-start py-2 px-4">
+                  Заказать ремонт фурнитуры
+                </a>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <picture>
+                  <source srcset="/assets/img/features-2.webp" type="image/webp">
+                  <img src="/assets/img/features-2.jpg" alt="Замена фурнитуры пластиковых окон Киев"
+                  class="img-fluid rounded-4 shadow" loading="lazy">
+                </picture>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="tab-3">
+            <div class="row align-items-center">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                <h3 class="fw-bold color-primary">Устранение конденсата и "плачущих" окон</h3>
+                <p class="fst-italic text-muted">Избавимся от излишней влаги и плесени раз и навсегда.</p>
+                <ul class="list-unstyled mt-3">
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>
+                    <strong>Энергосберегающие стеклопакеты:</strong> Замена холодных на новые.
+                  </li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>
+                    <strong>Приточные клапаны:</strong> Установка Air-Box или аналогов.
+                  </li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>
+                    <strong>Результат:</strong> Сухие окна и здоровый микроклимат.
+                  </li>
+                </ul>
+                <a href="/ru/contact.html#contact" class="btn btn-warning fw-bold mt-3 align-self-start py-2 px-4">
+                  Решить проблему конденсата
+                </a>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <picture>
+                  <source srcset="/assets/img/features-3.webp" type="image/webp">
+                  <img src="/assets/img/features-3.jpg" alt="Устранение конденсата на пластиковых окнах Киев"
+                  class="img-fluid rounded-4 shadow" loading="lazy">
+                </picture>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="tab-4">
+            <div class="row align-items-center">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                <h3 class="fw-bold color-primary">Экстренное разблокирование и ремонт заедания окон</h3>
+                <p class="fst-italic text-muted">Окно зависло в двух положениях? Не пытайтесь закрыть силой!</p>
+                <ul class="list-unstyled mt-3">
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>
+                    <strong>Быстрый выезд:</strong> Мастер приедет в течение 1–2 часов.
+                  </li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>
+                    <strong>Безопасность:</strong> Открываем без повреждения профиля и стекла.
+                  </li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>
+                    <strong>Настройка:</strong> Устраняем причину заедания механизма.
+                  </li>
+                </ul>
+                <a href="/ru/contact.html#contact" class="btn btn-warning fw-bold mt-3 align-self-start py-2 px-4">
+                  Вызвать мастера срочно
+                </a>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <picture>
+                  <source srcset="/assets/img/features-4.webp" type="image/webp">
+                  <img src="/assets/img/features-4.jpg" alt="Разблокирование и ремонт заедания пластиковых окон Киев"
+                  class="img-fluid rounded-4 shadow" loading="lazy">
+                </picture>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- Секція: Наші роботи (портфоліо) -->
+<section id="projects" class="projects">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header text-center">
+      <h2 class="fw-bold">Наши работы: ремонт, установка и регулировка окон в Киеве</h2>
+      <p>Реальные примеры выполненных проектов за последние годы — от срочного ремонта до комплексного остекления</p>
+    </div>
+
+    <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
+      data-portfolio-sort="original-order">
+      <!-- Компактні фільтри -->
+      <ul class="portfolio-flters d-flex flex-wrap justify-content-center mb-4" data-aos="fade-up"
+        data-aos-delay="100">
+        <li data-filter="*" class="filter-active">Все работы</li>
+        <li data-filter=".filter-remodeling">Ремонт окон</li>
+        <li data-filter=".filter-construction">Установка окон</li>
+        <li data-filter=".filter-repairs">Регулировка окон</li>
+        <li data-filter=".filter-design">Дополнительные услуги</li>
+      </ul>
+
+      <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
+          <a href="/assets/img/projects/projects-9.jpg" class="glightbox portfolio-link"
+            data-gallery="portfolio-gallery">
+            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
+              <picture>
+                <source srcset="/assets/img/projects/projects-9.webp" type="image/webp">
+                <img src="/assets/img/projects/projects-9.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
+                alt="Ремонт фурнитуры пластиковых окон Киев" loading="lazy">
+              </picture>
+              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
+                <i class="bi bi-zoom-in text-white fs-1"></i>
+              </div>
+              <div class="portfolio-info">
+                <h3>Ремонт фурнитуры</h3>
+                <p>Полное восстановление механизмов окна и дверей в Киеве</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
+          <a href="/assets/img/projects/projects-1.jpg" class="glightbox portfolio-link"
+            data-gallery="portfolio-gallery">
+            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
+              <picture>
+                <source srcset="/assets/img/projects/projects-1.webp" type="image/webp">
+                <img src="/assets/img/projects/projects-1.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
+                alt="Установка энергосберегающего стеклопакета Киев" loading="lazy">
+              </picture>
+              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
+                <i class="bi bi-zoom-in text-white fs-1"></i>
+              </div>
+              <div class="portfolio-info">
+                <h3>Замена стеклопакета</h3>
+                <p>Установка нового энергосберегающего пакета</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
+          <a href="/assets/img/projects/projects-10.jpg" class="glightbox portfolio-link"
+            data-gallery="portfolio-gallery">
+            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
+              <picture>
+                <source srcset="/assets/img/projects/projects-10.webp" type="image/webp">
+                <img src="/assets/img/projects/projects-10.jpg" class="img-fluid w-100 h-100"
+                style="object-fit: cover;" alt="Регулировка балконных дверей Киев" loading="lazy">
+              </picture>
+              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
+                <i class="bi bi-zoom-in text-white fs-1"></i>
+              </div>
+              <div class="portfolio-info">
+                <h3>Регулировка балконных дверей</h3>
+                <p>Устранение провисания и заедания</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-design">
+          <a href="/assets/img/projects/projects-8.jpg" class="glightbox portfolio-link"
+            data-gallery="portfolio-gallery">
+            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
+              <picture>
+                <source srcset="/assets/img/projects/projects-8.webp" type="image/webp">
+                <img src="/assets/img/projects/projects-8.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
+                alt="Установка детской ручки на окно Киев" loading="lazy">
+              </picture>
+              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
+                <i class="bi bi-zoom-in text-white fs-1"></i>
+              </div>
+              <div class="portfolio-info">
+                <h3>Установка детской ручки</h3>
+                <p>Монтаж ручки с замком для безопасности детей</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
+          <a href="/assets/img/projects/projects-12.jpg" class="glightbox portfolio-link"
+            data-gallery="portfolio-gallery">
+            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
+              <picture>
+                <source srcset="/assets/img/projects/projects-12.webp" type="image/webp">
+                <img src="/assets/img/projects/projects-12.jpg" class="img-fluid w-100 h-100"
+                style="object-fit: cover;" alt="Замена уплотнителя на окнах Киев" loading="lazy">
+              </picture>
+              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
+                <i class="bi bi-zoom-in text-white fs-1"></i>
+              </div>
+              <div class="portfolio-info">
+                <h3>Замена уплотнителя</h3>
+                <p>Устранение сквозняков и продувания</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
+          <a href="/assets/img/projects/projects-11.jpg" class="glightbox portfolio-link"
+            data-gallery="portfolio-gallery">
+            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
+              <picture>
+                <source srcset="/assets/img/projects/projects-11.webp" type="image/webp">
+                <img src="/assets/img/projects/projects-11.jpg" class="img-fluid w-100 h-100"
+                style="object-fit: cover;" alt="Ремонт дверного замка Киев" loading="lazy">
+              </picture>
+              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
+                <i class="bi bi-zoom-in text-white fs-1"></i>
+              </div>
+              <div class="portfolio-info">
+                <h3>Ремонт дверного замка</h3>
+                <p>Восстановление работы замка входной группы</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
+          <a href="/assets/img/projects/projects-2.jpg" class="glightbox portfolio-link"
+            data-gallery="portfolio-gallery">
+            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
+              <picture>
+                <source srcset="/assets/img/projects/projects-2.webp" type="image/webp">
+                <img src="/assets/img/projects/projects-2.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
+                alt="Сезонная регулировка пластиковых окон Киев" loading="lazy">
+              </picture>
+              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
+                <i class="bi bi-zoom-in text-white fs-1"></i>
+              </div>
+              <div class="portfolio-info">
+                <h3>Сезонная регулировка</h3>
+                <p>Перевод окон в зимний/летний режим</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-design">
+          <a href="/assets/img/projects/projects-6.jpg" class="glightbox portfolio-link"
+            data-gallery="portfolio-gallery">
+            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
+              <picture>
+                <source srcset="/assets/img/projects/projects-6.webp" type="image/webp">
+                <img src="/assets/img/projects/projects-6.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
+                alt="Установка москитных сеток Киев" loading="lazy">
+              </picture>
+              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
+                <i class="bi bi-zoom-in text-white fs-1"></i>
+              </div>
+              <div class="portfolio-info">
+                <h3>Москитные сетки</h3>
+                <p>Изготовление и монтаж всех типов сеток</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
+          <a href="/assets/img/projects/projects-7.jpg" class="glightbox portfolio-link"
+            data-gallery="portfolio-gallery">
+            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
+              <picture>
+                <source srcset="/assets/img/projects/projects-7.webp" type="image/webp">
+                <img src="/assets/img/projects/projects-7.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
+                alt="Чистка и смазка фурнитуры окон Киев" loading="lazy">
+              </picture>
+              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
+                <i class="bi bi-zoom-in text-white fs-1"></i>
+              </div>
+              <div class="portfolio-info">
+                <h3>Чистка фурнитуры</h3>
+                <p>Профилактическая чистка и смазка механизмов</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
+          <a href="/assets/img/projects/projects-3.jpg" class="glightbox portfolio-link"
+            data-gallery="portfolio-gallery">
+            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
+              <picture>
+                <source srcset="/assets/img/projects/projects-3.webp" type="image/webp">
+                <img src="/assets/img/projects/projects-3.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
+                alt="Монтаж внешних отливов на окна Киев" loading="lazy">
+              </picture>
+              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
+                <i class="bi bi-zoom-in text-white fs-1"></i>
+              </div>
+              <div class="portfolio-info">
+                <h3>Монтаж отливов</h3>
+                <p>Замена или установка внешних отливов</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
+          <a href="/assets/img/projects/projects-4.jpg" class="glightbox portfolio-link"
+            data-gallery="portfolio-gallery">
+            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
+              <picture>
+                <source srcset="/assets/img/projects/projects-4.webp" type="image/webp">
+                <img src="/assets/img/projects/projects-4.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
+                alt="Ремонт пластиковых окон после взлома Киев" loading="lazy">
+              </picture>
+              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
+                <i class="bi bi-zoom-in text-white fs-1"></i>
+              </div>
+              <div class="portfolio-info">
+                <h3>Ремонт после взлома</h3>
+                <p>Восстановление окна и фурнитуры после попытки взлома</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-design">
+          <a href="/assets/img/projects/projects-5.jpg" class="glightbox portfolio-link"
+            data-gallery="portfolio-gallery">
+            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
+              <picture>
+                <source srcset="/assets/img/projects/projects-5.webp" type="image/webp">
+                <img src="/assets/img/projects/projects-5.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
+                alt="Установка сетки Антикошка на окна Киев" loading="lazy">
+              </picture>
+              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
+                <i class="bi bi-zoom-in text-white fs-1"></i>
+              </div>
+              <div class="portfolio-info">
+                <h3>Сетка Антикошка</h3>
+                <p>Установка усиленных сеток для защиты от животных</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Секція: Відгуки клієнтів — ідеальне SEO -->
+<section id="testimonials" class="testimonials section-bg">
+  <div class="container" data-aos="fade-up">
+
+    <!-- Заголовок секції — H2 з ключовими словами -->
+    <div class="section-header text-center">
+      <h2 class="fw-bold">Отзывы клиентов о ремонте и установке окон в Киеве</h2>
+      <p>Реальные отзывы от довольных клиентов — посмотрите, что говорят о нашей работе</p>
+    </div>
+
+    <!-- Слайдер відгуків -->
+    <div class="slides-2 swiper">
+      <div class="swiper-wrapper">
+
+        <!-- Відгук 1 -->
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="testimonial-item rounded-4">
+              <picture>
+                <source srcset="/assets/img/testimonials/testimonials-1.webp" type="image/webp">
+                <img src="/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img"
+                alt="Отзыв Анны об устранении сквозняков из окон в Киеве" loading="lazy">
+              </picture>
+              <h3>Анна</h3>
+              <h4>Владелица квартиры в Киеве</h4>
+              <div class="stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                  class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>
+                <i class="bi bi-quote quote-icon-left"></i>
+                Мастер приехал вовремя, быстро диагностировал причину сквозняка и заменил уплотнитель. В квартире сразу
+                стало теплее. Большое спасибо за оперативность!
+                <i class="bi bi-quote quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Відгук 2 -->
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="testimonial-item rounded-4">
+              <picture>
+                <source srcset="/assets/img/testimonials/testimonials-2.webp" type="image/webp">
+                <img src="/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img"
+                alt="Отзыв Марины о регулировке пластиковых окон в частном доме Киев" loading="lazy">
+              </picture>
+              <h3>Марина</h3>
+              <h4>Владелица частного дома</h4>
+              <div class="stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                  class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>
+                <i class="bi bi-quote quote-icon-left"></i>
+                Нужно было регулировать все окна в доме после зимы. Работу выполнили аккуратно, без пыли и грязи. Окна
+                закрываются как новые. Рекомендую.
+                <i class="bi bi-quote quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Відгук 3 -->
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="testimonial-item rounded-4">
+              <picture>
+                <source srcset="/assets/img/testimonials/testimonials-3.webp" type="image/webp">
+                <img src="/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img"
+                alt="Отзыв Елены о замене фурнитуры на балконных дверях Киев" loading="lazy">
+              </picture>
+              <h3>Елена</h3>
+              <h4>Офисное помещение в центре Киева</h4>
+              <div class="stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                  class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>
+                <i class="bi bi-quote quote-icon-left"></i>
+                Сломалась фурнитура на балконных дверях, мастер заменил её на усиленную MACO. Работает отлично, теперь
+                нет проблем с закрыванием. Спасибо за качественные детали.
+                <i class="bi bi-quote quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Відгук 4 -->
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="testimonial-item rounded-4">
+              <picture>
+                <source srcset="/assets/img/testimonials/testimonials-4.webp" type="image/webp">
+                <img src="/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img"
+                alt="Отзыв Виталия о замене разбитого стеклопакета Киев" loading="lazy">
+              </picture>
+              <h3>Виталий</h3>
+              <h4>Владелец гаража</h4>
+              <div class="stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                  class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>
+                <i class="bi bi-quote quote-icon-left"></i>
+                Обращался для замены разбитого стеклопакета. Сделали всё за один день. Быстро, профессионально, с
+                гарантией. 5 из 5.
+                <i class="bi bi-quote quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<section id="final-cta" class="py-0 pb-5 section-bg" data-aos="fade-up">
+  <div class="container">
+    <div class="p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+      style="background: linear-gradient(135deg, #2a3d47 0%, #1a252b 100%); border: 1px solid rgba(254, 185, 0, 0.3);">
+
+      <div class="position-relative">
+        <div class="mb-4">
+          <i class="bi bi-house-gear-fill text-warning" style="font-size: 3.5rem;"></i>
+        </div>
+
+        <h3 class="text-white mb-3" style="font-weight: 700; font-size: 2.2rem;">
+          Готовы вернуть комфорт в свой дом?
+        </h3>
+
+        <div class="row justify-content-center mb-4">
+          <div class="col-lg-8">
+            <p class="text-white-50" style="font-size: 1.15rem;">
+              Закажите <span class="text-white">бесплатную консультацию</span> мастера уже сегодня. Мы проведем
+              диагностику, рассчитаем стоимость и предоставим гарантию до 5 лет на все работы.
+            </p>
+          </div>
+        </div>
+
+        <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+          <a href="contact.html#contact"
+            class="btn btn-warning px-5 py-3 fw-bold shadow-sm d-inline-flex align-items-center justify-content-center">
+            <i class="bi bi-pencil-square me-2"></i> Вызвать мастера на замер
+          </a>
+          <a href="tel:+380660575202"
+            class="btn btn-outline-light px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+            <i class="bi bi-telephone-outbound text-warning me-2"></i> Быстрая консультация
+          </a>
+        </div>
+
+        <div class="mt-4 d-flex align-items-center justify-content-center flex-wrap gap-4">
+          <div class="d-flex align-items-center text-white-50 small">
+            <i class="bi bi-check2-circle me-2 text-warning"></i> Работаем по всему Киеву
+          </div>
+          <div class="d-flex align-items-center text-white-50 small">
+            <i class="bi bi-check2-circle me-2 text-warning"></i> Оригинальные комплектующие
+          </div>
+          <div class="d-flex align-items-center text-white-50 small">
+            <i class="bi bi-check2-circle me-2 text-warning"></i> Оплата єВідновлення
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>`;
+---
+
+<BaseLayout
+  lang="ru"
+  title={"UWS — Установка и Ремонт Окон Киев | Регулировка Пластиковых Окон"}
+  description={"Установка металлопластиковых окон, дверей, балконов в Киеве. Ремонт, регулировка, замена фурнитуры, уплотнителя, стеклопакетов. Гарантия до 5 лет, бесплатный выезд мастера."}
+  canonicalPath={"/ru/index"}
+  structuredData={structuredData}
+>
+  <Header lang="ru" activePage="home" />
+
+  <Fragment set:html={mainHtml} />
+
+  <ContactModal lang="ru" />
+  <Footer lang="ru" />
+</BaseLayout>

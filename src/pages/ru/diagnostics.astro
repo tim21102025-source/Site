@@ -1,0 +1,290 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "UWS — Установка и Ремонт Окон Киев",
+  "image": "https://uws.com.ua/assets/img/logo.png",
+  "telephone": [
+    "+380660575202",
+    "+380989478772",
+    "+380633664769"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Киев",
+    "addressRegion": "Киевская область",
+    "postalCode": "01001",
+    "addressCountry": "UA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.4501,
+    "longitude": 30.5234
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "description": "Профессиональная установка металлопластиковых окон, дверей и балконов. Ремонт, регулировка, обслуживание в Киеве и области. Гарантия до 5 лет.",
+  "url": "https://uws.com.ua/ru/",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.facebook.com/uws.kyiv",
+    "https://www.instagram.com/uws_kyiv"
+  ]
+};
+
+const mainHtml = `<!-- Компактный баннер -->
+  <div class="page-header-mini d-flex align-items-center"
+    style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+    <div class="container position-relative">
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- Вступительный блок с H1 -->
+    <section id="diagnostics-hero" class="py-5 bg-light">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 text-center">
+            <div class="mb-4">
+              <i class="bi bi-search d-block mx-auto"
+                style="font-size: 3rem; color: var(--color-primary); filter: drop-shadow(0 4px 12px rgba(254,185,0,0.25));"></i>
+            </div>
+            <h1 class="display-5 fw-bold mb-3" style="color: var(--color-default);">
+              Профессиональная диагностика окон и дверей в Киеве
+            </h1>
+            <p class="lead text-muted mb-0" style="max-width: 760px; margin: 0 auto;">
+              Выявим скрытые проблемы до того, как они станут критическими. Бесплатный выезд мастера, точная
+              смета и рекомендации.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Почему важна диагностика -->
+    <section id="why-diagnostics" class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="p-4 p-md-5 bg-white shadow-lg rounded-4 position-relative"
+              style="border-left: 5px solid var(--color-primary);">
+              <h2 class="fw-bold mb-4" style="color: var(--color-default);">Почему профессиональный осмотр важнее, чем
+                кажется</h2>
+              <p class="lead text-muted mb-4">
+                Большинство проблем с окнами (продувание, тяжелый ход, проседание створки) не видно невооружённым глазом. Наша
+                диагностика позволяет точно определить причину и избежать дорогой замены всей конструкции.
+              </p>
+              <div class="row gy-3">
+                <div class="col-md-6">
+                  <ul class="list-unstyled">
+                    <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Выявление источников потери
+                      тепла</li>
+                    <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Анализ износа фурнитуры
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <ul class="list-unstyled">
+                    <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Проверка герметичности
+                      стеклопакетов</li>
+                    <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Тепловизионный контроль (по
+                      запросу)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Что проверяем -->
+    <section id="diagnostic-steps" class="section-bg py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header text-center pb-5">
+          <h2 class="fw-bold" style="color: var(--color-default);">Что именно проверяет наш мастер</h2>
+          <p class="text-muted">Полный технический чек-лист состояния ваших окон</p>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-moisture" style="font-size: 3.5rem; color: var(--color-primary);"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Герметичность</h4>
+              <p class="text-muted">Проверка прижима створки, выявление щелей и сквозняков с помощью специальных
+                щупов.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-aspect-ratio" style="font-size: 3.5rem; color: var(--color-primary);"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Геометрия створки</h4>
+              <p class="text-muted">Проверка диагоналей, выявление проседания, которое мешает нормальному закрыванию.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-gear-wide-connected" style="font-size: 3.5rem; color: var(--color-primary);"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Состояние фурнитуры</h4>
+              <p class="text-muted">Осмотр запорных механизмов на выработку, коррозию, грязь и износ.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-droplet-half" style="font-size: 3.5rem; color: var(--color-primary);"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Качество уплотнителя</h4>
+              <p class="text-muted">Тест эластичности резины, выявление трещин и деформаций.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-thermometer-half" style="font-size: 3.5rem; color: var(--color-primary);"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Тепловизионный контроль</h4>
+              <p class="text-muted">Поиск мостиков холода и дефектов монтажного шва (по запросу).</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-shield-check" style="font-size: 3.5rem; color: var(--color-primary);"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Безопасность конструкции</h4>
+              <p class="text-muted">Проверка крепления петель, ручек и целостности сварных швов.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Что получает клиент -->
+    <section id="results" class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="text-center mb-5">
+              <h2 class="fw-bold" style="color: var(--color-default);">Что вы получаете после диагностики</h2>
+              <p class="text-muted lead">Не просто слова — а конкретный технический вывод</p>
+            </div>
+
+            <div class="row gy-4">
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-list-check fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h4 class="fw-bold mb-2">Детальный перечень неисправностей</h4>
+                    <p class="mb-0 text-muted">Вы точно будете знать, что требует срочного ремонта, а что может подождать.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-calculator fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h4 class="fw-bold mb-2">Точная смета</h4>
+                    <p class="mb-0 text-muted">Расчёт стоимости ремонта на месте. Цена фиксируется и не меняется.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-info-square fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h4 class="fw-bold mb-2">Рекомендации по уходу</h4>
+                    <p class="mb-0 text-muted">Научим правильно регулировать и смазывать окна самостоятельно.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-file-earmark-check fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h4 class="fw-bold mb-2">Официальный вывод</h4>
+                    <p class="mb-0 text-muted">Письменный акт с фотофиксацией проблем (по желанию).</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Финальный CTA -->
+    <section class="py-5">
+      <div class="container" data-aos="zoom-in">
+        <div class="p-5 rounded-4 text-center shadow-lg"
+          style="background: linear-gradient(135deg, #2a3d47 0%, #1a252b 100%); color: white;">
+          <i class="bi bi-search d-block mb-4" style="font-size: 5.5rem; color: var(--color-primary);"></i>
+          <h3 class="mb-4 fw-bold display-6">Нужна точная диагностика окон?</h3>
+          <p class="lead mb-5 opacity-90">
+            Не ждите, пока проблема станет критической. Закажите профессиональный осмотр уже сегодня — бесплатно.
+          </p>
+          <a href="contact.html#contact" class="btn btn-warning btn-lg px-5 py-4 fw-bold shadow-lg fs-5">
+            <i class="bi bi-calendar-plus me-2"></i> Записаться на диагностику
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>`;
+---
+
+<BaseLayout
+  lang="ru"
+  title={"Профессиональная диагностика окон и дверей в Киеве | UWS 2026"}
+  description={"Комплексная бесплатная диагностика окон Киев: выявление продуваний, проверка фурнитуры, уплотнителя, геометрии створки. Тепловизионный контроль, точная смета, рекомендации. Вызов мастера бесплатно."}
+  canonicalPath={"/ru/diagnostics"}
+  structuredData={structuredData}
+>
+  <Header lang="ru" activePage="diagnostics" />
+
+  <Fragment set:html={mainHtml} />
+
+  <ContactModal lang="ru" />
+  <Footer lang="ru" />
+</BaseLayout>

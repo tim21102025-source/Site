@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactModal from '../components/ContactModal.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "UWS — Ремонт Вікон та Дверей Київ",
+  "image": "https://uws.com.ua/assets/img/logo.png",
+  "telephone": [
+    "+380660575202",
+    "+380989478772",
+    "+380633664769"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Київ",
+    "addressRegion": "Київська область",
+    "postalCode": "01001",
+    "addressCountry": "UA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.4501,
+    "longitude": 30.5234
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "description": "Професійний ремонт та регулювання пластикових вікон і дверей у Києві. Заміна фурнітури, ущільнювача, сервіс. Гарантія до 5 років.",
+  "url": "https://uws.com.ua/service-details-repair.html",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.facebook.com/uws.kyiv",
+    "https://www.instagram.com/uws_kyiv"
+  ],
+  "makesOffer": {
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "name": "Ремонт та регулювання вікон і дверей"
+    }
+  }
+};
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center" style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+      <div class="container position-relative"></div>
+    </div>
+
+
+
+    <section id="service-details" class="service-details py-5">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <!-- Головний H1 + вступ -->
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">Ремонт та Регулювання Вікон і Дверей у Києві</h1>
+          <p class="lead text-muted mt-3">UWS — швидке усунення протягів, заклинювань, поломок фурнітури. Терміновий
+            виїзд майстра, гарантія до 5 років.</p>
+        </header>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="services-list shadow-sm rounded-4 p-4 bg-white">
+              <a href="/service-details-install">Встановлення вікон та дверей</a>
+              <a href="/service-details-repair" class="active">Ремонт вікон та дверей</a>
+              <a href="/service-details-balkony">Балкони і лоджії</a>
+              <a href="/service-details-moskitki">Москітні сітки</a>
+              <a href="/service-details-glass">Заміна склопакетів</a>
+              <a href="/service-details-dovodyachi">Доводчики для дверей</a>
+            </div>
+
+            <div class="mt-4 p-4 rounded-4 bg-light shadow-sm">
+              <h4 class="fw-bold mb-3">Подовжіть життя вікон</h4>
+              <p class="text-muted">
+                Своєчасне регулювання та сервіс фурнітури запобігають дорогому ремонту та зберігають тепло у вашому
+                домі.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <picture>
+              <source srcset="/assets/img/services/repair.webp" type="image/webp">
+              <img src="/assets/img/services/repair.jpg" alt="Професійний ремонт пластикових вікон та дверей у Києві — UWS"
+              class="img-fluid services-img rounded-4 shadow-sm mb-4" loading="lazy">
+            </picture>
+
+            <h2 class="h3 fw-bold mb-4">Професійний ремонт та сервіс вікон і дверей</h2>
+            <p class="lead text-muted mb-5">
+              Ми спеціалізуємося на відновленні функціональності металопластикових конструкцій. Від простого регулювання
+              до повної заміни фурнітури — все виконуємо швидко та якісно.
+            </p>
+
+            <h3 class="h4 fw-bold mb-3">Основні види ремонту:</h3>
+            <ul class="list-unstyled">
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Регулювання стулок:</strong> Усунення провисання, протягів, тугого ходу ручки.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Заміна фурнітури:</strong> Повний комплект або окремі елементи (MACO, Roto, Siegenia).
+                </div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Заміна ущільнювача:</strong> Встановлення якісної німецької гуми для герметичності.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Ремонт розсувних систем:</strong> Похило-зсувні (PSK) та підйомно-зсувні (HS) конструкції.
+                </div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Усунення конденсату та промерзання:</strong> Діагностика та комплексне рішення проблеми.
+                </div>
+              </li>
+            </ul>
+
+            <p class="mt-4 text-muted">
+              Майстри виїжджають з повним набором інструментів та запчастин — більшість робіт виконуємо за один візит.
+              Виїзд та діагностика — безкоштовно при виконанні ремонту.
+            </p>
+
+            <div class="mt-5 p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+              style="background: linear-gradient(135deg, #364d59 0%, #223139 100%); border: 2px solid #feb900;">
+
+              <div class="position-relative">
+                <h3 class="text-white mb-3" style="font-weight: 700;">Вікно дує, ручка туго ходить або заклинило?</h3>
+                <p class="text-white-50 mb-4 lead">
+                  Викличте майстра — діагностика та більшість ремонтів виконуються <strong>в день звернення</strong>.
+                </p>
+
+                <a href="/contact#contact"
+                  class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg text-dark d-inline-flex align-items-center">
+                  <i class="bi bi-person-check-fill me-2"></i>
+                  Викликати майстра з ремонту
+                </a>
+
+                <div class="mt-4 text-white-50 small">
+                  <i class="bi bi-shield-check me-1 text-warning"></i> Гарантія на роботи до 5 років
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  `;
+---
+
+<BaseLayout
+  lang="uk"
+  title={"Ремонт Вікон та Дверей Київ 2026 | Регулювання та Сервіс — UWS"}
+  description={"Професійний ремонт пластикових вікон та дверей у Києві від UWS: регулювання, заміна фурнітури, ущільнювача. Терміновий виїзд майстра, гарантія до 5 років. Безкоштовна діагностика."}
+  canonicalPath={"/service-details-repair"}
+  structuredData={structuredData}
+>
+  <Header lang="uk" activePage="service-details-repair" />
+
+  <Fragment set:html={mainHtml} />
+
+  <ContactModal lang="uk" />
+  <Footer lang="uk" />
+</BaseLayout>

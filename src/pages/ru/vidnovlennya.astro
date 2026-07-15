@@ -1,0 +1,301 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "UWS — Ремонт Окон по Программе єВідновлення Киев",
+  "image": "https://uws.com.ua/assets/img/logo.png",
+  "telephone": [
+    "+380660575202",
+    "+380989478772",
+    "+380633664769"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Киев",
+    "addressRegion": "Киевская область",
+    "postalCode": "01001",
+    "addressCountry": "UA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.4501,
+    "longitude": 30.5234
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "description": "Официальный участник программы єВідновлення. Ремонт и замена окон за государственную компенсацию в Киеве. Гарантия до 5 лет.",
+  "url": "https://uws.com.ua/ru/vidnovlennya",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.facebook.com/uws.kyiv",
+    "https://www.instagram.com/uws_kyiv"
+  ],
+  "participantIn": {
+    "@type": "GovernmentProgram",
+    "name": "єВідновлення",
+    "description": "Государственная программа компенсации за повреждённое жильё"
+  }
+};
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center" style="background-image: url('/assets/img/hero-bg.jpg');">
+    <div class="container position-relative">
+    </div>
+  </div>
+
+  <main id="main">
+
+    <section id="vidnovlennya-intro" class="about py-5">
+      <div class="container" data-aos="fade-up">
+
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">єВідновлення — Ремонт и Замена Окон за Государственной Компенсацией</h1>
+          <p class="lead text-muted mt-3">UWS — официальный участник программы с мая 2023 года. Полное сопровождение,
+            бесплатный замер и гарантия на работы.</p>
+        </header>
+
+        <div class="row position-relative gy-5">
+          <div class="col-lg-5 about-img mt-3 mb-0 shadow-sm"
+            style="background-image: url('/assets/img/vidnovlennya.png'); min-height: 400px; background-size: cover; background-position: center;">
+          </div>
+
+          <div class="col-lg-7">
+            <h2 class="h3 fw-bold mb-4">Восстановите своё жильё с компенсацией от государства</h2>
+
+            <p class="lead fw-bold mb-4">
+              Ваши окна будут как новые! UWS — официальный партнёр программы «єВідновлення».
+            </p>
+
+            <p class="mb-4">
+              Если ваше жильё пострадало, вы можете использовать государственную компенсацию на ремонт или полную замену
+              повреждённых окон и дверей. Мы берём на себя весь процесс — от замера до установки и отчётности.
+            </p>
+
+            <h3 class="h4 fw-bold mb-3 d-flex align-items-center">
+              <i class="bi bi-tools text-warning me-2"></i> Работы, которые компенсируются:
+            </h3>
+
+            <ul class="list-unstyled">
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Замена стеклопакетов:</strong> Полная замена разбитых или повреждённых пакетов любого типа.
+                </div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Ремонт фурнитуры:</strong> Замена ручек, механизмов, уплотнителей.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Установка новых конструкций:</strong> Демонтаж старых и монтаж новых окон и дверей.
+                </div>
+              </li>
+            </ul>
+
+            <p class="fst-italic mt-4">
+              <i class="bi bi-info-circle-fill text-warning me-1"></i>
+              Наши менеджеры помогут выбрать решение под вашу сумму компенсации и подготовят все документы.
+            </p>
+
+            <a href="contact.html#contact"
+              class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold mt-3 d-inline-flex align-items-center shadow">
+              <i class="bi bi-arrow-right-circle me-2"></i> Оставить заявку на консультацию
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features section-bg py-5">
+      <div class="container" data-aos="fade-up">
+
+        <header class="text-center mb-5">
+          <h2 class="fw-bold">Преимущества работы с UWS по программе єВідновлення</h2>
+          <p class="text-muted">Мы гарантируем быстрый, прозрачный и качественный процесс восстановления.</p>
+        </header>
+
+        <div class="row feature-icons gy-5">
+          <div class="col-xl-4 text-center" data-aos="fade-right" data-aos-delay="100">
+            <div class="icon-box h-100 p-4 shadow-sm rounded-4 bg-white">
+              <i class="bi bi-patch-check text-warning" style="font-size: 48px; margin-bottom: 15px;"></i>
+              <h3 class="h5 fw-bold">Официальный участник</h3>
+              <p>Зарегистрированы в программе с мая 2023 года. Все документы соответствуют государственным требованиям.</p>
+            </div>
+          </div>
+          <div class="col-xl-4 text-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon-box h-100 p-4 shadow-sm rounded-4 bg-white">
+              <i class="bi bi-speedometer text-warning" style="font-size: 48px; margin-bottom: 15px;"></i>
+              <h3 class="h5 fw-bold">Скорость и Оперативность</h3>
+              <p>Выезд мастера в день обращения, быстрое изготовление и монтаж после получения средств.</p>
+            </div>
+          </div>
+          <div class="col-xl-4 text-center" data-aos="fade-left" data-aos-delay="300">
+            <div class="icon-box h-100 p-4 shadow-sm rounded-4 bg-white">
+              <i class="bi bi-award text-warning" style="font-size: 48px; margin-bottom: 15px;"></i>
+              <h3 class="h5 fw-bold">Гарантия Качества</h3>
+              <p>Качественные материалы, профессиональный монтаж и официальная гарантия до 5 лет.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="alt-services" class="alt-services py-5">
+      <div class="container" data-aos="fade-up">
+
+        <header class="text-center mb-5">
+          <h2 class="fw-bold">Пошаговая инструкция получения компенсации и заказа</h2>
+        </header>
+
+        <!-- Часть 1 -->
+        <div class="row justify-content-around gy-5 alt-services-item" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-5 d-flex flex-column justify-content-center">
+            <h3 class="h4 fw-bold mb-4">Часть 1: Получение средств на карту</h3>
+
+            <div class="icon-box d-flex position-relative mb-4" data-aos="fade-up" data-aos-delay="100">
+              <i class="bi bi-1-circle flex-shrink-0 text-warning fs-3"></i>
+              <div class="ms-4">
+                <h4 class="fw-bold">Шаг 1. Подайте заявление</h4>
+                <p class="text-muted mb-0">Через приложение или портал «Дія».</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative mb-4" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-2-circle flex-shrink-0 text-warning fs-3"></i>
+              <div class="ms-4">
+                <h4 class="fw-bold">Шаг 2. Откройте счёт</h4>
+                <p class="text-muted mb-0">Специальный счёт єВідновлення в банке-партнёре.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative mb-4" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-3-circle flex-shrink-0 text-warning fs-3"></i>
+              <div class="ms-4">
+                <h4 class="fw-bold">Шаг 3. Дождитесь одобрения</h4>
+                <p class="text-muted mb-0">Комиссия осмотрит повреждения и зачислит средства на вашу карту.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6"
+            style="background-image: url('/assets/img/vidnovlennya-1.png'); min-height: 120px; background-size: cover; background-position: center;">
+          </div>
+        </div>
+
+        <!-- Часть 2 -->
+        <div class="row justify-content-around alt-services-item flex-row-reverse flex-lg-row mt-5" data-aos="fade-up"
+          data-aos-delay="100">
+          <div class="col-lg-6"
+            style="background-image: url('/assets/img/vidnovlennya-2.png'); min-height: 120px; background-size: cover; background-position: center;">
+          </div>
+          <div class="col-lg-5 d-flex flex-column justify-content-center">
+            <h3 class="h4 fw-bold mb-4">Часть 2: Заказ в UWS</h3>
+
+            <div class="icon-box d-flex position-relative mb-4" data-aos="fade-up" data-aos-delay="100">
+              <i class="bi bi-4-circle flex-shrink-0 text-warning fs-3"></i>
+              <div class="ms-4">
+                <h4 class="fw-bold">Шаг 4. Свяжитесь с нами</h4>
+                <p class="text-muted mb-0">Мы составим смету, соответствующую сумме вашей компенсации.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative mb-4" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-5-circle flex-shrink-0 text-warning fs-3"></i>
+              <div class="ms-4">
+                <h4 class="fw-bold">Шаг 5. Оплатите заказ</h4>
+                <p class="text-muted mb-0">Картой єВідновлення — мы сразу запускаем изготовление.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-6-circle flex-shrink-0 text-warning fs-3"></i>
+              <div class="ms-4">
+                <h4 class="fw-bold">Шаг 6. Получите новые окна</h4>
+                <p class="text-muted mb-0">Профессиональный монтаж и официальная гарантия UWS.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="contact py-5" data-aos="fade-up">
+      <div class="container">
+        <div class="p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+          style="background: linear-gradient(135deg, #2a3d47 0%, #1a252b 100%); border: 1px solid rgba(254, 185, 0, 0.3);">
+
+          <div class="position-relative">
+            <div class="mb-4">
+              <i class="bi bi-bank2 text-warning" style="font-size: 3rem;"></i>
+            </div>
+
+            <h3 class="text-white mb-3" style="font-weight: 700; font-size: 2rem;">
+              Готовы начать восстановление жилья?
+            </h3>
+
+            <div class="row justify-content-center mb-4">
+              <div class="col-lg-8">
+                <p class="text-white-50" style="font-size: 1.1rem;">
+                  Мы являемся официальным партнёром программы <span class="text-white">єВідновлення</span>. Предоставляем полный пакет
+                  документов и принимаем оплату напрямую картой компенсации.
+                </p>
+              </div>
+            </div>
+
+            <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+              <a href="contact.html#contact"
+                class="btn btn-warning px-5 py-3 fw-bold shadow text-dark d-inline-flex align-items-center">
+                <i class="bi bi-clipboard2-check me-2"></i> Заказать дефектный акт и замер
+              </a>
+              <a href="tel:+380660575202"
+                class="btn btn-outline-light px-5 py-3 fw-bold d-inline-flex align-items-center">
+                <i class="bi bi-info-circle text-warning me-2"></i> Помощь с оформлением
+              </a>
+            </div>
+
+            <div class="mt-4 d-flex align-items-center justify-content-center flex-wrap gap-4 text-white-50 small">
+              <div class="d-flex align-items-center"><i class="bi bi-file-earmark-text me-2 text-warning"></i> Официальный
+                договор</div>
+              <div class="d-flex align-items-center"><i class="bi bi-credit-card-2-back me-2 text-warning"></i> Оплата
+                єВідновлення</div>
+              <div class="d-flex align-items-center"><i class="bi bi-shield-check me-2 text-warning"></i> Полная
+                отчётность</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>`;
+---
+
+<BaseLayout
+  lang="ru"
+  title={"єВідновлення Киев 2026 | Ремонт и Замена Окон за Компенсацией — UWS"}
+  description={"Официальный участник программы єВідновлення в Киеве. Ремонт, замена окон и дверей за государственные средства. Бесплатный замер, полный сопровождение. Гарантия до 5 лет."}
+  canonicalPath={"/ru/vidnovlennya"}
+  structuredData={structuredData}
+>
+  <Header lang="ru" activePage="vidnovlennya" />
+
+  <Fragment set:html={mainHtml} />
+
+  <ContactModal lang="ru" />
+  <Footer lang="ru" />
+</BaseLayout>

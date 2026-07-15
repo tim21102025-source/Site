@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "UWS — Установка Окон и Дверей Киев",
+  "image": "https://uws.com.ua/assets/img/logo.png",
+  "telephone": [
+    "+380660575202",
+    "+380989478772",
+    "+380633664769"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Киев",
+    "addressRegion": "Киевская область",
+    "postalCode": "01001",
+    "addressCountry": "UA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.4501,
+    "longitude": 30.5234
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "description": "Профессиональный монтаж металлопластиковых окон и дверей в Киеве. Тёплый монтаж, демонтаж старых конструкций, гарантия до 5 лет.",
+  "url": "https://uws.com.ua/ru/service-details-install",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.facebook.com/uws.kyiv",
+    "https://www.instagram.com/uws_kyiv"
+  ],
+  "makesOffer": {
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "name": "Установка окон и дверей под ключ"
+    }
+  }
+};
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center"
+    style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+    <div class="container position-relative">
+    </div>
+  </div>
+
+  <main id="main">
+
+    <section id="service-details" class="service-details py-5">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">Установка Металлопластиковых Окон и Дверей в Киеве</h1>
+          <p class="lead text-muted mt-3">UWS выполняет профессиональный монтаж ПВХ конструкций под ключ. Тёплый шов, демонтаж
+            старых окон, гарантия до 5 лет.</p>
+        </header>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="services-list shadow-sm rounded-4 p-4 bg-white">
+              <a href="/ru/service-details-install" class="active">Установка окон и дверей</a>
+              <a href="/ru/service-details-repair">Ремонт окон и дверей</a>
+              <a href="/ru/service-details-balkony">Балконы и лоджии</a>
+              <a href="/ru/service-details-moskitki">Москитные сетки</a>
+              <a href="/ru/service-details-glass">Замена стеклопакетов</a>
+              <a href="/ru/service-details-dovodyachi">Доводчики для дверей</a>
+            </div>
+
+            <div class="mt-4 p-4 rounded-4 bg-light shadow-sm">
+              <h4 class="fw-bold mb-3">Уют и энергоэффективность</h4>
+              <p class="text-muted">
+                Качественный монтаж окон и дверей — залог тепла в вашем доме. Мы используем современные технологии
+                герметизации, что позволяет существенно экономить на отоплении.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <picture>
+              <source srcset="/assets/img/services/install.webp" type="image/webp">
+              <img src="/assets/img/services/install.jpg"
+              alt="Профессиональный монтаж металлопластиковых окон и дверей в Киеве — UWS"
+              class="img-fluid services-img rounded-4 shadow-sm mb-4" loading="lazy">
+            </picture>
+
+            <h2 class="h3 fw-bold mb-4">Профессиональный монтаж окон и дверей в Киеве и области</h2>
+            <p class="lead text-muted mb-5">
+              Компания UWS предлагает комплексные решения по установке металлопластиковых конструкций. Мы понимаем, что
+              даже самое дорогое окно не будет работать должным образом без правильного монтажа, поэтому строго соблюдаем
+              строительные нормы и стандарты.
+            </p>
+
+            <h3 class="h4 fw-bold mb-3">Наши услуги по монтажу:</h3>
+            <ul class="list-unstyled">
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Установка окон "под ключ":</strong> Демонтаж старых рам, подготовка проёма, монтаж
+                  новой конструкции и настройка фурнитуры.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Монтаж входных и межкомнатных дверей:</strong> Надёжное закрепление коробки, выставление по
+                  уровню и регулировка плавного закрывания.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Тёплый монтаж:</strong> Использование ПСУЛ-лент и пароизоляции для максимальной защиты
+                  монтажного шва.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Остекление балконов и лоджий:</strong> Создание дополнительного жилого пространства с качественным
+                  утеплением.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Установка подоконников и отливов:</strong> Профессиональное оформление оконного проёма снаружи
+                  и внутри.</div>
+              </li>
+            </ul>
+
+            <p class="mt-4 text-muted">
+              Мы работаем с профильными системами ведущих брендов (REHAU, Salamander, WDS) и используем только
+              профессиональную монтажную пену и крепёж. На все виды работ предоставляется официальная гарантия.
+            </p>
+
+            <div class="mt-5 p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+              style="background: linear-gradient(135deg, #364d59 0%, #223139 100%); border: 2px solid #feb900;">
+
+              <div class="position-relative">
+                <h3 class="text-white mb-3" style="font-weight: 700;">Планируете замену окон или дверей?</h3>
+                <p class="text-white-50 mb-4 lead">
+                  Вызовите замерщика прямо сейчас! Мы проведём точные расчёты, поможем выбрать оптимальный профиль
+                  и рассчитаем стоимость установки <strong>бесплатно</strong>.
+                </p>
+
+                <a href="contact.html#contact"
+                  class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg text-dark d-inline-flex align-items-center">
+                  <i class="bi bi-calculator me-2"></i>
+                  Заказать бесплатный замер
+                </a>
+
+                <div class="mt-4 text-white-50 small">
+                  <i class="bi bi-shield-check me-1 text-warning"></i> Работаем по программе єВідновлення
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>`;
+---
+
+<BaseLayout
+  lang="ru"
+  title={"Установка Окон и Дверей Киев 2026 | Монтаж ПВХ Конструкций — UWS"}
+  description={"Профессиональная установка металлопластиковых окон и дверей в Киеве от UWS. Монтаж под ключ, тёплый шов, гарантия до 5 лет. Бесплатный замер и консультация мастера."}
+  canonicalPath={"/ru/service-details-install"}
+  structuredData={structuredData}
+>
+  <Header lang="ru" activePage="" />
+
+  <Fragment set:html={mainHtml} />
+
+  <ContactModal lang="ru" />
+  <Footer lang="ru" />
+</BaseLayout>

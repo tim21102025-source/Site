@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "UWS — Замена Стеклопакетов Киев",
+  "image": "https://uws.com.ua/assets/img/logo.png",
+  "telephone": [
+    "+380660575202",
+    "+380989478772",
+    "+380633664769"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Киев",
+    "addressRegion": "Киевская область",
+    "postalCode": "01001",
+    "addressCountry": "UA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.4501,
+    "longitude": 30.5234
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "description": "Профессиональная замена стеклопакетов в Киеве: энергосберегающие, шумоизоляционные, ударостойкие. Срочная замена разбитых стеклопакетов. Гарантия до 5 лет.",
+  "url": "https://uws.com.ua/ru/service-details-glass",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.facebook.com/uws.kyiv",
+    "https://www.instagram.com/uws_kyiv"
+  ],
+  "makesOffer": {
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "name": "Замена стеклопакетов в окнах и дверях"
+    }
+  }
+};
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center"
+    style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+    <div class="container position-relative">
+    </div>
+  </div>
+
+  <main id="main">
+
+    <section id="service-details" class="service-details py-5">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">Замена Стеклопакетов в Окнах и Дверях Киев</h1>
+          <p class="lead text-muted mt-3">UWS предлагает быструю и качественную замену стеклопакетов любой сложности.
+            Энергосберегающие, шумоизоляционные, ударостойкие пакеты с гарантией до 5 лет.</p>
+        </header>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="services-list shadow-sm rounded-4 p-4 bg-white">
+              <a href="/ru/service-details-install">Установка окон и дверей</a>
+              <a href="/ru/service-details-repair">Ремонт окон и дверей</a>
+              <a href="/ru/service-details-balkony">Балконы и лоджии</a>
+              <a href="/ru/service-details-moskitki">Москитные сетки</a>
+              <a href="/ru/service-details-glass" class="active">Замена стеклопакетов</a>
+              <a href="/ru/service-details-dovodyachi">Доводчики для дверей</a>
+            </div>
+
+            <div class="mt-4 p-4 rounded-4 bg-light shadow-sm">
+              <h4 class="fw-bold mb-3">Энергоэффективность</h4>
+              <p class="text-muted">
+                Замена старого однокамерного стеклопакета на новый двухкамерный с энергосберегающим напылением снижает
+                потери тепла до 40% и значительно улучшает шумоизоляцию.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <picture>
+              <source srcset="/assets/img/services/glass.webp" type="image/webp">
+              <img src="/assets/img/services/glass.jpg"
+              alt="Замена стеклопакетов в окнах Киев — энергосберегающие и шумоизоляционные UWS"
+              class="img-fluid services-img rounded-4 shadow-sm mb-4" loading="lazy">
+            </picture>
+
+            <h2 class="h3 fw-bold mb-4">Профессиональная замена стеклопакетов любой сложности</h2>
+            <p class="lead text-muted mb-5">
+              Стеклопакет — это самая большая часть окна, от которой напрямую зависит тишина и тепло в вашем доме. Мы
+              выполняем как срочную замену разбитых стеклопакетов, так и плановую модернизацию окон для повышения их
+              характеристик.
+            </p>
+
+            <h3 class="h4 fw-bold mb-3">Когда необходима замена:</h3>
+            <ul class="list-unstyled">
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Повреждение стекла:</strong> Трещины, сколы или полная разгерметизация.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Конденсат внутри:</strong> Если влага накапливается между стёклами — это признак
+                  разгерметизации.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Улучшение изоляции:</strong> Замена обычных пакетов на мультифункциональные или
+                  энергосберегающие (Low-E).</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Шумоизоляция:</strong> Установка специальных пакетов с разной толщиной стекла для защиты
+                  от уличного шума.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Безопасность:</strong> Установка ударостойкого стекла (Триплекс) или закалённого стекла.</div>
+              </li>
+            </ul>
+
+            <p class="mt-4 text-muted">
+              Мы проводим точный замер с учётом толщины пакета и формы штапика. Срок изготовления нового
+              стеклопакета составляет от 2 до 5 рабочих дней в зависимости от сложности формулы.
+            </p>
+
+            <div class="mt-5 p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+              style="background: linear-gradient(135deg, #364d59 0%, #223139 100%); border: 2px solid #feb900;">
+
+              <div class="position-relative">
+                <h3 class="text-white mb-3" style="font-weight: 700;">Нужен замер и расчёт стоимости?</h3>
+                <p class="text-white-50 mb-4 lead">
+                  Оставьте заявку — наш специалист проконсультирует вас по выбору характеристик стекла и отправит мастера
+                  для <strong>точного бесплатного замера</strong>.
+                </p>
+
+                <a href="contact.html#contact"
+                  class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg text-dark d-inline-flex align-items-center">
+                  <i class="bi bi-person-check-fill me-2"></i>
+                  Бесплатный замер и консультация
+                </a>
+
+                <div class="mt-4 text-white-50 small">
+                  <i class="bi bi-shield-fill-check me-1 text-warning"></i> Используем только сертифицированное стекло и
+                  качественный герметик
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>`;
+---
+
+<BaseLayout
+  lang="ru"
+  title={"Замена Стеклопакетов Киев 2026 | Энергосберегающие и Шумоизоляционные — UWS"}
+  description={"Профессиональная замена стеклопакетов в Киеве от UWS: энергосберегающие, шумоизоляционные, ударостойкие. Срочная замена разбитых стеклопакетов. Бесплатный замер и консультация мастера."}
+  canonicalPath={"/ru/service-details-glass"}
+  structuredData={structuredData}
+>
+  <Header lang="ru" activePage="" />
+
+  <Fragment set:html={mainHtml} />
+
+  <ContactModal lang="ru" />
+  <Footer lang="ru" />
+</BaseLayout>

@@ -1,0 +1,628 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "UWS — Установка и Ремонт Окон Киев",
+  "image": "https://uws.com.ua/assets/img/logo.png",
+  "telephone": [
+    "+380660575202",
+    "+380989478772",
+    "+380633664769"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Киев",
+    "addressRegion": "Киевская область",
+    "postalCode": "01001",
+    "addressCountry": "UA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.4501,
+    "longitude": 30.5234
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "description": "Полный спектр услуг по ремонту, регулировке, установке окон и дверей в Киеве. Гарантия до 5 лет, бесплатный выезд мастера.",
+  "url": "https://uws.com.ua/ru/services",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.facebook.com/uws.kyiv",
+    "https://www.instagram.com/uws_kyiv"
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Ремонт окон и дверей"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Установка окон и дверей"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Замена стеклопакетов"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Остекление балконов и лоджий"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Москитные сетки"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Доводчики для дверей"
+      }
+    }
+  ]
+};
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center"
+    style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+    <div class="container position-relative">
+    </div>
+  </div>
+
+  <main id="main">
+
+    <section id="services" class="services section-bg py-5">
+      <div class="container" data-aos="fade-up">
+
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">Услуги по ремонту и установке окон в Киеве</h1>
+          <p class="lead text-muted mt-3">UWS предлагает полный комплекс услуг по обслуживанию металлопластиковых окон
+            и дверей. Гарантия до 5 лет, бесплатный выезд мастера по Киеву.</p>
+        </header>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/repair.webp" type="image/webp">
+                  <img src="/assets/img/services/repair.jpg" class="img-fluid w-100"
+                  alt="Ремонт пластиковых окон Киев — регулировка, замена фурнитуры"
+                  style="height: 220px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-tools"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h2 class="h4 fw-bold">Ремонт окон и дверей</h2>
+                <p class="text-muted small">Профессиональная регулировка, замена фурнитуры и уплотнителей. Устраняем сквозняки
+                  и заедания.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/ru/service-details-repair"
+                  class="stretched-link text-warning fw-bold text-decoration-none">Подробнее <i
+                    class="bi bi-chevron-right small"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/install.webp" type="image/webp">
+                  <img src="/assets/img/services/install.jpg" class="img-fluid w-100"
+                  alt="Установка металлопластиковых окон и дверей Киев" style="height: 220px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-window"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h2 class="h4 fw-bold">Установка окон и дверей</h2>
+                <p class="text-muted small">Монтаж новых металлопластиковых систем по стандартам ДСТУ. Тёплое остекление для
+                  вашего дома.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/ru/service-details-install"
+                  class="stretched-link text-warning fw-bold text-decoration-none">Подробнее <i
+                    class="bi bi-chevron-right small"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/glass.webp" type="image/webp">
+                  <img src="/assets/img/services/glass.jpg" class="img-fluid w-100"
+                  alt="Замена стеклопакетов в окнах Киев — энергосберегающие" style="height: 220px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-box-arrow-up-right"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h2 class="h4 fw-bold">Замена стеклопакетов</h2>
+                <p class="text-muted small">Срочная замена разбитых пакетов или установка новых энергосберегающих
+                  и шумоизоляционных.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/ru/service-details-glass"
+                  class="stretched-link text-warning fw-bold text-decoration-none">Подробнее <i
+                    class="bi bi-chevron-right small"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/balkony.webp" type="image/webp">
+                  <img src="/assets/img/services/balkony.jpg" class="img-fluid w-100"
+                  alt="Остекление балконов и лоджий под ключ Киев" style="height: 220px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-house-door"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h2 class="h4 fw-bold">Балконы и лоджии</h2>
+                <p class="text-muted small">Комплексное остекление, утепление и отделка. Создаём комфортное дополнительное
+                  пространство.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/ru/service-details-balkony"
+                  class="stretched-link text-warning fw-bold text-decoration-none">Подробнее <i
+                    class="bi bi-chevron-right small"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/moskitki.webp" type="image/webp">
+                  <img src="/assets/img/services/moskitki.jpg" class="img-fluid w-100"
+                  alt="Москитные сетки на окна и двери Киев — Антикошка" style="height: 220px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-grid-3x3-gap"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h2 class="h4 fw-bold">Москитные сетки</h2>
+                <p class="text-muted small">Все виды сеток: рамочные, дверные, "Антикошка". Изготовление по
+                  индивидуальным размерам.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/ru/service-details-moskitki"
+                  class="stretched-link text-warning fw-bold text-decoration-none">Подробнее <i
+                    class="bi bi-chevron-right small"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/dovodyachi.webp" type="image/webp">
+                  <img src="/assets/img/services/dovodyachi.jpg" class="img-fluid w-100"
+                  alt="Установка доводчиков на двери Киев" style="height: 220px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-door-closed"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h2 class="h4 fw-bold">Доводчики для дверей</h2>
+                <p class="text-muted small">Профессиональный подбор и монтаж доводчиков. Сезонная регулировка и
+                  обслуживание механизмов.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/ru/service-details-dovodyachi"
+                  class="stretched-link text-warning fw-bold text-decoration-none">Подробнее <i
+                    class="bi bi-chevron-right small"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row mt-5" data-aos="fade-up" data-aos-delay="700">
+          <div class="col-12">
+            <div
+              class="cta-service-box rounded-4 p-4 p-md-5 d-flex flex-column flex-lg-row align-items-center justify-content-between shadow-sm"
+              style="background: var(--color-primary);">
+              <div class="d-flex align-items-center mb-4 mb-lg-0">
+                <div class="icon-circle bg-white text-dark d-flex align-items-center justify-content-center me-4"
+                  style="width: 80px; height: 80px; border-radius: 50%; font-size: 2rem;">
+                  <i class="bi bi-headset"></i>
+                </div>
+                <div>
+                  <h3 class="fw-bold mb-1 text-dark">Не нашли нужную услугу?</h3>
+                  <p class="mb-0 text-dark opacity-75">Просто позвоните нам — мы выполняем любые нестандартные
+                    работы по ремонту и обслуживанию.</p>
+                </div>
+              </div>
+              <a href="contact.html#contact"
+                class="btn btn-dark btn-lg px-5 py-3 rounded-pill fw-bold shadow">Связаться с мастером</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="services-cards" class="services-cards py-5">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+            <div class="info-card h-100 p-4 shadow-sm border-0 rounded-4 bg-white position-relative">
+              <div class="icon-box mb-3 text-warning" style="font-size: 2rem;">
+                <i class="bi bi-box-seam"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Материалы и запчасти</h3>
+              <p class="text-muted small">Мы используем только оригинальные комплектующие и профессиональные расходные
+                материалы для долговечного ремонта.</p>
+              <ul class="list-unstyled mt-3">
+                <li class="d-flex align-items-start mb-2"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Уплотнители из EPDM резины</span></li>
+                <li class="d-flex align-items-start mb-2"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Оригинальная смазка</span></li>
+                <li class="d-flex align-items-start"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Профессиональные герметики</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+            <div class="info-card h-100 p-4 shadow-sm border-0 rounded-4 bg-white position-relative">
+              <div class="icon-box mb-3 text-warning" style="font-size: 2rem;">
+                <i class="bi bi-gear-wide-connected"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Любая сложность</h3>
+              <p class="text-muted small">Наши мастера имеют опыт работы со всеми типами оконных и дверных систем,
+                представленных на рынке.</p>
+              <ul class="list-unstyled mt-3">
+                <li class="d-flex align-items-start mb-2"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">MACO, Roto, Siegenia</span></li>
+                <li class="d-flex align-items-start mb-2"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Алюминиевые и ПВХ системы</span></li>
+                <li class="d-flex align-items-start"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Сложные входные группы</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+            <div class="info-card h-100 p-4 shadow-sm border-0 rounded-4 bg-white position-relative">
+              <div class="icon-box mb-3 text-warning" style="font-size: 2rem;">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Гарантия UWS</h3>
+              <p class="text-muted small">Компания UWS предоставляет официальную гарантию на все выполненные работы и установленные
+                комплектующие.</p>
+              <ul class="list-unstyled mt-3">
+                <li class="d-flex align-items-start mb-2"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">До 5 лет гарантии</span></li>
+                <li class="d-flex align-items-start mb-2"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Послегарантийная поддержка</span></li>
+                <li class="d-flex align-items-start"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Программа лояльности</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+            <div class="info-card h-100 p-4 shadow-sm border-0 rounded-4 bg-white position-relative">
+              <div class="icon-box mb-3 text-warning" style="font-size: 2rem;">
+                <i class="bi bi-cash-stack"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Прозрачный сервис</h3>
+              <p class="text-muted small">Никаких скрытых платежей. Стоимость работ согласовывается до начала ремонта
+                после диагностики.</p>
+              <ul class="list-unstyled mt-3">
+                <li class="d-flex align-items-start mb-2"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Фиксированный прайс</span></li>
+                <li class="d-flex align-items-start mb-2"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Оплата по результату</span></li>
+                <li class="d-flex align-items-start"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Наличный/Безналичный расчёт</span></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="alt-services-2" class="alt-services section-bg py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-around gy-4">
+          <div class="col-lg-5 d-flex flex-column justify-content-center">
+            <h2 class="fw-bold mb-4">Бесплатная консультация и выезд мастера на диагностику</h2>
+            <p class="text-muted mb-5">Наши специалисты помогут определить причину поломки дистанционно или приедут
+              для детального осмотра в удобное для вас время.</p>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
+              <i class="bi bi-chat-text flex-shrink-0"></i>
+              <div>
+                <h4><a href="contact.html#contact" class="stretched-link">Связь 24/7</a></h4>
+                <p>Принимаем заявки через сайт и мессенджеры круглосуточно.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-truck flex-shrink-0"></i>
+              <div>
+                <h4><a href="contact.html#contact" class="stretched-link">Оперативный выезд</a></h4>
+                <p>Мастер может быть у вас уже через 2-3 часа после звонка (зависит от района).</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-calculator flex-shrink-0"></i>
+              <div>
+                <h4><a href="contact.html#contact" class="stretched-link">Точный расчёт</a></h4>
+                <p>Вы узнаете окончательную стоимость ремонта сразу после диагностики на месте.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-check2-all flex-shrink-0"></i>
+              <div>
+                <h4><a href="contact.html#contact" class="stretched-link">Комплексный осмотр</a></h4>
+                <p>Проверяем не только жалобу, но и общее состояние фурнитуры и уплотнителей.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 img-bg rounded-4" style="background-image: url(/assets/img/alt-services-2.jpg);"
+            data-aos="zoom-in" data-aos-delay="100"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="alt-services" class="alt-services py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-around gy-4">
+          <div class="col-lg-6 img-bg rounded-4" style="background-image: url(/assets/img/alt-services.jpg);"
+            data-aos="zoom-in" data-aos-delay="100"></div>
+
+          <div class="col-lg-5 d-flex flex-column justify-content-center">
+            <h2 class="fw-bold mb-4">Профессиональный сервис: Опыт, Чистота, Ответственность</h2>
+            <p class="text-muted mb-5">Сервис окон — это не только техника, но и уважение к вашему дому. Команда UWS
+              работает аккуратно и бережно.</p>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
+              <i class="bi bi-patch-check flex-shrink-0"></i>
+              <div>
+                <h4><a href="" class="stretched-link">Профильное образование</a></h4>
+                <p>Наши мастера имеют многолетний опыт работы на оконных производствах.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-briefcase flex-shrink-0"></i>
+              <div>
+                <h4><a href="" class="stretched-link">Полный комплект инструментов</a></h4>
+                <p>Мастера укомплектованы всем необходимым для устранения 90% поломок за один выезд.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-shield-check flex-shrink-0"></i>
+              <div>
+                <h4><a href="" class="stretched-link">Безопасность</a></h4>
+                <p>Используем только сертифицированные детали и соблюдаем технику безопасности.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-stars flex-shrink-0"></i>
+              <div>
+                <h4><a href="" class="stretched-link">Чистота после работ</a></h4>
+                <p>Работаем в бахилах и всегда убираем рабочее место после завершения ремонта.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="testimonials section-bg py-5">
+      <div class="container" data-aos="fade-up">
+
+        <header class="text-center mb-5">
+          <h2 class="fw-bold">Отзывы клиентов о UWS</h2>
+          <p class="text-muted">Узнайте мнение наших клиентов о качестве ремонта окон, установки сеток и уровне
+            сервиса в Киеве.</p>
+        </header>
+
+        <div class="slides-2 swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item rounded-4">
+                  <picture>
+                    <source srcset="/assets/img/testimonials/testimonials-11.webp" type="image/webp">
+                    <img src="/assets/img/testimonials/testimonials-11.jpg" class="testimonial-img"
+                    alt="Отзыв о ремонте окон UWS Киев - Александр Д." loading="lazy">
+                  </picture>
+                  <h3>Александр</h3>
+                  <h4>Оболонь, Киев</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Окна сильно продувало зимой. Мастер из UWS приехал в день вызова, заменил уплотнитель и
+                    отрегулировал фурнитуру. Теперь дома тепло и тихо. Рекомендую!
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item rounded-4">
+                  <picture>
+                    <source srcset="/assets/img/testimonials/testimonials-10.webp" type="image/webp">
+                    <img src="/assets/img/testimonials/testimonials-10.jpg" class="testimonial-img"
+                    alt="Отзыв о москитных сетках Антикошка UWS Киев - Татьяна С." loading="lazy">
+                  </picture>
+                  <h3>Татьяна</h3>
+                  <h4>Печерск</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Заказывала сетки "Антикошка". Очень прочные, кот пытается их царапать, но следов даже не
+                    остаётся. Установили быстро, цена соответствовала расчёту по телефону.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item rounded-4">
+                  <picture>
+                    <source srcset="/assets/img/testimonials/testimonials-12.webp" type="image/webp">
+                    <img src="/assets/img/testimonials/testimonials-12.jpg" class="testimonial-img"
+                    alt="Отзыв о ремонте балконных дверей UWS Киев - Владимир К." loading="lazy">
+                  </picture>
+                  <h3>Владимир</h3>
+                  <h4>Днепровский район</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Сломалась ручка на балконных дверях, двери заклинило. Мастер приехал со своей запчастью, открыл
+                    аккуратно и всё заменил за полчаса. Очень доволен сервисом.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item rounded-4">
+                  <picture>
+                    <source srcset="/assets/img/testimonials/testimonials-13.webp" type="image/webp">
+                    <img src="/assets/img/testimonials/testimonials-13.jpg" class="testimonial-img"
+                    alt="Отзыв о замене стеклопакета UWS Киев - Оксана П." loading="lazy">
+                  </picture>
+                  <h3>Оксана</h3>
+                  <h4>ЖК "Комфорт Таун"</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Нужна была срочная замена разбитого стеклопакета. В UWS сделали замеры и уже через 3 дня
+                    установили новый. Качество отличное, сервис на высоте.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="mt-5 p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+          style="background: linear-gradient(135deg, #1a252b 0%, #364d59 100%); border: 1px solid rgba(254, 185, 0, 0.3);">
+
+          <div class="position-absolute"
+            style="top: -20px; right: -20px; font-size: 150px; color: rgba(254, 185, 0, 0.05); transform: rotate(-15deg); pointer-events: none;">
+            <i class="bi bi-headset"></i>
+          </div>
+
+          <div class="position-relative">
+            <span class="badge rounded-pill bg-warning text-dark mb-3 px-3 py-2 fw-bold text-uppercase"
+              style="letter-spacing: 1px;">Быстрая реакция</span>
+            <h2 class="text-white mb-3 fw-bold">Нужна помощь мастера или расчёт стоимости?</h2>
+            <p class="text-white opacity-75 mb-4 mx-auto" style="max-width: 700px; font-size: 1.1rem;">
+              Получите профессиональную консультацию уже сейчас! Мы перезвоним в течение <span
+                class="text-warning fw-bold">15 минут</span>, ответим на все вопросы и согласуем удобное время визита.
+            </p>
+
+            <div class="d-flex flex-column flex-md-row justify-content-center gap-3 align-items-center">
+              <a href="contact.html#contact"
+                class="btn btn-warning btn-lg px-4 py-3 rounded-pill fw-bold shadow-lg transition-all d-flex align-items-center"
+                style="font-size: 1.1rem;">
+                <i class="bi bi-calendar-check me-2"></i> Записаться на диагностику
+              </a>
+              <a href="tel:+380660575202"
+                class="btn btn-outline-light btn-lg px-4 py-3 rounded-pill fw-bold d-flex align-items-center">
+                <i class="bi bi-telephone-outbound me-2"></i> Быстрый звонок
+              </a>
+            </div>
+
+            <div
+              class="mt-4 d-flex justify-content-center flex-wrap gap-4 text-white-50 border-top border-secondary pt-4"
+              style="--bs-border-opacity: .3;">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-shield-check text-warning me-2"></i> <span>Гарантия до 5 лет</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <i class="bi bi-geo-alt text-warning me-2"></i> <span>Выезд по всему Киеву</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <i class="bi bi-currency-dollar text-warning me-2"></i> <span>Честная цена</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>`;
+---
+
+<BaseLayout
+  lang="ru"
+  title={"Услуги Ремонта и Установки Окон Киев 2026 | UWS"}
+  description={"Профессиональные услуги UWS в Киеве: ремонт окон, регулировка, замена фурнитуры и стеклопакетов, остекление балконов, москитные сетки, доводчики. Гарантия до 5 лет, бесплатный выезд мастера."}
+  canonicalPath={"/ru/services"}
+  structuredData={structuredData}
+>
+  <Header lang="ru" activePage="services" />
+
+  <Fragment set:html={mainHtml} />
+
+  <ContactModal lang="ru" />
+  <Footer lang="ru" />
+</BaseLayout>

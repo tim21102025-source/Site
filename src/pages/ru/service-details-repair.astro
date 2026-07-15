@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "UWS — Ремонт Окон и Дверей Киев",
+  "image": "https://uws.com.ua/assets/img/logo.png",
+  "telephone": [
+    "+380660575202",
+    "+380989478772",
+    "+380633664769"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Киев",
+    "addressRegion": "Киевская область",
+    "postalCode": "01001",
+    "addressCountry": "UA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.4501,
+    "longitude": 30.5234
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "description": "Профессиональный ремонт и регулировка пластиковых окон и дверей в Киеве. Замена фурнитуры, уплотнителя, сервис. Гарантия до 5 лет.",
+  "url": "https://uws.com.ua/ru/service-details-repair",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.facebook.com/uws.kyiv",
+    "https://www.instagram.com/uws_kyiv"
+  ],
+  "makesOffer": {
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "name": "Ремонт и регулировка окон и дверей"
+    }
+  }
+};
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center"
+    style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+    <div class="container position-relative">
+    </div>
+  </div>
+
+  <main id="main">
+
+    <section id="service-details" class="service-details py-5">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">Ремонт и Регулировка Окон и Дверей в Киеве</h1>
+          <p class="lead text-muted mt-3">UWS — быстрое устранение сквозняков, заеданий, поломок фурнитуры. Срочный
+            выезд мастера, гарантия до 5 лет.</p>
+        </header>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="services-list shadow-sm rounded-4 p-4 bg-white">
+              <a href="/ru/service-details-install">Установка окон и дверей</a>
+              <a href="/ru/service-details-repair" class="active">Ремонт окон и дверей</a>
+              <a href="/ru/service-details-balkony">Балконы и лоджии</a>
+              <a href="/ru/service-details-moskitki">Москитные сетки</a>
+              <a href="/ru/service-details-glass">Замена стеклопакетов</a>
+              <a href="/ru/service-details-dovodyachi">Доводчики для дверей</a>
+            </div>
+
+            <div class="mt-4 p-4 rounded-4 bg-light shadow-sm">
+              <h4 class="fw-bold mb-3">Продлите жизнь окон</h4>
+              <p class="text-muted">
+                Своевременная регулировка и сервис фурнитуры предотвращают дорогой ремонт и сохраняют тепло в вашем
+                доме.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <picture>
+              <source srcset="/assets/img/services/repair.webp" type="image/webp">
+              <img src="/assets/img/services/repair.jpg" alt="Профессиональный ремонт пластиковых окон и дверей в Киеве — UWS"
+              class="img-fluid services-img rounded-4 shadow-sm mb-4" loading="lazy">
+            </picture>
+
+            <h2 class="h3 fw-bold mb-4">Профессиональный ремонт и сервис окон и дверей</h2>
+            <p class="lead text-muted mb-5">
+              Мы специализируемся на восстановлении функциональности металлопластиковых конструкций. От простой регулировки
+              до полной замены фурнитуры — всё выполняем быстро и качественно.
+            </p>
+
+            <h3 class="h4 fw-bold mb-3">Основные виды ремонта:</h3>
+            <ul class="list-unstyled">
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Регулировка створок:</strong> Устранение провисания, сквозняков, тугого хода ручки.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Замена фурнитуры:</strong> Полный комплект или отдельные элементы (MACO, Roto, Siegenia).
+                </div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Замена уплотнителя:</strong> Установка качественной немецкой резины для герметичности.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Ремонт раздвижных систем:</strong> Наклонно-сдвижные (PSK) и подъёмно-сдвижные (HS) конструкции.
+                </div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Устранение конденсата и промерзания:</strong> Диагностика и комплексное решение проблемы.
+                </div>
+              </li>
+            </ul>
+
+            <p class="mt-4 text-muted">
+              Мастера выезжают с полным набором инструментов и запчастей — большинство работ выполняем за один визит.
+              Выезд и диагностика — бесплатно при выполнении ремонта.
+            </p>
+
+            <div class="mt-5 p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+              style="background: linear-gradient(135deg, #364d59 0%, #223139 100%); border: 2px solid #feb900;">
+
+              <div class="position-relative">
+                <h3 class="text-white mb-3" style="font-weight: 700;">Окно дует, ручка туго ходит или заклинило?</h3>
+                <p class="text-white-50 mb-4 lead">
+                  Вызовите мастера — диагностика и большинство ремонтов выполняются <strong>в день обращения</strong>.
+                </p>
+
+                <a href="contact.html#contact"
+                  class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg text-dark d-inline-flex align-items-center">
+                  <i class="bi bi-person-check-fill me-2"></i>
+                  Вызвать мастера по ремонту
+                </a>
+
+                <div class="mt-4 text-white-50 small">
+                  <i class="bi bi-shield-check me-1 text-warning"></i> Гарантия на работы до 5 лет
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>`;
+---
+
+<BaseLayout
+  lang="ru"
+  title={"Ремонт Окон и Дверей Киев 2026 | Регулировка и Сервис — UWS"}
+  description={"Профессиональный ремонт пластиковых окон и дверей в Киеве от UWS: регулировка, замена фурнитуры, уплотнителя. Срочный выезд мастера, гарантия до 5 лет. Бесплатная диагностика."}
+  canonicalPath={"/ru/service-details-repair"}
+  structuredData={structuredData}
+>
+  <Header lang="ru" activePage="" />
+
+  <Fragment set:html={mainHtml} />
+
+  <ContactModal lang="ru" />
+  <Footer lang="ru" />
+</BaseLayout>

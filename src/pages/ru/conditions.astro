@@ -1,0 +1,364 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "UWS — Установка, Ремонт Окон Киев",
+  "url": "https://uws.com.ua/ru/conditions",
+  "telephone": [
+    "+380660575202",
+    "+380989478772",
+    "+380633664769"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Киев",
+    "addressCountry": "UA"
+  },
+  "openingHours": "Mo-Su 09:00-20:00",
+  "description": "Прозрачные условия предоставления услуг: гарантия до 5 лет на ремонт и установку металлопластиковых окон, дверей, балконов. Участник программы єВідновлення.",
+  "service": {
+    "@type": "Service",
+    "serviceType": "Ремонт и установка окон",
+    "provider": {
+      "@type": "Organization",
+      "name": "UWS"
+    },
+    "areaServed": "Киев и Киевская область",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Гарантийные обязательства",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Гарантия на выполненные работы"
+          },
+          "priceCurrency": "UAH",
+          "price": "0",
+          "availability": "https://schema.org/InStock"
+        }
+      ]
+    }
+  }
+};
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center"
+    style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+    <div class="container position-relative">
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- Єдиний вступний блок з H1 -->
+    <section id="terms-hero" class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 text-center">
+            <h1 class="display-5 fw-bold mb-4" style="color: var(--color-default);">
+              Условия предоставления услуг и гарантии UWS — Киев 2026
+            </h1>
+            <p class="lead text-muted mb-0" style="max-width: 760px; margin: 0 auto;">
+              Прозрачные правила сотрудничества: бесплатный выезд мастера, фиксированная цена в договоре, официальная гарантия до 5
+              лет и возможность оплаты по программе <strong>єВідновлення</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Порядок виконання робіт -->
+    <section id="process" class="section-bg py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header text-center">
+          <h2 class="fw-bold" style="color: var(--color-default);">Порядок предоставления услуг</h2>
+          <p class="text-muted">Чёткая последовательность действий, которая гарантирует качество, фиксированную цену и отсутствие сюрпризов
+          </p>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 border-0 shadow-sm text-center p-4 transition-all"
+              style="border-top: 4px solid var(--color-primary);">
+              <div class="mb-3">
+                <i class="bi bi-telephone-inbound-fill" style="font-size: 3rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">1. Заявка и запись</h3>
+              <p class="text-muted">Телефон, сайт, мессенджеры → согласование удобного времени выезда (обычно 1–2 часа или
+                следующий день).</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100 border-0 shadow-sm text-center p-4 transition-all"
+              style="border-top: 4px solid var(--color-primary);">
+              <div class="mb-3">
+                <i class="bi bi-rulers" style="font-size: 3rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">2. Бесплатный выезд и замер</h3>
+              <p class="text-muted">Мастер проводит диагностику, замер, составляет точную смету (стоимость фиксируется в
+                договоре).</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="card h-100 border-0 shadow-sm text-center p-4 transition-all"
+              style="border-top: 4px solid var(--color-primary);">
+              <div class="mb-3">
+                <i class="bi bi-file-earmark-text" style="font-size: 3rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">3. Заключение договора</h3>
+              <p class="text-muted">Фиксируем цену, сроки, объёмы работ, гарантийные обязательства. Оплата после
+                выполнения или поэтапно.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="card h-100 border-0 shadow-sm text-center p-4 transition-all"
+              style="border-top: 4px solid var(--color-primary);">
+              <div class="mb-3">
+                <i class="bi bi-truck" style="font-size: 3rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">4. Изготовление / комплектация</h3>
+              <p class="text-muted">Стандартные конструкции — 4–7 рабочих дней, нестандарт (арки, ламинация) — от 14
+                дней.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+            <div class="card h-100 border-0 shadow-sm text-center p-4 transition-all"
+              style="border-top: 4px solid var(--color-primary);">
+              <div class="mb-3">
+                <i class="bi bi-hammer" style="font-size: 3rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">5. Профессиональный монтаж</h3>
+              <p class="text-muted">Выполнение по ДСТУ, с использованием качественных материалов. Соблюдение технологии
+                монтажа.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+            <div class="card h-100 border-0 shadow-sm text-center p-4 transition-all"
+              style="border-top: 4px solid var(--color-primary);">
+              <div class="mb-3">
+                <i class="bi bi-shield-check" style="font-size: 3rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">6. Приём-передача + гарантия</h3>
+              <p class="text-muted">Проверка клиентом, подписание акта, постановка на гарантийный учёт (до 5 лет).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Покращений блок гарантій -->
+    <section id="guarantee" class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+
+            <h2 class="text-center mb-5 fw-bold" style="color: var(--color-default);">
+              Гарантийные обязательства UWS
+            </h2>
+
+            <div class="alert alert-light border border-warning text-center mb-5 shadow-sm" role="alert"
+              style="border-width: 3px; background: rgba(254,185,0,0.05);">
+              <strong class="text-warning d-block mb-2" style="font-size: 1.25rem;">Важно</strong>
+              <p class="mb-0">
+                Согласно ДСТУ Б В.2.6.-15:2011 минимальная гарантия на металлопластиковые конструкции — 3 года.<br>
+                <strong class="text-dark">UWS предоставляет расширенную гарантию до 5 лет</strong> на все выполненные работы и
+                комплектующие.
+              </p>
+            </div>
+
+            <div class="row gy-4">
+              <div class="col-md-6">
+                <div class="card h-100 shadow border-0 overflow-hidden">
+                  <div class="card-header text-white fw-bold text-center py-3"
+                    style="background: var(--color-primary);">
+                    Гарантия на работы
+                  </div>
+                  <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                      <li class="mb-3 d-flex align-items-start">
+                        <i class="bi bi-check-circle-fill text-success fs-4 me-3 mt-1"></i>
+                        <div>
+                          <strong class="d-block">Ремонт, регулировка, замена уплотнителя</strong>
+                          <span class="text-muted small">до 5 лет</span>
+                        </div>
+                      </li>
+                      <li class="mb-3 d-flex align-items-start">
+                        <i class="bi bi-check-circle-fill text-success fs-4 me-3 mt-1"></i>
+                        <div>
+                          <strong class="d-block">Установка окон / дверей / балконов</strong>
+                          <span class="text-muted small">5 лет</span>
+                        </div>
+                      </li>
+                      <li class="d-flex align-items-start">
+                        <i class="bi bi-check-circle-fill text-success fs-4 me-3 mt-1"></i>
+                        <div>
+                          <strong class="d-block">Монтажный шов и герметичность</strong>
+                          <span class="text-muted small">5 лет</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="card h-100 shadow border-0 overflow-hidden">
+                  <div class="card-header text-white fw-bold text-center py-3"
+                    style="background: var(--color-primary);">
+                    Гарантия на материалы
+                  </div>
+                  <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                      <li class="mb-3 d-flex align-items-start">
+                        <i class="bi bi-check-circle-fill text-success fs-4 me-3 mt-1"></i>
+                        <div>
+                          <strong class="d-block">Оригинальная фурнитура MACO, ROTO, GU</strong>
+                          <span class="text-muted small">до 5 лет</span>
+                        </div>
+                      </li>
+                      <li class="mb-3 d-flex align-items-start">
+                        <i class="bi bi-check-circle-fill text-success fs-4 me-3 mt-1"></i>
+                        <div>
+                          <strong class="d-block">Стеклопакеты</strong>
+                          <span class="text-muted small">5 лет (отсутствие конденсата внутри)</span>
+                        </div>
+                      </li>
+                      <li class="d-flex align-items-start">
+                        <i class="bi bi-check-circle-fill text-success fs-4 me-3 mt-1"></i>
+                        <div>
+                          <strong class="d-block">Профиль ПВХ</strong>
+                          <span class="text-muted small">5 лет (отсутствие деформации, изменения цвета)</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 text-center">
+              <p class="text-muted mb-4 fw-medium">
+                Гарантия действует при соблюдении правил эксплуатации и своевременном обращении за сервисом.
+              </p>
+              <a href="contact.html#contact" class="btn btn-warning btn-lg px-5 py-3 fw-bold shadow">
+                <i class="bi bi-file-earmark-check me-2"></i>Получить официальный расчет с гарантией
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Важливі нюанси -->
+    <section id="important" class="section-bg py-5">
+      <div class="container" data-aos="fade-up">
+        <h2 class="text-center mb-5 fw-bold" style="color: var(--color-default);">
+          Важные нюансы, которые стоит знать перед заказом
+        </h2>
+
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <div class="icon-box d-flex mb-4 p-3 bg-white shadow-sm rounded-3">
+              <i class="bi bi-house-gear fs-3 text-primary flex-shrink-0 me-4"></i>
+              <div>
+                <h4 class="fw-bold mb-2">Подготовка помещения</h4>
+                <p class="mb-0 text-muted">Освободите подоконники, обеспечьте свободный доступ 1–1.5 м к проёмам.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex mb-4 p-3 bg-white shadow-sm rounded-3">
+              <i class="bi bi-shield-exclamation fs-3 text-primary flex-shrink-0 me-4"></i>
+              <div>
+                <h4 class="fw-bold mb-2">Защита интерьера</h4>
+                <p class="mb-0 text-muted">Рекомендуем накрыть мебель и технику плёнкой — монтаж сопровождается пылью.
+                </p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex p-3 bg-white shadow-sm rounded-3">
+              <i class="bi bi-thermometer-snow fs-3 text-primary flex-shrink-0 me-4"></i>
+              <div>
+                <h4 class="fw-bold mb-2">Погодные ограничения</h4>
+                <p class="mb-0 text-muted">Монтаж не проводится при температуре ниже -15°C или во время сильного дождя.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="icon-box d-flex mb-4 p-3 bg-white shadow-sm rounded-3">
+              <i class="bi bi-clock-history fs-3 text-primary flex-shrink-0 me-4"></i>
+              <div>
+                <h4 class="fw-bold mb-2">Сроки изготовления</h4>
+                <p class="mb-0 text-muted">Стандарт — 4–7 рабочих дней, арки/ламинация — от 14 дней.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex mb-4 p-3 bg-white shadow-sm rounded-3">
+              <i class="bi bi-lightning-charge fs-3 text-primary flex-shrink-0 me-4"></i>
+              <div>
+                <h4 class="fw-bold mb-2">Электроэнергия</h4>
+                <p class="mb-0 text-muted">Нужна рабочая розетка в радиусе 5–10 м от места работ.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex p-3 bg-white shadow-sm rounded-3">
+              <i class="bi bi-trash3 fs-3 text-primary flex-shrink-0 me-4"></i>
+              <div>
+                <h4 class="fw-bold mb-2">Вывоз мусора</h4>
+                <p class="mb-0 text-muted">Крупногабаритный мусор выносится на лестничную площадку (вывозим за
+                  дополнительную оплату).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Фінальний CTA -->
+    <section class="py-5">
+      <div class="container" data-aos="zoom-in">
+        <div class="p-5 rounded-4 text-center shadow-lg"
+          style="background: linear-gradient(135deg, #2a3d47 0%, #1a252b 100%); color: white;">
+          <h3 class="mb-4 fw-bold">Готовы работать по чётким и прозрачным правилам?</h3>
+          <p class="lead mb-4 opacity-90">
+            Бесплатный выезд мастера, фиксированная цена в договоре, официальная гарантия до 5 лет и возможность оплаты по
+            программе <strong>єВідновлення</strong>.
+          </p>
+          <a href="contact.html#contact" class="btn btn-warning btn-lg px-5 py-3 fw-bold shadow">
+            <i class="bi bi-clipboard-check me-2"></i> Заказать выезд и договор
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>`;
+---
+
+<BaseLayout
+  lang="ru"
+  title={"Условия предоставления услуг, гарантия на ремонт и установку окон Киев | UWS 2026"}
+  description={"Официальные условия сотрудничества UWS: порядок вызова мастера, сроки монтажа, оплата, гарантия на работы до 5 лет, сотрудничество с программой єВідновлення. Киев и область."}
+  canonicalPath={"/ru/conditions"}
+  structuredData={structuredData}
+>
+  <Header lang="ru" activePage="conditions" />
+
+  <Fragment set:html={mainHtml} />
+
+  <ContactModal lang="ru" />
+  <Footer lang="ru" />
+</BaseLayout>

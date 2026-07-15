@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactModal from '../components/ContactModal.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "UWS — Москітні Сітки Київ",
+  "image": "https://uws.com.ua/assets/img/logo.png",
+  "telephone": [
+    "+380660575202",
+    "+380989478772",
+    "+380633664769"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Київ",
+    "addressRegion": "Київська область",
+    "postalCode": "01001",
+    "addressCountry": "UA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.4501,
+    "longitude": 30.5234
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "description": "Виготовлення та встановлення москітних сіток у Києві: рамкові, дверні, антикішка, антипил, ролетні. Індивідуальні розміри, гарантія до 5 років.",
+  "url": "https://uws.com.ua/service-details-moskitki.html",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.facebook.com/uws.kyiv",
+    "https://www.instagram.com/uws_kyiv"
+  ],
+  "makesOffer": {
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "name": "Виготовлення та встановлення москітних сіток"
+    }
+  }
+};
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center" style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+      <div class="container position-relative"></div>
+    </div>
+
+
+
+    <section id="service-details" class="service-details py-5">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <!-- Головний H1 + вступ -->
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">Москітні Сітки на Вікна та Двері Київ</h1>
+          <p class="lead text-muted mt-3">UWS виготовляє та встановлює москітні сітки будь-якого типу: антикішка,
+            антипил, ролетні, дверні. Індивідуальні розміри, гарантія до 5 років.</p>
+        </header>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="services-list shadow-sm rounded-4 p-4 bg-white">
+              <a href="/service-details-install">Встановлення вікон та дверей</a>
+              <a href="/service-details-repair">Ремонт вікон та дверей</a>
+              <a href="/service-details-balkony">Балкони і лоджії</a>
+              <a href="/service-details-moskitki" class="active">Москітні сітки</a>
+              <a href="/service-details-glass">Заміна склопакетів</a>
+              <a href="/service-details-dovodyachi">Доводчики для дверей</a>
+            </div>
+
+            <div class="mt-4 p-4 rounded-4 bg-light shadow-sm">
+              <h4 class="fw-bold mb-3">Чому обирають нас?</h4>
+              <p class="text-muted">
+                Ми виготовляємо сітки за індивідуальними розмірами протягом 1-2 днів. Використовуємо посилений
+                алюмінієвий профіль та якісне полотно, яке не вигорає на сонці.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <picture>
+              <source srcset="/assets/img/services/moskitki.webp" type="image/webp">
+              <img src="/assets/img/services/moskitki.jpg"
+              alt="Москітні сітки Київ — антикішка, антипил, ролетні, дверні UWS"
+              class="img-fluid services-img rounded-4 shadow-sm mb-4" loading="lazy">
+            </picture>
+
+            <h2 class="h3 fw-bold mb-4">Виготовлення та встановлення москітних сіток у Києві</h2>
+            <p class="lead text-muted mb-5">
+              Надійний захист вашого дому від комах, тополиного пуху та вуличного сміття. Ми пропонуємо широкий вибір
+              конструкцій, які підходять для будь-яких типів вікон та дверей.
+            </p>
+
+            <h3 class="h4 fw-bold mb-3">Види сіток, які ми пропонуємо:</h3>
+            <ul class="list-unstyled">
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Рамкові (внутрішньопроємні):</strong> Найпопулярніший варіант, легко знімаються та миються,
+                  не потребують свердління рами.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Дверні сітки:</strong> На петлях з магнітною защіпкою — ідеальне рішення для балконних
+                  дверей.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Сітка "Антикішка" (Pet Screen):</strong> Особливо міцне полотно, яке витримує кігті
+                  домашніх тварин.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Сітка "Антипил":</strong> Спеціальне дрібноосередкове полотно, що затримує пилок та
+                  найдрібніші частинки пилу.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Ролетні сітки:</strong> Зручна конструкція, яка згортається в короб над вікном.</div>
+              </li>
+            </ul>
+
+            <p class="mt-4 text-muted">
+              Наш замірник приїде до вас зразками профілів та полотен, допоможе обрати оптимальний варіант та зробить
+              точний розрахунок на місці.
+            </p>
+
+            <div class="mt-5 p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+              style="background: linear-gradient(135deg, #364d59 0%, #223139 100%); border: 2px solid #feb900;">
+
+              <div class="position-relative">
+                <h3 class="text-white mb-3" style="font-weight: 700;">Потрібен замір та розрахунок вартості сіток?</h3>
+                <p class="text-white-50 mb-4 lead">
+                  Залиште заявку — наш майстер зв'яжеться з вами, проконсультує щодо видів полотен та узгодить час
+                  <strong>безкоштовного заміру</strong>.
+                </p>
+
+                <a href="/contact#contact"
+                  class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg text-dark d-inline-flex align-items-center">
+                  <i class="bi bi-person-check-fill me-2"></i>
+                  Безкоштовний замір та консультація
+                </a>
+
+                <div class="mt-4 text-white-50 small">
+                  <i class="bi bi-clock-history me-1 text-warning"></i> Виготовлення від 1 до 3 робочих днів
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  `;
+---
+
+<BaseLayout
+  lang="uk"
+  title={"Москітні Сітки Київ 2026 | Антикішка, Антипил — UWS"}
+  description={"Виготовлення та встановлення москітних сіток у Києві від UWS: рамкові, дверні, антикішка, антипил, ролетні. Індивідуальні розміри, швидке виготовлення, гарантія. Безкоштовний замір."}
+  canonicalPath={"/service-details-moskitki"}
+  structuredData={structuredData}
+>
+  <Header lang="uk" activePage="service-details-moskitki" />
+
+  <Fragment set:html={mainHtml} />
+
+  <ContactModal lang="uk" />
+  <Footer lang="uk" />
+</BaseLayout>

@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "UWS — Установка и Регулировка Доводчиков Дверей Киев",
+  "image": "https://uws.com.ua/assets/img/logo.png",
+  "telephone": [
+    "+380660575202",
+    "+380989478772",
+    "+380633664769"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Киев",
+    "addressRegion": "Киевская область",
+    "postalCode": "01001",
+    "addressCountry": "UA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.4501,
+    "longitude": 30.5234
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "description": "Профессиональный подбор, монтаж и сезонная регулировка доводчиков дверей в Киеве. Бренды GEZE, DORMA, CISA. Гарантия до 5 лет.",
+  "url": "https://uws.com.ua/ru/service-details-dovodyachi",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.facebook.com/uws.kyiv",
+    "https://www.instagram.com/uws_kyiv"
+  ],
+  "makesOffer": {
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "name": "Установка и регулировка доводчиков дверей"
+    }
+  }
+};
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center"
+    style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+    <div class="container position-relative">
+    </div>
+  </div>
+
+  <main id="main">
+
+    <section id="service-details" class="service-details py-5">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">Установка и Регулировка Доводчиков Дверей в Киеве</h1>
+          <p class="lead text-muted mt-3">UWS — профессиональный монтаж доводчиков GEZE, DORMA, CISA. Срочная регулировка,
+            ремонт и замена. Гарантия до 5 лет.</p>
+        </header>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="services-list shadow-sm rounded-4 p-4 bg-white">
+              <a href="/ru/service-details-install">Установка окон и дверей</a>
+              <a href="/ru/service-details-repair">Ремонт окон и дверей</a>
+              <a href="/ru/service-details-balkony">Балконы и лоджии</a>
+              <a href="/ru/service-details-moskitki">Москитные сетки</a>
+              <a href="/ru/service-details-glass">Замена стеклопакетов</a>
+              <a href="/ru/service-details-dovodyachi" class="active">Доводчики для дверей</a>
+            </div>
+
+            <div class="mt-4 p-4 rounded-4 bg-light shadow-sm">
+              <h4 class="fw-bold mb-3">Продлите жизнь дверей</h4>
+              <p class="text-muted">
+                Правильно установленный доводчик предотвращает сильные удары при закрывании, защищая петли, замок и саму
+                дверную конструкцию от преждевременного износа.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <picture>
+              <source srcset="/assets/img/services/dovodyachi.webp" type="image/webp">
+              <img src="/assets/img/services/dovodyachi.jpg" alt="Установка доводчиков дверей GEZE, DORMA в Киеве — UWS"
+              class="img-fluid services-img rounded-4 shadow-sm mb-4" loading="lazy">
+            </picture>
+
+            <h2 class="h3 fw-bold mb-4">Профессиональный подбор, установка и регулировка доводчиков</h2>
+            <p class="lead text-muted mb-5">
+              Доводчик — важный элемент безопасности и комфорта, особенно в местах с высокой проходимостью. Мы предлагаем
+              установку надёжных доводчиков от ведущих мировых производителей на входные, межкомнатные и офисные двери.
+            </p>
+
+            <h3 class="h4 fw-bold mb-3">Что мы предлагаем:</h3>
+            <ul class="list-unstyled">
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Подбор по классу мощности:</strong> Выбираем модель в зависимости от веса и ширины ваших
+                  дверей (от лёгких пластиковых до тяжёлых бронированных).</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Профессиональный монтаж:</strong> Установка на любые типы поверхностей (металл, ПВХ, дерево,
+                  алюминий).</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Сезонная регулировка:</strong> Настройка скорости закрывания и «дохлопа» при смене
+                  температуры воздуха.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Ремонт и замена:</strong> Замена вышедших из строя механизмов и устранение протекания
+                  масла.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Работа с брендами:</strong> Устанавливаем проверенное оборудование GEZE, DORMA, CISA и другие.
+                </div>
+              </li>
+            </ul>
+
+            <p class="mt-4 text-muted">
+              Наши мастера знают все тонкости настройки гидравлических систем доводчиков. Мы гарантируем плавное и
+              бесшумное закрывание ваших дверей в любых условиях.
+            </p>
+
+            <div class="mt-5 p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+              style="background: linear-gradient(135deg, #364d59 0%, #223139 100%); border: 2px solid #feb900;">
+
+              <div class="position-relative">
+                <h3 class="text-white mb-3" style="font-weight: 700;">Двери хлопают или не закрываются до конца?</h3>
+                <p class="text-white-50 mb-4 lead">
+                  Оставьте заявку — наш специалист приедет, подберёт нужный доводчик или настроит ваш старый механизм
+                  <strong>в кратчайшие сроки</strong>.
+                </p>
+
+                <a href="contact.html#contact"
+                  class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg text-dark d-inline-flex align-items-center">
+                  <i class="bi bi-person-check-fill me-2"></i>
+                  Вызвать мастера по доводчикам
+                </a>
+
+                <div class="mt-4 text-white-50 small">
+                  <i class="bi bi-wrench-adjustable me-1 text-warning"></i> Регулировка и настройка в день обращения
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>`;
+---
+
+<BaseLayout
+  lang="ru"
+  title={"Установка и Регулировка Доводчиков Дверей Киев 2026 | UWS"}
+  description={"Профессиональный монтаж и регулировка доводчиков дверей в Киеве от UWS. Бренды GEZE, DORMA. Срочный выезд мастера, гарантия до 5 лет. Бесплатная консультация."}
+  canonicalPath={"/ru/service-details-dovodyachi"}
+  structuredData={structuredData}
+>
+  <Header lang="ru" activePage="" />
+
+  <Fragment set:html={mainHtml} />
+
+  <ContactModal lang="ru" />
+  <Footer lang="ru" />
+</BaseLayout>

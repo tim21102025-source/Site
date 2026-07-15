@@ -1,0 +1,307 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "UWS — Установка и Ремонт Окон Киев",
+  "image": "https://uws.com.ua/assets/img/logo.png",
+  "telephone": [
+    "+380660575202",
+    "+380989478772",
+    "+380633664769"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Киев",
+    "addressRegion": "Киевская область",
+    "postalCode": "01001",
+    "addressCountry": "UA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.4501,
+    "longitude": 30.5234
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "description": "Профессиональная установка металлопластиковых окон, дверей и балконов. Ремонт, регулировка, обслуживание в Киеве и области. Гарантия до 5 лет.",
+  "url": "https://uws.com.ua/ru/",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.facebook.com/uws.kyiv",
+    "https://www.instagram.com/uws_kyiv"
+  ]
+};
+
+const mainHtml = `<!-- Компактный баннер -->
+  <div class="page-header-mini d-flex align-items-center"
+    style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+    <div class="container position-relative">
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- Единый H1 – главный заголовок страницы -->
+    <section id="care-hero" class="py-5 bg-light">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 text-center">
+            <div class="mb-5">
+              <i class="bi bi-shield-check-fill d-block mx-auto mb-4"
+                style="font-size: 5.5rem; color: var(--color-primary); filter: drop-shadow(0 4px 12px rgba(254,185,0,0.3));"></i>
+            </div>
+            <h1 class="display-5 fw-bold mb-4" style="color: var(--color-default);">
+              Уход за окнами и дверями: советы и сервисное обслуживание UWS Киев 2026
+            </h1>
+            <p class="lead text-muted mb-0" style="max-width: 760px; margin: 0 auto;">
+              Регулярное обслуживание продлевает срок службы окон на 10–15 лет. Смазка, чистка, регулировка зима-лето — всё, что нужно знать.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Чек-лист ухода -->
+    <section id="care-rules" class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header pb-4 text-center">
+          <h2 class="fw-bold" style="color: var(--color-default);">Базовый чек-лист ухода за окнами</h2>
+          <p class="text-muted">Выполняйте эти простые действия 2 раза в год — и ваши окна прослужат долго</p>
+        </div>
+
+        <div class="row gy-4 justify-content-center">
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-droplet-half" style="font-size: 3.8rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Очистка профиля</h3>
+              <p class="text-muted">Мягкая ткань + моющее средство без абразивов. Не используйте ацетон или растворители!
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-droplet" style="font-size: 3.8rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Уход за уплотнителем</h3>
+              <p class="text-muted">Очистите от грязи, смажьте силиконовой смазкой 2 раза в год. Это сохранит
+                эластичность резины.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-gear-wide-connected" style="font-size: 3.8rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Смазка фурнитуры</h3>
+              <p class="text-muted">Несколько капель машинного масла на подвижные части. Делайте это ежегодно — ручка
+                будет работать легко.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-water" style="font-size: 3.8rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Дренажные отверстия</h3>
+              <p class="text-muted">Проверяйте и прочищайте каналы внизу рамы — это предотвратит накопление влаги.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Сезонная регулировка – теперь симметрично с предыдущей секцией -->
+    <section id="seasonal-modes" class="section-bg py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header pb-4 text-center">
+          <h2 class="fw-bold" style="color: var(--color-default);">Сезонная регулировка окон</h2>
+          <p class="text-muted">Окна имеют режимы «зима» и «лето» — это не маркетинг, а реальная необходимость</p>
+        </div>
+
+        <div class="row gy-4 justify-content-center">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-snow" style="font-size: 3.8rem; color: #00d2ff;"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Зимний режим</h3>
+              <p class="text-muted">Усиленный прижим створки к раме — полная герметизация, исключение сквозняков в морозы.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-sun" style="font-size: 3.8rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Летний режим</h3>
+              <p class="text-muted">Ослабленный прижим — меньшее давление на уплотнитель, продление его срока службы.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-moisture" style="font-size: 3.8rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Борьба с конденсатом</h3>
+              <p class="text-muted">Правильное проветривание + регулярный уход за стеклопакетами — забудьте о «плачущих»
+                окнах.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Почему профессионалы -->
+    <section id="pro-care" class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="text-center mb-5">
+              <h2 class="fw-bold" style="color: var(--color-default);">Почему стоит доверить уход профессионалам UWS</h2>
+              <p class="text-muted lead">Самостоятельный уход — хорошо, профессиональный сервис — значительно лучше</p>
+            </div>
+
+            <div class="row gy-4">
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-search fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h3 class="fw-bold mb-2">Полная диагностика</h3>
+                    <p class="mb-0 text-muted">Выявим скрытые проблемы, которые невозможно увидеть самостоятельно.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-droplet-half fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h3 class="fw-bold mb-2">Профессиональные средства</h3>
+                    <p class="mb-0 text-muted">Специальные смазки, которые не высыхают и не вредят резиновым элементам.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-gear-wide-connected fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h3 class="fw-bold mb-2">Точная регулировка</h3>
+                    <p class="mb-0 text-muted">Идеальный прижим — лёгкий ход ручки, отсутствие сквозняков.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-calendar-check fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h3 class="fw-bold mb-2">Подготовка к сезону</h3>
+                    <p class="mb-0 text-muted">Перевод на зимний/летний режим + полный чек-лист.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Финальный CTA — без изменений -->
+    <section class="contact py-0 pb-5" data-aos="fade-up">
+      <div class="container">
+        <div class="p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+          style="background: linear-gradient(135deg, #2a3d47 0%, #1a252b 100%); border: 1px solid rgba(254, 185, 0, 0.3);">
+
+          <div class="position-relative">
+            <div class="mb-4">
+              <i class="bi bi-shield-shaded text-warning" style="font-size: 3rem;"></i>
+            </div>
+
+            <h2 class="text-white mb-3" style="font-weight: 700; font-size: 2rem;">
+              Окна требуют профессионального сервиса?
+            </h2>
+
+            <div class="row justify-content-center mb-4">
+              <div class="col-lg-8">
+                <p class="text-white-50" style="font-size: 1.1rem;">
+                  Правильный уход продлевает жизнь окна на 10-15 лет. Закажите <span class="text-white">комплексное
+                    техническое обслуживание</span>: смазка фурнитуры, чистка уплотнителей и регулировка прижима.
+                </p>
+              </div>
+            </div>
+
+            <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+              <a href="contact.html#contact" class="btn btn-warning px-5 py-3 fw-bold shadow">
+                <i class="bi bi-calendar-check me-2"></i> Вызвать мастера на сервис
+              </a>
+              <a href="viber://chat?number=%2B380730705280" class="btn btn-outline-light px-5 py-3 fw-bold">
+                <i class="bi bi-chat-dots text-warning me-2"></i> Консультация в Viber
+              </a>
+            </div>
+
+            <div class="mt-4 d-flex align-items-center justify-content-center flex-wrap gap-4">
+              <div class="d-flex align-items-center text-white-50 small"><i
+                  class="bi bi-heart-pulse me-2 text-warning"></i> Продление срока службы</div>
+              <div class="d-flex align-items-center text-white-50 small"><i class="bi bi-snow me-2 text-warning"></i>
+                Подготовка к зиме</div>
+              <div class="d-flex align-items-center text-white-50 small"><i class="bi bi-stars me-2 text-warning"></i>
+                Оригинальные смазки</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>`;
+---
+
+<BaseLayout
+  lang="ru"
+  title={"Уход за окнами и дверями: советы и сервисное обслуживание | UWS Киев 2026"}
+  description={"Как правильно ухаживать за металлопластиковыми окнами и дверями в 2026 году: смазка фурнитуры, чистка уплотнителя, регулировка зима-лето, подготовка к зиме. Профессиональные рекомендации и сервис UWS Киев."}
+  canonicalPath={"/ru/doglyad"}
+  structuredData={structuredData}
+>
+  <Header lang="ru" activePage="doglyad" />
+
+  <Fragment set:html={mainHtml} />
+
+  <ContactModal lang="ru" />
+  <Footer lang="ru" />
+</BaseLayout>

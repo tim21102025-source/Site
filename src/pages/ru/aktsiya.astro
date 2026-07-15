@@ -1,0 +1,240 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "UWS — Установка, Ремонт Окон и Дверей Киев",
+  "image": "https://uws.com.ua/assets/img/logo.png",
+  "telephone": [
+    "+380660575202",
+    "+380989478772",
+    "+380633664769"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Киев",
+    "addressCountry": "UA"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "description": "Актуальные акции и скидки на ремонт, регулировку, установку металлопластиковых окон, дверей, балконов в Киеве. Участник программы єВідновлення.",
+  "url": "https://uws.com.ua/ru/aktsiya",
+  "priceRange": "$$",
+  "offers": {
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "name": "Комплекс «Зимний комфорт»"
+    },
+    "priceCurrency": "UAH",
+    "price": "0",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "2026-01-01",
+    "validThrough": "2026-02-28"
+  }
+};
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center"
+    style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+    <div class="container position-relative">
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- Главное акционное предложение (H1 здесь!) -->
+    <section id="hero-offer" class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row g-0 shadow-lg rounded-4 overflow-hidden bg-white">
+          <div class="col-lg-6 position-relative">
+            <div class="about-img h-100"
+              style="background-image: url('/assets/img/aktsiya-1.jpg'); min-height: 420px; background-size: cover; background-position: center;">
+            </div>
+            <div class="position-absolute top-0 start-0 m-4">
+              <span class="badge bg-danger fs-5 px-4 py-2">Зима 2026</span>
+            </div>
+          </div>
+          <div class="col-lg-6 p-4 p-lg-5 d-flex flex-column justify-content-center">
+            <h1 class="fw-bold display-5 mb-4">Комплекс «Зимний комфорт» — -20% на всё!</h1>
+            <p class="lead text-primary fw-bold fs-4 mb-4">Полное обслуживание всех окон квартиры по специальной цене
+            </p>
+
+            <p class="mb-4">Регулировка + смазка фурнитуры + замена уплотнителя + диагностика — всё в одном
+              заказе со скидкой 20%. Идеальный вариант перед сильными морозами!</p>
+
+            <div class="d-flex align-items-center mb-4">
+              <i class="bi bi-exclamation-triangle-fill text-danger me-3 fs-3"></i>
+              <span class="fw-bold text-uppercase">Акция действует до 28 февраля 2026 года</span>
+            </div>
+
+            <div class="d-flex flex-column flex-sm-row gap-3">
+              <a href="tel:+380660575202" class="btn btn-warning btn-lg fw-bold px-5 py-3 shadow">
+                <i class="bi bi-telephone-fill me-2"></i> Забронировать скидку
+              </a>
+              <a href="contact.html#contact" class="btn btn-outline-primary btn-lg fw-bold px-5 py-3">
+                Получить расчет
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Дополнительные выгодные предложения -->
+    <section id="more-promotions" class="section-bg py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header text-center pb-5">
+          <h2>Другие выгодные предложения UWS в 2026 году</h2>
+          <p class="lead">Выберите свою скидку и экономьте на качественном ремонте и установке окон</p>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 border-0 shadow-sm promo-card">
+              <div class="card-body p-4 text-center">
+                <div class="icon-circle mb-4 mx-auto"
+                  style="width:80px;height:80px;background:#e3f2fd;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                  <i class="bi bi-people-fill text-primary" style="font-size:2.5rem;"></i>
+                </div>
+                <h3 class="h4 fw-bold mb-3">Социальная забота</h3>
+                <p class="mb-3">Скидка <strong class="text-primary fs-4">10–15%</strong> для:</p>
+                <ul class="list-unstyled text-start mb-4">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Пенсионеров</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Многодетных семей</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Военнослужащих ВСУ</li>
+                </ul>
+                <small class="text-muted">* при наличии удостоверения</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100 border-0 shadow-sm promo-card">
+              <div class="card-body p-4 text-center">
+                <div class="icon-circle mb-4 mx-auto"
+                  style="width:80px;height:80px;background:#fff3cd;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                  <i class="bi bi-gift-fill text-warning" style="font-size:2.5rem;"></i>
+                </div>
+                <h3 class="h4 fw-bold mb-3">Сетки в подарок</h3>
+                <p class="mb-4">Заказ установки <strong>3+ окон</strong> «под ключ» → москитные сетки на все
+                  окна <strong>бесплатно</strong>!</p>
+                <div class="badge bg-success fs-5 px-4 py-2">Экономия до 1800 грн</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="card h-100 border-0 shadow-sm promo-card">
+              <div class="card-body p-4 text-center">
+                <div class="icon-circle mb-4 mx-auto"
+                  style="width:80px;height:80px;background:#d1e7dd;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                  <i class="bi bi-house-heart-fill text-success" style="font-size:2.5rem;"></i>
+                </div>
+                <h3 class="h4 fw-bold mb-3">Поддержка ВПЛ</h3>
+                <p class="mb-3">Специальные условия и дополнительные скидки на ремонт/замену поврежденных окон для внутренне
+                  перемещенных лиц</p>
+                <div class="text-primary fw-bold">Вместе к победе и восстановлению!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Мощный CTA блок -->
+    <section class="py-5 bg-dark text-white text-center">
+      <div class="container" data-aos="zoom-in">
+        <div class="row justify-content-center">
+          <div class="col-lg-9 col-xl-8">
+            <h2 class="display-5 fw-bold mb-4" style="color: var(--color-primary);">Акции разлетаются быстро!</h2>
+            <p class="fs-4 mb-5 opacity-85">
+              Мастера уже загружены на 70% в январе. Забронируйте свое окно по акционной цене <strong>прямо
+                сейчас</strong> — количество мест ограничено!
+            </p>
+
+            <div class="d-flex flex-column flex-md-row justify-content-center gap-4 mb-5">
+              <a href="tel:+380660575202" class="btn btn-warning btn-lg px-5 py-3 fw-bold rounded-pill shadow-lg">
+                <i class="bi bi-telephone-fill me-2"></i> ЗАФИКСИРОВАТЬ СКИДКУ
+              </a>
+              <a href="contact.html#contact" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">
+                <i class="bi bi-envelope me-2"></i> Получить персональное предложение
+              </a>
+            </div>
+
+            <div class="d-flex flex-wrap justify-content-center gap-4 opacity-75 small">
+              <div><i class="bi bi-shield-check-fill me-2"></i>Гарантия до 5 лет</div>
+              <div><i class="bi bi-truck me-2"></i>Бесплатный выезд</div>
+              <div><i class="bi bi-clock-history me-2"></i>Фиксация цены по телефону</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Финальный блок "Индивидуально" -->
+    <section class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center align-items-center gy-5">
+          <div class="col-lg-6">
+            <div class="img-bg rounded-4 shadow-lg"
+              style="background-image: url('/assets/img/aktsiya-2.jpg'); min-height: 380px; background-size: cover; background-position: center;">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <h3 class="fw-bold display-6 mb-4">Нужен большой объем или сложный объект?</h3>
+            <p class="lead mb-4">ОСМД, школы, детские сады, офисы, многоквартирные дома — работаем с большими объемами и
+              предлагаем индивидуальные условия.</p>
+
+            <div class="icon-box d-flex mb-4">
+              <i class="bi bi-patch-check-fill text-primary fs-2 flex-shrink-0 me-3"></i>
+              <div>
+                <h4 class="fw-bold">Персональная цена</h4>
+                <p class="mb-0">Обсудим лучшие условия именно для вашего объекта</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex">
+              <i class="bi bi-calendar-check-fill text-primary fs-2 flex-shrink-0 me-3"></i>
+              <div>
+                <h4 class="fw-bold">Бронирование комплектующих</h4>
+                <p class="mb-0">Закажем материалы по акционной цене уже сегодня</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>`;
+---
+
+<BaseLayout
+  lang="ru"
+  title={"Акции и скидки на ремонт и установку окон в Киеве 2026 | UWS"}
+  description={"Актуальные акции UWS в январе 2026: -20% на комплексное обслуживание окон, скидки для пенсионеров, ВПЛ и ВСУ, бесплатные москитные сетки, специальные условия по программе єВідновлення в Киеве и области."}
+  canonicalPath={"/ru/aktsiya"}
+  structuredData={structuredData}
+>
+  <Header lang="ru" activePage="aktsiya" />
+
+  <Fragment set:html={mainHtml} />
+
+  <ContactModal lang="ru" />
+  <Footer lang="ru" />
+</BaseLayout>
