@@ -1,0 +1,132 @@
+---
+import { ui, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  activePage?: string;
+}
+
+const { lang, activePage = 'home' } = Astro.props;
+const t = ui[lang];
+
+const phones = [
+  { number: '+380660575202', formatted: '+38 (066) 057-52-02', operator: 'Vodafone', class: 'vodafone-color' },
+  { number: '+380989478772', formatted: '+38 (098) 947-87-72', operator: 'Kyivstar', class: 'kyivstar-color' },
+  { number: '+380633664769', formatted: '+38 (063) 366-47-69', operator: 'Lifecell', class: 'lifecell-color' },
+];
+
+const services = [
+  { key: 'install', href: lang === 'uk' ? '/service-details-install' : '/ru/service-details-install' },
+  { key: 'repair', href: lang === 'uk' ? '/service-details-repair' : '/ru/service-details-repair' },
+  { key: 'balkony', href: lang === 'uk' ? '/service-details-balkony' : '/ru/service-details-balkony' },
+  { key: 'moskitki', href: lang === 'uk' ? '/service-details-moskitki' : '/ru/service-details-moskitki' },
+  { key: 'glass', href: lang === 'uk' ? '/service-details-glass' : '/ru/service-details-glass' },
+  { key: 'dovodyachi', href: lang === 'uk' ? '/service-details-dovodyachi' : '/ru/service-details-dovodyachi' },
+];
+
+const extra = [
+  { key: 'aktsiya', href: lang === 'uk' ? '/aktsiya' : '/ru/aktsiya' },
+  { key: 'conditions', href: lang === 'uk' ? '/conditions' : '/ru/conditions' },
+  { key: 'diagnostics', href: lang === 'uk' ? '/diagnostics' : '/ru/diagnostics' },
+  { key: 'faq', href: lang === 'uk' ? '/faq' : '/ru/faq' },
+  { key: 'doglyad', href: lang === 'uk' ? '/doglyad' : '/ru/doglyad' },
+];
+
+const isActive = (page: string) => activePage === page ? 'active' : '';
+---
+
+<!-- Topbar -->
+<div id="topbar-vidnovlennya" class="d-flex align-items-center">
+  <div class="container d-flex justify-content-center justify-content-md-center">
+    <a href={t.topbarLink} class="vidnovlennya-link">
+      <picture>
+        <source srcset="/assets/img/diia-icon.webp" type="image/webp">
+        <img src="/assets/img/diia-icon.png" class="vidnovlennya-icon"
+          alt="Програма єВідновлення — компенсація за пошкоджене житло">
+      </picture>
+      {t.topbarText}
+      <span class="vidnovlennya-gradient-text" style="font-weight: 800; margin-left: 5px;">{t.topbarHighlight}</span>
+    </a>
+  </div>
+</div>
+
+<!-- Header -->
+<header id="header" class="header fixed-top">
+  <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+    <!-- Logo -->
+    <a href={lang === 'uk' ? '/index' : '/ru/index'} class="logo d-flex align-items-center">
+      <picture>
+        <source srcset="/assets/img/logo.webp" type="image/webp">
+        <img src="/assets/img/logo.png" alt="UWS — Встановлення та ремонт вікон у Києві" class="img-fluid me-2">
+      </picture>
+      <span class="logo-text">UWS<span>.</span></span>
+    </a>
+
+    <!-- Mobile toggle -->
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a href={lang === 'uk' ? '/index' : '/ru/index'} class={isActive('home')}>{t.nav.home}</a></li>
+        <li><a href={lang === 'uk' ? '/about' : '/ru/about'} class={isActive('about')}>{t.nav.about}</a></li>
+        <li class="dropdown">
+          <a href={lang === 'uk' ? '/services' : '/ru/services'}><span>{t.nav.services}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <ul>
+            {services.map(s => (
+              <li><a href={s.href}>{t.navServices[s.key as keyof typeof t.navServices]}</a></li>
+            ))}
+          </ul>
+        </li>
+        <li><a href={lang === 'uk' ? '/price' : '/ru/price'} class={isActive('price')}>{t.nav.price}</a></li>
+        <li><a href={t.topbarLink} class={isActive('vidnovlennya')}>{t.nav.vidnovlennya}</a></li>
+        <li class="dropdown">
+          <a href="#"><span>{t.nav.extra}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <ul>
+            {extra.map(e => (
+              <li><a href={e.href}>{t.navExtra[e.key as keyof typeof t.navExtra]}</a></li>
+            ))}
+          </ul>
+        </li>
+        <li><a href={lang === 'uk' ? '/contact' : '/ru/contact'} class={isActive('contact')}>{t.nav.contact}</a></li>
+
+        <!-- Language switcher -->
+        <li class="dropdown lang-selector">
+          <a href="#" class="lang-btn-style">
+            <i class="bi bi-globe"></i><span>{t.langSwitchLabel}</span> <i class="bi bi-chevron-down dropdown-indicator"></i>
+          </a>
+          <ul>
+            <li><a href={t.langSwitchOtherUrl}>{t.langSwitchOther}</a></li>
+            <li><a href={lang === 'uk' ? '/' : '/ru/'}>{t.langSwitchLabel}</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Phone button -->
+    <div class="header-tools d-flex align-items-center">
+      <div class="dropdown">
+        <button class="btn dropdown-phone-btn d-flex align-items-center dropdown-toggle" type="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-telephone"></i>
+          <span class="d-none d-md-inline ms-2">{t.phoneBtn}</span>
+          <span class="d-md-none ms-2">{t.phoneBtnMobile}</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" style="min-width: 220px;">
+          {phones.map(p => (
+            <li><a class="dropdown-item d-flex align-items-center" href={`tel:${p.number.replace(/\s/g, '')}`}>
+              {p.formatted} <span class={`operator-label ${p.class}`}>{p.operator}</span>
+            </a></li>
+          ))}
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item d-flex align-items-center" href="#get-started">
+            <i class="bi bi-pencil-square me-2"></i> {t.requestBtn}
+          </a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</header>

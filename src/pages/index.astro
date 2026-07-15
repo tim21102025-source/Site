@@ -1,0 +1,153 @@
+﻿---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactModal from '../components/ContactModal.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "UWS — Встановлення та Ремонт Вікон Київ",
+  "image": "https://uws.com.ua/assets/img/logo.png",
+  "telephone": ["+380660575202", "+380989478772", "+380633664769"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Київ",
+    "addressRegion": "Київська область",
+    "postalCode": "01001",
+    "addressCountry": "UA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.4501,
+    "longitude": 30.5234
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "description": "Професійне встановлення металопластикових вікон, дверей та балконів. Ремонт, регулювання, обслуговування у Києві та області. Гарантія до 5 років.",
+  "url": "https://uws.com.ua/",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.facebook.com/uws.kyiv",
+    "https://www.instagram.com/uws_kyiv"
+  ]
+};
+---
+
+<BaseLayout
+  lang="uk"
+  title="UWS — Встановлення та Ремонт Вікон Київ | Регулювання Пластикових Вікон"
+  description="Встановлення металопластикових вікон, дверей, балконів у Києві. Ремонт, регулювання, заміна фурнітури, ущільнювача, склопакетів. Гарантія до 5 років, безкоштовний виїзд майстра."
+  canonicalPath="/index"
+  structuredData={structuredData}
+  preloadImage="/assets/img/hero-carousel/hero-carousel-1.jpg"
+>
+  <Header lang="uk" activePage="home" />
+
+  <section id="hero" class="hero">
+    <div class="info d-flex align-items-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h1 data-aos="fade-down">Встановлення та Ремонт Вікон Київ</h1>
+            <h2 data-aos="fade-up">Регулювання пластикових вікон · Заміна фурнітури · Гарантія до 5 років · Безкоштовний виїзд</h2>
+            <p data-aos="fade-up">Професійне встановлення металопластикових вікон, дверей, балконів. Ремонт, усунення протягів, заміна ущільнювача та склопакетів у Києві та області.</p>
+            <a data-aos="fade-up" data-aos-delay="200" href="#get-started" class="btn-get-started">Викликати майстра</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+      <div class="carousel-item active" style="background-image: url(/assets/img/hero-carousel/hero-carousel-1.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-2.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-3.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-4.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-5.jpg)"></div>
+      <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+      <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+    </div>
+  </section>
+
+  <main id="main">
+    <section class="get-started py-5">
+      <div class="container">
+        <div class="row justify-content-between gy-4">
+          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-up">
+            <div class="content ps-lg-4">
+              <h2 class="fw-bold mb-4" style="color: #1a252b;">Чому обирають нас для ремонту та регулювання пластикових вікон у Києві</h2>
+              <p class="mb-4 text-secondary" style="font-size: 1rem;">Не чекайте, поки з вікна почне дути або зламається ручка. Ми повертаємо тепло, тишу та безпеку у вашу оселю за один візит, заощаджуючи до 40% на витратах за опалення.</p>
+              <div class="features-mini mb-4">
+                <div class="d-flex align-items-start mb-3">
+                  <div class="icon-box bg-warning-light p-2 rounded-3 me-3"><i class="bi bi-patch-check-fill text-warning fs-4"></i></div>
+                  <div>
+                    <strong class="fw-bold d-block mb-1">Безкоштовний виїзд та діагностика</strong>
+                    <p class="text-muted mb-0" style="font-size: 0.85rem;">При укладанні договору майстер проведе повний технічний огляд усіх вікон безкоштовно.</p>
+                  </div>
+                </div>
+                <div class="d-flex align-items-start mb-3">
+                  <div class="icon-box bg-warning-light p-2 rounded-3 me-3"><i class="bi bi-camera-fill text-warning fs-4"></i></div>
+                  <div>
+                    <strong class="fw-bold d-block mb-1">Миттєвий розрахунок вартості</strong>
+                    <p class="text-muted mb-0" style="font-size: 0.85rem;">Надішліть фото або відео проблеми — наш експерт оцінить вартість ремонту за 5 хвилин.</p>
+                  </div>
+                </div>
+                <div class="d-flex align-items-start mb-3">
+                  <div class="icon-box bg-warning-light p-2 rounded-3 me-3"><i class="bi bi-shield-lock-fill text-warning fs-4"></i></div>
+                  <div>
+                    <strong class="fw-bold d-block mb-1">Гарантія 12 місяців + офіційний договір</strong>
+                    <p class="text-muted mb-0" style="font-size: 0.85rem;">Використовуємо лише оригінальні комплектуючі (Німеччина, Австрія) та надаємо офіційний чек.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-3 rounded-4 bg-white shadow-sm border-start border-warning border-5 mb-4">
+                <strong class="fw-bold d-block mb-2" style="font-size: 0.95rem;">Отримайте консультацію прямо зараз:</strong>
+                <p class="text-muted mb-3" style="font-size: 0.8rem;">Наші майстри онлайн у зручному месенджері:</p>
+                <div class="d-flex flex-wrap gap-2 messenger-buttons-group">
+                  <a href="viber://chat?number=%2B380730705280" class="btn text-white px-4 py-2 d-flex align-items-center justify-content-center messenger-btn viber-bg"><i class="bi bi-chat-dots-fill me-2"></i> Viber</a>
+                  <a href="https://t.me/+380730705280" class="btn text-white px-4 py-2 d-flex align-items-center justify-content-center messenger-btn telegram-bg"><i class="bi bi-telegram me-2"></i> Telegram</a>
+                  <a href="https://wa.me/380730705280" class="btn text-white px-4 py-2 d-flex align-items-center justify-content-center messenger-btn whatsapp-bg"><i class="bi bi-whatsapp me-2"></i> WhatsApp</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="get-started" class="col-lg-5" data-aos="fade">
+            <form action="" method="post" class="php-email-form telegram-form shadow-lg p-4 p-md-5 rounded-4 bg-white">
+              <h3 class="fs-4 fw-bold mb-2">Швидка заявка на ремонт вікон у Києві</h3>
+              <p class="text-muted small mb-4">Залиште контакти — майстер зателефонує протягом 15 хвилин</p>
+              <div class="row gy-3">
+                <div class="col-md-12 form-group">
+                  <input type="text" name="name" class="form-control" placeholder="Ваше Ім'я" required style="border-radius: 8px; padding: 12px;">
+                </div>
+                <div class="col-md-12 form-group">
+                  <div class="input-group">
+                    <span class="input-group-text" style="background: #f8f9fa; border-radius: 8px 0 0 8px;">+38</span>
+                    <input type="tel" class="form-control" name="phone" placeholder="066 057 52 02" pattern="^(\\s*\\d){10}\\s*$" required style="border-radius: 0 8px 8px 0; padding: 12px;">
+                  </div>
+                </div>
+                <div class="col-md-12 form-group">
+                  <textarea class="form-control" name="message" rows="3" placeholder="Опишіть, що сталося" required style="border-radius: 8px; padding: 12px;"></textarea>
+                </div>
+                <div class="col-md-12 text-center">
+                  <input type="text" name="hp_field" style="display:none !important" tabindex="-1" autocomplete="off">
+                  <button type="submit" class="w-100 py-3 fw-bold text-dark border-0 shadow-sm btn-animate" style="background: #feb900; border-radius: 8px;">Отримати безкоштовну консультацію</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <ContactModal lang="uk" />
+  <Footer lang="uk" />
+</BaseLayout>

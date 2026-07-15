@@ -1,0 +1,94 @@
+---
+import { ui, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang].contactModal;
+---
+
+<!-- Scroll to top -->
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center">
+  <i class="bi bi-arrow-up-short"></i>
+</a>
+
+<div id="preloader"></div>
+
+<!-- Floating contact button -->
+<button type="button" class="floating-contact-btn btn-pulse" data-bs-toggle="modal" data-bs-target="#contactModal">
+  <i class="bi bi-chat-dots-fill"></i>
+  <span>{ui[lang].floatingBtn}</span>
+</button>
+
+<!-- Contact modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 border-0">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title fw-bold" id="contactModalLabel">{t.title}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="footerTelegramForm" class="telegram-form p-2">
+
+          <div class="mb-3">
+            <label for="modalName" class="visually-hidden">{t.namePlaceholder}</label>
+            <input type="text" id="modalName" name="name" class="form-control rounded-3 shadow-none"
+              placeholder={t.namePlaceholder} required
+              oninvalid={`this.setCustomValidity('${t.nameError}')`}
+              oninput="this.setCustomValidity('')" autocomplete="name">
+          </div>
+
+          <div class="mb-3">
+            <label for="modalPhone" class="visually-hidden">Номер телефону</label>
+            <div class="input-group">
+              <span class="input-group-text bg-light border-end-0">+38</span>
+              <input type="tel" id="modalPhone" class="form-control shadow-none" name="phone"
+                placeholder={t.phonePlaceholder} pattern="[0-9]{10}" required
+                oninvalid={`this.setCustomValidity('${t.phoneError}')`}
+                oninput="this.setCustomValidity('')" autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="modalMessage" class="visually-hidden">Повідомлення</label>
+            <textarea id="modalMessage" class="form-control rounded-3 shadow-none" name="message" rows="3"
+              placeholder={t.messagePlaceholder} required
+              oninvalid={`this.setCustomValidity('${t.messageError}')`}
+              oninput="this.setCustomValidity('')"></textarea>
+          </div>
+
+          <div class="mb-3">
+            <input type="file" id="modal-files" class="d-none" accept="image/*,video/*" multiple>
+            <button type="button"
+              class="btn btn-outline-secondary w-100 py-2 d-flex align-items-center justify-content-center border-dashed"
+              onclick="document.getElementById('modal-files').click()"
+              title={t.attachPhoto}>
+              <i class="bi bi-camera me-2"></i>
+              <span>{t.attachPhoto}</span>
+            </button>
+            <div id="modal-file-preview" class="d-flex flex-wrap gap-2 mt-2"></div>
+          </div>
+
+          <input type="text" name="hp_field" style="display:none !important" tabindex="-1" autocomplete="off">
+
+          <button type="submit" class="btn btn-warning w-100 py-3 fw-bold rounded-3 shadow-sm mt-2">
+            {t.submitBtn}
+          </button>
+
+          <div class="loading mt-3 text-center" style="display:none;" role="status">
+            <div class="spinner-border spinner-border-sm text-warning me-2"></div>
+            {t.sending}
+          </div>
+
+          <div class="sent-message mt-3 text-success text-center" style="display:none;" role="alert">
+            <i class="bi bi-check-circle-fill me-1"></i>
+            {t.success}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
