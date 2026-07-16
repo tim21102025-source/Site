@@ -93,34 +93,28 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /**
-   * Header scroll effect — фіксує хедер після скролу за межу topbar
+   * Header scroll effect — плавна анімація topbar → fixed header
    */
   const header = document.querySelector('.header');
   const topbar = document.getElementById('topbar-vidnovlennya');
-  const headerSpacer = document.getElementById('header-spacer');
-  if (header) {
+  if (header && topbar) {
+    topbar.style.maxHeight = topbar.scrollHeight + 'px';
+    topbar.style.overflow = 'hidden';
+    topbar.style.transition = 'max-height 0.35s ease, opacity 0.35s ease, margin 0.35s ease';
+
     const toggleHeader = function () {
-      const topbarHeight = topbar ? topbar.offsetHeight : 0;
-      if (window.scrollY > topbarHeight + 20) {
+      const topbarHeight = topbar.offsetHeight;
+      if (window.scrollY > 20) {
         header.classList.add('header-scrolled');
-        if (topbar) {
-          topbar.style.opacity = '0';
-          topbar.style.maxHeight = '0';
-          topbar.style.overflow = 'hidden';
-          topbar.style.transition = 'opacity 0.3s ease, max-height 0.3s ease';
-        }
-        if (headerSpacer) headerSpacer.style.height = '78px';
+        topbar.style.maxHeight = '0';
+        topbar.style.opacity = '0';
+        topbar.style.marginBottom = '0';
       } else {
         header.classList.remove('header-scrolled');
-        if (topbar) {
-          topbar.style.opacity = '';
-          topbar.style.maxHeight = '';
-          topbar.style.overflow = '';
-          topbar.style.transition = 'opacity 0.3s ease, max-height 0.3s ease';
-        }
-        if (headerSpacer) headerSpacer.style.height = '118px';
+        topbar.style.maxHeight = topbar.scrollHeight + 'px';
+        topbar.style.opacity = '1';
       }
-    };
+    }
     window.addEventListener('load', toggleHeader);
     document.addEventListener('scroll', toggleHeader);
   }

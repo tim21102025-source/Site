@@ -255,31 +255,25 @@ section {
 --------------------------------------------------------------*/
 .header {
   z-index: 1030;
-  position: fixed;
+  position: absolute;
   padding: 20px 0;
   top: 0;
   left: 0;
   right: 0;
-  transition: background 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease;
   background: transparent;
 }
 
 .header.header-scrolled {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-top: 0;
   background: rgba(26, 37, 43, 0.95);
   backdrop-filter: blur(10px);
   padding: 12px 0;
   box-shadow: 0 2px 20px rgba(0,0,0,0.15);
-}
-
-.header-spacer {
-  height: 118px;
-  transition: height 0.3s ease;
-  pointer-events: none;
-}
-
-.header-scrolled ~ .header-spacer,
-.header.header-scrolled + .header-spacer {
-  height: 78px;
 }
 
 .header .logo img {
@@ -2914,14 +2908,18 @@ body.nav-open {
 
 /* ФИКС: Смещение основного навигационного блока */
 #header {
-    margin-top: 45px !important;
+    margin-top: 45px;
+    transition: margin-top 0.35s ease;
 }
 
 #header.header-scrolled {
     margin-top: 0;
 }
 
-/* Внутренние страницы — компенсация fixed-хедера handled by .header-spacer */
+/* Внутренние страницы — компенсация absolute-хедера */
+#main.page-inner {
+    padding-top: 78px;
+}
 
 /* Общий контейнер */
 #topbar-vidnovlennya {
