@@ -260,9 +260,8 @@ section {
   top: 0;
   left: 0;
   right: 0;
-  transition: transform 0.3s ease, background 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
   background: transparent;
-  transform: translateY(0);
 }
 
 .header.header-scrolled {
@@ -272,8 +271,15 @@ section {
   box-shadow: 0 2px 20px rgba(0,0,0,0.15);
 }
 
-.header.header-hidden {
-  transform: translateY(-100%);
+.header-spacer {
+  height: 118px;
+  transition: height 0.3s ease;
+  pointer-events: none;
+}
+
+.header-scrolled ~ .header-spacer,
+.header.header-scrolled + .header-spacer {
+  height: 78px;
 }
 
 .header .logo img {
@@ -2915,10 +2921,7 @@ body.nav-open {
     margin-top: 0;
 }
 
-/* Внутренние страницы — компенсация absolute-хедера */
-#main.page-inner {
-    padding-top: 78px;
-}
+/* Внутренние страницы — компенсация fixed-хедера handled by .header-spacer */
 
 /* Общий контейнер */
 #topbar-vidnovlennya {

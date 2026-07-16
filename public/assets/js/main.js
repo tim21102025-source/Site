@@ -93,45 +93,34 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /**
-   * Header scroll effect — плавне ховання при скролі вниз, поява при скролі вгору
+   * Header scroll effect — фіксує хедер після скролу за межу topbar
    */
   const header = document.querySelector('.header');
   const topbar = document.getElementById('topbar-vidnovlennya');
+  const headerSpacer = document.getElementById('header-spacer');
   if (header) {
-    let lastScroll = 0;
-    const TOPBAR_OFFSET = 20;
-
     const toggleHeader = function () {
-      const scrollY = window.scrollY;
       const topbarHeight = topbar ? topbar.offsetHeight : 0;
-      const scrolled = scrollY > topbarHeight + TOPBAR_OFFSET;
-
-      // Dark background when scrolled past topbar
-      header.classList.toggle('header-scrolled', scrolled);
-
-      // Show/hide topbar
-      if (topbar) {
-        topbar.style.opacity = scrollY > 10 ? '0' : '1';
-        topbar.style.pointerEvents = scrollY > 10 ? 'none' : '';
-        topbar.style.maxHeight = scrollY > 10 ? '0' : topbar.scrollHeight + 'px';
-        topbar.style.overflow = 'hidden';
-        topbar.style.transition = 'opacity 0.3s ease, max-height 0.3s ease';
-      }
-
-      // Hide header when scrolling down past threshold, show when scrolling up
-      if (scrolled) {
-        if (scrollY > lastScroll && scrollY > topbarHeight + 100) {
-          header.classList.add('header-hidden');
-        } else if (scrollY < lastScroll) {
-          header.classList.remove('header-hidden');
+      if (window.scrollY > topbarHeight + 20) {
+        header.classList.add('header-scrolled');
+        if (topbar) {
+          topbar.style.opacity = '0';
+          topbar.style.maxHeight = '0';
+          topbar.style.overflow = 'hidden';
+          topbar.style.transition = 'opacity 0.3s ease, max-height 0.3s ease';
         }
+        if (headerSpacer) headerSpacer.style.height = '78px';
       } else {
-        header.classList.remove('header-hidden');
+        header.classList.remove('header-scrolled');
+        if (topbar) {
+          topbar.style.opacity = '';
+          topbar.style.maxHeight = '';
+          topbar.style.overflow = '';
+          topbar.style.transition = 'opacity 0.3s ease, max-height 0.3s ease';
+        }
+        if (headerSpacer) headerSpacer.style.height = '118px';
       }
-
-      lastScroll = scrollY;
     };
-
     window.addEventListener('load', toggleHeader);
     document.addEventListener('scroll', toggleHeader);
   }
