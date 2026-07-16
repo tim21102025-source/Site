@@ -6,7 +6,7 @@ export default defineConfig({
   site: 'https://uws.com.ua',
   output: 'static',
   build: {
-    format: 'file'
+    format: 'directory'
   },
   trailingSlash: 'never'
 });
