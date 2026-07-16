@@ -10,6 +10,14 @@ interface Props {
 const { lang, activePage = 'home', headerClass = '' } = Astro.props;
 const t = ui[lang];
 
+const currentPath = Astro.url.pathname;
+const cleanPath = currentPath.replace(/^\/(ru|en)(\/|$)/, '/') || '/';
+const langUrls = {
+  uk: cleanPath === '/' ? '/' : cleanPath,
+  ru: cleanPath === '/' ? '/ru' : `/ru${cleanPath}`,
+  en: cleanPath === '/' ? '/en' : `/en${cleanPath}`,
+};
+
 const phones = [
   { number: '+380660575202', formatted: '+38 (066) 057-52-02', operator: 'Vodafone', class: 'vodafone-color' },
   { number: '+380989478772', formatted: '+38 (098) 947-87-72', operator: 'Kyivstar', class: 'kyivstar-color' },
@@ -102,9 +110,9 @@ const isActive = (page: string) => activePage === page ? 'active' : '';
             <i class="bi bi-globe"></i><span>{t.langSwitchLabel}</span> <i class="bi bi-chevron-down dropdown-indicator"></i>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="/">UA</a></li>
-            <li><a href="/ru">RU</a></li>
-            <li><a href="/en">EN</a></li>
+            <li><a href={langUrls.uk}>UA</a></li>
+            <li><a href={langUrls.ru}>RU</a></li>
+            <li><a href={langUrls.en}>EN</a></li>
           </ul>
         </li>
       </ul>
@@ -207,11 +215,11 @@ const isActive = (page: string) => activePage === page ? 'active' : '';
       {t.requestBtn}
     </a>
     <div class="mobile-nav-lang">
-      <a href="/">UA</a>
+      <a href={langUrls.uk}>UA</a>
       <span class="mx-1">|</span>
-      <a href="/ru">RU</a>
+      <a href={langUrls.ru}>RU</a>
       <span class="mx-1">|</span>
-      <a href="/en">EN</a>
+      <a href={langUrls.en}>EN</a>
     </div>
   </div>
 </nav>
