@@ -93,26 +93,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /**
-   * Header scroll effect — плавна анімація topbar → fixed header
+   * Header scroll effect — фіксує хедер після скролу за межу topbar
    */
   const header = document.querySelector('.header');
   const topbar = document.getElementById('topbar-vidnovlennya');
-  if (header && topbar) {
-    topbar.style.maxHeight = topbar.scrollHeight + 'px';
-    topbar.style.overflow = 'hidden';
-    topbar.style.transition = 'max-height 0.35s ease, opacity 0.35s ease, margin 0.35s ease';
-
+  if (header) {
     const toggleHeader = function () {
-      const topbarHeight = topbar.offsetHeight;
-      if (window.scrollY > 20) {
+      const topbarHeight = topbar ? topbar.offsetHeight : 0;
+      if (window.scrollY > topbarHeight + 20) {
         header.classList.add('header-scrolled');
-        topbar.style.maxHeight = '0';
-        topbar.style.opacity = '0';
-        topbar.style.marginBottom = '0';
+        if (topbar) topbar.style.display = 'none';
       } else {
         header.classList.remove('header-scrolled');
-        topbar.style.maxHeight = topbar.scrollHeight + 'px';
-        topbar.style.opacity = '1';
+        if (topbar) topbar.style.display = '';
       }
     }
     window.addEventListener('load', toggleHeader);

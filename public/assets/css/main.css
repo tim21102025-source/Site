@@ -260,7 +260,7 @@ section {
   top: 0;
   left: 0;
   right: 0;
-  transition: background 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease;
+  transition: all 0.3s ease;
   background: transparent;
 }
 
@@ -269,7 +269,7 @@ section {
   top: 0;
   left: 0;
   right: 0;
-  margin-top: 0;
+  margin-top: 0 !important;
   background: rgba(26, 37, 43, 0.95);
   backdrop-filter: blur(10px);
   padding: 12px 0;
@@ -2908,12 +2908,11 @@ body.nav-open {
 
 /* ФИКС: Смещение основного навигационного блока */
 #header {
-    margin-top: 45px;
-    transition: margin-top 0.35s ease;
+    margin-top: 45px !important;
 }
 
 #header.header-scrolled {
-    margin-top: 0;
+    margin-top: 0 !important;
 }
 
 /* Внутренние страницы — компенсация absolute-хедера */
