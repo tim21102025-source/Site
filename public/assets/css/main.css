@@ -55,6 +55,11 @@ h6 {
 section {
   padding: 80px 0;
   overflow: hidden;
+  scroll-margin-top: 90px;
+}
+
+[id] {
+  scroll-margin-top: 90px;
 }
 
 .section-bg {
