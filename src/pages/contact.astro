@@ -196,4 +196,13 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center">
 
   <ContactModal lang="uk" />
   <Footer lang="uk" />
+
+  <script>
+    window.addEventListener('load', () => {
+      const header = document.querySelector('.header');
+      if (header) {
+        window.scrollTo({ top: header.offsetHeight, behavior: 'smooth' });
+      }
+    });
+  </script>
 </BaseLayout>
