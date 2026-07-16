@@ -2912,7 +2912,7 @@ body.nav-open {
 
 /* Внутренние страницы — компенсация absolute-хедера */
 #main.page-inner {
-    padding-top: 84px;
+    padding-top: 80px;
 }
 
 /* Общий контейнер */
