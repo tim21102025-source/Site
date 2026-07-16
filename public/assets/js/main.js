@@ -93,21 +93,45 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /**
-   * Header scroll effect — фіксує хедер після скролу за межу topbar
+   * Header scroll effect — плавне ховання при скролі вниз, поява при скролі вгору
    */
   const header = document.querySelector('.header');
   const topbar = document.getElementById('topbar-vidnovlennya');
   if (header) {
+    let lastScroll = 0;
+    const TOPBAR_OFFSET = 20;
+
     const toggleHeader = function () {
+      const scrollY = window.scrollY;
       const topbarHeight = topbar ? topbar.offsetHeight : 0;
-      if (window.scrollY > topbarHeight + 20) {
-        header.classList.add('header-scrolled');
-        if (topbar) topbar.style.display = 'none';
-      } else {
-        header.classList.remove('header-scrolled');
-        if (topbar) topbar.style.display = '';
+      const scrolled = scrollY > topbarHeight + TOPBAR_OFFSET;
+
+      // Dark background when scrolled past topbar
+      header.classList.toggle('header-scrolled', scrolled);
+
+      // Show/hide topbar
+      if (topbar) {
+        topbar.style.opacity = scrollY > 10 ? '0' : '1';
+        topbar.style.pointerEvents = scrollY > 10 ? 'none' : '';
+        topbar.style.maxHeight = scrollY > 10 ? '0' : topbar.scrollHeight + 'px';
+        topbar.style.overflow = 'hidden';
+        topbar.style.transition = 'opacity 0.3s ease, max-height 0.3s ease';
       }
-    }
+
+      // Hide header when scrolling down past threshold, show when scrolling up
+      if (scrolled) {
+        if (scrollY > lastScroll && scrollY > topbarHeight + 100) {
+          header.classList.add('header-hidden');
+        } else if (scrollY < lastScroll) {
+          header.classList.remove('header-hidden');
+        }
+      } else {
+        header.classList.remove('header-hidden');
+      }
+
+      lastScroll = scrollY;
+    };
+
     window.addEventListener('load', toggleHeader);
     document.addEventListener('scroll', toggleHeader);
   }

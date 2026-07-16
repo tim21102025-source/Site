@@ -255,25 +255,25 @@ section {
 --------------------------------------------------------------*/
 .header {
   z-index: 1030;
-  position: absolute;
+  position: fixed;
   padding: 20px 0;
   top: 0;
   left: 0;
   right: 0;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
   background: transparent;
+  transform: translateY(0);
 }
 
 .header.header-scrolled {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  margin-top: 0 !important;
   background: rgba(26, 37, 43, 0.95);
   backdrop-filter: blur(10px);
   padding: 12px 0;
   box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+}
+
+.header.header-hidden {
+  transform: translateY(-100%);
 }
 
 .header .logo img {
@@ -2912,7 +2912,7 @@ body.nav-open {
 }
 
 #header.header-scrolled {
-    margin-top: 0 !important;
+    margin-top: 0;
 }
 
 /* Внутренние страницы — компенсация absolute-хедера */
