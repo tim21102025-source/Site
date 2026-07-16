@@ -1,0 +1,328 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
+
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Window Installation & Repair Kyiv',
+  description: 'Transparent service terms: warranty up to 5 years on repair and installation of uPVC windows, doors, and balconies. eVidnovlennya program participant.',
+  url: 'https://uws.com.ua/en/conditions',
+});
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center">
+      <div class="container position-relative"></div>
+    </div>
+
+
+
+    <!-- Intro block with H1 -->
+    <section id="terms-hero" class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 text-center">
+            <h1 class="display-5 fw-bold mb-4" style="color: var(--color-default);">
+              Service Terms & Warranty UWS — Kyiv 2026
+            </h1>
+            <p class="lead text-muted mb-0" style="max-width: 760px; margin: 0 auto;">
+              Clear cooperation rules: free technician visit, fixed price in the contract, official warranty up to 5
+              years, and payment through the <strong>eVidnovlennya</strong> program.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service process -->
+    <section id="process" class="section-bg py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header text-center">
+          <h2 class="fw-bold" style="color: var(--color-default);">Service Process</h2>
+          <p class="text-muted">A clear sequence of actions that guarantees quality, a fixed price, and no surprises
+          </p>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 border-0 shadow-sm text-center p-4 transition-all"
+              style="border-top: 4px solid var(--color-primary);">
+              <div class="mb-3">
+                <i class="bi bi-telephone-inbound-fill" style="font-size: 3rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">1. Request & Booking</h3>
+              <p class="text-muted">Phone, website, messengers → scheduling a convenient visit time (usually 1–2 hours or
+                the next day).</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100 border-0 shadow-sm text-center p-4 transition-all"
+              style="border-top: 4px solid var(--color-primary);">
+              <div class="mb-3">
+                <i class="bi bi-rulers" style="font-size: 3rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">2. Free Visit & Measurement</h3>
+              <p class="text-muted">The technician performs diagnostics, measurements, and prepares an accurate estimate
+                (cost is fixed in the contract).</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="card h-100 border-0 shadow-sm text-center p-4 transition-all"
+              style="border-top: 4px solid var(--color-primary);">
+              <div class="mb-3">
+                <i class="bi bi-file-earmark-text" style="font-size: 3rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">3. Contract Signing</h3>
+              <p class="text-muted">We fix the price, deadlines, scope of work, and warranty obligations. Payment after
+                completion or in installments.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="card h-100 border-0 shadow-sm text-center p-4 transition-all"
+              style="border-top: 4px solid var(--color-primary);">
+              <div class="mb-3">
+                <i class="bi bi-truck" style="font-size: 3rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">4. Manufacturing / Assembly</h3>
+              <p class="text-muted">Standard units — 4–7 business days, custom (arches, lamination) — from 14
+                days.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+            <div class="card h-100 border-0 shadow-sm text-center p-4 transition-all"
+              style="border-top: 4px solid var(--color-primary);">
+              <div class="mb-3">
+                <i class="bi bi-hammer" style="font-size: 3rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">5. Professional Installation</h3>
+              <p class="text-muted">Performed to DSTU standards, using quality materials. Adherence to installation
+                technology.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+            <div class="card h-100 border-0 shadow-sm text-center p-4 transition-all"
+              style="border-top: 4px solid var(--color-primary);">
+              <div class="mb-3">
+                <i class="bi bi-shield-check" style="font-size: 3rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">6. Handover & Warranty</h3>
+              <p class="text-muted">Client inspection, signing of the acceptance certificate, and registration for
+                warranty coverage (up to 5 years).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Warranty commitments -->
+    <section id="guarantee" class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+
+            <h2 class="text-center mb-5 fw-bold" style="color: var(--color-default);">
+              UWS Warranty Commitments
+            </h2>
+
+            <div class="alert alert-light border border-warning text-center mb-5 shadow-sm" role="alert"
+              style="border-width: 3px; background: rgba(254,185,0,0.05);">
+              <strong class="text-warning d-block mb-2" style="font-size: 1.25rem;">Important</strong>
+              <p class="mb-0">
+                According to DSTU B V.2.6.-15:2011, the minimum warranty for uPVC structures is 3 years.<br>
+                <strong class="text-dark">UWS provides an extended warranty of up to 5 years</strong> on all completed
+                work and components.
+              </p>
+            </div>
+
+            <div class="row gy-4">
+              <div class="col-md-6">
+                <div class="card h-100 shadow border-0 overflow-hidden">
+                  <div class="card-header text-white fw-bold text-center py-3"
+                    style="background: var(--color-primary);">
+                    Warranty on Work
+                  </div>
+                  <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                      <li class="mb-3 d-flex align-items-start">
+                        <i class="bi bi-check-circle-fill text-success fs-4 me-3 mt-1"></i>
+                        <div>
+                          <strong class="d-block">Repair, adjustment, seal replacement</strong>
+                          <span class="text-muted small">up to 5 years</span>
+                        </div>
+                      </li>
+                      <li class="mb-3 d-flex align-items-start">
+                        <i class="bi bi-check-circle-fill text-success fs-4 me-3 mt-1"></i>
+                        <div>
+                          <strong class="d-block">Window / door / balcony installation</strong>
+                          <span class="text-muted small">5 years</span>
+                        </div>
+                      </li>
+                      <li class="d-flex align-items-start">
+                        <i class="bi bi-check-circle-fill text-success fs-4 me-3 mt-1"></i>
+                        <div>
+                          <strong class="d-block">Installation joint & airtightness</strong>
+                          <span class="text-muted small">5 years</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="card h-100 shadow border-0 overflow-hidden">
+                  <div class="card-header text-white fw-bold text-center py-3"
+                    style="background: var(--color-primary);">
+                    Warranty on Materials
+                  </div>
+                  <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                      <li class="mb-3 d-flex align-items-start">
+                        <i class="bi bi-check-circle-fill text-success fs-4 me-3 mt-1"></i>
+                        <div>
+                          <strong class="d-block">Original hardware MACO, ROTO, GU</strong>
+                          <span class="text-muted small">up to 5 years</span>
+                        </div>
+                      </li>
+                      <li class="mb-3 d-flex align-items-start">
+                        <i class="bi bi-check-circle-fill text-success fs-4 me-3 mt-1"></i>
+                        <div>
+                          <strong class="d-block">Glass units</strong>
+                          <span class="text-muted small">5 years (no condensation inside)</span>
+                        </div>
+                      </li>
+                      <li class="d-flex align-items-start">
+                        <i class="bi bi-check-circle-fill text-success fs-4 me-3 mt-1"></i>
+                        <div>
+                          <strong class="d-block">uPVC profile</strong>
+                          <span class="text-muted small">5 years (no deformation, no color change)</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 text-center">
+              <p class="text-muted mb-4 fw-medium">
+                The warranty is valid provided that operating rules are followed and timely service is requested.
+              </p>
+              <a href="/en/contact#contact" class="btn btn-warning btn-lg px-5 py-3 fw-bold shadow">
+                <i class="bi bi-file-earmark-check me-2"></i>Get an official quote with warranty
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Important details -->
+    <section id="important" class="section-bg py-5">
+      <div class="container" data-aos="fade-up">
+        <h2 class="text-center mb-5 fw-bold" style="color: var(--color-default);">
+          Important Details to Know Before Ordering
+        </h2>
+
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <div class="icon-box d-flex mb-4 p-3 bg-white shadow-sm rounded-3">
+              <i class="bi bi-house-gear fs-3 text-primary flex-shrink-0 me-4"></i>
+              <div>
+                <h4 class="fw-bold mb-2">Room Preparation</h4>
+                <p class="mb-0 text-muted">Clear the windowsills and ensure 1–1.5 m of free access to the openings.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex mb-4 p-3 bg-white shadow-sm rounded-3">
+              <i class="bi bi-shield-exclamation fs-3 text-primary flex-shrink-0 me-4"></i>
+              <div>
+                <h4 class="fw-bold mb-2">Interior Protection</h4>
+                <p class="mb-0 text-muted">We recommend covering furniture and appliances with film — installation generates dust.
+                </p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex p-3 bg-white shadow-sm rounded-3">
+              <i class="bi bi-thermometer-snow fs-3 text-primary flex-shrink-0 me-4"></i>
+              <div>
+                <h4 class="fw-bold mb-2">Weather Restrictions</h4>
+                <p class="mb-0 text-muted">Installation is not performed at temperatures below -15°C or during heavy rain.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="icon-box d-flex mb-4 p-3 bg-white shadow-sm rounded-3">
+              <i class="bi bi-clock-history fs-3 text-primary flex-shrink-0 me-4"></i>
+              <div>
+                <h4 class="fw-bold mb-2">Manufacturing Timeline</h4>
+                <p class="mb-0 text-muted">Standard — 4–7 business days, arches/lamination — from 14 days.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex mb-4 p-3 bg-white shadow-sm rounded-3">
+              <i class="bi bi-lightning-charge fs-3 text-primary flex-shrink-0 me-4"></i>
+              <div>
+                <h4 class="fw-bold mb-2">Electricity</h4>
+                <p class="mb-0 text-muted">A working power outlet is required within a 5–10 m radius of the work area.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex p-3 bg-white shadow-sm rounded-3">
+              <i class="bi bi-trash3 fs-3 text-primary flex-shrink-0 me-4"></i>
+              <div>
+                <h4 class="fw-bold mb-2">Waste Removal</h4>
+                <p class="mb-0 text-muted">Large debris is taken to the stairwell (disposal is available for an
+                  additional fee).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-5">
+      <div class="container" data-aos="zoom-in">
+        <div class="p-5 rounded-4 text-center shadow-lg"
+          style="background: linear-gradient(135deg, #2a3d47 0%, #1a252b 100%); color: white;">
+          <h3 class="mb-4 fw-bold">Ready to Work Under Clear and Transparent Terms?</h3>
+          <p class="lead mb-4 opacity-90">
+            Free technician visit, fixed price in the contract, official warranty up to 5 years, and payment through the
+            <strong>eVidnovlennya</strong> program.
+          </p>
+          <a href="/en/contact#contact" class="btn btn-warning btn-lg px-5 py-3 fw-bold shadow">
+            <i class="bi bi-clipboard-check me-2"></i> Book a visit & contract
+          </a>
+        </div>
+      </div>
+    </section>
+
+  `;
+---
+
+<BaseLayout
+  lang="en"
+  title={"Service Terms & Warranty on Window Repair & Installation Kyiv | UWS 2026"}
+  description={"Official UWS cooperation terms: technician visit process, installation timeline, payment options, warranty up to 5 years, eVidnovlennya program. Kyiv & region."}
+  canonicalPath={"/en/conditions"}
+  structuredData={structuredData}
+>
+  <Header lang="en" activePage="conditions" headerClass="header-solid" />
+
+  <main id="main" class="page-inner">
+    <Fragment set:html={mainHtml} />
+  </main>
+
+  <ContactModal lang="en" />
+  <Footer lang="en" />
+</BaseLayout>

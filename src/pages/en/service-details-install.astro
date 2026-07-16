@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
+
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Window & Door Installation Kyiv',
+  description: 'Professional installation of PVC windows and doors in Kyiv. Warm installation, removal of old structures, warranty up to 5 years.',
+  url: 'https://uws.com.ua/en/service-details-install',
+  extra: {
+    makesOffer: {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Turnkey window & door installation',
+      },
+    },
+  },
+});
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center">
+      <div class="container position-relative"></div>
+    </div>
+
+
+
+    <section id="service-details" class="service-details py-5">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">Professional Window & Door Installation in Kyiv</h1>
+          <p class="lead text-muted mt-3">UWS provides professional installation of PVC windows and doors. Warm seam,
+            removal of old windows, warranty up to 5 years.</p>
+        </header>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="services-list shadow-sm rounded-4 p-4 bg-white">
+              <a href="/en/service-details-install" class="active">Window & Door Installation</a>
+              <a href="/en/service-details-repair">Window & Door Repair</a>
+              <a href="/en/service-details-balkony">Balconies & Loggias</a>
+              <a href="/en/service-details-moskitki">Mosquito Nets</a>
+              <a href="/en/service-details-glass">Glass Unit Replacement</a>
+              <a href="/en/service-details-dovodyachi">Door Closers</a>
+            </div>
+
+            <div class="mt-4 p-4 rounded-4 bg-light shadow-sm">
+              <h4 class="fw-bold mb-3">Comfort & Energy Efficiency</h4>
+              <p class="text-muted">
+                Quality window and door installation is the key to warmth in your home. We use modern sealing
+                technologies that allow significant savings on heating.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <picture>
+              <source srcset="/assets/img/services/install.webp" type="image/webp">
+              <img src="/assets/img/services/install.jpg"
+              alt="Professional window & door installation in Kyiv — UWS"
+              class="img-fluid services-img rounded-4 shadow-sm mb-4" loading="lazy">
+            </picture>
+
+            <h2 class="h3 fw-bold mb-4">Professional Window & Door Installation in Kyiv & Region</h2>
+            <p class="lead text-muted mb-5">
+              UWS offers comprehensive solutions for PVC window and door installation. We understand that
+              even the most expensive window won't function properly without correct installation, which is why we strictly
+              follow building codes and standards.
+            </p>
+
+            <h3 class="h4 fw-bold mb-3">Our installation services:</h3>
+            <ul class="list-unstyled">
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Turnkey window installation:</strong> Removal of old frames, opening preparation, installation
+                  of the new structure and hardware adjustment.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Entrance & interior door installation:</strong> Secure frame mounting, leveling
+                  and smooth closing adjustment.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Warm installation:</strong> Use of PSUL tapes and vapor barrier for maximum protection
+                  of the installation seam.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Balcony & loggia glazing:</strong> Creating additional living space with quality
+                  insulation.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Windowsill & flashing installation:</strong> Professional finishing of the window opening inside
+                  and out.</div>
+              </li>
+            </ul>
+
+            <p class="mt-4 text-muted">
+              We work with profile systems from leading brands (REHAU, Salamander, WDS) and use only
+              professional installation foam and fasteners. Official warranty is provided for all types of work.
+            </p>
+
+            <div class="mt-5 p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+              style="background: linear-gradient(135deg, #364d59 0%, #223139 100%); border: 2px solid #feb900;">
+
+              <div class="position-relative">
+                <h3 class="text-white mb-3" style="font-weight: 700;">Planning to replace your windows or doors?</h3>
+                <p class="text-white-50 mb-4 lead">
+                  Call a measurer right now! We'll take precise measurements, help you choose the optimal profile
+                  and calculate the installation cost <strong>free of charge</strong>.
+                </p>
+
+                <a href="/en/contact#contact"
+                  class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg text-dark d-inline-flex align-items-center">
+                  <i class="bi bi-calculator me-2"></i>
+                  Book a free measurement
+                </a>
+
+                <div class="mt-4 text-white-50 small">
+                  <i class="bi bi-shield-check me-1 text-warning"></i> We work under the yeVidnovlennya program
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  `;
+---
+
+<BaseLayout
+  lang="en"
+  title={"Window & Door Installation Kyiv 2026 | PVC Structure Installation — UWS"}
+  description={"Professional PVC window and door installation in Kyiv by UWS. Turnkey installation, warm seam, warranty up to 5 years. Free measurement and expert consultation."}
+  canonicalPath={"/en/service-details-install"}
+  structuredData={structuredData}
+>
+  <Header lang="en" activePage="service-details-install" headerClass="header-solid" />
+
+  <main id="main" class="page-inner">
+    <Fragment set:html={mainHtml} />
+  </main>
+
+  <ContactModal lang="en" />
+  <Footer lang="en" />
+</BaseLayout>

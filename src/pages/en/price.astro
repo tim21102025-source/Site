@@ -1,0 +1,333 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
+
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Window Installation & Repair Kyiv',
+  description: 'Current prices for window and door repair, adjustment, and installation in Kyiv for 2026. Transparent pricing, warranty, eVidnovlennya program support.',
+  url: 'https://uws.com.ua/en/price',
+});
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center">
+      <div class="container position-relative"></div>
+    </div>
+
+
+
+    <section id="pricing" class="pricing py-5">
+      <div class="container" data-aos="fade-up">
+
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">Window & Door Installation and Repair Price List — Kyiv 2026</h1>
+          <p class="lead text-muted mt-3">Current UWS prices with no hidden fees. Free site visit for precise measurement when signing a contract.</p>
+        </header>
+
+        <div class="row gy-5">
+
+          <div class="col-12" data-aos="fade-up" data-aos-delay="100">
+            <div class="pricing-item featured pb-4 shadow-sm rounded-4">
+              <h2 class="h4 fw-bold text-start ps-4 pt-3"><i class="bi bi-window-plus text-warning me-2"></i>
+                Window & Door Installation</h2>
+              <div class="table-responsive p-4">
+                <table class="table table-hover align-middle">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col">Service</th>
+                      <th scope="col" class="text-end">Price (from)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>PVC window installation (standard)</td>
+                      <td class="text-end fw-bold">850 UAH/m²</td>
+                    </tr>
+                    <tr>
+                      <td>Entrance door installation (metal/PVC)</td>
+                      <td class="text-end fw-bold">3200 UAH/pc</td>
+                    </tr>
+                    <tr>
+                      <td>Removal of old structures</td>
+                      <td class="text-end fw-bold">280 UAH/m²</td>
+                    </tr>
+                    <tr>
+                      <td>Windowsill installation</td>
+                      <td class="text-end fw-bold">350 UAH/lin.m</td>
+                    </tr>
+                    <tr>
+                      <td>Sill / canopy installation</td>
+                      <td class="text-end fw-bold">250 UAH/lin.m</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12" data-aos="fade-up" data-aos-delay="200">
+            <div class="pricing-item featured pb-4 shadow-sm rounded-4">
+              <h2 class="h4 fw-bold text-start ps-4 pt-3"><i class="bi bi-tools text-warning me-2"></i> Window Repair &
+                Maintenance</h2>
+              <div class="table-responsive p-4">
+                <table class="table table-hover align-middle">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col">Service</th>
+                      <th scope="col" class="text-end">Price (from)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Technical maintenance (lubrication + cleaning)</td>
+                      <td class="text-end fw-bold">280 UAH/sash</td>
+                    </tr>
+                    <tr>
+                      <td>Window / door sash adjustment</td>
+                      <td class="text-end fw-bold">350 UAH/pc</td>
+                    </tr>
+                    <tr>
+                      <td>Seal replacement (Germany, silicone)</td>
+                      <td class="text-end fw-bold">120 UAH/lin.m</td>
+                    </tr>
+                    <tr>
+                      <td>Hardware replacement (full set)</td>
+                      <td class="text-end fw-bold">2500 UAH/pc</td>
+                    </tr>
+                    <tr>
+                      <td>Window handle replacement (Hoope/standard)</td>
+                      <td class="text-end fw-bold">400 UAH/pc</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12" data-aos="fade-up" data-aos-delay="300">
+            <div class="pricing-item featured pb-4 shadow-sm rounded-4">
+              <h2 class="h4 fw-bold text-start ps-4 pt-3"><i class="bi bi-building text-warning me-2"></i> Balcony &
+                Loggia Glazing Turnkey</h2>
+              <div class="table-responsive p-4">
+                <table class="table table-hover align-middle">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col">Service</th>
+                      <th scope="col" class="text-end">Price (from)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Balcony glazing (profile 60-70mm)</td>
+                      <td class="text-end fw-bold">4500 UAH/m²</td>
+                    </tr>
+                    <tr>
+                      <td>Extension welding (windowsill extension)</td>
+                      <td class="text-end fw-bold">2000 UAH/lin.m</td>
+                    </tr>
+                    <tr>
+                      <td>External siding / corrugated sheet cladding</td>
+                      <td class="text-end fw-bold">850 UAH/m²</td>
+                    </tr>
+                    <tr>
+                      <td>Internal insulation (styrofoam/mineral wool)</td>
+                      <td class="text-end fw-bold">400 UAH/m²</td>
+                    </tr>
+                    <tr>
+                      <td>Internal finishing (cladding/drywall)</td>
+                      <td class="text-end fw-bold">650 UAH/m²</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12" data-aos="fade-up" data-aos-delay="400">
+            <div class="pricing-item featured pb-4 shadow-sm rounded-4">
+              <h2 class="h4 fw-bold text-start ps-4 pt-3"><i class="bi bi-grid-3x3 text-warning me-2"></i> Mosquito
+                Nets</h2>
+              <div class="table-responsive p-4">
+                <table class="table table-hover align-middle">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col">Service</th>
+                      <th scope="col" class="text-end">Price (from)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Frame net (white/brown) Anwis</td>
+                      <td class="text-end fw-bold">500 UAH/pc</td>
+                    </tr>
+                    <tr>
+                      <td>"Cat-Proof" net (reinforced mesh)</td>
+                      <td class="text-end fw-bold">1200 UAH/pc</td>
+                    </tr>
+                    <tr>
+                      <td>Door net (hinged)</td>
+                      <td class="text-end fw-bold">1600 UAH/pc</td>
+                    </tr>
+                    <tr>
+                      <td>"Anti-Pollen" net (Micro-mesh)</td>
+                      <td class="text-end fw-bold">950 UAH/pc</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12" data-aos="fade-up" data-aos-delay="500">
+            <div class="pricing-item featured pb-4 shadow-sm rounded-4">
+              <h2 class="h4 fw-bold text-start ps-4 pt-3"><i class="bi bi-layers text-warning me-2"></i> Glass Unit
+                Replacement</h2>
+              <div class="table-responsive p-4">
+                <table class="table table-hover align-middle">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col">Service</th>
+                      <th scope="col" class="text-end">Price (from)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Single-pane glass unit (24mm)</td>
+                      <td class="text-end fw-bold">1900 UAH/m²</td>
+                    </tr>
+                    <tr>
+                      <td>Double-pane energy-saving (Low-E + Argon)</td>
+                      <td class="text-end fw-bold">2600 UAH/m²</td>
+                    </tr>
+                    <tr>
+                      <td>Multifunctional glass unit (Solar)</td>
+                      <td class="text-end fw-bold">3100 UAH/m²</td>
+                    </tr>
+                    <tr>
+                      <td>Urgent replacement (measurement + delivery + installation)</td>
+                      <td class="text-end fw-bold">1000 UAH</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12" data-aos="fade-up" data-aos-delay="600">
+            <div class="pricing-item featured pb-4 shadow-sm rounded-4">
+              <h2 class="h4 fw-bold text-start ps-4 pt-3"><i class="bi bi-door-closed text-warning me-2"></i> Door
+                Closers</h2>
+              <div class="table-responsive p-4">
+                <table class="table table-hover align-middle">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col">Service</th>
+                      <th scope="col" class="text-end">Price (from)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Door closer installation (labor)</td>
+                      <td class="text-end fw-bold">650 UAH/pc</td>
+                    </tr>
+                    <tr>
+                      <td>Dorma / Geze closer (up to 80 kg) with installation</td>
+                      <td class="text-end fw-bold">2400 UAH/pc</td>
+                    </tr>
+                    <tr>
+                      <td>Heavy-duty door closer (up to 120 kg) with installation</td>
+                      <td class="text-end fw-bold">3800 UAH/pc</td>
+                    </tr>
+                    <tr>
+                      <td>Closer adjustment & servicing</td>
+                      <td class="text-end fw-bold">400 UAH/pc</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="mt-5 info-box text-center p-4 shadow-sm rounded-4" style="background-color: #f8f9fa;">
+                <h4 class="fw-bold text-primary"><i class="bi bi-info-circle-fill me-2"></i> Important Pricing Notes
+                  2026:</h4>
+                <p class="mb-0 lead">Minimum order in Kyiv — <strong>500 UAH</strong>. Site visit for measurement when
+                  signing a contract — <strong>free</strong>. We operate officially with VAT and participate in the
+                  <strong>eVidnovlennya</strong> program.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="contact py-0 pb-5 text-white" data-aos="fade-up">
+      <div class="container">
+        <div class="p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+          style="background: linear-gradient(135deg, #2a3d47 0%, #1a252b 100%); border: 1px solid rgba(254, 185, 0, 0.3);">
+
+          <div class="position-absolute"
+            style="top: -50px; right: -50px; width: 150px; height: 150px; background: #feb900; opacity: 0.05; border-radius: 50%;">
+          </div>
+
+          <div class="position-relative">
+            <div class="mb-4">
+              <i class="bi bi-calculator-fill text-warning" style="font-size: 3rem;"></i>
+            </div>
+
+            <h3 class="mb-3" style="font-weight: 700; font-size: 2rem;">
+              Need an exact quote for your project?
+            </h3>
+
+            <div class="row justify-content-center mb-4">
+              <div class="col-lg-8">
+                <p class="text-white-50" style="font-size: 1.1rem;">
+                  Prices in the list are indicative. Order a <span class="text-white">free professional measurement</span>
+                  to get a fixed cost that won't change during the work.
+                </p>
+              </div>
+            </div>
+
+            <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+              <a href="/en/contact#contact"
+                class="btn btn-warning px-5 py-3 fw-bold shadow text-dark d-inline-flex align-items-center justify-content-center">
+                <i class="bi bi-file-earmark-spreadsheet me-2"></i> Get an exact quote
+              </a>
+              <a href="/en/contact#contact"
+                class="btn btn-outline-light px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
+                <i class="bi bi-telegram text-warning me-2"></i> Send photos for assessment
+              </a>
+            </div>
+
+            <div class="mt-4 d-flex align-items-center justify-content-center flex-wrap gap-4">
+              <div class="d-flex align-items-center text-white-50 small"><i
+                  class="bi bi-check2-circle me-2 text-warning"></i> Transparent pricing</div>
+              <div class="d-flex align-items-center text-white-50 small"><i
+                  class="bi bi-check2-circle me-2 text-warning"></i> No hidden charges</div>
+              <div class="d-flex align-items-center text-white-50 small"><i
+                  class="bi bi-check2-circle me-2 text-warning"></i> Official contract</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  `;
+---
+
+<BaseLayout
+  lang="en"
+  title={"Window Repair & Installation Prices Kyiv 2026 | UWS Price List"}
+  description={"UWS 2026 price list: window repair from 350 UAH, installation from 850 UAH/m², balcony glazing, mosquito nets, glass unit replacement. Free measurement, eVidnovlennya program support."}
+  canonicalPath={"/en/price"}
+  structuredData={structuredData}
+>
+  <Header lang="en" activePage="price" headerClass="header-solid" />
+
+  <main id="main" class="page-inner">
+    <Fragment set:html={mainHtml} />
+  </main>
+
+  <ContactModal lang="en" />
+  <Footer lang="en" />
+</BaseLayout>

@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
+
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Window Installation & Repair Kyiv',
+  description: 'Professional installation of uPVC windows, doors, and balconies. Repair, adjustment, maintenance in Kyiv & region. Warranty up to 5 years.',
+  url: 'https://uws.com.ua/en/diagnostics',
+});
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center">
+      <div class="container position-relative"></div>
+    </div>
+
+
+
+    <!-- Intro block with H1 -->
+    <section id="diagnostics-hero" class="py-5 bg-light">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 text-center">
+            <div class="mb-4">
+              <i class="bi bi-search d-block mx-auto"
+                style="font-size: 3rem; color: var(--color-primary); filter: drop-shadow(0 4px 12px rgba(254,185,0,0.25));"></i>
+            </div>
+            <h1 class="display-5 fw-bold mb-3" style="color: var(--color-default);">
+              Professional Window & Door Diagnostics in Kyiv
+            </h1>
+            <p class="lead text-muted mb-0" style="max-width: 760px; margin: 0 auto;">
+              We detect hidden problems before they become critical. Free technician visit, accurate
+              estimate, and recommendations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why diagnostics matter -->
+    <section id="why-diagnostics" class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="p-4 p-md-5 bg-white shadow-lg rounded-4 position-relative"
+              style="border-left: 5px solid var(--color-primary);">
+              <h2 class="fw-bold mb-4" style="color: var(--color-default);">Why a professional inspection matters more than
+                you think</h2>
+              <p class="lead text-muted mb-4">
+                Most window problems (drafts, stiff operation, sash sagging) are not visible to the naked eye. Our
+                diagnostics allow us to pinpoint the exact cause and avoid expensive full-frame replacement.
+              </p>
+              <div class="row gy-3">
+                <div class="col-md-6">
+                  <ul class="list-unstyled">
+                    <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Detection of heat loss
+                      sources</li>
+                    <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Hardware wear
+                      analysis</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <ul class="list-unstyled">
+                    <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Check of glass unit
+                      airtightness</li>
+                    <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Thermal imaging inspection (on
+                      request)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What we check -->
+    <section id="diagnostic-steps" class="section-bg py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header text-center pb-5">
+          <h2 class="fw-bold" style="color: var(--color-default);">What Exactly Our Technician Inspects</h2>
+          <p class="text-muted">A full technical checklist of your windows' condition</p>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-moisture" style="font-size: 3.5rem; color: var(--color-primary);"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Airtightness</h4>
+              <p class="text-muted">Checking sash compression, detecting gaps and drafts using specialized
+                feeler gauges.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-aspect-ratio" style="font-size: 3.5rem; color: var(--color-primary);"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Sash Geometry</h4>
+              <p class="text-muted">Checking diagonals, detecting sagging that prevents proper
+                closing.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-gear-wide-connected" style="font-size: 3.5rem; color: var(--color-primary);"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Hardware Condition</h4>
+              <p class="text-muted">Inspecting locking mechanisms for wear, corrosion, dirt, and
+                damage.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-droplet-half" style="font-size: 3.5rem; color: var(--color-primary);"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Seal Quality</h4>
+              <p class="text-muted">Testing rubber elasticity, detecting cracks and
+                deformations.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-thermometer-half" style="font-size: 3.5rem; color: var(--color-primary);"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Thermal Imaging Inspection</h4>
+              <p class="text-muted">Finding cold bridges and installation joint defects (on
+                request).</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-shield-check" style="font-size: 3.5rem; color: var(--color-primary);"></i>
+              </div>
+              <h4 class="fw-bold mb-3">Structure Safety</h4>
+              <p class="text-muted">Checking hinge fastenings, handles, and weld seam
+                integrity.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What the client receives -->
+    <section id="results" class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="text-center mb-5">
+              <h2 class="fw-bold" style="color: var(--color-default);">What You Get After Diagnostics</h2>
+              <p class="text-muted lead">Not just words — but a concrete technical report</p>
+            </div>
+
+            <div class="row gy-4">
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-list-check fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h4 class="fw-bold mb-2">Detailed Fault List</h4>
+                    <p class="mb-0 text-muted">You'll know exactly what needs urgent repair and what can wait.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-calculator fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h4 class="fw-bold mb-2">Accurate Estimate</h4>
+                    <p class="mb-0 text-muted">On-site repair cost calculation. The price is fixed and does not change.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-info-square fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h4 class="fw-bold mb-2">Care Recommendations</h4>
+                    <p class="mb-0 text-muted">We'll teach you how to properly adjust and lubricate your windows yourself.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-file-earmark-check fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h4 class="fw-bold mb-2">Official Report</h4>
+                    <p class="mb-0 text-muted">Written certificate with photo documentation (on request).</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-5">
+      <div class="container" data-aos="zoom-in">
+        <div class="p-5 rounded-4 text-center shadow-lg"
+          style="background: linear-gradient(135deg, #2a3d47 0%, #1a252b 100%); color: white;">
+          <i class="bi bi-search d-block mb-4" style="font-size: 5.5rem; color: var(--color-primary);"></i>
+          <h3 class="mb-4 fw-bold display-6">Need Accurate Window Diagnostics?</h3>
+          <p class="lead mb-5 opacity-90">
+            Don't wait until the problem becomes critical. Book a professional inspection today — for free.
+          </p>
+          <a href="/en/contact#contact" class="btn btn-warning btn-lg px-5 py-4 fw-bold shadow-lg fs-5">
+            <i class="bi bi-calendar-plus me-2"></i> Book a diagnostics appointment
+          </a>
+        </div>
+      </div>
+    </section>
+
+  `;
+---
+
+<BaseLayout
+  lang="en"
+  title={"Professional Window & Door Diagnostics in Kyiv | UWS 2026"}
+  description={"Comprehensive free window diagnostics Kyiv: draft detection, hardware check, seal inspection, sash geometry analysis. Thermal imaging, accurate estimate, recommendations. Free technician visit."}
+  canonicalPath={"/en/diagnostics"}
+  structuredData={structuredData}
+>
+  <Header lang="en" activePage="diagnostics" headerClass="header-solid" />
+
+  <main id="main" class="page-inner">
+    <Fragment set:html={mainHtml} />
+  </main>
+
+  <ContactModal lang="en" />
+  <Footer lang="en" />
+</BaseLayout>

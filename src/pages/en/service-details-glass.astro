@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
+
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Glass Unit Replacement Kyiv',
+  description: 'Professional glass unit replacement in Kyiv: energy-saving, soundproof, impact-resistant. Urgent replacement of broken glass units. Warranty up to 5 years.',
+  url: 'https://uws.com.ua/en/service-details-glass',
+  extra: {
+    makesOffer: {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Glass unit replacement in windows and doors',
+      },
+    },
+  },
+});
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center">
+      <div class="container position-relative"></div>
+    </div>
+
+
+
+    <section id="service-details" class="service-details py-5">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">Glass Unit Replacement for Windows & Doors in Kyiv</h1>
+          <p class="lead text-muted mt-3">UWS offers fast and high-quality glass unit replacement of any complexity.
+            Energy-saving, soundproof, impact-resistant units with warranty up to 5 years.</p>
+        </header>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="services-list shadow-sm rounded-4 p-4 bg-white">
+              <a href="/en/service-details-install">Window & Door Installation</a>
+              <a href="/en/service-details-repair">Window & Door Repair</a>
+              <a href="/en/service-details-balkony">Balconies & Loggias</a>
+              <a href="/en/service-details-moskitki">Mosquito Nets</a>
+              <a href="/en/service-details-glass" class="active">Glass Unit Replacement</a>
+              <a href="/en/service-details-dovodyachi">Door Closers</a>
+            </div>
+
+            <div class="mt-4 p-4 rounded-4 bg-light shadow-sm">
+              <h4 class="fw-bold mb-3">Energy Efficiency</h4>
+              <p class="text-muted">
+                Replacing an old single-chamber glass unit with a new double-chamber unit featuring energy-saving
+                coating reduces heat loss by up to 40% and significantly improves sound insulation.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <picture>
+              <source srcset="/assets/img/services/glass.webp" type="image/webp">
+              <img src="/assets/img/services/glass.jpg"
+              alt="Glass unit replacement in windows Kyiv — energy-saving and soundproof UWS"
+              class="img-fluid services-img rounded-4 shadow-sm mb-4" loading="lazy">
+            </picture>
+
+            <h2 class="h3 fw-bold mb-4">Professional Glass Unit Replacement of Any Complexity</h2>
+            <p class="lead text-muted mb-5">
+              The glass unit is the largest part of a window, directly affecting the quiet and warmth of your home. We
+              handle both urgent replacement of broken glass units and planned window upgrades to improve their
+              performance.
+            </p>
+
+            <h3 class="h4 fw-bold mb-3">When Replacement Is Needed:</h3>
+            <ul class="list-unstyled">
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Glass Damage:</strong> Cracks, chips, or complete loss of seal integrity.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Condensation Inside:</strong> If moisture accumulates between the panes — this is a sign
+                  of seal failure.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Insulation Upgrade:</strong> Replacing standard units with multifunctional or
+                  energy-saving (Low-E) ones.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Sound Insulation:</strong> Installing special units with varying glass thickness to protect
+                  against street noise.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Safety:</strong> Installing impact-resistant glass (Triplex) or tempered glass.</div>
+              </li>
+            </ul>
+
+            <p class="mt-4 text-muted">
+              We take precise measurements accounting for unit thickness and glazing bead shape. Manufacturing time for
+              a new glass unit is 2 to 5 business days depending on the complexity of the formula.
+            </p>
+
+            <div class="mt-5 p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+              style="background: linear-gradient(135deg, #364d59 0%, #223139 100%); border: 2px solid #feb900;">
+
+              <div class="position-relative">
+                <h3 class="text-white mb-3" style="font-weight: 700;">Need a Measurement & Cost Estimate?</h3>
+                <p class="text-white-50 mb-4 lead">
+                  Leave a request — our specialist will advise you on glass specifications and send a technician
+                  for a <strong>precise free measurement</strong>.
+                </p>
+
+                <a href="/en/contact#contact"
+                  class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg text-dark d-inline-flex align-items-center">
+                  <i class="bi bi-person-check-fill me-2"></i>
+                  Free Measurement & Consultation
+                </a>
+
+                <div class="mt-4 text-white-50 small">
+                  <i class="bi bi-shield-fill-check me-1 text-warning"></i> We use only certified glass and
+                  high-quality sealant
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  `;
+---
+
+<BaseLayout
+  lang="en"
+  title={"Glass Unit Replacement Kyiv 2026 | Energy-Saving & Soundproof — UWS"}
+  description={"Professional glass unit replacement in Kyiv by UWS: energy-saving, soundproof, impact-resistant. Urgent replacement of broken glass units. Free measurement and specialist consultation."}
+  canonicalPath={"/en/service-details-glass"}
+  structuredData={structuredData}
+>
+  <Header lang="en" activePage="service-details-glass" headerClass="header-solid" />
+
+  <main id="main" class="page-inner">
+    <Fragment set:html={mainHtml} />
+  </main>
+
+  <ContactModal lang="en" />
+  <Footer lang="en" />
+</BaseLayout>

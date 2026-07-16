@@ -1,0 +1,197 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
+
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Window & Door Installation and Repair Kyiv',
+  description: 'Current special offers and discounts on repair, adjustment, and installation of PVC windows, doors, and balconies in Kyiv. Participant of the eVidnovlennia program.',
+  url: 'https://uws.com.ua/en/aktsiya',
+});
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center">
+      <div class="container position-relative"></div>
+    </div>
+
+
+
+    <section id="hero-offer" class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row g-0 shadow-lg rounded-4 overflow-hidden bg-white">
+          <div class="col-lg-6 position-relative">
+            <div class="about-img h-100"
+              style="background-image: url('/assets/img/aktsiya-1.jpg'); min-height: 420px; background-size: cover; background-position: center;">
+            </div>
+            <div class="position-absolute top-0 start-0 m-4">
+              <span class="badge bg-success fs-5 px-4 py-2">Summer 2026</span>
+            </div>
+          </div>
+          <div class="col-lg-6 p-4 p-lg-5 d-flex flex-column justify-content-center">
+            <h1 class="fw-bold display-5 mb-4">Summer Protection Package — 25% off mosquito nets & service!</h1>
+            <p class="lead text-primary fw-bold fs-4 mb-4">Protect your home from insects and heat with maximum savings
+            </p>
+
+            <p class="mb-4">Comprehensive window maintenance (adjustment + lubrication + diagnostics) + mosquito nets
+              for all windows — all in one order with a 25% discount. The perfect choice for the summer season!</p>
+
+            <div class="d-flex align-items-center mb-4">
+              <i class="bi bi-exclamation-triangle-fill text-danger me-3 fs-3"></i>
+              <span class="fw-bold text-uppercase">Offer valid from July 1 to August 31, 2026</span>
+            </div>
+
+            <div class="d-flex flex-column flex-sm-row gap-3">
+              <a href="tel:+380660575202" class="btn btn-warning btn-lg fw-bold px-5 py-3 shadow">
+                <i class="bi bi-telephone-fill me-2"></i> Book your discount
+              </a>
+              <a href="/en/contact#contact" class="btn btn-outline-primary btn-lg fw-bold px-5 py-3">
+                Get a quote
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="more-promotions" class="section-bg py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header text-center pb-5">
+          <h2>Other great UWS offers in 2026</h2>
+          <p class="lead">Choose your discount and save on quality window repair and installation</p>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 border-0 shadow-sm promo-card">
+              <div class="card-body p-4 text-center">
+                <div class="icon-circle mb-4 mx-auto"
+                  style="width:80px;height:80px;background:#e3f2fd;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                  <i class="bi bi-people-fill text-primary" style="font-size:2.5rem;"></i>
+                </div>
+                <h3 class="h4 fw-bold mb-3">Social Care</h3>
+                <p class="mb-3">Discount of <strong class="text-primary fs-4">10–15%</strong> for:</p>
+                <ul class="list-unstyled text-start mb-4">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Retirees</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Large families</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Armed Forces of Ukraine veterans</li>
+                </ul>
+                <small class="text-muted">* with valid ID</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100 border-0 shadow-sm promo-card">
+              <div class="card-body p-4 text-center">
+                <div class="icon-circle mb-4 mx-auto"
+                  style="width:80px;height:80px;background:#fff3cd;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                  <i class="bi bi-gift-fill text-warning" style="font-size:2.5rem;"></i>
+                </div>
+                <h3 class="h4 fw-bold mb-3">Free nets with installation</h3>
+                <p class="mb-4">Order turnkey installation of <strong>3+ windows</strong> → mosquito nets for all
+                  windows <strong>free of charge</strong>!</p>
+                <div class="badge bg-success fs-5 px-4 py-2">Save up to 2500 UAH</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="card h-100 border-0 shadow-sm promo-card">
+              <div class="card-body p-4 text-center">
+                <div class="icon-circle mb-4 mx-auto"
+                  style="width:80px;height:80px;background:#d1e7dd;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                  <i class="bi bi-house-heart-fill text-success" style="font-size:2.5rem;"></i>
+                </div>
+                <h3 class="h4 fw-bold mb-3">IDP Support</h3>
+                <p class="mb-3">Special conditions and additional discounts on repair/replacement of damaged windows for internally
+                  displaced persons</p>
+                <div class="text-primary fw-bold">Together toward victory and recovery!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-dark text-white text-center">
+      <div class="container" data-aos="zoom-in">
+        <div class="row justify-content-center">
+          <div class="col-lg-9 col-xl-8">
+            <h2 class="display-5 fw-bold mb-4" style="color: var(--color-primary);">Don't wait for autumn — lock in the price now!</h2>
+            <p class="fs-4 mb-5 opacity-85">
+              In September, installation prices increase by 10–15%. Order in summer and save — <strong>the price is fixed
+                for the entire project duration</strong>.
+            </p>
+
+            <div class="d-flex flex-column flex-md-row justify-content-center gap-4 mb-5">
+              <a href="tel:+380660575202" class="btn btn-warning btn-lg px-5 py-3 fw-bold rounded-pill shadow-lg">
+                <i class="bi bi-telephone-fill me-2"></i> LOCK IN YOUR DISCOUNT
+              </a>
+              <a href="/en/contact#contact" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">
+                <i class="bi bi-envelope me-2"></i> Get a personalized offer
+              </a>
+            </div>
+
+            <div class="d-flex flex-wrap justify-content-center gap-4 opacity-75 small">
+              <div><i class="bi bi-shield-check-fill me-2"></i>Warranty up to 5 years</div>
+              <div><i class="bi bi-truck me-2"></i>Free on-site visit</div>
+              <div><i class="bi bi-clock-history me-2"></i>Price confirmed over the phone</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center align-items-center gy-5">
+          <div class="col-lg-6">
+            <div class="img-bg rounded-4 shadow-lg"
+              style="background-image: url('/assets/img/aktsiya-2.jpg'); min-height: 380px; background-size: cover; background-position: center;">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <h3 class="fw-bold display-6 mb-4">Need a large volume or complex project?</h3>
+            <p class="lead mb-4">HOAs, schools, kindergartens, offices, apartment buildings — we handle large volumes and
+              offer custom terms.</p>
+
+            <div class="icon-box d-flex mb-4">
+              <i class="bi bi-patch-check-fill text-primary fs-2 flex-shrink-0 me-3"></i>
+              <div>
+                <h4 class="fw-bold">Personalized pricing</h4>
+                <p class="mb-0">We'll discuss the best terms for your project</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex">
+              <i class="bi bi-calendar-check-fill text-primary fs-2 flex-shrink-0 me-3"></i>
+              <div>
+                <h4 class="fw-bold">Reserve components</h4>
+                <p class="mb-0">We'll order materials at the discounted price today</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  `;
+---
+
+<BaseLayout
+  lang="en"
+  title={"Special offers & discounts on window repair and installation in Kyiv 2026 | UWS"}
+  description={"Current UWS special offers for summer 2026: -25% on Summer Protection Package (mosquito nets + window service), discounts for retirees, IDPs, and veterans, free mosquito nets with 3+ window installations, special conditions under the eVidnovlennia program in Kyiv and the region."}
+  canonicalPath={"/en/aktsiya"}
+  structuredData={structuredData}
+>
+  <Header lang="en" activePage="aktsiya" headerClass="header-solid" />
+
+  <main id="main" class="page-inner">
+    <Fragment set:html={mainHtml} />
+  </main>
+
+  <ContactModal lang="en" />
+  <Footer lang="en" />
+</BaseLayout>

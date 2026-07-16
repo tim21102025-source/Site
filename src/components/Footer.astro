@@ -14,29 +14,31 @@ const phones = [
   { number: '+380633664769', formatted: '+38 (063) 366-47-69', operator: 'Lifecell', class: 'lifecell-color' },
 ];
 
+const prefix = lang === 'uk' ? '' : `/${lang}`;
+
 const navLinks = [
-  { key: 'home', href: lang === 'uk' ? '/' : '/ru' },
-  { key: 'about', href: lang === 'uk' ? '/about' : '/ru/about' },
-  { key: 'vidnovlennya', href: lang === 'uk' ? '/vidnovlennya' : '/ru/vidnovlennya' },
-  { key: 'contact', href: lang === 'uk' ? '/contact' : '/ru/contact' },
-  { key: 'conditions', href: lang === 'uk' ? '/conditions' : '/ru/conditions' },
+  { key: 'home', href: prefix || '/' },
+  { key: 'about', href: `${prefix}/about` },
+  { key: 'vidnovlennya', href: `${prefix}/vidnovlennya` },
+  { key: 'contact', href: `${prefix}/contact` },
+  { key: 'conditions', href: `${prefix}/conditions` },
 ];
 
 const serviceLinks = [
-  { key: 'install', href: lang === 'uk' ? '/service-details-install' : '/ru/service-details-install' },
-  { key: 'repair', href: lang === 'uk' ? '/service-details-repair' : '/ru/service-details-repair' },
-  { key: 'balkony', href: lang === 'uk' ? '/service-details-balkony' : '/ru/service-details-balkony' },
-  { key: 'moskitki', href: lang === 'uk' ? '/service-details-moskitki' : '/ru/service-details-moskitki' },
-  { key: 'glass', href: lang === 'uk' ? '/service-details-glass' : '/ru/service-details-glass' },
-  { key: 'dovodyachi', href: lang === 'uk' ? '/service-details-dovodyachi' : '/ru/service-details-dovodyachi' },
+  { key: 'install', href: `${prefix}/service-details-install` },
+  { key: 'repair', href: `${prefix}/service-details-repair` },
+  { key: 'balkony', href: `${prefix}/service-details-balkony` },
+  { key: 'moskitki', href: `${prefix}/service-details-moskitki` },
+  { key: 'glass', href: `${prefix}/service-details-glass` },
+  { key: 'dovodyachi', href: `${prefix}/service-details-dovodyachi` },
 ];
 
 const usefulLinks = [
-  { key: 'price', href: lang === 'uk' ? '/price' : '/ru/price' },
-  { key: 'doglyad', href: lang === 'uk' ? '/doglyad' : '/ru/doglyad' },
-  { key: 'diagnostics', href: lang === 'uk' ? '/diagnostics' : '/ru/diagnostics' },
-  { key: 'aktsiya', href: lang === 'uk' ? '/aktsiya' : '/ru/aktsiya' },
-  { key: 'faq', href: lang === 'uk' ? '/faq' : '/ru/faq' },
+  { key: 'price', href: `${prefix}/price` },
+  { key: 'doglyad', href: `${prefix}/doglyad` },
+  { key: 'diagnostics', href: `${prefix}/diagnostics` },
+  { key: 'aktsiya', href: `${prefix}/aktsiya` },
+  { key: 'faq', href: `${prefix}/faq` },
 ];
 ---
 

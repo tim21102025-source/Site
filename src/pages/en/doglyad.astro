@@ -1,0 +1,262 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
+
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Window Installation & Repair Kyiv',
+  description: 'Professional installation of PVC windows, doors and balconies. Repair, adjustment, maintenance in Kyiv and the region. Warranty up to 5 years.',
+  url: 'https://uws.com.ua/en/doglyad',
+});
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center">
+      <div class="container position-relative"></div>
+    </div>
+
+
+
+    <section id="care-hero" class="py-5 bg-light">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 text-center">
+            <div class="mb-5">
+              <i class="bi bi-shield-check-fill d-block mx-auto mb-4"
+                style="font-size: 5.5rem; color: var(--color-primary); filter: drop-shadow(0 4px 12px rgba(254,185,0,0.3));"></i>
+            </div>
+            <h1 class="display-5 fw-bold mb-4" style="color: var(--color-default);">
+              Window & Door Care: Tips & Maintenance Service by UWS Kyiv 2026
+            </h1>
+            <p class="lead text-muted mb-0" style="max-width: 760px; margin: 0 auto;">
+              Regular maintenance extends the life of windows by 10–15 years. Lubrication, cleaning,
+              winter-summer adjustment — everything you need to know.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="care-rules" class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header pb-4 text-center">
+          <h2 class="fw-bold" style="color: var(--color-default);">Basic Window Care Checklist</h2>
+          <p class="text-muted">Perform these simple actions twice a year — and your windows will last for years</p>
+        </div>
+
+        <div class="row gy-4 justify-content-center">
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-droplet-half" style="font-size: 3.8rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Profile Cleaning</h3>
+              <p class="text-muted">Soft cloth + non-abrasive cleaning agent. Never use acetone or solvents!
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-droplet" style="font-size: 3.8rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Seal Maintenance</h3>
+              <p class="text-muted">Clean off dirt, apply silicone lubricant twice a year. This will preserve
+                the elasticity of the rubber.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-gear-wide-connected" style="font-size: 3.8rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Hardware Lubrication</h3>
+              <p class="text-muted">A few drops of machine oil on moving parts. Do this annually — the handle
+                will operate smoothly.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-water" style="font-size: 3.8rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Drainage Holes</h3>
+              <p class="text-muted">Check and clear the channels at the bottom of the frame — this prevents moisture buildup.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="seasonal-modes" class="section-bg py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header pb-4 text-center">
+          <h2 class="fw-bold" style="color: var(--color-default);">Seasonal Window Adjustment</h2>
+          <p class="text-muted">Windows have "winter" and "summer" modes — this is not marketing, but a real necessity</p>
+        </div>
+
+        <div class="row gy-4 justify-content-center">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-snow" style="font-size: 3.8rem; color: #00d2ff;"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Winter Mode</h3>
+              <p class="text-muted">Enhanced sash-to-frame pressure — full sealing, eliminating drafts in freezing temperatures.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-sun" style="font-size: 3.8rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Summer Mode</h3>
+              <p class="text-muted">Reduced pressure — less stress on the seal, extending its service life.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="card h-100 border-0 shadow-sm p-4 text-center transition-all hover-lift"
+              style="border-top: 5px solid var(--color-primary);">
+              <div class="mb-4">
+                <i class="bi bi-moisture" style="font-size: 3.8rem; color: var(--color-primary);"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Condensation Prevention</h3>
+              <p class="text-muted">Proper ventilation + regular glass unit care — say goodbye to "weeping"
+                windows.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pro-care" class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="text-center mb-5">
+              <h2 class="fw-bold" style="color: var(--color-default);">Why You Should Trust Window Care to UWS Professionals</h2>
+              <p class="text-muted lead">DIY maintenance is good, professional service is much better</p>
+            </div>
+
+            <div class="row gy-4">
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-search fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h3 class="fw-bold mb-2">Comprehensive Diagnostics</h3>
+                    <p class="mb-0 text-muted">We detect hidden problems that are impossible to spot on your own.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-droplet-half fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h3 class="fw-bold mb-2">Professional Products</h3>
+                    <p class="mb-0 text-muted">Special lubricants that don't dry out and won't damage rubber components.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-gear-wide-connected fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h3 class="fw-bold mb-2">Precise Adjustment</h3>
+                    <p class="mb-0 text-muted">Ideal sash pressure — smooth handle operation, no drafts.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="icon-box d-flex p-4 bg-white shadow-sm rounded-3 transition-all hover-lift">
+                  <i class="bi bi-calendar-check fs-3 text-primary flex-shrink-0 me-4"></i>
+                  <div>
+                    <h3 class="fw-bold mb-2">Seasonal Preparation</h3>
+                    <p class="mb-0 text-muted">Winter/summer mode switching + full maintenance checklist.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="contact py-0 pb-5" data-aos="fade-up">
+      <div class="container">
+        <div class="p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+          style="background: linear-gradient(135deg, #2a3d47 0%, #1a252b 100%); border: 1px solid rgba(254, 185, 0, 0.3);">
+
+          <div class="position-relative">
+            <div class="mb-4">
+              <i class="bi bi-shield-shaded text-warning" style="font-size: 3rem;"></i>
+            </div>
+
+            <h2 class="text-white mb-3" style="font-weight: 700; font-size: 2rem;">
+              Do your windows need professional service?
+            </h2>
+
+            <div class="row justify-content-center mb-4">
+              <div class="col-lg-8">
+                <p class="text-white-50" style="font-size: 1.1rem;">
+                  Proper care extends window life by 10-15 years. Order <span class="text-white">comprehensive
+                    technical maintenance</span>: hardware lubrication, seal cleaning and pressure adjustment.
+                </p>
+              </div>
+            </div>
+
+            <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+              <a href="/en/contact#contact" class="btn btn-warning px-5 py-3 fw-bold shadow">
+                <i class="bi bi-calendar-check me-2"></i> Schedule a Service Visit
+              </a>
+              <a href="viber://chat?number=%2B380730705280" class="btn btn-outline-light px-5 py-3 fw-bold">
+                <i class="bi bi-chat-dots text-warning me-2"></i> Consult on Viber
+              </a>
+            </div>
+
+            <div class="mt-4 d-flex align-items-center justify-content-center flex-wrap gap-4">
+              <div class="d-flex align-items-center text-white-50 small"><i
+                  class="bi bi-heart-pulse me-2 text-warning"></i> Extended window lifespan</div>
+              <div class="d-flex align-items-center text-white-50 small"><i class="bi bi-snow me-2 text-warning"></i>
+                Winter preparation</div>
+              <div class="d-flex align-items-center text-white-50 small"><i class="bi bi-stars me-2 text-warning"></i>
+                Original lubricants</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  `;
+---
+
+<BaseLayout
+  lang="en"
+  title={"Window & Door Care: Tips & Maintenance | UWS Kyiv 2026"}
+  description={"How to properly care for PVC windows and doors in 2026: hardware lubrication, seal cleaning, winter-summer adjustment, winter preparation. Professional advice and maintenance service by UWS Kyiv."}
+  canonicalPath={"/en/doglyad"}
+  structuredData={structuredData}
+>
+  <Header lang="en" activePage="doglyad" headerClass="header-solid" />
+
+  <main id="main" class="page-inner">
+    <Fragment set:html={mainHtml} />
+  </main>
+
+  <ContactModal lang="en" />
+  <Footer lang="en" />
+</BaseLayout>

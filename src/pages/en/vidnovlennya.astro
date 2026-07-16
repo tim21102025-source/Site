@@ -1,0 +1,256 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
+
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Window Repair under the єВідновлення Program Kyiv',
+  description: 'Official participant of the єВідновлення program. Window repair and replacement with government compensation in Kyiv. Warranty up to 5 years.',
+  url: 'https://uws.com.ua/en/vidnovlennya',
+});
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center">
+      <div class="container position-relative"></div>
+    </div>
+
+
+
+    <section id="vidnovlennya-intro" class="about py-5">
+      <div class="container" data-aos="fade-up">
+
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">єВідновлення — Window Repair and Replacement with Government Compensation</h1>
+          <p class="lead text-muted mt-3">UWS — official program participant since May 2023. Full support,
+            free measurement, and warranty on all work.</p>
+        </header>
+
+        <div class="row position-relative gy-5">
+          <div class="col-lg-5 about-img mt-3 mb-0 shadow-sm"
+            style="background-image: url('/assets/img/vidnovlennya.png'); min-height: 400px; background-size: cover; background-position: center;">
+          </div>
+
+          <div class="col-lg-7">
+            <h2 class="h3 fw-bold mb-4">Restore your home with government compensation</h2>
+
+            <p class="lead fw-bold mb-4">
+              Your windows will be like new! UWS — official partner of the єВідновлення program.
+            </p>
+
+            <p class="mb-4">
+              If your home has been damaged, you can use government compensation to repair or fully replace
+              damaged windows and doors. We handle the entire process — from measurement to installation and reporting.
+            </p>
+
+            <h3 class="h4 fw-bold mb-3 d-flex align-items-center">
+              <i class="bi bi-tools text-warning me-2"></i> Compensated works:
+            </h3>
+
+            <ul class="list-unstyled">
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Glass unit replacement:</strong> Full replacement of broken or damaged glass units of any type.
+                </div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Hardware repair:</strong> Replacement of handles, mechanisms, and seals.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>New construction installation:</strong> Removal of old and installation of new windows and doors.
+                </div>
+              </li>
+            </ul>
+
+            <p class="fst-italic mt-4">
+              <i class="bi bi-info-circle-fill text-warning me-1"></i>
+              Our managers will help you choose a solution within your compensation amount and prepare all documents.
+            </p>
+
+            <a href="/en/contact#contact"
+              class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold mt-3 d-inline-flex align-items-center shadow">
+              <i class="bi bi-arrow-right-circle me-2"></i> Submit a consultation request
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features section-bg py-5">
+      <div class="container" data-aos="fade-up">
+
+        <header class="text-center mb-5">
+          <h2 class="fw-bold">Benefits of working with UWS under the єВідновлення program</h2>
+          <p class="text-muted">We guarantee a fast, transparent, and high-quality restoration process.</p>
+        </header>
+
+        <div class="row feature-icons gy-5">
+          <div class="col-xl-4 text-center" data-aos="fade-right" data-aos-delay="100">
+            <div class="icon-box h-100 p-4 shadow-sm rounded-4 bg-white">
+              <i class="bi bi-patch-check text-warning" style="font-size: 48px; margin-bottom: 15px;"></i>
+              <h3 class="h5 fw-bold">Official participant</h3>
+              <p>Registered in the program since May 2023. All documents comply with government requirements.</p>
+            </div>
+          </div>
+          <div class="col-xl-4 text-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon-box h-100 p-4 shadow-sm rounded-4 bg-white">
+              <i class="bi bi-speedometer text-warning" style="font-size: 48px; margin-bottom: 15px;"></i>
+              <h3 class="h5 fw-bold">Speed and efficiency</h3>
+              <p>Technician visit on the day of your request, fast manufacturing and installation after receiving funds.</p>
+            </div>
+          </div>
+          <div class="col-xl-4 text-center" data-aos="fade-left" data-aos-delay="300">
+            <div class="icon-box h-100 p-4 shadow-sm rounded-4 bg-white">
+              <i class="bi bi-award text-warning" style="font-size: 48px; margin-bottom: 15px;"></i>
+              <h3 class="h5 fw-bold">Quality guarantee</h3>
+              <p>High-quality materials, professional installation, and official warranty up to 5 years.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="alt-services" class="alt-services py-5">
+      <div class="container" data-aos="fade-up">
+
+        <header class="text-center mb-5">
+          <h2 class="fw-bold">Step-by-step guide to receiving compensation and placing an order</h2>
+        </header>
+
+        <div class="row justify-content-around gy-5 alt-services-item" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-5 d-flex flex-column justify-content-center">
+            <h3 class="h4 fw-bold mb-4">Part 1: Receiving funds to your card</h3>
+
+            <div class="icon-box d-flex position-relative mb-4" data-aos="fade-up" data-aos-delay="100">
+              <i class="bi bi-1-circle flex-shrink-0 text-warning fs-3"></i>
+              <div class="ms-4">
+                <h4 class="fw-bold">Step 1. Submit your application</h4>
+                <p class="text-muted mb-0">Through the Diia app or portal.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative mb-4" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-2-circle flex-shrink-0 text-warning fs-3"></i>
+              <div class="ms-4">
+                <h4 class="fw-bold">Step 2. Open an account</h4>
+                <p class="text-muted mb-0">A special єВідновлення account at a partner bank.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-3-circle flex-shrink-0 text-warning fs-3"></i>
+              <div class="ms-4">
+                <h4 class="fw-bold">Step 3. Wait for approval</h4>
+                <p class="text-muted mb-0">The commission will review the damage and credit the funds to your card.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6"
+            style="background-image: url('/assets/img/vidnovlennya-1.png'); min-height: 120px; background-size: cover; background-position: center;">
+          </div>
+        </div>
+
+        <div class="row justify-content-around alt-services-item flex-row-reverse flex-lg-row mt-5" data-aos="fade-up"
+          data-aos-delay="100">
+          <div class="col-lg-6"
+            style="background-image: url('/assets/img/vidnovlennya-2.png'); min-height: 120px; background-size: cover; background-position: center;">
+          </div>
+          <div class="col-lg-5 d-flex flex-column justify-content-center">
+            <h3 class="h4 fw-bold mb-4">Part 2: Ordering from UWS</h3>
+
+            <div class="icon-box d-flex position-relative mb-4" data-aos="fade-up" data-aos-delay="100">
+              <i class="bi bi-4-circle flex-shrink-0 text-warning fs-3"></i>
+              <div class="ms-4">
+                <h4 class="fw-bold">Step 4. Contact us</h4>
+                <p class="text-muted mb-0">We will prepare a quote that matches your compensation amount.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative mb-4" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-5-circle flex-shrink-0 text-warning fs-3"></i>
+              <div class="ms-4">
+                <h4 class="fw-bold">Step 5. Pay for your order</h4>
+                <p class="text-muted mb-0">With your єВідновлення card — we start manufacturing immediately.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-6-circle flex-shrink-0 text-warning fs-3"></i>
+              <div class="ms-4">
+                <h4 class="fw-bold">Step 6. Receive your new windows</h4>
+                <p class="text-muted mb-0">Professional installation and official UWS warranty.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="contact py-5" data-aos="fade-up">
+      <div class="container">
+        <div class="p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+          style="background: linear-gradient(135deg, #2a3d47 0%, #1a252b 100%); border: 1px solid rgba(254, 185, 0, 0.3);">
+
+          <div class="position-relative">
+            <div class="mb-4">
+              <i class="bi bi-bank2 text-warning" style="font-size: 3rem;"></i>
+            </div>
+
+            <h3 class="text-white mb-3" style="font-weight: 700; font-size: 2rem;">
+              Ready to start restoring your home?
+            </h3>
+
+            <div class="row justify-content-center mb-4">
+              <div class="col-lg-8">
+                <p class="text-white-50" style="font-size: 1.1rem;">
+                  We are an official partner of the <span class="text-white">єВідновлення</span> program. We provide a full package of
+                  documents and accept payment directly with your compensation card.
+                </p>
+              </div>
+            </div>
+
+            <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+              <a href="/en/contact#contact"
+                class="btn btn-warning px-5 py-3 fw-bold shadow text-dark d-inline-flex align-items-center">
+                <i class="bi bi-clipboard2-check me-2"></i> Order a defect report and measurement
+              </a>
+              <a href="tel:+380660575202"
+                class="btn btn-outline-light px-5 py-3 fw-bold d-inline-flex align-items-center">
+                <i class="bi bi-info-circle text-warning me-2"></i> Help with paperwork
+              </a>
+            </div>
+
+            <div class="mt-4 d-flex align-items-center justify-content-center flex-wrap gap-4 text-white-50 small">
+              <div class="d-flex align-items-center"><i class="bi bi-file-earmark-text me-2 text-warning"></i> Official
+                contract</div>
+              <div class="d-flex align-items-center"><i class="bi bi-credit-card-2-back me-2 text-warning"></i> єВідновлення
+                payment</div>
+              <div class="d-flex align-items-center"><i class="bi bi-shield-check me-2 text-warning"></i> Full
+                reporting</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  `;
+---
+
+<BaseLayout
+  lang="en"
+  title={"єВідновлення Kyiv 2026 | Window Repair and Replacement with Compensation — UWS"}
+  description={"Official participant of the єВідновлення program in Kyiv. Window and door repair and replacement with government funding. Free measurement, full support. Warranty up to 5 years."}
+  canonicalPath={"/en/vidnovlennya"}
+  structuredData={structuredData}
+>
+  <Header lang="en" activePage="vidnovlennya" headerClass="header-solid" />
+
+  <main id="main" class="page-inner">
+    <Fragment set:html={mainHtml} />
+  </main>
+
+  <ContactModal lang="en" />
+  <Footer lang="en" />
+</BaseLayout>

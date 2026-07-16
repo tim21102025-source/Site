@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
+
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Mosquito Nets Kyiv',
+  description: 'Manufacturing and installation of mosquito nets in Kyiv: frame, door, anti-cat, anti-dust, roller. Custom sizes, warranty up to 5 years.',
+  url: 'https://uws.com.ua/en/service-details-moskitki',
+  extra: {
+    makesOffer: {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Manufacturing and installation of mosquito nets',
+      },
+    },
+  },
+});
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center">
+      <div class="container position-relative"></div>
+    </div>
+
+
+
+    <section id="service-details" class="service-details py-5">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">Mosquito Nets for Windows & Doors in Kyiv</h1>
+          <p class="lead text-muted mt-3">UWS manufactures and installs mosquito nets of all types: anti-cat,
+            anti-dust, roller, door nets. Custom sizes, warranty up to 5 years.</p>
+        </header>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="services-list shadow-sm rounded-4 p-4 bg-white">
+              <a href="/en/service-details-install">Window & Door Installation</a>
+              <a href="/en/service-details-repair">Window & Door Repair</a>
+              <a href="/en/service-details-balkony">Balconies & Loggias</a>
+              <a href="/en/service-details-moskitki" class="active">Mosquito Nets</a>
+              <a href="/en/service-details-glass">Glass Unit Replacement</a>
+              <a href="/en/service-details-dovodyachi">Door Closers</a>
+            </div>
+
+            <div class="mt-4 p-4 rounded-4 bg-light shadow-sm">
+              <h4 class="fw-bold mb-3">Why Choose Us?</h4>
+              <p class="text-muted">
+                We manufacture nets to custom sizes within 1–2 days. We use reinforced
+                aluminium profiles and high-quality mesh that does not fade in the sun.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <picture>
+              <source srcset="/assets/img/services/moskitki.webp" type="image/webp">
+              <img src="/assets/img/services/moskitki.jpg"
+              alt="Mosquito nets Kyiv — anti-cat, anti-dust, roller, door nets UWS"
+              class="img-fluid services-img rounded-4 shadow-sm mb-4" loading="lazy">
+            </picture>
+
+            <h2 class="h3 fw-bold mb-4">Manufacturing & Installation of Mosquito Nets in Kyiv</h2>
+            <p class="lead text-muted mb-5">
+              Reliable protection for your home against insects, poplar fluff, and street debris. We offer a wide
+              range of designs suitable for all types of windows and doors.
+            </p>
+
+            <h3 class="h4 fw-bold mb-3">Types of Nets We Offer:</h3>
+            <ul class="list-unstyled">
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Frame Nets (in-recess):</strong> The most popular option — easy to remove and wash,
+                  no frame drilling required.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Door Nets:</strong> Hinged with magnetic catch — the perfect solution for balcony
+                  doors.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Anti-cat (Pet Screen):</strong> Extra-strong mesh that withstands
+                  pet claws.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Anti-dust Nets:</strong> Special fine-mesh fabric that blocks pollen and
+                  the tiniest dust particles.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Roller Nets:</strong> Convenient design that rolls up into a cassette above the window.</div>
+              </li>
+            </ul>
+
+            <p class="mt-4 text-muted">
+              Our measurer will visit you with profile and mesh samples, help you choose the best option, and
+              take precise measurements on site.
+            </p>
+
+            <div class="mt-5 p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+              style="background: linear-gradient(135deg, #364d59 0%, #223139 100%); border: 2px solid #feb900;">
+
+              <div class="position-relative">
+                <h3 class="text-white mb-3" style="font-weight: 700;">Need a Measurement & Cost Estimate for Nets?</h3>
+                <p class="text-white-50 mb-4 lead">
+                  Leave a request — our specialist will contact you, advise on mesh options, and arrange a time
+                  for a <strong>free on-site measurement</strong>.
+                </p>
+
+                <a href="/en/contact#contact"
+                  class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg text-dark d-inline-flex align-items-center">
+                  <i class="bi bi-person-check-fill me-2"></i>
+                  Free Measurement & Consultation
+                </a>
+
+                <div class="mt-4 text-white-50 small">
+                  <i class="bi bi-clock-history me-1 text-warning"></i> Manufacturing within 1–3 business days
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  `;
+---
+
+<BaseLayout
+  lang="en"
+  title={"Mosquito Nets Kyiv 2026 | Anti-cat, Anti-dust — UWS"}
+  description={"Manufacturing and installation of mosquito nets in Kyiv by UWS: frame, door, anti-cat, anti-dust, roller. Custom sizes, fast production, warranty. Free on-site measurement."}
+  canonicalPath={"/en/service-details-moskitki"}
+  structuredData={structuredData}
+>
+  <Header lang="en" activePage="service-details-moskitki" headerClass="header-solid" />
+
+  <main id="main" class="page-inner">
+    <Fragment set:html={mainHtml} />
+  </main>
+
+  <ContactModal lang="en" />
+  <Footer lang="en" />
+</BaseLayout>

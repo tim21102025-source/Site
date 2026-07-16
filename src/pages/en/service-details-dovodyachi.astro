@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
+
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Door Closer Installation & Adjustment Kyiv',
+  description: 'Professional selection, installation, and seasonal adjustment of door closers in Kyiv. Brands GEZE, DORMA, CISA. Warranty up to 5 years.',
+  url: 'https://uws.com.ua/en/service-details-dovodyachi',
+  extra: {
+    makesOffer: {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Door closer installation and adjustment',
+      },
+    },
+  },
+});
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center">
+      <div class="container position-relative"></div>
+    </div>
+
+
+
+    <section id="service-details" class="service-details py-5">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">Door Closer Installation & Adjustment in Kyiv</h1>
+          <p class="lead text-muted mt-3">UWS — professional installation of GEZE, DORMA, CISA door closers. Urgent adjustment,
+            repair, and replacement. Warranty up to 5 years.</p>
+        </header>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="services-list shadow-sm rounded-4 p-4 bg-white">
+              <a href="/en/service-details-install">Window & Door Installation</a>
+              <a href="/en/service-details-repair">Window & Door Repair</a>
+              <a href="/en/service-details-balkony">Balconies & Loggias</a>
+              <a href="/en/service-details-moskitki">Mosquito Nets</a>
+              <a href="/en/service-details-glass">Glass Unit Replacement</a>
+              <a href="/en/service-details-dovodyachi" class="active">Door Closers</a>
+            </div>
+
+            <div class="mt-4 p-4 rounded-4 bg-light shadow-sm">
+              <h4 class="fw-bold mb-3">Extend Your Doors' Lifespan</h4>
+              <p class="text-muted">
+                A properly installed door closer prevents hard slams on closing, protecting the hinges, lock, and the
+                door structure itself from premature wear.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <picture>
+              <source srcset="/assets/img/services/dovodyachi.webp" type="image/webp">
+              <img src="/assets/img/services/dovodyachi.jpg" alt="Door closer installation GEZE, DORMA in Kyiv — UWS"
+              class="img-fluid services-img rounded-4 shadow-sm mb-4" loading="lazy">
+            </picture>
+
+            <h2 class="h3 fw-bold mb-4">Professional Selection, Installation & Adjustment of Door Closers</h2>
+            <p class="lead text-muted mb-5">
+              A door closer is an important element of safety and comfort, especially in high-traffic areas. We offer
+              installation of reliable closers from leading global manufacturers for entrance, interior, and office doors.
+            </p>
+
+            <h3 class="h4 fw-bold mb-3">What We Offer:</h3>
+            <ul class="list-unstyled">
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Selection by Power Class:</strong> We choose the right model based on the weight and width
+                  of your doors (from lightweight PVC to heavy security doors).</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Professional Installation:</strong> Installation on all surface types (metal, PVC, wood,
+                  aluminium).</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Seasonal Adjustment:</strong> Setting closing speed and latching action when the temperature
+                  changes.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Repair & Replacement:</strong> Replacing failed mechanisms and fixing oil leaks.
+                </div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Brand Expertise:</strong> We install trusted equipment from GEZE, DORMA, CISA, and others.
+                </div>
+              </li>
+            </ul>
+
+            <p class="mt-4 text-muted">
+              Our technicians know all the nuances of adjusting hydraulic door closer systems. We guarantee smooth and
+              silent closing of your doors in any conditions.
+            </p>
+
+            <div class="mt-5 p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+              style="background: linear-gradient(135deg, #364d59 0%, #223139 100%); border: 2px solid #feb900;">
+
+              <div class="position-relative">
+                <h3 class="text-white mb-3" style="font-weight: 700;">Doors Slamming or Not Closing Fully?</h3>
+                <p class="text-white-50 mb-4 lead">
+                  Leave a request — our specialist will visit, select the right closer or adjust your old mechanism
+                  <strong>as quickly as possible</strong>.
+                </p>
+
+                <a href="/en/contact#contact"
+                  class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg text-dark d-inline-flex align-items-center">
+                  <i class="bi bi-person-check-fill me-2"></i>
+                  Call a Door Closer Specialist
+                </a>
+
+                <div class="mt-4 text-white-50 small">
+                  <i class="bi bi-wrench-adjustable me-1 text-warning"></i> Adjustment and setup on the same day of contact
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  `;
+---
+
+<BaseLayout
+  lang="en"
+  title={"Door Closer Installation & Adjustment Kyiv 2026 | UWS"}
+  description={"Professional door closer installation and adjustment in Kyiv by UWS. Brands GEZE, DORMA. Urgent technician visit, warranty up to 5 years. Free consultation."}
+  canonicalPath={"/en/service-details-dovodyachi"}
+  structuredData={structuredData}
+>
+  <Header lang="en" activePage="service-details-dovodyachi" headerClass="header-solid" />
+
+  <main id="main" class="page-inner">
+    <Fragment set:html={mainHtml} />
+  </main>
+
+  <ContactModal lang="en" />
+  <Footer lang="en" />
+</BaseLayout>

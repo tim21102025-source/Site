@@ -1,0 +1,320 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
+
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Window Installation & Repair Kyiv',
+  description: 'UWS — experts in uPVC window repair and maintenance in Kyiv since 2015. High quality, original components, and warranty.',
+  url: 'https://uws.com.ua/en/about',
+});
+---
+
+<BaseLayout
+  lang="en"
+  title="About Us | UWS — Company History & Window Repair Experts"
+  description="Learn more about UWS (Ukrainian Window Systems). Over 10 years of experience in window repair and installation in Kyiv. Our values, team, and quality guarantees."
+  canonicalPath="/en/about"
+  structuredData={structuredData}
+>
+  <Header lang="en" activePage="about" headerClass="header-solid" />
+
+  <main id="main" class="page-inner">
+    <div class="page-header-mini d-flex align-items-center">
+      <div class="container position-relative"></div>
+    </div>
+
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+        <div class="row position-relative">
+          <div class="col-lg-4 about-img" data-aos="fade-up" data-aos-delay="100">
+            <div class="about-video-wrapper">
+              <video playsinline autoplay muted loop poster="/assets/img/about.webp" loading="lazy">
+                <source src="/assets/img/about.webm" type="video/webm">
+                <img src="/assets/img/about.webp" alt="uPVC window repair and installation in Kyiv — UWS team at work" loading="lazy">
+              </video>
+            </div>
+          </div>
+
+          <div class="col-lg-12">
+            <h1>UWS — professional window and door installation, repair & maintenance in Kyiv since 2015</h1>
+
+            <div class="our-story pb-0">
+              <h2>Experience. Quality. Warranty up to 5 years</h2>
+              <h3>Over 11 years in the uPVC window and door market</h3>
+
+              <p>Ukrainian Window Systems (UWS) is a specialised team of professionals that has been carrying out installation, repair, adjustment, and maintenance of uPVC windows, doors, balconies, loggias, mosquito nets, and door closers in Kyiv and the Kyiv region since 2015.</p>
+
+              <ul>
+                <li><i class="bi bi-check-circle"></i> <span>Working with uPVC windows and doors since 2015</span></li>
+                <li><i class="bi bi-check-circle"></i> <span>Using only original hardware from MACO, ROTO, GU, Siegenia</span></li>
+                <li><i class="bi bi-check-circle"></i> <span>Official warranty on all work and components — up to 5 years</span></li>
+                <li><i class="bi bi-check-circle"></i> <span>Free on-site visit for diagnostics and cost estimation</span></li>
+              </ul>
+
+              <p>We understand how important it is to have reliable, warm, and airtight windows and doors in your apartment, house, or office. That is why our technicians work quickly, neatly, and with the utmost responsibility — you only pay for a quality result.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stats-counter" class="stats-counter section-bg">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item d-flex align-items-center w-100 h-100 rounded-4">
+              <i class="bi bi-emoji-smile color-orange flex-shrink-0"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="13425" data-purecounter-duration="1.5" class="purecounter"></span>
+                <p>Satisfied clients</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item d-flex align-items-center w-100 h-100 rounded-4">
+              <i class="bi bi-journal-richtext color-orange flex-shrink-0"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="11" data-purecounter-duration="1.5" class="purecounter"></span>
+                <p>Years of experience</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item d-flex align-items-center w-100 h-100 rounded-4">
+              <i class="bi bi-headset color-orange flex-shrink-0"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1.5" class="purecounter"></span>
+                <p>Qualified technicians</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item d-flex align-items-center w-100 h-100 rounded-4">
+              <i class="bi bi-people color-orange flex-shrink-0"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="7500" data-purecounter-duration="1.5" class="purecounter"></span>
+                <p>Glass units replaced</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="alt-services" class="alt-services">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-around gy-4">
+          <div class="col-lg-6 img-bg" style="background-image: url('/assets/img/about-2.jpg');" data-aos="zoom-in" data-aos-delay="100"></div>
+
+          <div class="col-lg-5 d-flex flex-column justify-content-center">
+            <h2>Why do clients trust UWS for window installation and repair in Kyiv?</h2>
+            <p>We offer not just services, but comprehensive, long-lasting solutions for your uPVC windows, doors, balconies, and loggias.</p>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
+              <i class="bi bi-check-all flex-shrink-0"></i>
+              <div>
+                <h3>Warranty up to 5 years</h3>
+                <p>On all types of work, installed hardware, and components.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-gear flex-shrink-0"></i>
+              <div>
+                <h3>Original hardware</h3>
+                <p>MACO, ROTO, GU, Siegenia — only certified European components.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-clock flex-shrink-0"></i>
+              <div>
+                <h3>Fast dispatch</h3>
+                <p>The technician arrives on the day of your call or at a time convenient for you.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-rulers flex-shrink-0"></i>
+              <div>
+                <h3>Free diagnostics</h3>
+                <p>Accurate on-site visit + cost estimate with no hidden fees.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="team">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Our team — window repair & installation professionals</h2>
+          <p>Qualified technicians with years of experience, who regularly undergo training and certification.</p>
+        </div>
+
+        <div class="row gy-5">
+          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
+            <div class="member-img">
+              <picture>
+                <source srcset="/assets/img/team/team-1.webp" type="image/webp">
+                <img src="/assets/img/team/team-1.jpg" class="img-fluid" alt="Valentyn Kravchenko — chief hardware engineer, UWS Kyiv" loading="lazy">
+              </picture>
+            </div>
+            <div class="member-info text-center">
+              <h4>Валентин Кравченко</h4>
+              <span>Chief Hardware Engineer</span>
+              <p>Experience since 2010. Specialisation — complex MACO, ROTO, GU mechanisms.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="200">
+            <div class="member-img">
+              <picture>
+                <source srcset="/assets/img/team/team-2.webp" type="image/webp">
+                <img src="/assets/img/team/team-2.jpg" class="img-fluid" alt="Ihor Semenenko — glass unit replacement specialist, UWS Kyiv" loading="lazy">
+              </picture>
+            </div>
+            <div class="member-info text-center">
+              <h4>Ігор Семенченко</h4>
+              <span>Glass Unit Replacement Specialist</span>
+              <p>Expert in energy-saving and sound-insulating glass units of any complexity.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="300">
+            <div class="member-img">
+              <picture>
+                <source srcset="/assets/img/team/team-3.webp" type="image/webp">
+                <img src="/assets/img/team/team-3.jpg" class="img-fluid" alt="Olha Dorosh — window and balcony door adjustment specialist, UWS Kyiv" loading="lazy">
+              </picture>
+            </div>
+            <div class="member-info text-center">
+              <h4>Ольга Дорош</h4>
+              <span>Adjustment Specialist</span>
+              <p>Eliminates drafts, ensures perfect airtightness and smooth operation of sashes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Client testimonials about our services</h2>
+          <p>Real reviews from people we have already helped with windows, doors, and balconies</p>
+        </div>
+
+        <div class="slides-2 swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item rounded-4">
+                  <picture>
+                    <source srcset="/assets/img/testimonials/testimonials-8.webp" type="image/webp">
+                    <img src="/assets/img/testimonials/testimonials-8.jpg" class="testimonial-img" alt="Review about quick window repair in an office from UWS Kyiv" loading="lazy">
+                  </picture>
+                  <h3>Олександра</h3>
+                  <h4>Fitness Gym</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    The technician arrived on time, quickly found the cause and fixed it. The window now closes perfectly! Very satisfied with the service.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item rounded-4">
+                  <picture>
+                    <source srcset="/assets/img/testimonials/testimonials-6.webp" type="image/webp">
+                    <img src="/assets/img/testimonials/testimonials-6.jpg" class="testimonial-img" alt="Review about seal replacement across an apartment from UWS Kyiv" loading="lazy">
+                  </picture>
+                  <h3>Євген</h3>
+                  <h4>Apartment</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Ordered seal replacement for the entire apartment. The work was done neatly, without any mess. The price matched the quote. Recommended!
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item rounded-4">
+                  <picture>
+                    <source srcset="/assets/img/testimonials/testimonials-7.webp" type="image/webp">
+                    <img src="/assets/img/testimonials/testimonials-7.jpg" class="testimonial-img" alt="Review about urgent balcony door adjustment from UWS Kyiv" loading="lazy">
+                  </picture>
+                  <h3>Олег</h3>
+                  <h4>Private House</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Needed urgent adjustment of balcony doors. They arrived within an hour, did everything professionally and provided a warranty. Thank you!
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item rounded-4">
+                  <picture>
+                    <source srcset="/assets/img/testimonials/testimonials-9.webp" type="image/webp">
+                    <img src="/assets/img/testimonials/testimonials-9.jpg" class="testimonial-img" alt="Review about cracked glass unit replacement from UWS Kyiv" loading="lazy">
+                  </picture>
+                  <h3>Лілія</h3>
+                  <h4>Apartment</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    They replaced the cracked glass unit quickly, professionally, and affordably. Now it is truly warm at home.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="mt-5 p-4 p-md-5 rounded-4 shadow-lg text-center" style="background: linear-gradient(135deg, #364d59 0%, #223139 100%); border: 2px solid var(--color-primary);">
+          <h3 class="text-white mb-3" style="font-weight: 700;">Need a window repair, installation, or adjustment technician?</h3>
+          <p class="text-white-50 mb-4">Leave a request — we will call back within 15 minutes, provide a consultation, and arrange a convenient time for an on-site visit.</p>
+
+          <a href="/en/contact#contact" class="btn-service-main">
+            <i class="bi bi-person-check-fill me-2"></i>
+            Free consultation & technician call
+          </a>
+
+          <div class="mt-3 text-white-50 small">
+            <i class="bi bi-shield-check me-1 text-primary"></i> Warranty on all work up to 5 years
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <ContactModal lang="en" />
+  <Footer lang="en" />
+</BaseLayout>

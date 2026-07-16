@@ -1,0 +1,199 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
+
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Window Installation & Repair Kyiv',
+  description: 'UWS contact information: phone numbers, messengers, request form. Free consultation and site visit across Kyiv.',
+  url: 'https://uws.com.ua/en/contact',
+});
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center">
+      <div class="container position-relative"></div>
+    </div>
+
+
+
+    <section class="contact section-bg py-5">
+      <div class="container" data-aos="fade-up">
+
+        <!-- Main H1 + intro -->
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">Contact UWS — Window Repair & Installation Kyiv</h1>
+          <p class="lead text-muted mt-3">Call or leave a request — our specialist will contact you within 15
+            minutes. Free consultation and site visit across Kyiv.</p>
+        </header>
+
+        <div class="row justify-content-center gy-5">
+
+          <div id="contact" class="col-lg-5">
+            <div id="contact2"
+              class="info-container d-flex flex-column gap-4 h-100 p-4 p-md-5 bg-white shadow-sm rounded-4">
+
+              <div class="contact-info-item d-flex">
+                <div
+                  class="icon-box flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle text-warning"
+                  style="width: 50px; height: 50px; background: rgba(254, 185, 0, 0.1);">
+                  <i class="bi bi-telephone-outbound" style="font-size: 1.5rem;"></i>
+                </div>
+                <div class="ms-3">
+                  <h4 class="fw-bold mb-2" style="color: #1a252b;">Our Phone Numbers</h4>
+                  <div class="d-flex flex-column gap-1">
+                    <a href="tel:+380660575202" class="contact-link">(066) 057-52-02 <span
+                        class="operator-tag vodafone-bg">Vodafone</span></a>
+                    <a href="tel:+380989478772" class="contact-link">(098) 947-87-72 <span
+                        class="operator-tag kyivstar-bg">Kyivstar</span></a>
+                    <a href="tel:+380633664769" class="contact-link">(063) 366-47-69 <span
+                        class="operator-tag lifecell-bg">Lifecell</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-info-item d-flex">
+                <div
+                  class="icon-box flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle text-success"
+                  style="width: 50px; height: 50px; background: rgba(25, 135, 84, 0.1);">
+                  <i class="bi bi-chat-dots" style="font-size: 1.5rem;"></i>
+                </div>
+                <div class="ms-3">
+                  <h4 class="fw-bold mb-2" style="color: #1a252b;">Messengers (Photos/Videos)</h4>
+                  <p class="text-muted small mb-2">Write to us for a quick cost estimate from photos:</p>
+                  <div class="d-flex flex-wrap gap-2">
+                    <a href="viber://chat?number=%2B380730705280" class="btn btn-viber btn-sm rounded-pill px-3"><i
+                        class="bi bi-chat-left-text me-1"></i> Viber</a>
+                    <a href="https://t.me/+380730705280" target="_blank"
+                      class="btn btn-telegram btn-sm rounded-pill px-3"><i class="bi bi-send me-1"></i> Telegram</a>
+                    <a href="https://wa.me/380730705280" target="_blank"
+                      class="btn btn-whatsapp btn-sm rounded-pill px-3"><i class="bi bi-whatsapp me-1"></i> WhatsApp</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row gy-4">
+                <div class="col-12">
+                  <div class="contact-info-item d-flex">
+                    <div
+                      class="icon-box flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle text-warning"
+                      style="width: 50px; height: 50px; background: rgba(254, 185, 0, 0.1);">
+                      <i class="bi bi-envelope" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h4 class="fw-bold mb-1" style="color: #1a252b;">Email</h4>
+                      <a href="mailto:uws.kyiv@gmail.com" class="contact-link">uws.kyiv@gmail.com</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="contact-info-item d-flex">
+                    <div
+                      class="icon-box flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle text-warning"
+                      style="width: 50px; height: 50px; background: rgba(254, 185, 0, 0.1);">
+                      <i class="bi bi-clock" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h4 class="fw-bold mb-1" style="color: #1a252b;">Working Hours</h4>
+                      <p class="mb-0 text-muted">Mon-Fri: 09:00 - 19:00<br>Sat-Sun: 10:00 - 17:00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="form-wrapper bg-white shadow-sm rounded-4 p-4 p-md-5">
+              <h3 class="fw-bold mb-3" style="color: #1a252b;">Quick Request</h3>
+              <p class="text-muted mb-4">Describe the problem, and we'll call you for a consultation within 15 minutes.
+              </p>
+
+              <form action="" method="post" class="telegram-form shadow-lg p-4 p-md-5 rounded-4 bg-white">
+                <div class="row">
+                  <div class="col-md-6 form-group mb-3">
+                    <label for="name" class="form-label small fw-bold">Your Name</label>
+                    <input type="text" name="name" class="form-control muted-placeholder rounded-3 py-2" id="name"
+                      placeholder="Oleksandr" required
+                      oninvalid="this.setCustomValidity('Please enter your name')"
+                      oninput="this.setCustomValidity('')">
+                  </div>
+                  <div class="col-md-6 form-group mb-3">
+                    <label for="phone" class="form-label small fw-bold">Phone Number</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light border-end-0 rounded-start-3">+38</span>
+                      <input type="tel" class="form-control muted-placeholder border-start-0 rounded-end-3 py-2"
+                        name="phone" id="phone" placeholder="0661234567" pattern="[0-9]{10}" required
+                        oninvalid="this.setCustomValidity('Enter 10 digits (e.g. 0661234567)')"
+                        oninput="this.setCustomValidity('')">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group mb-4">
+                  <label for="message" class="form-label small fw-bold">Problem Description</label>
+                  <textarea class="form-control muted-placeholder rounded-3" name="message" rows="4"
+                    placeholder="e.g. seal replacement and window adjustment." required
+                    oninvalid="this.setCustomValidity('Please briefly describe what needs to be done')"
+                    oninput="this.setCustomValidity('')"></textarea>
+                </div>
+
+                <div class="form-group mb-3">
+                  <div class="d-flex align-items-center mb-2">
+                    <label class="form-label small fw-bold mb-0">Photos or Videos of the Problem</label>
+                    <span class="ms-2 small opacity-50" style="font-size: 0.75rem;">(you can select multiple)</span>
+                  </div>
+
+                  <input type="file" id="files" class="d-none" accept="image/*,video/*" multiple>
+
+                  <button type="button"
+                    class="btn btn-outline-secondary w-100 py-2 d-flex align-items-center justify-content-center"
+                    onclick="document.getElementById('files').click()" style="border-style: dashed;">
+                    <i class="bi bi-camera me-2 fs-5"></i>
+                    <span>Add Media Files</span>
+                  </button>
+
+                  <div id="file-preview" class="d-flex flex-wrap gap-2 mt-2"></div>
+                </div>
+
+                <div class="my-3">
+                  <div class="loading text-center" style="display: none;">Sending...</div>
+
+                  <div class="sent-message p-3 rounded-3 text-center"
+                    style="background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; display: none;">
+                    <i class="bi bi-check-circle-fill me-2"></i>
+                    <strong>Thank you!</strong> Your request has been received. Our specialist will call you shortly.
+                  </div>
+                </div>
+                <input type="text" name="hp_field" style="display:none !important" tabindex="-1" autocomplete="off">
+                <button type="submit" id="submit-btn"
+                  class="btn btn-warning w-100 py-3 rounded-pill fw-bold text-uppercase shadow-sm">
+                  Order a Free Consultation
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  `;
+---
+
+<BaseLayout
+  lang="en"
+  title={"Contact UWS Kyiv | Window Repair & Installation"}
+  description={"Contact UWS: phone numbers, messengers, request form. Free consultation and site visit across Kyiv. Window repair, balconies, eVidnovlennya program."}
+  canonicalPath={"/en/contact"}
+  structuredData={structuredData}
+>
+  <Header lang="en" activePage="contact" headerClass="header-solid" />
+
+  <main id="main" class="page-inner">
+    <Fragment set:html={mainHtml} />
+  </main>
+
+  <ContactModal lang="en" />
+  <Footer lang="en" />
+</BaseLayout>

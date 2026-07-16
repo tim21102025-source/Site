@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
+
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Balcony & Loggia Glazing Kyiv',
+  description: 'Professional glazing, insulation, and repair of balconies and loggias in Kyiv. Extension, French glazing, room merging. Warranty up to 5 years.',
+  url: 'https://uws.com.ua/en/service-details-balkony',
+  extra: {
+    makesOffer: {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Turnkey balcony & loggia glazing and insulation',
+      },
+    },
+  },
+});
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center">
+      <div class="container position-relative"></div>
+    </div>
+
+
+
+    <section id="service-details" class="service-details py-5">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">Balcony & Loggia Glazing and Repair in Kyiv — Turnkey</h1>
+          <p class="lead text-muted mt-3">UWS transforms your balcony into a comfortable and functional space. Warm
+            glazing, extension, insulation, room merging — all with a warranty up to 5 years.</p>
+        </header>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="services-list shadow-sm rounded-4 p-4 bg-white">
+              <a href="/en/service-details-install">Window & Door Installation</a>
+              <a href="/en/service-details-repair">Window & Door Repair</a>
+              <a href="/en/service-details-balkony" class="active">Balconies & Loggias</a>
+              <a href="/en/service-details-moskitki">Mosquito Nets</a>
+              <a href="/en/service-details-glass">Glass Unit Replacement</a>
+              <a href="/en/service-details-dovodyachi">Door Closers</a>
+            </div>
+
+            <div class="mt-4 p-4 rounded-4 bg-light shadow-sm">
+              <h4 class="fw-bold mb-3">Expand Your Space</h4>
+              <p class="text-muted">
+                A balcony is not just a storage area — it's a full part of your home. We'll help
+                make it cozy, warm, and functional.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <picture>
+              <source srcset="/assets/img/services/balkony.webp" type="image/webp">
+              <img src="/assets/img/services/balkony.jpg" alt="Turnkey balcony & loggia glazing in Kyiv — UWS"
+              class="img-fluid services-img rounded-4 shadow-sm mb-4" loading="lazy">
+            </picture>
+
+            <h2 class="h3 fw-bold mb-4">Turnkey Balcony Glazing, Insulation & Renovation</h2>
+            <p class="lead text-muted mb-5">
+              UWS performs a full cycle of balcony and loggia glazing work in Kyiv. We create
+              individual solutions: from standard glazing to transforming a balcony into a home office or lounge area.
+            </p>
+
+            <h3 class="h4 fw-bold mb-3">What we offer:</h3>
+            <ul class="list-unstyled">
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Cold & warm glazing:</strong> Choosing the optimal profile and glass units depending on
+                  your needs.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Balcony extension:</strong> Expanding interior space by extending the window
+                  structure beyond the parapet.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>French balconies:</strong> Floor-to-ceiling glazing for maximum
+                  natural light.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Comprehensive renovation:</strong> Parapet reinforcement, exterior cladding, interior insulation and
+                  finishing.</div>
+              </li>
+              <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-warning me-3 fs-5 flex-shrink-0 mt-1"></i>
+                <div><strong>Room merging:</strong> Removal of the balcony block and quality sealing to
+                  create a unified space.</div>
+              </li>
+            </ul>
+
+            <p class="mt-4 text-muted">
+              Our specialists ensure reliable waterproofing and sound insulation. We use only proven materials
+              that are resistant to temperature fluctuations and ultraviolet radiation.
+            </p>
+
+            <div class="mt-5 p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+              style="background: linear-gradient(135deg, #364d59 0%, #223139 100%); border: 2px solid #feb900;">
+
+
+              <div class="position-relative">
+                <h3 class="text-white mb-3" style="font-weight: 700;">Want to calculate the cost of your balcony?</h3>
+                <p class="text-white-50 mb-4 lead">
+                  Our specialist will come for precise measurements, advise on material choices and prepare a detailed
+                  estimate <strong>completely free of charge</strong>.
+                </p>
+
+                <a href="/en/contact#contact"
+                  class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg text-dark d-inline-flex align-items-center">
+                  <i class="bi bi-house-door me-2"></i>
+                  Call a balcony measurer
+                </a>
+
+                <div class="mt-4 text-white-50 small">
+                  <i class="bi bi-info-circle me-1 text-warning"></i> We are official partners of the yeVidnovlennya program —
+                  compensation for work is possible
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  `;
+---
+
+<BaseLayout
+  lang="en"
+  title={"Balcony & Loggia Glazing Kyiv 2026 | Turnkey — UWS"}
+  description={"Turnkey balcony & loggia glazing in Kyiv by UWS. Warm & cold glazing, extension, insulation, cladding. Warranty up to 5 years, free measurement, yeVidnovlennya program."}
+  canonicalPath={"/en/service-details-balkony"}
+  structuredData={structuredData}
+>
+  <Header lang="en" activePage="service-details-balkony" headerClass="header-solid" />
+
+  <main id="main" class="page-inner">
+    <Fragment set:html={mainHtml} />
+  </main>
+
+  <ContactModal lang="en" />
+  <Footer lang="en" />
+</BaseLayout>

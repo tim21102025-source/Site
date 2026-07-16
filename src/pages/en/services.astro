@@ -1,0 +1,545 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
+
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Window Installation & Repair Kyiv',
+  description: 'Full range of window repair, adjustment, and installation services in Kyiv. Warranty up to 5 years, free on-site technician visit.',
+  url: 'https://uws.com.ua/en/services',
+});
+
+const mainHtml = `<div class="page-header-mini d-flex align-items-center">
+      <div class="container position-relative"></div>
+    </div>
+
+
+
+    <section id="services" class="services section-bg py-5">
+      <div class="container" data-aos="fade-up">
+
+        <header class="text-center mb-5">
+          <h1 class="display-5 fw-bold text-dark">Window repair & installation services in Kyiv</h1>
+          <p class="lead text-muted mt-3">UWS offers a complete range of uPVC window and door maintenance services.
+            Warranty up to 5 years, free on-site technician visit across Kyiv.</p>
+        </header>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/repair.webp" type="image/webp">
+                  <img src="/assets/img/services/repair.jpg" class="img-fluid w-100"
+                  alt="uPVC window repair Kyiv — adjustment, hardware replacement"
+                  style="height: 220px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-tools"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h2 class="h4 fw-bold">Window & door repair</h2>
+                <p class="text-muted small">Professional adjustment, hardware and seal replacement. We eliminate drafts
+                  and jamming.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/en/service-details-repair"
+                  class="stretched-link text-warning fw-bold text-decoration-none">Learn more <i
+                    class="bi bi-chevron-right small"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/install.webp" type="image/webm">
+                  <img src="/assets/img/services/install.jpg" class="img-fluid w-100"
+                  alt="uPVC window and door installation Kyiv" style="height: 220px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-window"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h2 class="h4 fw-bold">Window & door installation</h2>
+                <p class="text-muted small">Installation of new uPVC systems to DSTU standards. Energy-efficient glazing for
+                  your home.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/en/service-details-install"
+                  class="stretched-link text-warning fw-bold text-decoration-none">Learn more <i
+                    class="bi bi-chevron-right small"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/glass.webp" type="image/webp">
+                  <img src="/assets/img/services/glass.jpg" class="img-fluid w-100"
+                  alt="Glass unit replacement in windows Kyiv — energy-saving" style="height: 220px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-box-arrow-up-right"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h2 class="h4 fw-bold">Glass unit replacement</h2>
+                <p class="text-muted small">Urgent replacement of broken units or installation of new energy-saving
+                  and sound-insulating ones.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/en/service-details-glass"
+                  class="stretched-link text-warning fw-bold text-decoration-none">Learn more <i
+                    class="bi bi-chevron-right small"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/balkony.webp" type="image/webp">
+                  <img src="/assets/img/services/balkony.jpg" class="img-fluid w-100"
+                  alt="Balcony and loggia turnkey glazing Kyiv" style="height: 220px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-house-door"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h2 class="h4 fw-bold">Balconies & loggias</h2>
+                <p class="text-muted small">Complete glazing, insulation, and finishing. We create a comfortable additional
+                  living space.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/en/service-details-balkony"
+                  class="stretched-link text-warning fw-bold text-decoration-none">Learn more <i
+                    class="bi bi-chevron-right small"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/moskitki.webp" type="image/webp">
+                  <img src="/assets/img/services/moskitki.jpg" class="img-fluid w-100"
+                  alt="Mosquito nets for windows and doors Kyiv — Anti-cat" style="height: 220px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-grid-3x3-gap"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h2 class="h4 fw-bold">Mosquito nets</h2>
+                <p class="text-muted small">All types of nets: frame, door, "Anti-cat". Made to
+                  custom sizes.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/en/service-details-moskitki"
+                  class="stretched-link text-warning fw-bold text-decoration-none">Learn more <i
+                    class="bi bi-chevron-right small"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/dovodyachi.webp" type="image/webp">
+                  <img src="/assets/img/services/dovodyachi.jpg" class="img-fluid w-100"
+                  alt="Door closer installation Kyiv" style="height: 220px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-door-closed"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h2 class="h4 fw-bold">Door closers</h2>
+                <p class="text-muted small">Professional selection and installation of closers. Seasonal adjustment and
+                  maintenance of mechanisms.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/en/service-details-dovodyachi"
+                  class="stretched-link text-warning fw-bold text-decoration-none">Learn more <i
+                    class="bi bi-chevron-right small"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row mt-5" data-aos="fade-up" data-aos-delay="700">
+          <div class="col-12">
+            <div
+              class="cta-service-box rounded-4 p-4 p-md-5 d-flex flex-column flex-lg-row align-items-center justify-content-between shadow-sm"
+              style="background: var(--color-primary);">
+              <div class="d-flex align-items-center mb-4 mb-lg-0">
+                <div class="icon-circle bg-white text-dark d-flex align-items-center justify-content-center me-4"
+                  style="width: 80px; height: 80px; border-radius: 50%; font-size: 2rem;">
+                  <i class="bi bi-headset"></i>
+                </div>
+                <div>
+                  <h3 class="fw-bold mb-1 text-dark">Couldn't find the service you need?</h3>
+                  <p class="mb-0 text-dark opacity-75">Simply call us — we perform any non-standard
+                    window repair and maintenance work.</p>
+                </div>
+              </div>
+              <a href="/en/contact#contact"
+                class="btn btn-dark btn-lg px-5 py-3 rounded-pill fw-bold shadow">Contact a technician</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="services-cards" class="services-cards py-5">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+            <div class="info-card h-100 p-4 shadow-sm border-0 rounded-4 bg-white position-relative">
+              <div class="icon-box mb-3 text-warning" style="font-size: 2rem;">
+                <i class="bi bi-box-seam"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Materials & parts</h3>
+              <p class="text-muted small">We use only original components and professional consumable
+                materials for long-lasting repairs.</p>
+              <ul class="list-unstyled mt-3">
+                <li class="d-flex align-items-start mb-2"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">EPDM rubber seals</span></li>
+                <li class="d-flex align-items-start mb-2"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Original lubricants</span></li>
+                <li class="d-flex align-items-start"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Professional sealants</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+            <div class="info-card h-100 p-4 shadow-sm border-0 rounded-4 bg-white position-relative">
+              <div class="icon-box mb-3 text-warning" style="font-size: 2rem;">
+                <i class="bi bi-gear-wide-connected"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Any complexity</h3>
+              <p class="text-muted small">Our technicians have experience with all types of window and door systems
+                available on the market.</p>
+              <ul class="list-unstyled mt-3">
+                <li class="d-flex align-items-start mb-2"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">MACO, Roto, Siegenia</span></li>
+                <li class="d-flex align-items-start mb-2"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Aluminium and PVC systems</span></li>
+                <li class="d-flex align-items-start"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Complex entrance groups</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+            <div class="info-card h-100 p-4 shadow-sm border-0 rounded-4 bg-white position-relative">
+              <div class="icon-box mb-3 text-warning" style="font-size: 2rem;">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">UWS warranty</h3>
+              <p class="text-muted small">UWS provides an official warranty on all completed work and installed
+                components.</p>
+              <ul class="list-unstyled mt-3">
+                <li class="d-flex align-items-start mb-2"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Up to 5 years warranty</span></li>
+                <li class="d-flex align-items-start mb-2"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Post-warranty support</span></li>
+                <li class="d-flex align-items-start"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Loyalty programme</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+            <div class="info-card h-100 p-4 shadow-sm border-0 rounded-4 bg-white position-relative">
+              <div class="icon-box mb-3 text-warning" style="font-size: 2rem;">
+                <i class="bi bi-cash-stack"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Transparent service</h3>
+              <p class="text-muted small">No hidden fees. The cost of work is agreed upon before repairs begin
+                after diagnostics.</p>
+              <ul class="list-unstyled mt-3">
+                <li class="d-flex align-items-start mb-2"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Fixed pricing</span></li>
+                <li class="d-flex align-items-start mb-2"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Pay upon completion</span></li>
+                <li class="d-flex align-items-start"><i class="bi bi-check2-circle text-warning me-2"></i> <span
+                    class="small">Cash / bank transfer payment</span></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="alt-services-2" class="alt-services section-bg py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-around gy-4">
+          <div class="col-lg-5 d-flex flex-column justify-content-center">
+            <h2 class="fw-bold mb-4">Free consultation & technician call for diagnostics</h2>
+            <p class="text-muted mb-5">Our specialists will help identify the cause of the malfunction remotely or will come
+              for a detailed inspection at a time convenient for you.</p>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
+              <i class="bi bi-chat-text flex-shrink-0"></i>
+              <div>
+                <h4><a href="/en/contact#contact" class="stretched-link">24/7 communication</a></h4>
+                <p>We accept requests via our website and messengers around the clock.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-truck flex-shrink-0"></i>
+              <div>
+                <h4><a href="/en/contact#contact" class="stretched-link">Fast dispatch</a></h4>
+                <p>A technician can be at your location within 2–3 hours of your call (depending on the area).</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-calculator flex-shrink-0"></i>
+              <div>
+                <h4><a href="/en/contact#contact" class="stretched-link">Accurate estimate</a></h4>
+                <p>You will know the final repair cost immediately after on-site diagnostics.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-check2-all flex-shrink-0"></i>
+              <div>
+                <h4><a href="/en/contact#contact" class="stretched-link">Comprehensive inspection</a></h4>
+                <p>We check not only the reported issue, but also the overall condition of the hardware and seals.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 img-bg rounded-4" style="background-image: url(/assets/img/alt-services-2.jpg);"
+            data-aos="zoom-in" data-aos-delay="100"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="alt-services" class="alt-services py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-around gy-4">
+          <div class="col-lg-6 img-bg rounded-4" style="background-image: url(/assets/img/alt-services.jpg);"
+            data-aos="zoom-in" data-aos-delay="100"></div>
+
+          <div class="col-lg-5 d-flex flex-column justify-content-center">
+            <h2 class="fw-bold mb-4">Professional service: Experience, Cleanliness, Responsibility</h2>
+            <p class="text-muted mb-5">Window service is not just about technique, but also respect for your home. The UWS team
+              works carefully and with due diligence.</p>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
+              <i class="bi bi-patch-check flex-shrink-0"></i>
+              <div>
+                <h4><a href="" class="stretched-link">Professional education</a></h4>
+                <p>Our technicians have years of experience working at window manufacturing plants.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-briefcase flex-shrink-0"></i>
+              <div>
+                <h4><a href="" class="stretched-link">Full toolkit</a></h4>
+                <p>Technicians are equipped with everything needed to fix 90% of faults during a single visit.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-shield-check flex-shrink-0"></i>
+              <div>
+                <h4><a href="" class="stretched-link">Safety</a></h4>
+                <p>We use only certified parts and follow all safety procedures.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-stars flex-shrink-0"></i>
+              <div>
+                <h4><a href="" class="stretched-link">Cleanliness after work</a></h4>
+                <p>We work in shoe covers and always clean up the work area after completing repairs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="testimonials section-bg py-5">
+      <div class="container" data-aos="fade-up">
+
+        <header class="text-center mb-5">
+          <h2 class="fw-bold">Client testimonials about UWS</h2>
+          <p class="text-muted">Find out what our clients say about the quality of window repair, net installation, and
+            service in Kyiv.</p>
+        </header>
+
+        <div class="slides-2 swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item rounded-4">
+                  <picture>
+                    <source srcset="/assets/img/testimonials/testimonials-11.webp" type="image/webp">
+                    <img src="/assets/img/testimonials/testimonials-11.jpg" class="testimonial-img"
+                    alt="Review about window repair from UWS Kyiv — Oleksandr D." loading="lazy">
+                  </picture>
+                  <h3>Олександр</h3>
+                  <h4>Obolon, Kyiv</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    The windows started letting in cold air badly in winter. The UWS technician arrived on the day of the call, replaced the seal and
+                    adjusted the hardware. Now it's warm and quiet at home. Highly recommended!
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item rounded-4">
+                  <picture>
+                    <source srcset="/assets/img/testimonials/testimonials-10.webp" type="image/webp">
+                    <img src="/assets/img/testimonials/testimonials-10.jpg" class="testimonial-img"
+                    alt="Review about Anti-cat mosquito nets from UWS Kyiv — Tetiana S." loading="lazy">
+                  </picture>
+                  <h3>Тетяна</h3>
+                  <h4>Pechersk</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Ordered "Anti-cat" nets. Very sturdy — my cat tries to scratch them but doesn't even
+                    leave a mark. Installed quickly, and the price matched the phone quote.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item rounded-4">
+                  <picture>
+                    <source srcset="/assets/img/testimonials/testimonials-12.webp" type="image/webp">
+                    <img src="/assets/img/testimonials/testimonials-12.jpg" class="testimonial-img"
+                    alt="Review about balcony door repair from UWS Kyiv — Volodymyr K." loading="lazy">
+                  </picture>
+                  <h3>Володимир</h3>
+                  <h4>Dniprovskyi district</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    The handle on the balcony door broke and the door jammed. The technician arrived with his own replacement part, opened it
+                    carefully and replaced everything in half an hour. Very satisfied with the service.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item rounded-4">
+                  <picture>
+                    <source srcset="/assets/img/testimonials/testimonials-13.webp" type="image/webp">
+                    <img src="/assets/img/testimonials/testimonials-13.jpg" class="testimonial-img"
+                    alt="Review about glass unit replacement from UWS Kyiv — Oksana P." loading="lazy">
+                  </picture>
+                  <h3>Оксана</h3>
+                  <h4>Komfort Town residential complex</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Needed an urgent replacement for a broken glass unit. UWS took measurements and installed a new one within 3 days.
+                    Excellent quality, outstanding service.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="mt-5 p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden"
+          style="background: linear-gradient(135deg, #1a252b 0%, #364d59 100%); border: 1px solid rgba(254, 185, 0, 0.3);">
+
+          <div class="position-absolute"
+            style="top: -20px; right: -20px; font-size: 150px; color: rgba(254, 185, 0, 0.05); transform: rotate(-15deg); pointer-events: none;">
+            <i class="bi bi-headset"></i>
+          </div>
+
+          <div class="position-relative">
+            <span class="badge rounded-pill bg-warning text-dark mb-3 px-3 py-2 fw-bold text-uppercase"
+              style="letter-spacing: 1px;">Fast response</span>
+            <h2 class="text-white mb-3 fw-bold">Need a technician's help or a cost estimate?</h2>
+            <p class="text-white opacity-75 mb-4 mx-auto" style="max-width: 700px; font-size: 1.1rem;">
+              Get professional advice right now! We will call back within <span
+                class="text-warning fw-bold">15 minutes</span>, answer all your questions, and arrange a convenient time for a visit.
+            </p>
+
+            <div class="d-flex flex-column flex-md-row justify-content-center gap-3 align-items-center">
+              <a href="/en/contact#contact"
+                class="btn btn-warning btn-lg px-4 py-3 rounded-pill fw-bold shadow-lg transition-all d-flex align-items-center"
+                style="font-size: 1.1rem;">
+                <i class="bi bi-calendar-check me-2"></i> Book a diagnostic visit
+              </a>
+              <a href="tel:+380660575202"
+                class="btn btn-outline-light btn-lg px-4 py-3 rounded-pill fw-bold d-flex align-items-center">
+                <i class="bi bi-telephone-outbound me-2"></i> Quick call
+              </a>
+            </div>
+
+            <div
+              class="mt-4 d-flex justify-content-center flex-wrap gap-4 text-white-50 border-top border-secondary pt-4"
+              style="--bs-border-opacity: .3;">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-shield-check text-warning me-2"></i> <span>Warranty up to 5 years</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <i class="bi bi-geo-alt text-warning me-2"></i> <span>On-site visits across Kyiv</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <i class="bi bi-currency-dollar text-warning me-2"></i> <span>Fair pricing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  `;
+---
+
+<BaseLayout
+  lang="en"
+  title={"Window Repair & Installation Services Kyiv 2026 | UWS"}
+  description={"Professional UWS services in Kyiv: window repair, adjustment, hardware and glass unit replacement, balcony glazing, mosquito nets, door closers. Warranty up to 5 years, free on-site technician visit."}
+  canonicalPath={"/en/services"}
+  structuredData={structuredData}
+>
+  <Header lang="en" activePage="services" headerClass="header-solid" />
+
+  <main id="main" class="page-inner">
+    <Fragment set:html={mainHtml} />
+  </main>
+
+  <ContactModal lang="en" />
+  <Footer lang="en" />
+</BaseLayout>

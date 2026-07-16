@@ -16,21 +16,23 @@ const phones = [
   { number: '+380633664769', formatted: '+38 (063) 366-47-69', operator: 'Lifecell', class: 'lifecell-color' },
 ];
 
+const prefix = lang === 'uk' ? '' : `/${lang}`;
+
 const services = [
-  { key: 'install', href: lang === 'uk' ? '/service-details-install' : '/ru/service-details-install' },
-  { key: 'repair', href: lang === 'uk' ? '/service-details-repair' : '/ru/service-details-repair' },
-  { key: 'balkony', href: lang === 'uk' ? '/service-details-balkony' : '/ru/service-details-balkony' },
-  { key: 'moskitki', href: lang === 'uk' ? '/service-details-moskitki' : '/ru/service-details-moskitki' },
-  { key: 'glass', href: lang === 'uk' ? '/service-details-glass' : '/ru/service-details-glass' },
-  { key: 'dovodyachi', href: lang === 'uk' ? '/service-details-dovodyachi' : '/ru/service-details-dovodyachi' },
+  { key: 'install', href: `${prefix}/service-details-install` },
+  { key: 'repair', href: `${prefix}/service-details-repair` },
+  { key: 'balkony', href: `${prefix}/service-details-balkony` },
+  { key: 'moskitki', href: `${prefix}/service-details-moskitki` },
+  { key: 'glass', href: `${prefix}/service-details-glass` },
+  { key: 'dovodyachi', href: `${prefix}/service-details-dovodyachi` },
 ];
 
 const extra = [
-  { key: 'aktsiya', href: lang === 'uk' ? '/aktsiya' : '/ru/aktsiya' },
-  { key: 'conditions', href: lang === 'uk' ? '/conditions' : '/ru/conditions' },
-  { key: 'diagnostics', href: lang === 'uk' ? '/diagnostics' : '/ru/diagnostics' },
-  { key: 'faq', href: lang === 'uk' ? '/faq' : '/ru/faq' },
-  { key: 'doglyad', href: lang === 'uk' ? '/doglyad' : '/ru/doglyad' },
+  { key: 'aktsiya', href: `${prefix}/aktsiya` },
+  { key: 'conditions', href: `${prefix}/conditions` },
+  { key: 'diagnostics', href: `${prefix}/diagnostics` },
+  { key: 'faq', href: `${prefix}/faq` },
+  { key: 'doglyad', href: `${prefix}/doglyad` },
 ];
 
 const isActive = (page: string) => activePage === page ? 'active' : '';
@@ -56,7 +58,7 @@ const isActive = (page: string) => activePage === page ? 'active' : '';
   <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
     <!-- Logo -->
-    <a href={lang === 'uk' ? '/' : '/ru'} class="logo d-flex align-items-center">
+    <a href={prefix || '/'} class="logo d-flex align-items-center">
       <picture>
         <source srcset="/assets/img/logo.webp" type="image/webp">
         <img src="/assets/img/logo.png" alt="UWS — Встановлення та ремонт вікон у Києві" class="img-fluid me-2" width="40" height="40">
@@ -72,17 +74,17 @@ const isActive = (page: string) => activePage === page ? 'active' : '';
     <!-- Desktop Navigation -->
     <nav id="navbar" class="navbar">
       <ul>
-        <li><a href={lang === 'uk' ? '/' : '/ru'} class={isActive('home')}>{t.nav.home}</a></li>
-        <li><a href={lang === 'uk' ? '/about' : '/ru/about'} class={isActive('about')}>{t.nav.about}</a></li>
+        <li><a href={prefix || '/'} class={isActive('home')}>{t.nav.home}</a></li>
+        <li><a href={`${prefix}/about`} class={isActive('about')}>{t.nav.about}</a></li>
         <li class="dropdown">
-          <a href={lang === 'uk' ? '/services' : '/ru/services'}><span>{t.nav.services}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <a href={`${prefix}/services`}><span>{t.nav.services}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
           <ul>
             {services.map(s => (
               <li><a href={s.href}>{t.navServices[s.key as keyof typeof t.navServices]}</a></li>
             ))}
           </ul>
         </li>
-        <li><a href={lang === 'uk' ? '/price' : '/ru/price'} class={isActive('price')}>{t.nav.price}</a></li>
+        <li><a href={`${prefix}/price`} class={isActive('price')}>{t.nav.price}</a></li>
         <li><a href={t.topbarLink} class={isActive('vidnovlennya')}>{t.nav.vidnovlennya}</a></li>
         <li class="dropdown">
           <a href="#"><span>{t.nav.extra}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
@@ -92,7 +94,7 @@ const isActive = (page: string) => activePage === page ? 'active' : '';
             ))}
           </ul>
         </li>
-        <li><a href={lang === 'uk' ? '/contact' : '/ru/contact'} class={isActive('contact')}>{t.nav.contact}</a></li>
+        <li><a href={`${prefix}/contact`} class={isActive('contact')}>{t.nav.contact}</a></li>
 
         <!-- Language switcher -->
         <li class="dropdown lang-selector">
@@ -100,8 +102,9 @@ const isActive = (page: string) => activePage === page ? 'active' : '';
             <i class="bi bi-globe"></i><span>{t.langSwitchLabel}</span> <i class="bi bi-chevron-down dropdown-indicator"></i>
           </a>
           <ul class="dropdown-menu">
-            <li><a href={t.langSwitchOtherUrl}>{t.langSwitchOther}</a></li>
-            <li><a href={lang === 'uk' ? '/' : '/ru'}>{t.langSwitchLabel}</a></li>
+            <li><a href="/">UA</a></li>
+            <li><a href="/ru">RU</a></li>
+            <li><a href="/en">EN</a></li>
           </ul>
         </li>
       </ul>
@@ -123,7 +126,7 @@ const isActive = (page: string) => activePage === page ? 'active' : '';
             </a></li>
           ))}
           <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item d-flex align-items-center" href={activePage === 'home' ? '#get-started' : (lang === 'uk' ? '/contact' : '/ru/contact')}>
+          <li><a class="dropdown-item d-flex align-items-center" href={activePage === 'home' ? '#get-started' : `${prefix}/contact`}>
             <i class="bi bi-pencil-square me-2"></i> {t.requestBtn}
           </a></li>
         </ul>
@@ -137,7 +140,7 @@ const isActive = (page: string) => activePage === page ? 'active' : '';
 <div id="mobile-overlay" class="mobile-overlay"></div>
 <nav id="mobile-nav" class="mobile-nav">
   <div class="mobile-nav-header">
-    <a href={lang === 'uk' ? '/' : '/ru'} class="mobile-nav-logo d-flex align-items-center">
+    <a href={prefix || '/'} class="mobile-nav-logo d-flex align-items-center">
       <picture>
         <source srcset="/assets/img/logo.webp" type="image/webp">
         <img src="/assets/img/logo.png" alt="UWS" width="32" height="32">
@@ -150,17 +153,17 @@ const isActive = (page: string) => activePage === page ? 'active' : '';
   </div>
   <div class="mobile-nav-body">
     <ul>
-      <li><a href={lang === 'uk' ? '/' : '/ru'} class={isActive('home')}>{t.nav.home}</a></li>
-      <li><a href={lang === 'uk' ? '/about' : '/ru/about'} class={isActive('about')}>{t.nav.about}</a></li>
+      <li><a href={prefix || '/'} class={isActive('home')}>{t.nav.home}</a></li>
+      <li><a href={`${prefix}/about`} class={isActive('about')}>{t.nav.about}</a></li>
       <li class="dropdown">
-        <a href={lang === 'uk' ? '/services' : '/ru/services'} class="dropdown-toggle-mobile"><span>{t.nav.services}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+        <a href={`${prefix}/services`} class="dropdown-toggle-mobile"><span>{t.nav.services}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
         <ul class="dropdown-mobile">
           {services.map(s => (
             <li><a href={s.href}>{t.navServices[s.key as keyof typeof t.navServices]}</a></li>
           ))}
         </ul>
       </li>
-      <li><a href={lang === 'uk' ? '/price' : '/ru/price'} class={isActive('price')}>{t.nav.price}</a></li>
+      <li><a href={`${prefix}/price`} class={isActive('price')}>{t.nav.price}</a></li>
       <li><a href={t.topbarLink} class={isActive('vidnovlennya')}>{t.nav.vidnovlennya}</a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle-mobile"><span>{t.nav.extra}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
@@ -170,7 +173,7 @@ const isActive = (page: string) => activePage === page ? 'active' : '';
           ))}
         </ul>
       </li>
-      <li><a href={lang === 'uk' ? '/contact' : '/ru/contact'} class={isActive('contact')}>{t.nav.contact}</a></li>
+      <li><a href={`${prefix}/contact`} class={isActive('contact')}>{t.nav.contact}</a></li>
     </ul>
   </div>
   <div class="mobile-nav-footer">
@@ -187,7 +190,7 @@ const isActive = (page: string) => activePage === page ? 'active' : '';
       <i class="bi bi-envelope-fill"></i> uws.kyiv@gmail.com
     </a>
     <div class="mobile-nav-msg-section">
-      <span class="mobile-nav-msg-label">{lang === 'uk' ? 'Написати нам' : 'Написать нам'}</span>
+      <span class="mobile-nav-msg-label">{lang === 'en' ? 'Write to us' : (lang === 'uk' ? 'Написати нам' : 'Написать нам')}</span>
       <div class="mobile-nav-msg-row">
         <a href="viber://chat?number=%2B380730705280" class="msg-pill msg-viber">
           <i class="bi bi-chat-dots-fill"></i> Viber
@@ -200,13 +203,15 @@ const isActive = (page: string) => activePage === page ? 'active' : '';
         </a>
       </div>
     </div>
-    <a href={activePage === 'home' ? '#get-started' : (lang === 'uk' ? '/contact' : '/ru/contact')} class="mobile-nav-cta">
+    <a href={activePage === 'home' ? '#get-started' : `${prefix}/contact`} class="mobile-nav-cta">
       {t.requestBtn}
     </a>
     <div class="mobile-nav-lang">
-      <a href={t.langSwitchOtherUrl}>{t.langSwitchOther}</a>
-      <span class="mx-2">|</span>
-      <a href={lang === 'uk' ? '/' : '/ru'}>{t.langSwitchLabel}</a>
+      <a href="/">UA</a>
+      <span class="mx-1">|</span>
+      <a href="/ru">RU</a>
+      <span class="mx-1">|</span>
+      <a href="/en">EN</a>
     </div>
   </div>
 </nav>
