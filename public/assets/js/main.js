@@ -110,6 +110,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.addEventListener('load', toggleHeader);
     document.addEventListener('scroll', toggleHeader);
+
+    if (window.location.hash) {
+      setTimeout(() => {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+          const headerHeight = header.offsetHeight || 0;
+          const y = target.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 100);
+    }
   }
 
   /**
