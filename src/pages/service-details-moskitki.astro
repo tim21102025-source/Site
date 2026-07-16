@@ -3,61 +3,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactModal from '../components/ContactModal.astro';
+import { getServiceStructuredData } from '../lib/structuredData';
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "UWS — Москітні Сітки Київ",
-  "image": "https://uws.com.ua/assets/img/logo.png",
-  "telephone": [
-    "+380660575202",
-    "+380989478772",
-    "+380633664769"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "",
-    "addressLocality": "Київ",
-    "addressRegion": "Київська область",
-    "postalCode": "01001",
-    "addressCountry": "UA"
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Москітні Сітки Київ',
+  description: 'Виготовлення та встановлення москітних сіток у Києві: рамкові, дверні, антикішка, антипил, ролетні. Індивідуальні розміри, гарантія до 5 років.',
+  url: 'https://uws.com.ua/service-details-moskitki',
+  extra: {
+    makesOffer: {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Виготовлення та встановлення москітних сіток',
+      },
+    },
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 50.4501,
-    "longitude": 30.5234
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens": "09:00",
-    "closes": "20:00"
-  },
-  "description": "Виготовлення та встановлення москітних сіток у Києві: рамкові, дверні, антикішка, антипил, ролетні. Індивідуальні розміри, гарантія до 5 років.",
-  "url": "https://uws.com.ua/service-details-moskitki.html",
-  "priceRange": "$$",
-  "sameAs": [
-    "https://www.facebook.com/uws.kyiv",
-    "https://www.instagram.com/uws_kyiv"
-  ],
-  "makesOffer": {
-    "@type": "Offer",
-    "itemOffered": {
-      "@type": "Service",
-      "name": "Виготовлення та встановлення москітних сіток"
-    }
-  }
-};
+});
 
-const mainHtml = `<div class="page-header-mini d-flex align-items-center" style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+const mainHtml = `<div class="page-header-mini d-flex align-items-center">
       <div class="container position-relative"></div>
     </div>
 
@@ -172,9 +135,11 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
   canonicalPath={"/service-details-moskitki"}
   structuredData={structuredData}
 >
-  <Header lang="uk" activePage="service-details-moskitki" />
+  <Header lang="uk" activePage="service-details-moskitki" headerClass="header-solid" />
 
-  <Fragment set:html={mainHtml} />
+  <main id="main" class="page-inner">
+    <Fragment set:html={mainHtml} />
+  </main>
 
   <ContactModal lang="uk" />
   <Footer lang="uk" />

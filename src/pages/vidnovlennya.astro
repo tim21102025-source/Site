@@ -3,59 +3,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactModal from '../components/ContactModal.astro';
+import { getServiceStructuredData } from '../lib/structuredData';
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "UWS — Ремонт Вікон за Програмою єВідновлення Київ",
-  "image": "https://uws.com.ua/assets/img/logo.png",
-  "telephone": [
-    "+380660575202",
-    "+380989478772",
-    "+380633664769"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "",
-    "addressLocality": "Київ",
-    "addressRegion": "Київська область",
-    "postalCode": "01001",
-    "addressCountry": "UA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 50.4501,
-    "longitude": 30.5234
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens": "09:00",
-    "closes": "20:00"
-  },
-  "description": "Офіційний учасник програми єВідновлення. Ремонт та заміна вікон за державну компенсацію у Києві. Гарантія до 5 років.",
-  "url": "https://uws.com.ua/vidnovlennya.html",
-  "priceRange": "$$",
-  "sameAs": [
-    "https://www.facebook.com/uws.kyiv",
-    "https://www.instagram.com/uws_kyiv"
-  ],
-  "participantIn": {
-    "@type": "GovernmentProgram",
-    "name": "єВідновлення",
-    "description": "Державна програма компенсації за пошкоджене житло"
-  }
-};
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Ремонт Вікон за Програмою єВідновлення Київ',
+  description: 'Офіційний учасник програми єВідновлення. Ремонт та заміна вікон за державну компенсацію у Києві. Гарантія до 5 років.',
+  url: 'https://uws.com.ua/vidnovlennya',
+});
 
-const mainHtml = `<div class="page-header-mini d-flex align-items-center" style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+const mainHtml = `<div class="page-header-mini d-flex align-items-center">
       <div class="container position-relative"></div>
     </div>
 
@@ -73,7 +29,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
 
         <div class="row position-relative gy-5">
           <div class="col-lg-5 about-img mt-3 mb-0 shadow-sm"
-            style="background-image: url(/assets/img/vidnovlennya.png'); min-height: 400px; background-size: cover; background-position: center;">
+            style="background-image: url('/assets/img/vidnovlennya.png'); min-height: 400px; background-size: cover; background-position: center;">
           </div>
 
           <div class="col-lg-7">
@@ -192,7 +148,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
             </div>
           </div>
           <div class="col-lg-6"
-            style="background-image: url(/assets/img/vidnovlennya-1.png'); min-height: 120px; background-size: cover; background-position: center;">
+            style="background-image: url('/assets/img/vidnovlennya-1.png'); min-height: 120px; background-size: cover; background-position: center;">
           </div>
         </div>
 
@@ -200,7 +156,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
         <div class="row justify-content-around alt-services-item flex-row-reverse flex-lg-row mt-5" data-aos="fade-up"
           data-aos-delay="100">
           <div class="col-lg-6"
-            style="background-image: url(/assets/img/vidnovlennya-2.png'); min-height: 120px; background-size: cover; background-position: center;">
+            style="background-image: url('/assets/img/vidnovlennya-2.png'); min-height: 120px; background-size: cover; background-position: center;">
           </div>
           <div class="col-lg-5 d-flex flex-column justify-content-center">
             <h3 class="h4 fw-bold mb-4">Частина 2: Замовлення у UWS</h3>
@@ -292,9 +248,11 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
   canonicalPath={"/vidnovlennya"}
   structuredData={structuredData}
 >
-  <Header lang="uk" activePage="vidnovlennya" />
+  <Header lang="uk" activePage="vidnovlennya" headerClass="header-solid" />
 
-  <Fragment set:html={mainHtml} />
+  <main id="main" class="page-inner">
+    <Fragment set:html={mainHtml} />
+  </main>
 
   <ContactModal lang="uk" />
   <Footer lang="uk" />

@@ -3,64 +3,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "UWS — Ремонт Окон по Программе єВідновлення Киев",
-  "image": "https://uws.com.ua/assets/img/logo.png",
-  "telephone": [
-    "+380660575202",
-    "+380989478772",
-    "+380633664769"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "",
-    "addressLocality": "Киев",
-    "addressRegion": "Киевская область",
-    "postalCode": "01001",
-    "addressCountry": "UA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 50.4501,
-    "longitude": 30.5234
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens": "09:00",
-    "closes": "20:00"
-  },
-  "description": "Официальный участник программы єВідновлення. Ремонт и замена окон за государственную компенсацию в Киеве. Гарантия до 5 лет.",
-  "url": "https://uws.com.ua/ru/vidnovlennya",
-  "priceRange": "$$",
-  "sameAs": [
-    "https://www.facebook.com/uws.kyiv",
-    "https://www.instagram.com/uws_kyiv"
-  ],
-  "participantIn": {
-    "@type": "GovernmentProgram",
-    "name": "єВідновлення",
-    "description": "Государственная программа компенсации за повреждённое жильё"
-  }
-};
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Ремонт Окон по Программе єВідновлення Киев',
+  description: 'Официальный участник программы єВідновлення. Ремонт и замена окон за государственную компенсацию в Киеве. Гарантия до 5 лет.',
+  url: 'https://uws.com.ua/ru/vidnovlennya',
+});
 
-const mainHtml = `<div class="page-header-mini d-flex align-items-center" style="background-image: url('/assets/img/hero-bg.jpg');">
+const mainHtml = `<div class="page-header-mini d-flex align-items-center">
     <div class="container position-relative">
     </div>
   </div>
 
-  <main id="main">
+  <main id="main" class="page-inner">
 
     <section id="vidnovlennya-intro" class="about py-5">
       <div class="container" data-aos="fade-up">
@@ -111,7 +67,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
               Наши менеджеры помогут выбрать решение под вашу сумму компенсации и подготовят все документы.
             </p>
 
-            <a href="contact.html#contact"
+            <a href="/ru/contact#contact"
               class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold mt-3 d-inline-flex align-items-center shadow">
               <i class="bi bi-arrow-right-circle me-2"></i> Оставить заявку на консультацию
             </a>
@@ -259,7 +215,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
             </div>
 
             <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
-              <a href="contact.html#contact"
+              <a href="/ru/contact#contact"
                 class="btn btn-warning px-5 py-3 fw-bold shadow text-dark d-inline-flex align-items-center">
                 <i class="bi bi-clipboard2-check me-2"></i> Заказать дефектный акт и замер
               </a>
@@ -292,7 +248,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
   canonicalPath={"/ru/vidnovlennya"}
   structuredData={structuredData}
 >
-  <Header lang="ru" activePage="vidnovlennya" />
+  <Header lang="ru" activePage="vidnovlennya" headerClass="header-solid" />
 
   <Fragment set:html={mainHtml} />
 

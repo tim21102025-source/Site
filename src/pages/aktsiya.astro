@@ -3,82 +3,42 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactModal from '../components/ContactModal.astro';
+import { getServiceStructuredData } from '../lib/structuredData';
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "UWS — Встановлення, Ремонт Вікон та Дверей Київ",
-  "image": "https://uws.com.ua/assets/img/logo.png",
-  "telephone": [
-    "+380660575202",
-    "+380989478772",
-    "+380633664769"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Київ",
-    "addressCountry": "UA"
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens": "09:00",
-    "closes": "20:00"
-  },
-  "description": "Актуальні акції та знижки на ремонт, регулювання, встановлення металопластикових вікон, дверей, балконів у Києві. Учасник програми єВідновлення.",
-  "url": "https://uws.com.ua/aktsiya.html",
-  "priceRange": "$$",
-  "offers": {
-    "@type": "Offer",
-    "itemOffered": {
-      "@type": "Service",
-      "name": "Комплексне обслуговування вікон «Зимовий комфорт»"
-    },
-    "priceCurrency": "UAH",
-    "price": "0",
-    "availability": "https://schema.org/InStock",
-    "validFrom": "2026-01-01",
-    "validThrough": "2026-01-31"
-  }
-};
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Встановлення, Ремонт Вікон та Дверей Київ',
+  description: 'Актуальні акції та знижки на ремонт, регулювання, встановлення металопластикових вікон, дверей, балконів у Києві. Учасник програми єВідновлення.',
+  url: 'https://uws.com.ua/aktsiya',
+});
 
-const mainHtml = `<div class="page-header-mini d-flex align-items-center" style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+const mainHtml = `<div class="page-header-mini d-flex align-items-center">
       <div class="container position-relative"></div>
     </div>
 
 
 
-    <!-- Головна акційна пропозиція (H1 тут!) -->
     <section id="hero-offer" class="py-5">
       <div class="container" data-aos="fade-up">
         <div class="row g-0 shadow-lg rounded-4 overflow-hidden bg-white">
           <div class="col-lg-6 position-relative">
             <div class="about-img h-100"
-              style="background-image: url(/assets/img/aktsiya-1.jpg'); min-height: 420px; background-size: cover; background-position: center;">
+              style="background-image: url('/assets/img/aktsiya-1.jpg'); min-height: 420px; background-size: cover; background-position: center;">
             </div>
             <div class="position-absolute top-0 start-0 m-4">
-              <span class="badge bg-danger fs-5 px-4 py-2">Зима 2026</span>
+              <span class="badge bg-success fs-5 px-4 py-2">Літо 2026</span>
             </div>
           </div>
           <div class="col-lg-6 p-4 p-lg-5 d-flex flex-column justify-content-center">
-            <h1 class="fw-bold display-5 mb-4">Комплекс «Зимовий комфорт» — -20% на все!</h1>
-            <p class="lead text-primary fw-bold fs-4 mb-4">Повне обслуговування всіх вікон квартири за спеціальною ціною
+            <h1 class="fw-bold display-5 mb-4">Комплекс «Літній захист» — -25% на москітні сітки та сервіс!</h1>
+            <p class="lead text-primary fw-bold fs-4 mb-4">Захистіть свій дім від комах та спеки з максимальною вигодою
             </p>
 
-            <p class="mb-4">Регулювання + змащування фурнітури + заміна ущільнювача + діагностика — усе в одному
-              замовленні зі знижкою 20%. Ідеальний варіант перед сильними морозами!</p>
+            <p class="mb-4">Комплексне обслуговування вікон (регулювання + змащування + діагностика) + москітні сітки
+              на всі вікна — усе в одному замовленні зі знижкою 25%. Ідеальний варіант для літнього сезону!</p>
 
             <div class="d-flex align-items-center mb-4">
               <i class="bi bi-exclamation-triangle-fill text-danger me-3 fs-3"></i>
-              <span class="fw-bold text-uppercase">Акція діє до 28 лютого 2026 року</span>
+              <span class="fw-bold text-uppercase">Акція діє з 1 липня по 31 серпня 2026 року</span>
             </div>
 
             <div class="d-flex flex-column flex-sm-row gap-3">
@@ -94,7 +54,6 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
       </div>
     </section>
 
-    <!-- Додаткові вигідні пропозиції -->
     <section id="more-promotions" class="section-bg py-5">
       <div class="container" data-aos="fade-up">
         <div class="section-header text-center pb-5">
@@ -132,7 +91,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
                 <h3 class="h4 fw-bold mb-3">Сітки в подарунок</h3>
                 <p class="mb-4">Замовлення встановлення <strong>3+ вікон</strong> «під ключ» → москітні сітки на всі
                   вікна <strong>безкоштовно</strong>!</p>
-                <div class="badge bg-success fs-5 px-4 py-2">Економія до 1800 грн</div>
+                <div class="badge bg-success fs-5 px-4 py-2">Економія до 2500 грн</div>
               </div>
             </div>
           </div>
@@ -155,15 +114,14 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
       </div>
     </section>
 
-    <!-- Потужний CTA блок -->
     <section class="py-5 bg-dark text-white text-center">
       <div class="container" data-aos="zoom-in">
         <div class="row justify-content-center">
           <div class="col-lg-9 col-xl-8">
-            <h2 class="display-5 fw-bold mb-4" style="color: var(--color-primary);">Акції розлітаються швидко!</h2>
+            <h2 class="display-5 fw-bold mb-4" style="color: var(--color-primary);">Не чекайте на осінь — зафіксуйте ціну зараз!</h2>
             <p class="fs-4 mb-5 opacity-85">
-              Майстри вже завантажені на 70% у січні. Забронюйте своє вікно за акційною ціною <strong>прямо
-                зараз</strong> — кількість місць обмежена!
+              У вересні ціни на монтаж зростають на 10–15%. Замовте влітку та заощаджуйте — <strong>ціна фіксується
+                на весь період виконання робіт</strong>.
             </p>
 
             <div class="d-flex flex-column flex-md-row justify-content-center gap-4 mb-5">
@@ -185,13 +143,12 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
       </div>
     </section>
 
-    <!-- Фінальний блок "Індивідуально" -->
     <section class="py-5">
       <div class="container" data-aos="fade-up">
         <div class="row justify-content-center align-items-center gy-5">
           <div class="col-lg-6">
             <div class="img-bg rounded-4 shadow-lg"
-              style="background-image: url(/assets/img/aktsiya-2.jpg'); min-height: 380px; background-size: cover; background-position: center;">
+              style="background-image: url('/assets/img/aktsiya-2.jpg'); min-height: 380px; background-size: cover; background-position: center;">
             </div>
           </div>
           <div class="col-lg-6">
@@ -225,13 +182,15 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
 <BaseLayout
   lang="uk"
   title={"Акції та знижки на ремонт і встановлення вікон у Києві 2026 | UWS"}
-  description={"Актуальні акції UWS у січні 2026: -20% на комплексне обслуговування вікон, знижки для пенсіонерів, ВПО та ЗСУ, безкоштовні москітні сітки, спеціальні умови по програмі єВідновлення в Києві та області."}
+  description={"Актуальні акції UWS у літньому сезоні 2026: -25% на комплекс «Літній захист» (москітні сітки + сервіс вікон), знижки для пенсіонерів, ВПО та ЗСУ, безкоштовні москітні сітки при встановленні 3+ вікон, спеціальні умови по програмі єВідновлення в Києві та області."}
   canonicalPath={"/aktsiya"}
   structuredData={structuredData}
 >
-  <Header lang="uk" activePage="aktsiya" />
+  <Header lang="uk" activePage="aktsiya" headerClass="header-solid" />
 
-  <Fragment set:html={mainHtml} />
+  <main id="main" class="page-inner">
+    <Fragment set:html={mainHtml} />
+  </main>
 
   <ContactModal lang="uk" />
   <Footer lang="uk" />

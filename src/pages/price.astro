@@ -3,82 +3,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactModal from '../components/ContactModal.astro';
+import { getServiceStructuredData } from '../lib/structuredData';
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "UWS — Встановлення та Ремонт Вікон Київ",
-  "image": "https://uws.com.ua/assets/img/logo.png",
-  "telephone": [
-    "+380660575202",
-    "+380989478772",
-    "+380633664769"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "",
-    "addressLocality": "Київ",
-    "addressRegion": "Київська область",
-    "postalCode": "01001",
-    "addressCountry": "UA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 50.4501,
-    "longitude": 30.5234
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens": "09:00",
-    "closes": "20:00"
-  },
-  "description": "Актуальні ціни на ремонт, регулювання, встановлення вікон та дверей у Києві на 2026 рік. Прозорий прайс, гарантія, робота з програмою єВідновлення.",
-  "url": "https://uws.com.ua/price.html",
-  "priceRange": "$$",
-  "sameAs": [
-    "https://www.facebook.com/uws.kyiv",
-    "https://www.instagram.com/uws_kyiv"
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Прайс-лист послуг UWS 2026",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Регулювання стулки вікна"
-        },
-        "price": "300",
-        "priceCurrency": "UAH"
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Заміна склопакета двокамерного"
-        },
-        "price": "2600",
-        "priceCurrency": "UAH",
-        "priceSpecification": {
-          "@type": "UnitPriceSpecification",
-          "unitText": "м²"
-        }
-      }
-    ]
-  }
-};
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Встановлення та Ремонт Вікон Київ',
+  description: 'Актуальні ціни на ремонт, регулювання, встановлення вікон та дверей у Києві на 2026 рік. Прозорий прайс, гарантія, робота з програмою єВідновлення.',
+  url: 'https://uws.com.ua/price',
+});
 
-const mainHtml = `<div class="page-header-mini d-flex align-items-center" style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+const mainHtml = `<div class="page-header-mini d-flex align-items-center">
       <div class="container position-relative"></div>
     </div>
 
@@ -87,7 +20,6 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
     <section id="pricing" class="pricing py-5">
       <div class="container" data-aos="fade-up">
 
-        <!-- Головний H1 + вступ -->
         <header class="text-center mb-5">
           <h1 class="display-5 fw-bold text-dark">Прайс-лист на ремонт та встановлення вікон у Києві 2026</h1>
           <p class="lead text-muted mt-3">Актуальні ціни UWS без прихованих доплат. Безкоштовний виїзд майстра для
@@ -111,23 +43,23 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
                   <tbody>
                     <tr>
                       <td>Монтаж ПВХ вікна (стандартний)</td>
-                      <td class="text-end fw-bold">750 грн/м²</td>
+                      <td class="text-end fw-bold">850 грн/м²</td>
                     </tr>
                     <tr>
                       <td>Монтаж вхідних дверей (металеві/ПВХ)</td>
-                      <td class="text-end fw-bold">2800 грн/шт</td>
+                      <td class="text-end fw-bold">3200 грн/шт</td>
                     </tr>
                     <tr>
                       <td>Демонтаж старих конструкцій</td>
-                      <td class="text-end fw-bold">250 грн/м²</td>
+                      <td class="text-end fw-bold">280 грн/м²</td>
                     </tr>
                     <tr>
                       <td>Встановлення підвіконня</td>
-                      <td class="text-end fw-bold">300 грн/м.п.</td>
+                      <td class="text-end fw-bold">350 грн/м.п.</td>
                     </tr>
                     <tr>
                       <td>Встановлення відливів / козирків</td>
-                      <td class="text-end fw-bold">200 грн/м.п.</td>
+                      <td class="text-end fw-bold">250 грн/м.п.</td>
                     </tr>
                   </tbody>
                 </table>
@@ -150,11 +82,11 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
                   <tbody>
                     <tr>
                       <td>Технічне обслуговування (змащування + чистка)</td>
-                      <td class="text-end fw-bold">250 грн/стулка</td>
+                      <td class="text-end fw-bold">280 грн/стулка</td>
                     </tr>
                     <tr>
                       <td>Регулювання стулки вікна / дверей</td>
-                      <td class="text-end fw-bold">300 грн/шт</td>
+                      <td class="text-end fw-bold">350 грн/шт</td>
                     </tr>
                     <tr>
                       <td>Заміна ущільнювача (Німеччина, силікон)</td>
@@ -162,11 +94,11 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
                     </tr>
                     <tr>
                       <td>Заміна фурнітури (повний комплект)</td>
-                      <td class="text-end fw-bold">2200 грн/шт</td>
+                      <td class="text-end fw-bold">2500 грн/шт</td>
                     </tr>
                     <tr>
                       <td>Заміна віконної ручки (Hoope/стандарт)</td>
-                      <td class="text-end fw-bold">350 грн/шт</td>
+                      <td class="text-end fw-bold">400 грн/шт</td>
                     </tr>
                   </tbody>
                 </table>
@@ -189,11 +121,11 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
                   <tbody>
                     <tr>
                       <td>Скління балкона (профіль 60-70мм)</td>
-                      <td class="text-end fw-bold">4200 грн/м²</td>
+                      <td class="text-end fw-bold">4500 грн/м²</td>
                     </tr>
                     <tr>
                       <td>Зварювання виносу (розширення по підвіконню)</td>
-                      <td class="text-end fw-bold">1800 грн/м.п.</td>
+                      <td class="text-end fw-bold">2000 грн/м.п.</td>
                     </tr>
                     <tr>
                       <td>Зовнішня обшивка сайдингом / профнастилом</td>
@@ -228,7 +160,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
                   <tbody>
                     <tr>
                       <td>Рамкова сітка (біла/коричнева) Anwis</td>
-                      <td class="text-end fw-bold">450 грн/шт</td>
+                      <td class="text-end fw-bold">500 грн/шт</td>
                     </tr>
                     <tr>
                       <td>Сітка "Антикішка" (посилене полотно)</td>
@@ -275,7 +207,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
                     </tr>
                     <tr>
                       <td>Термінова заміна (замір + доставка + монтаж)</td>
-                      <td class="text-end fw-bold">800 грн</td>
+                      <td class="text-end fw-bold">1000 грн</td>
                     </tr>
                   </tbody>
                 </table>
@@ -387,13 +319,15 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
 <BaseLayout
   lang="uk"
   title={"Ціни на Ремонт та Встановлення Вікон Київ 2026 | Прайс-лист UWS"}
-  description={"Актуальний прайс-лист UWS на 2026 рік: ремонт вікон від 300 грн, встановлення від 750 грн/м², скління балконів, москітні сітки, заміна склопакетів. Безкоштовний замір, робота з єВідновлення."}
+  description={"Актуальний прайс-лист UWS на 2026 рік: ремонт вікон від 350 грн, встановлення від 850 грн/м², скління балконів, москітні сітки, заміна склопакетів. Безкоштовний замір, робота з єВідновлення."}
   canonicalPath={"/price"}
   structuredData={structuredData}
 >
-  <Header lang="uk" activePage="price" />
+  <Header lang="uk" activePage="price" headerClass="header-solid" />
 
-  <Fragment set:html={mainHtml} />
+  <main id="main" class="page-inner">
+    <Fragment set:html={mainHtml} />
+  </main>
 
   <ContactModal lang="uk" />
   <Footer lang="uk" />

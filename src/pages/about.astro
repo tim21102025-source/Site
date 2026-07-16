@@ -3,40 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactModal from '../components/ContactModal.astro';
+import { getServiceStructuredData } from '../lib/structuredData';
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "UWS — Встановлення та Ремонт Вікон Київ",
-  "image": "https://uws.com.ua/assets/img/logo.png",
-  "telephone": ["+380660575202", "+380989478772", "+380633664769"],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "",
-    "addressLocality": "Київ",
-    "addressRegion": "Київська область",
-    "postalCode": "01001",
-    "addressCountry": "UA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 50.4501,
-    "longitude": 30.5234
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-    "opens": "09:00",
-    "closes": "20:00"
-  },
-  "description": "UWS — експерти з ремонту та обслуговування металопластикових вікон у Києві з 2015 року. Висока якість, оригінальні комплектуючі та гарантія.",
-  "url": "https://uws.com.ua/about",
-  "priceRange": "$$",
-  "sameAs": [
-    "https://www.facebook.com/uws.kyiv",
-    "https://www.instagram.com/uws_kyiv"
-  ]
-};
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Встановлення та Ремонт Вікон Київ',
+  description: 'UWS — експерти з ремонту та обслуговування металопластикових вікон у Києві з 2015 року. Висока якість, оригінальні комплектуючі та гарантія.',
+  url: 'https://uws.com.ua/about',
+});
 ---
 
 <BaseLayout
@@ -46,10 +19,10 @@ const structuredData = {
   canonicalPath="/about"
   structuredData={structuredData}
 >
-  <Header lang="uk" activePage="about" />
+  <Header lang="uk" activePage="about" headerClass="header-solid" />
 
-  <main id="main">
-    <div class="page-header-mini d-flex align-items-center" style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+  <main id="main" class="page-inner">
+    <div class="page-header-mini d-flex align-items-center">
       <div class="container position-relative"></div>
     </div>
 
@@ -190,12 +163,6 @@ const structuredData = {
                 <source srcset="/assets/img/team/team-1.webp" type="image/webp">
                 <img src="/assets/img/team/team-1.jpg" class="img-fluid" alt="Валентин Кравченко — головний інженер з фурнітури металопластикових вікон UWS Київ" loading="lazy">
               </picture>
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
             </div>
             <div class="member-info text-center">
               <h4>Валентин Кравченко</h4>
@@ -210,12 +177,6 @@ const structuredData = {
                 <source srcset="/assets/img/team/team-2.webp" type="image/webp">
                 <img src="/assets/img/team/team-2.jpg" class="img-fluid" alt="Ігор Семенченко — майстер з заміни склопакетів та ремонту вікон UWS Київ" loading="lazy">
               </picture>
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
             </div>
             <div class="member-info text-center">
               <h4>Ігор Семенченко</h4>
@@ -230,12 +191,6 @@ const structuredData = {
                 <source srcset="/assets/img/team/team-3.webp" type="image/webp">
                 <img src="/assets/img/team/team-3.jpg" class="img-fluid" alt="Ольга Дорош — спеціалістка з регулювання та ремонту вікон і балконних дверей UWS Київ" loading="lazy">
               </picture>
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
             </div>
             <div class="member-info text-center">
               <h4>Ольга Дорош</h4>

@@ -3,59 +3,22 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "UWS — Ремонт Окон и Дверей Киев",
-  "image": "https://uws.com.ua/assets/img/logo.png",
-  "telephone": [
-    "+380660575202",
-    "+380989478772",
-    "+380633664769"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "",
-    "addressLocality": "Киев",
-    "addressRegion": "Киевская область",
-    "postalCode": "01001",
-    "addressCountry": "UA"
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Ремонт Окон и Дверей Киев',
+  description: 'Профессиональный ремонт и регулировка пластиковых окон и дверей в Киеве. Замена фурнитуры, уплотнителя, сервис. Гарантия до 5 лет.',
+  url: 'https://uws.com.ua/ru/service-details-repair',
+  extra: {
+    makesOffer: {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Ремонт и регулировка окон и дверей',
+      },
+    },
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 50.4501,
-    "longitude": 30.5234
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens": "09:00",
-    "closes": "20:00"
-  },
-  "description": "Профессиональный ремонт и регулировка пластиковых окон и дверей в Киеве. Замена фурнитуры, уплотнителя, сервис. Гарантия до 5 лет.",
-  "url": "https://uws.com.ua/ru/service-details-repair",
-  "priceRange": "$$",
-  "sameAs": [
-    "https://www.facebook.com/uws.kyiv",
-    "https://www.instagram.com/uws_kyiv"
-  ],
-  "makesOffer": {
-    "@type": "Offer",
-    "itemOffered": {
-      "@type": "Service",
-      "name": "Ремонт и регулировка окон и дверей"
-    }
-  }
-};
+});
 
 const mainHtml = `<div class="page-header-mini d-flex align-items-center"
     style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
@@ -63,7 +26,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
     </div>
   </div>
 
-  <main id="main">
+  <main id="main" class="page-inner">
 
     <section id="service-details" class="service-details py-5">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -144,7 +107,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
                   Вызовите мастера — диагностика и большинство ремонтов выполняются <strong>в день обращения</strong>.
                 </p>
 
-                <a href="contact.html#contact"
+                <a href="/ru/contact#contact"
                   class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg text-dark d-inline-flex align-items-center">
                   <i class="bi bi-person-check-fill me-2"></i>
                   Вызвать мастера по ремонту
@@ -170,7 +133,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
   canonicalPath={"/ru/service-details-repair"}
   structuredData={structuredData}
 >
-  <Header lang="ru" activePage="" />
+  <Header lang="ru" activePage="" headerClass="header-solid" />
 
   <Fragment set:html={mainHtml} />
 

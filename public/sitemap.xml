@@ -4,184 +4,41 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
+<url><loc>https://uws.com.ua/</loc><lastmod>2026-07-16</lastmod><priority>1.00</priority></url>
+<url><loc>https://uws.com.ua/about</loc><lastmod>2026-07-16</lastmod><priority>0.80</priority></url>
+<url><loc>https://uws.com.ua/services</loc><lastmod>2026-07-16</lastmod><priority>0.80</priority></url>
+<url><loc>https://uws.com.ua/service-details-install</loc><lastmod>2026-07-16</lastmod><priority>0.80</priority></url>
+<url><loc>https://uws.com.ua/service-details-repair</loc><lastmod>2026-07-16</lastmod><priority>0.80</priority></url>
+<url><loc>https://uws.com.ua/service-details-balkony</loc><lastmod>2026-07-16</lastmod><priority>0.80</priority></url>
+<url><loc>https://uws.com.ua/service-details-moskitki</loc><lastmod>2026-07-16</lastmod><priority>0.80</priority></url>
+<url><loc>https://uws.com.ua/service-details-glass</loc><lastmod>2026-07-16</lastmod><priority>0.80</priority></url>
+<url><loc>https://uws.com.ua/service-details-dovodyachi</loc><lastmod>2026-07-16</lastmod><priority>0.80</priority></url>
+<url><loc>https://uws.com.ua/price</loc><lastmod>2026-07-16</lastmod><priority>0.80</priority></url>
+<url><loc>https://uws.com.ua/vidnovlennya</loc><lastmod>2026-07-16</lastmod><priority>0.80</priority></url>
+<url><loc>https://uws.com.ua/aktsiya</loc><lastmod>2026-07-16</lastmod><priority>0.80</priority></url>
+<url><loc>https://uws.com.ua/conditions</loc><lastmod>2026-07-16</lastmod><priority>0.80</priority></url>
+<url><loc>https://uws.com.ua/diagnostics</loc><lastmod>2026-07-16</lastmod><priority>0.80</priority></url>
+<url><loc>https://uws.com.ua/faq</loc><lastmod>2026-07-16</lastmod><priority>0.80</priority></url>
+<url><loc>https://uws.com.ua/doglyad</loc><lastmod>2026-07-16</lastmod><priority>0.80</priority></url>
+<url><loc>https://uws.com.ua/contact</loc><lastmod>2026-07-16</lastmod><priority>0.80</priority></url>
 
-<url>
-  <loc>https://uws.com.ua/</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/vidnovlennya.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/index.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/about.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/services.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/service-details-install.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/service-details-repair.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/service-details-balkony.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/service-details-moskitki.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/service-details-glass.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/service-details-dovodyachi.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/price.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/aktsiya.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/conditions.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/diagnostics.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/faq.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/doglyad.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/contact.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/ru/index.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/ru/vidnovlennya.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/ru/about.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/ru/services.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/ru/service-details-install.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/ru/service-details-repair.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/ru/service-details-balkony.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/ru/service-details-moskitki.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/ru/service-details-glass.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/ru/service-details-dovodyachi.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/ru/price.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/ru/aktsiya.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/ru/conditions.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/ru/diagnostics.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/ru/faq.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/ru/doglyad.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://uws.com.ua/ru/contact.html</loc>
-  <lastmod>2026-01-03T18:04:30+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
+<url><loc>https://uws.com.ua/ru</loc><lastmod>2026-07-16</lastmod><priority>0.80</priority></url>
+<url><loc>https://uws.com.ua/ru/about</loc><lastmod>2026-07-16</lastmod><priority>0.64</priority></url>
+<url><loc>https://uws.com.ua/ru/services</loc><lastmod>2026-07-16</lastmod><priority>0.64</priority></url>
+<url><loc>https://uws.com.ua/ru/service-details-install</loc><lastmod>2026-07-16</lastmod><priority>0.64</priority></url>
+<url><loc>https://uws.com.ua/ru/service-details-repair</loc><lastmod>2026-07-16</lastmod><priority>0.64</priority></url>
+<url><loc>https://uws.com.ua/ru/service-details-balkony</loc><lastmod>2026-07-16</lastmod><priority>0.64</priority></url>
+<url><loc>https://uws.com.ua/ru/service-details-moskitki</loc><lastmod>2026-07-16</lastmod><priority>0.64</priority></url>
+<url><loc>https://uws.com.ua/ru/service-details-glass</loc><lastmod>2026-07-16</lastmod><priority>0.64</priority></url>
+<url><loc>https://uws.com.ua/ru/service-details-dovodyachi</loc><lastmod>2026-07-16</lastmod><priority>0.64</priority></url>
+<url><loc>https://uws.com.ua/ru/price</loc><lastmod>2026-07-16</lastmod><priority>0.64</priority></url>
+<url><loc>https://uws.com.ua/ru/vidnovlennya</loc><lastmod>2026-07-16</lastmod><priority>0.64</priority></url>
+<url><loc>https://uws.com.ua/ru/aktsiya</loc><lastmod>2026-07-16</lastmod><priority>0.64</priority></url>
+<url><loc>https://uws.com.ua/ru/conditions</loc><lastmod>2026-07-16</lastmod><priority>0.64</priority></url>
+<url><loc>https://uws.com.ua/ru/diagnostics</loc><lastmod>2026-07-16</lastmod><priority>0.64</priority></url>
+<url><loc>https://uws.com.ua/ru/faq</loc><lastmod>2026-07-16</lastmod><priority>0.64</priority></url>
+<url><loc>https://uws.com.ua/ru/doglyad</loc><lastmod>2026-07-16</lastmod><priority>0.64</priority></url>
+<url><loc>https://uws.com.ua/ru/contact</loc><lastmod>2026-07-16</lastmod><priority>0.64</priority></url>
 
 </urlset>

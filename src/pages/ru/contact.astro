@@ -3,62 +3,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "UWS — Установка и Ремонт Окон Киев",
-  "image": "https://uws.com.ua/assets/img/logo.png",
-  "telephone": [
-    "+380660575202",
-    "+380989478772",
-    "+380633664769"
-  ],
-  "email": "uws.kyiv@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "",
-    "addressLocality": "Киев",
-    "addressRegion": "Киевская область",
-    "postalCode": "01001",
-    "addressCountry": "UA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 50.4501,
-    "longitude": 30.5234
-  },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      "opens": "09:00",
-      "closes": "19:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Saturday",
-        "Sunday"
-      ],
-      "opens": "10:00",
-      "closes": "17:00"
-    }
-  ],
-  "description": "Контакты UWS: телефоны, мессенджеры, форма заявки. Бесплатная консультация и выезд мастера по Киеву.",
-  "url": "https://uws.com.ua/ru/contact",
-  "priceRange": "$$",
-  "sameAs": [
-    "https://www.facebook.com/uws.kyiv",
-    "https://www.instagram.com/uws_kyiv"
-  ]
-};
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Установка и Ремонт Окон Киев',
+  description: 'Контакты UWS: телефоны, мессенджеры, форма заявки. Бесплатная консультация и выезд мастера по Киеву.',
+  url: 'https://uws.com.ua/ru/contact',
+});
 
 const mainHtml = `<div class="page-header-mini d-flex align-items-center"
     style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
@@ -66,7 +17,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
     </div>
   </div>
 
-  <main id="main">
+  <main id="main" class="page-inner">
 
     <section class="contact section-bg py-5">
       <div class="container" data-aos="fade-up">
@@ -236,7 +187,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
   canonicalPath={"/ru/contact"}
   structuredData={structuredData}
 >
-  <Header lang="ru" activePage="contact" />
+  <Header lang="ru" activePage="contact" headerClass="header-solid" />
 
   <Fragment set:html={mainHtml} />
 

@@ -3,58 +3,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "UWS — Установка и Ремонт Окон Киев",
-  "image": "https://uws.com.ua/assets/img/logo.png",
-  "telephone": [
-    "+380660575202",
-    "+380989478772",
-    "+380633664769"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "",
-    "addressLocality": "Киев",
-    "addressRegion": "Киевская область",
-    "postalCode": "01001",
-    "addressCountry": "UA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 50.4501,
-    "longitude": 30.5234
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens": "09:00",
-    "closes": "20:00"
-  },
-  "description": "UWS — эксперты по ремонту и обслуживанию металлопластиковых окон в Киеве с 2015 года. Высокое качество, оригинальные комплектующие и гарантия.",
-  "url": "https://uws.com.ua/ru/about",
-  "priceRange": "$$",
-  "sameAs": [
-    "https://www.facebook.com/uws.kyiv",
-    "https://www.instagram.com/uws_kyiv"
-  ]
-};
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Установка и Ремонт Окон Киев',
+  description: 'UWS — эксперты по ремонту и обслуживанию металлопластиковых окон в Киеве с 2015 года. Высокое качество, оригинальные комплектующие и гарантия.',
+  url: 'https://uws.com.ua/ru/about',
+});
 
-const mainHtml = `<main id="main">
+const mainHtml = `<main id="main" class="page-inner">
 
     <!-- Мініверхній банер -->
-    <div class="page-header-mini d-flex align-items-center"
-      style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+    <div class="page-header-mini d-flex align-items-center">
       <div class="container position-relative">
       </div>
     </div>
@@ -217,12 +177,6 @@ const mainHtml = `<main id="main">
                 <img src="/assets/img/team/team-1.jpg" class="img-fluid"
                 alt="Валентин Кравченко — главный инженер по фурнитуре металлопластиковых окон UWS Киев" loading="lazy">
               </picture>
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
             </div>
             <div class="member-info text-center">
               <h4>Валентин Кравченко</h4>
@@ -238,12 +192,6 @@ const mainHtml = `<main id="main">
                 <img src="/assets/img/team/team-2.jpg" class="img-fluid"
                 alt="Игорь Семенченко — мастер по замене стеклопакетов и ремонту окон UWS Киев" loading="lazy">
               </picture>
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
             </div>
             <div class="member-info text-center">
               <h4>Игорь Семенченко</h4>
@@ -260,12 +208,6 @@ const mainHtml = `<main id="main">
                 alt="Ольга Дорош — специалистка по регулировке и ремонту окон и балконных дверей UWS Киев"
                 loading="lazy">
               </picture>
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
             </div>
             <div class="member-info text-center">
               <h4>Ольга Дорош</h4>
@@ -393,7 +335,7 @@ const mainHtml = `<main id="main">
           <p class="text-white-50 mb-4">Оставьте заявку — перезвоним в течение 15 минут, проконсультируем и подберем
             удобное время для выезда.</p>
 
-          <a href="contact.html#contact" class="btn-service-main">
+          <a href="/ru/contact#contact" class="btn-service-main">
             <i class="bi bi-person-check-fill me-2"></i>
             Бесплатная консультация и вызов мастера
           </a>
@@ -415,7 +357,7 @@ const mainHtml = `<main id="main">
   canonicalPath={"/ru/about"}
   structuredData={structuredData}
 >
-  <Header lang="ru" activePage="about" />
+  <Header lang="ru" activePage="about" headerClass="header-solid" />
 
   <Fragment set:html={mainHtml} />
 

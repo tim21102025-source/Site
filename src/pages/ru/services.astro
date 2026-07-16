@@ -3,96 +3,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "UWS — Установка и Ремонт Окон Киев",
-  "image": "https://uws.com.ua/assets/img/logo.png",
-  "telephone": [
-    "+380660575202",
-    "+380989478772",
-    "+380633664769"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "",
-    "addressLocality": "Киев",
-    "addressRegion": "Киевская область",
-    "postalCode": "01001",
-    "addressCountry": "UA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 50.4501,
-    "longitude": 30.5234
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens": "09:00",
-    "closes": "20:00"
-  },
-  "description": "Полный спектр услуг по ремонту, регулировке, установке окон и дверей в Киеве. Гарантия до 5 лет, бесплатный выезд мастера.",
-  "url": "https://uws.com.ua/ru/services",
-  "priceRange": "$$",
-  "sameAs": [
-    "https://www.facebook.com/uws.kyiv",
-    "https://www.instagram.com/uws_kyiv"
-  ],
-  "makesOffer": [
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Ремонт окон и дверей"
-      }
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Установка окон и дверей"
-      }
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Замена стеклопакетов"
-      }
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Остекление балконов и лоджий"
-      }
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Москитные сетки"
-      }
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Доводчики для дверей"
-      }
-    }
-  ]
-};
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Установка и Ремонт Окон Киев',
+  description: 'Полный спектр услуг по ремонту, регулировке, установке окон и дверей в Киеве. Гарантия до 5 лет, бесплатный выезд мастера.',
+  url: 'https://uws.com.ua/ru/services',
+});
 
 const mainHtml = `<div class="page-header-mini d-flex align-items-center"
     style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
@@ -100,7 +17,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
     </div>
   </div>
 
-  <main id="main">
+  <main id="main" class="page-inner">
 
     <section id="services" class="services section-bg py-5">
       <div class="container" data-aos="fade-up">
@@ -264,7 +181,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
                     работы по ремонту и обслуживанию.</p>
                 </div>
               </div>
-              <a href="contact.html#contact"
+              <a href="/ru/contact#contact"
                 class="btn btn-dark btn-lg px-5 py-3 rounded-pill fw-bold shadow">Связаться с мастером</a>
             </div>
           </div>
@@ -369,7 +286,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
             <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
               <i class="bi bi-chat-text flex-shrink-0"></i>
               <div>
-                <h4><a href="contact.html#contact" class="stretched-link">Связь 24/7</a></h4>
+                <h4><a href="/ru/contact#contact" class="stretched-link">Связь 24/7</a></h4>
                 <p>Принимаем заявки через сайт и мессенджеры круглосуточно.</p>
               </div>
             </div>
@@ -377,7 +294,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
             <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
               <i class="bi bi-truck flex-shrink-0"></i>
               <div>
-                <h4><a href="contact.html#contact" class="stretched-link">Оперативный выезд</a></h4>
+                <h4><a href="/ru/contact#contact" class="stretched-link">Оперативный выезд</a></h4>
                 <p>Мастер может быть у вас уже через 2-3 часа после звонка (зависит от района).</p>
               </div>
             </div>
@@ -385,7 +302,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
             <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-calculator flex-shrink-0"></i>
               <div>
-                <h4><a href="contact.html#contact" class="stretched-link">Точный расчёт</a></h4>
+                <h4><a href="/ru/contact#contact" class="stretched-link">Точный расчёт</a></h4>
                 <p>Вы узнаете окончательную стоимость ремонта сразу после диагностики на месте.</p>
               </div>
             </div>
@@ -393,7 +310,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
             <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
               <i class="bi bi-check2-all flex-shrink-0"></i>
               <div>
-                <h4><a href="contact.html#contact" class="stretched-link">Комплексный осмотр</a></h4>
+                <h4><a href="/ru/contact#contact" class="stretched-link">Комплексный осмотр</a></h4>
                 <p>Проверяем не только жалобу, но и общее состояние фурнитуры и уплотнителей.</p>
               </div>
             </div>
@@ -580,7 +497,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
             </p>
 
             <div class="d-flex flex-column flex-md-row justify-content-center gap-3 align-items-center">
-              <a href="contact.html#contact"
+              <a href="/ru/contact#contact"
                 class="btn btn-warning btn-lg px-4 py-3 rounded-pill fw-bold shadow-lg transition-all d-flex align-items-center"
                 style="font-size: 1.1rem;">
                 <i class="bi bi-calendar-check me-2"></i> Записаться на диагностику
@@ -619,7 +536,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
   canonicalPath={"/ru/services"}
   structuredData={structuredData}
 >
-  <Header lang="ru" activePage="services" />
+  <Header lang="ru" activePage="services" headerClass="header-solid" />
 
   <Fragment set:html={mainHtml} />
 

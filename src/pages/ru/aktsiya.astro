@@ -3,52 +3,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "UWS — Установка, Ремонт Окон и Дверей Киев",
-  "image": "https://uws.com.ua/assets/img/logo.png",
-  "telephone": [
-    "+380660575202",
-    "+380989478772",
-    "+380633664769"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Киев",
-    "addressCountry": "UA"
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens": "09:00",
-    "closes": "20:00"
-  },
-  "description": "Актуальные акции и скидки на ремонт, регулировку, установку металлопластиковых окон, дверей, балконов в Киеве. Участник программы єВідновлення.",
-  "url": "https://uws.com.ua/ru/aktsiya",
-  "priceRange": "$$",
-  "offers": {
-    "@type": "Offer",
-    "itemOffered": {
-      "@type": "Service",
-      "name": "Комплекс «Зимний комфорт»"
-    },
-    "priceCurrency": "UAH",
-    "price": "0",
-    "availability": "https://schema.org/InStock",
-    "validFrom": "2026-01-01",
-    "validThrough": "2026-02-28"
-  }
-};
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Установка, Ремонт Окон и Дверей Киев',
+  description: 'Актуальные акции и скидки на ремонт, регулировку, установку металлопластиковых окон, дверей, балконов в Киеве. Участник программы єВідновлення.',
+  url: 'https://uws.com.ua/ru/aktsiya',
+});
 
 const mainHtml = `<div class="page-header-mini d-flex align-items-center"
     style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
@@ -56,9 +17,8 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
     </div>
   </div>
 
-  <main id="main">
+  <main id="main" class="page-inner">
 
-    <!-- Главное акционное предложение (H1 здесь!) -->
     <section id="hero-offer" class="py-5">
       <div class="container" data-aos="fade-up">
         <div class="row g-0 shadow-lg rounded-4 overflow-hidden bg-white">
@@ -67,27 +27,27 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
               style="background-image: url('/assets/img/aktsiya-1.jpg'); min-height: 420px; background-size: cover; background-position: center;">
             </div>
             <div class="position-absolute top-0 start-0 m-4">
-              <span class="badge bg-danger fs-5 px-4 py-2">Зима 2026</span>
+              <span class="badge bg-success fs-5 px-4 py-2">Лето 2026</span>
             </div>
           </div>
           <div class="col-lg-6 p-4 p-lg-5 d-flex flex-column justify-content-center">
-            <h1 class="fw-bold display-5 mb-4">Комплекс «Зимний комфорт» — -20% на всё!</h1>
-            <p class="lead text-primary fw-bold fs-4 mb-4">Полное обслуживание всех окон квартиры по специальной цене
+            <h1 class="fw-bold display-5 mb-4">Комплекс «Летняя защита» — -25% на москитные сетки и сервис!</h1>
+            <p class="lead text-primary fw-bold fs-4 mb-4">Защитите свой дом от насекомых и жары с максимальной выгодой
             </p>
 
-            <p class="mb-4">Регулировка + смазка фурнитуры + замена уплотнителя + диагностика — всё в одном
-              заказе со скидкой 20%. Идеальный вариант перед сильными морозами!</p>
+            <p class="mb-4">Комплексное обслуживание окон (регулировка + смазка + диагностика) + москитные сетки
+              на все окна — всё в одном заказе со скидкой 25%. Идеальный вариант для летнего сезона!</p>
 
             <div class="d-flex align-items-center mb-4">
               <i class="bi bi-exclamation-triangle-fill text-danger me-3 fs-3"></i>
-              <span class="fw-bold text-uppercase">Акция действует до 28 февраля 2026 года</span>
+              <span class="fw-bold text-uppercase">Акция действует с 1 июля по 31 августа 2026 года</span>
             </div>
 
             <div class="d-flex flex-column flex-sm-row gap-3">
               <a href="tel:+380660575202" class="btn btn-warning btn-lg fw-bold px-5 py-3 shadow">
                 <i class="bi bi-telephone-fill me-2"></i> Забронировать скидку
               </a>
-              <a href="contact.html#contact" class="btn btn-outline-primary btn-lg fw-bold px-5 py-3">
+              <a href="/ru/contact#contact" class="btn btn-outline-primary btn-lg fw-bold px-5 py-3">
                 Получить расчет
               </a>
             </div>
@@ -96,7 +56,6 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
       </div>
     </section>
 
-    <!-- Дополнительные выгодные предложения -->
     <section id="more-promotions" class="section-bg py-5">
       <div class="container" data-aos="fade-up">
         <div class="section-header text-center pb-5">
@@ -134,7 +93,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
                 <h3 class="h4 fw-bold mb-3">Сетки в подарок</h3>
                 <p class="mb-4">Заказ установки <strong>3+ окон</strong> «под ключ» → москитные сетки на все
                   окна <strong>бесплатно</strong>!</p>
-                <div class="badge bg-success fs-5 px-4 py-2">Экономия до 1800 грн</div>
+                <div class="badge bg-success fs-5 px-4 py-2">Экономия до 2500 грн</div>
               </div>
             </div>
           </div>
@@ -157,22 +116,21 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
       </div>
     </section>
 
-    <!-- Мощный CTA блок -->
     <section class="py-5 bg-dark text-white text-center">
       <div class="container" data-aos="zoom-in">
         <div class="row justify-content-center">
           <div class="col-lg-9 col-xl-8">
-            <h2 class="display-5 fw-bold mb-4" style="color: var(--color-primary);">Акции разлетаются быстро!</h2>
+            <h2 class="display-5 fw-bold mb-4" style="color: var(--color-primary);">Не ждите осень — зафиксируйте цену сейчас!</h2>
             <p class="fs-4 mb-5 opacity-85">
-              Мастера уже загружены на 70% в январе. Забронируйте свое окно по акционной цене <strong>прямо
-                сейчас</strong> — количество мест ограничено!
+              В сентябре цены на монтаж растут на 10–15%. Закажите летом и экономьте — <strong>цена фиксируется
+                на весь период выполнения работ</strong>.
             </p>
 
             <div class="d-flex flex-column flex-md-row justify-content-center gap-4 mb-5">
               <a href="tel:+380660575202" class="btn btn-warning btn-lg px-5 py-3 fw-bold rounded-pill shadow-lg">
                 <i class="bi bi-telephone-fill me-2"></i> ЗАФИКСИРОВАТЬ СКИДКУ
               </a>
-              <a href="contact.html#contact" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">
+              <a href="/ru/contact#contact" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">
                 <i class="bi bi-envelope me-2"></i> Получить персональное предложение
               </a>
             </div>
@@ -187,7 +145,6 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
       </div>
     </section>
 
-    <!-- Финальный блок "Индивидуально" -->
     <section class="py-5">
       <div class="container" data-aos="fade-up">
         <div class="row justify-content-center align-items-center gy-5">
@@ -227,11 +184,11 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
 <BaseLayout
   lang="ru"
   title={"Акции и скидки на ремонт и установку окон в Киеве 2026 | UWS"}
-  description={"Актуальные акции UWS в январе 2026: -20% на комплексное обслуживание окон, скидки для пенсионеров, ВПЛ и ВСУ, бесплатные москитные сетки, специальные условия по программе єВідновлення в Киеве и области."}
+  description={"Актуальные акции UWS в летнем сезоне 2026: -25% на комплекс «Летняя защита» (москитные сетки + сервис окон), скидки для пенсионеров, ВПЛ и ВСУ, бесплатные москитные сетки при установке 3+ окон, специальные условия по программе єВідновлення в Киеве и области."}
   canonicalPath={"/ru/aktsiya"}
   structuredData={structuredData}
 >
-  <Header lang="ru" activePage="aktsiya" />
+  <Header lang="ru" activePage="aktsiya" headerClass="header-solid" />
 
   <Fragment set:html={mainHtml} />
 

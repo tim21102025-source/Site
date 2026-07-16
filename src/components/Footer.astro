@@ -15,7 +15,7 @@ const phones = [
 ];
 
 const navLinks = [
-  { key: 'home', href: lang === 'uk' ? '/index' : '/ru/index' },
+  { key: 'home', href: lang === 'uk' ? '/' : '/ru' },
   { key: 'about', href: lang === 'uk' ? '/about' : '/ru/about' },
   { key: 'vidnovlennya', href: lang === 'uk' ? '/vidnovlennya' : '/ru/vidnovlennya' },
   { key: 'contact', href: lang === 'uk' ? '/contact' : '/ru/contact' },
@@ -52,7 +52,7 @@ const usefulLinks = [
               <picture>
                 <source srcset="/assets/img/logo.webp" type="image/webp">
                 <img src="/assets/img/logo.png" alt="UWS — Сервіс вікон та дверей Київ"
-                  class="img-fluid footer-logo me-3" style="max-height: 70px;">
+                  class="img-fluid footer-logo me-3" style="max-height: 70px;" width="70" height="70">
               </picture>
               <div>
                 <h3 class="fw-bold mb-1 text-warning">UWS</h3>

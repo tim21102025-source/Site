@@ -3,80 +3,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "UWS — Установка и Ремонт Окон Киев",
-  "image": "https://uws.com.ua/assets/img/logo.png",
-  "telephone": [
-    "+380660575202",
-    "+380989478772",
-    "+380633664769"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "",
-    "addressLocality": "Киев",
-    "addressRegion": "Киевская область",
-    "postalCode": "01001",
-    "addressCountry": "UA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 50.4501,
-    "longitude": 30.5234
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens": "09:00",
-    "closes": "20:00"
-  },
-  "description": "Актуальные цены на ремонт, регулировку, установку окон и дверей в Киеве на 2026 год. Прозрачный прайс, гарантия, работа с программой єВідновлення.",
-  "url": "https://uws.com.ua/ru/price",
-  "priceRange": "$$",
-  "sameAs": [
-    "https://www.facebook.com/uws.kyiv",
-    "https://www.instagram.com/uws_kyiv"
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Прайс-лист услуг UWS 2026",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Регулировка створки окна"
-        },
-        "price": "300",
-        "priceCurrency": "UAH"
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Замена двухкамерного стеклопакета"
-        },
-        "price": "2600",
-        "priceCurrency": "UAH",
-        "priceSpecification": {
-          "@type": "UnitPriceSpecification",
-          "unitText": "м²"
-        }
-      }
-    ]
-  }
-};
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Установка и Ремонт Окон Киев',
+  description: 'Актуальные цены на ремонт, регулировку, установку окон и дверей в Киеве на 2026 год. Прозрачный прайс, гарантия, работа с программой єВідновлення.',
+  url: 'https://uws.com.ua/ru/price',
+});
 
 const mainHtml = `<div class="page-header-mini d-flex align-items-center"
     style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
@@ -84,7 +17,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
     </div>
   </div>
 
-  <main id="main">
+  <main id="main" class="page-inner">
 
     <section id="pricing" class="pricing py-5">
       <div class="container" data-aos="fade-up">
@@ -112,23 +45,23 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
                   <tbody>
                     <tr>
                       <td>Монтаж ПВХ окна (стандартный)</td>
-                      <td class="text-end fw-bold">750 грн/м²</td>
+                      <td class="text-end fw-bold">850 грн/м²</td>
                     </tr>
                     <tr>
                       <td>Монтаж входных дверей (металлические/ПВХ)</td>
-                      <td class="text-end fw-bold">2800 грн/шт</td>
+                      <td class="text-end fw-bold">3200 грн/шт</td>
                     </tr>
                     <tr>
                       <td>Демонтаж старых конструкций</td>
-                      <td class="text-end fw-bold">250 грн/м²</td>
+                      <td class="text-end fw-bold">280 грн/м²</td>
                     </tr>
                     <tr>
                       <td>Установка подоконника</td>
-                      <td class="text-end fw-bold">300 грн/м.п.</td>
+                      <td class="text-end fw-bold">350 грн/м.п.</td>
                     </tr>
                     <tr>
                       <td>Установка отливов / козырьков</td>
-                      <td class="text-end fw-bold">200 грн/м.п.</td>
+                      <td class="text-end fw-bold">250 грн/м.п.</td>
                     </tr>
                   </tbody>
                 </table>
@@ -151,11 +84,11 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
                   <tbody>
                     <tr>
                       <td>Техническое обслуживание (смазка + чистка)</td>
-                      <td class="text-end fw-bold">250 грн/створка</td>
+                      <td class="text-end fw-bold">280 грн/створка</td>
                     </tr>
                     <tr>
                       <td>Регулировка створки окна / дверей</td>
-                      <td class="text-end fw-bold">300 грн/шт</td>
+                      <td class="text-end fw-bold">350 грн/шт</td>
                     </tr>
                     <tr>
                       <td>Замена уплотнителя (Германия, силикон)</td>
@@ -163,11 +96,11 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
                     </tr>
                     <tr>
                       <td>Замена фурнитуры (полный комплект)</td>
-                      <td class="text-end fw-bold">2200 грн/шт</td>
+                      <td class="text-end fw-bold">2500 грн/шт</td>
                     </tr>
                     <tr>
                       <td>Замена оконной ручки (Hoope/стандарт)</td>
-                      <td class="text-end fw-bold">350 грн/шт</td>
+                      <td class="text-end fw-bold">400 грн/шт</td>
                     </tr>
                   </tbody>
                 </table>
@@ -190,11 +123,11 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
                   <tbody>
                     <tr>
                       <td>Остекление балкона (профиль 60-70мм)</td>
-                      <td class="text-end fw-bold">4200 грн/м²</td>
+                      <td class="text-end fw-bold">4500 грн/м²</td>
                     </tr>
                     <tr>
                       <td>Сварка выноса (расширение по подоконнику)</td>
-                      <td class="text-end fw-bold">1800 грн/м.п.</td>
+                      <td class="text-end fw-bold">2000 грн/м.п.</td>
                     </tr>
                     <tr>
                       <td>Внешняя обшивка сайдингом / профнастилом</td>
@@ -229,7 +162,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
                   <tbody>
                     <tr>
                       <td>Рамочная сетка (белая/коричневая) Anwis</td>
-                      <td class="text-end fw-bold">450 грн/шт</td>
+                      <td class="text-end fw-bold">500 грн/шт</td>
                     </tr>
                     <tr>
                       <td>Сетка "Антикошка" (усиленное полотно)</td>
@@ -276,7 +209,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
                     </tr>
                     <tr>
                       <td>Срочная замена (замер + доставка + монтаж)</td>
-                      <td class="text-end fw-bold">800 грн</td>
+                      <td class="text-end fw-bold">1000 грн</td>
                     </tr>
                   </tbody>
                 </table>
@@ -359,11 +292,11 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
             </div>
 
             <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
-              <a href="contact.html#contact"
+              <a href="/ru/contact#contact"
                 class="btn btn-warning px-5 py-3 fw-bold shadow text-dark d-inline-flex align-items-center justify-content-center">
                 <i class="bi bi-file-earmark-spreadsheet me-2"></i> Получить точный расчёт
               </a>
-              <a href="contact.html#contact"
+              <a href="/ru/contact#contact"
                 class="btn btn-outline-light px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center">
                 <i class="bi bi-telegram text-warning me-2"></i> Прислать фото для оценки
               </a>
@@ -388,11 +321,11 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
 <BaseLayout
   lang="ru"
   title={"Цены на Ремонт и Установку Окон Киев 2026 | Прайс-лист UWS"}
-  description={"Актуальный прайс-лист UWS на 2026 год: ремонт окон от 300 грн, установка от 750 грн/м², остекление балконов, москитные сетки, замена стеклопакетов. Бесплатный замер, работа с єВідновлення."}
+  description={"Актуальный прайс-лист UWS на 2026 год: ремонт окон от 350 грн, установка от 850 грн/м², остекление балконов, москитные сетки, замена стеклопакетов. Бесплатный замер, работа с єВідновлення."}
   canonicalPath={"/ru/price"}
   structuredData={structuredData}
 >
-  <Header lang="ru" activePage="price" />
+  <Header lang="ru" activePage="price" headerClass="header-solid" />
 
   <Fragment set:html={mainHtml} />
 

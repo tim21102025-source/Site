@@ -3,49 +3,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactModal from '../components/ContactModal.astro';
+import { getServiceStructuredData } from '../lib/structuredData';
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "UWS — Встановлення та Ремонт Вікон Київ",
-  "image": "https://uws.com.ua/assets/img/logo.png",
-  "telephone": ["+380660575202", "+380989478772", "+380633664769"],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "",
-    "addressLocality": "Київ",
-    "addressRegion": "Київська область",
-    "postalCode": "01001",
-    "addressCountry": "UA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 50.4501,
-    "longitude": 30.5234
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-    "opens": "09:00",
-    "closes": "20:00"
-  },
-  "description": "Професійне встановлення металопластикових вікон, дверей та балконів. Ремонт, регулювання, обслуговування у Києві та області. Гарантія до 5 років.",
-  "url": "https://uws.com.ua/",
-  "priceRange": "$$",
-  "sameAs": [
-    "https://www.facebook.com/uws.kyiv",
-    "https://www.instagram.com/uws_kyiv"
-  ]
-};
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Встановлення та Ремонт Вікон Київ',
+  description: 'Професійне встановлення металопластикових вікон, дверей та балконів. Ремонт, регулювання, обслуговування у Києві та області. Гарантія до 5 років.',
+  url: 'https://uws.com.ua/',
+});
 ---
 
 <BaseLayout
   lang="uk"
   title="UWS — Встановлення та Ремонт Вікон Київ | Регулювання Пластикових Вікон"
   description="Встановлення металопластикових вікон, дверей, балконів у Києві. Ремонт, регулювання, заміна фурнітури, ущільнювача, склопакетів. Гарантія до 5 років, безкоштовний виїзд майстра."
-  canonicalPath="/index"
+  canonicalPath="/"
   structuredData={structuredData}
-  preloadImage="/assets/img/hero-carousel/hero-carousel-1.jpg"
+  preloadImage="/assets/img/hero-carousel/hero-carousel-1.webp"
 >
   <Header lang="uk" activePage="home" />
 
@@ -63,11 +36,11 @@ const structuredData = {
       </div>
     </div>
     <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-      <div class="carousel-item active" style="background-image: url(/assets/img/hero-carousel/hero-carousel-1.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-2.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-3.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-4.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-5.jpg)"></div>
+      <div class="carousel-item active" style="background-image: url(/assets/img/hero-carousel/hero-carousel-1.webp)"></div>
+      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-2.webp)"></div>
+      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-3.webp)"></div>
+      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-4.webp)"></div>
+      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-5.webp)"></div>
       <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
         <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
       </a>
@@ -136,12 +109,650 @@ const structuredData = {
                 <div class="col-md-12 form-group">
                   <textarea class="form-control" name="message" rows="3" placeholder="Опишіть, що сталося" required style="border-radius: 8px; padding: 12px;"></textarea>
                 </div>
+                <div class="form-group mb-3">
+                  <div class="d-flex align-items-center mb-2">
+                    <label class="form-label small fw-bold mb-0">Фото або відео проблеми</label>
+                    <span class="ms-2 small opacity-50" style="font-size: 0.75rem;">(можна обрати кілька)</span>
+                  </div>
+                  <input type="file" id="files" class="d-none" accept="image/*,video/*" multiple>
+                  <button type="button" class="btn btn-outline-secondary w-100 py-2 d-flex align-items-center justify-content-center" onclick="document.getElementById('files').click()" style="border-style: dashed;">
+                    <i class="bi bi-camera me-2 fs-5"></i>
+                    <span>Додати медіафайли</span>
+                  </button>
+                  <div id="file-preview" class="d-flex flex-wrap gap-2 mt-2"></div>
+                </div>
                 <div class="col-md-12 text-center">
                   <input type="text" name="hp_field" style="display:none !important" tabindex="-1" autocomplete="off">
                   <button type="submit" class="w-100 py-3 fw-bold text-dark border-0 shadow-sm btn-animate" style="background: #feb900; border-radius: 8px;">Отримати безкоштовну консультацію</button>
                 </div>
               </div>
             </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секція послуг -->
+    <section id="services" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2 class="fw-bold">Повний спектр послуг з встановлення та ремонту вікон у Києві</h2>
+          <p>Від термінового ремонту та регулювання до комплексного скління балконів — професійний підхід до кожного вікна</p>
+        </div>
+
+        <div class="row gy-4">
+          <!-- Картка 1 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/install.webp" type="image/webp">
+                  <img src="/assets/img/services/install.jpg" class="img-fluid w-100" alt="Встановлення металопластикових вікон та дверей Київ" style="height: 200px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-window-plus"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h3 class="fw-bold">Встановлення вікон та дверей</h3>
+                <p class="text-muted small">Монтаж енергоефективних систем за стандартами ДСТУ. Гарантія теплоізоляції та довговічності.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/service-details-install" class="stretched-link text-warning fw-bold text-decoration-none">Детальніше <i class="bi bi-chevron-right small"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Картка 2 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/repair.webp" type="image/webp">
+                  <img src="/assets/img/services/repair.jpg" class="img-fluid w-100" alt="Ремонт та регулювання пластикових вікон Київ" style="height: 200px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-tools"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h3 class="fw-bold">Ремонт вікон та дверей</h3>
+                <p class="text-muted small">Усунення протягів, заміна фурнітури та регулювання. Повертаємо функціональність за один візит.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/service-details-repair" class="stretched-link text-warning fw-bold text-decoration-none">Детальніше <i class="bi bi-chevron-right small"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Картка 3 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/balkony.webp" type="image/webp">
+                  <img src="/assets/img/services/balkony.jpg" class="img-fluid w-100" alt="Скління та утеплення балконів та лоджій Київ" style="height: 200px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-house-door"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h3 class="fw-bold">Балкони та лоджії</h3>
+                <p class="text-muted small">Комплексне скління, утеплення та внутрішня обробка. Перетворюємо балкон на затишну кімнату.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/service-details-balkony" class="stretched-link text-warning fw-bold text-decoration-none">Детальніше <i class="bi bi-chevron-right small"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Картка 4 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/glass.webp" type="image/webp">
+                  <img src="/assets/img/services/glass.jpg" class="img-fluid w-100" alt="Заміна склопакетів у вікнах Київ" style="height: 200px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-aspect-ratio"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h3 class="fw-bold">Заміна склопакетів</h3>
+                <p class="text-muted small">Заміна розбитих або енергозберігаючих пакетів. Покращення шумоізоляції та енергоефективності.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/service-details-glass" class="stretched-link text-warning fw-bold text-decoration-none">Детальніше <i class="bi bi-chevron-right small"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Картка 5 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/moskitki.webp" type="image/webp">
+                  <img src="/assets/img/services/moskitki.jpg" class="img-fluid w-100" alt="Виготовлення та встановлення москітних сіток Київ" style="height: 200px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-shield-check"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h3 class="fw-bold">Москітні сітки</h3>
+                <p class="text-muted small">Всі види сіток: рамкові, ролетні, "Антикішка". Виготовлення за вашими розмірами за 1-2 дні.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/service-details-moskitki" class="stretched-link text-warning fw-bold text-decoration-none">Детальніше <i class="bi bi-chevron-right small"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Картка 6 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-card h-100 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-img-top position-relative">
+                <picture>
+                  <source srcset="/assets/img/services/dovodyachi.webp" type="image/webp">
+                  <img src="/assets/img/services/dovodyachi.jpg" class="img-fluid w-100" alt="Встановлення доводчиків на двері Київ" style="height: 200px; object-fit: cover;" loading="lazy">
+                </picture>
+                <div class="service-icon-floating"><i class="bi bi-door-closed"></i></div>
+              </div>
+              <div class="p-4 pt-5 text-center">
+                <h3 class="fw-bold">Доводчики для дверей</h3>
+                <p class="text-muted small">Професійний підбір та монтаж доводчиків на пластикові та металеві двері. Плавність ходу гарантована.</p>
+                <hr class="my-3 opacity-10">
+                <a href="/service-details-dovodyachi" class="stretched-link text-warning fw-bold text-decoration-none">Детальніше <i class="bi bi-chevron-right small"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Блок єВідновлення -->
+        <div class="mt-5 p-4 rounded-4 shadow-sm bg-white border-start border-warning border-4 d-flex align-items-center justify-content-between flex-wrap gap-3" data-aos="fade-up">
+          <div>
+            <h4 class="fw-bold mb-1"><i class="bi bi-patch-check text-warning me-2"></i> Працюємо за програмою єВідновлення</h4>
+            <p class="mb-0 text-muted">Надаємо офіційні документи та приймаємо оплату карткою для відновлення вашого житла.</p>
+          </div>
+          <a href="/vidnovlennya" class="btn btn-warning fw-bold px-4">Дізнатись більше</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секція: 5 причин, чому обирають UWS -->
+    <section id="alt-services" class="alt-services">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-around gy-4">
+          <div class="col-lg-6 img-bg" style="background-image: url(/assets/img/alt-services.jpg); border-radius: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.1);" data-aos="zoom-in" data-aos-delay="100"></div>
+          <div class="col-lg-5 d-flex flex-column justify-content-center">
+            <h2 class="fw-bold mb-3">5 причин довірити встановлення та ремонт вікон саме UWS</h2>
+            <p class="text-muted mb-4">Ми поєднуємо 10+ років досвіду та сучасні стандарти сервісу, щоб ваші вікна служили десятиліттями:</p>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
+              <i class="bi bi-award flex-shrink-0 text-warning" style="font-size: 2rem;"></i>
+              <div>
+                <strong class="fw-bold d-block mb-1"><a href="#get-started" class="stretched-link">10+ років досвіду</a></strong>
+                <p>Знаємо всі тонкощі роботи з будь-якими профільними системами: від класичних до елітних.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-shield-check flex-shrink-0 text-warning" style="font-size: 2rem;"></i>
+              <div>
+                <strong class="fw-bold d-block mb-1"><a href="#get-started" class="stretched-link">Офіційна гарантія</a></strong>
+                <p>Надаємо гарантійний сертифікат на виконані роботи та встановлені запчастини.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-gear-wide-connected flex-shrink-0 text-warning" style="font-size: 2rem;"></i>
+              <div>
+                <strong class="fw-bold d-block mb-1"><a href="#get-started" class="stretched-link">Європейські комплектуючі</a></strong>
+                <p>Жодних дешевих аналогів — використовуємо тільки оригінальну фурнітуру (Maco, Roto, Siegenia).</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-lightning-charge flex-shrink-0 text-warning" style="font-size: 2rem;"></i>
+              <div>
+                <strong class="fw-bold d-block mb-1"><a href="#get-started" class="stretched-link">Оперативність</a></strong>
+                <p>Власний склад запчастин дозволяє виконувати 90% ремонтів прямо під час першого візиту.</p>
+              </div>
+            </div>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="500">
+              <i class="bi bi-cash-coin flex-shrink-0 text-warning" style="font-size: 2rem;"></i>
+              <div>
+                <strong class="fw-bold d-block mb-1"><a href="#get-started" class="stretched-link">Чесна вартість</a></strong>
+                <p>Фіксуємо ціну в кошторисі до початку робіт. Ви точно знаєте, за що платите.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секція: Яку проблему з вікнами вирішити? -->
+    <section id="features" class="features section-bg">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header text-center">
+          <h2 class="fw-bold">Яку проблему з вікнами вирішити? — Ремонт та регулювання у Києві</h2>
+          <p>Оберіть свою ситуацію — ми покажемо швидке та професійне рішення</p>
+        </div>
+
+        <ul class="nav nav-tabs row g-2 d-flex border-0 mb-4">
+          <li class="nav-item col-6 col-md-3">
+            <a class="nav-link active show d-flex flex-column align-items-center py-3" data-bs-toggle="tab" data-bs-target="#tab-1">
+              <i class="bi bi-wind text-warning mb-2 fs-3"></i>
+              <h4>Протяги з вікон</h4>
+            </a>
+          </li>
+          <li class="nav-item col-6 col-md-3">
+            <a class="nav-link d-flex flex-column align-items-center py-3" data-bs-toggle="tab" data-bs-target="#tab-2">
+              <i class="bi bi-gear-wide-connected text-warning mb-2 fs-3"></i>
+              <h4>Проблеми з фурнітурою</h4>
+            </a>
+          </li>
+          <li class="nav-item col-6 col-md-3">
+            <a class="nav-link d-flex flex-column align-items-center py-3" data-bs-toggle="tab" data-bs-target="#tab-3">
+              <i class="bi bi-thermometer-snow text-warning mb-2 fs-3"></i>
+              <h4>Конденсат на вікнах</h4>
+            </a>
+          </li>
+          <li class="nav-item col-6 col-md-3">
+            <a class="nav-link d-flex flex-column align-items-center py-3" data-bs-toggle="tab" data-bs-target="#tab-4">
+              <i class="bi bi-lock text-warning mb-2 fs-3"></i>
+              <h4>Блокування / заїдання вікон</h4>
+            </a>
+          </li>
+        </ul>
+
+        <div class="tab-content bg-white p-4 p-lg-5 rounded-4 shadow-sm">
+          <div class="tab-pane active show" id="tab-1">
+            <div class="row align-items-center">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                <h3 class="fw-bold color-primary">Усунення протягів та холоду з пластикових вікон</h3>
+                <p class="fst-italic text-muted">Вікно знову стане герметичним, як у перший день після встановлення.</p>
+                <ul class="list-unstyled mt-3">
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Діагностика:</strong> Виявимо всі місця продування.</li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Заміна ущільнювача:</strong> Сертифікований EPDM (REHAU, Veka).</li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Регулювання:</strong> Максимальний зимовий притиск.</li>
+                </ul>
+                <a href="/contact" class="btn btn-warning fw-bold mt-3 align-self-start py-2 px-4 shadow-sm">Усунути протяги зараз</a>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <picture>
+                  <source srcset="/assets/img/features-1.webp" type="image/webp">
+                  <img src="/assets/img/features-1.jpg" alt="Усунення протягів з пластикових вікон Київ" class="img-fluid rounded-4 shadow" loading="lazy" width="1024" height="768">
+                </picture>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="tab-2">
+            <div class="row align-items-center">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                <h3 class="fw-bold color-primary">Ремонт та заміна фурнітури пластикових вікон</h3>
+                <p class="fst-italic text-muted">Якщо вікно заїдає, скрипить або ручка прокручується — ми це виправимо швидко.</p>
+                <ul class="list-unstyled mt-3">
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Ремонт механізмів:</strong> Відновлення без повної заміни.</li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Оригінальна фурнітура:</strong> MACO, Roto, GU, Siegenia.</li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Профілактика:</strong> Чистка + змащування у подарунок.</li>
+                </ul>
+                <a href="/contact" class="btn btn-warning fw-bold mt-3 align-self-start py-2 px-4">Замовити ремонт фурнітури</a>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <picture>
+                  <source srcset="/assets/img/features-2.webp" type="image/webp">
+                  <img src="/assets/img/features-2.jpg" alt="Заміна фурнітури пластикових вікон Київ" class="img-fluid rounded-4 shadow" loading="lazy" width="840" height="630">
+                </picture>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="tab-3">
+            <div class="row align-items-center">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                <h3 class="fw-bold color-primary">Усунення конденсату та "плачучих" вікон</h3>
+                <p class="fst-italic text-muted">Позбудемося надмірної вологи та плісняви раз і назавжди.</p>
+                <ul class="list-unstyled mt-3">
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Енергозберігаючі склопакети:</strong> Заміна холодних на нові.</li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Приточні клапани:</strong> Встановлення Air-Box або аналогів.</li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Результат:</strong> Сухі вікна та здоровий мікроклімат.</li>
+                </ul>
+                <a href="/contact" class="btn btn-warning fw-bold mt-3 align-self-start py-2 px-4">Вирішити проблему конденсату</a>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <picture>
+                  <source srcset="/assets/img/features-3.webp" type="image/webp">
+                  <img src="/assets/img/features-3.jpg" alt="Усунення конденсату на пластикових вікнах Київ" class="img-fluid rounded-4 shadow" loading="lazy" width="841" height="631">
+                </picture>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="tab-4">
+            <div class="row align-items-center">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                <h3 class="fw-bold color-primary">Екстрене розблокування та ремонт заїдання вікон</h3>
+                <p class="fst-italic text-muted">Вікно зависло у двох положеннях? Не намагайтеся закрити силою!</p>
+                <ul class="list-unstyled mt-3">
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Швидкий виїзд:</strong> Майстер приїде протягом 1–2 годин.</li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Безпека:</strong> Відкриваємо без пошкодження профілю та скла.</li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Налаштування:</strong> Усуваємо причину заїдання механізму.</li>
+                </ul>
+                <a href="/contact" class="btn btn-warning fw-bold mt-3 align-self-start py-2 px-4">Викликати майстра терміново</a>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <picture>
+                  <source srcset="/assets/img/features-4.webp" type="image/webp">
+                  <img src="/assets/img/features-4.jpg" alt="Розблокування та ремонт заїдання пластикових вікон Київ" class="img-fluid rounded-4 shadow" loading="lazy" width="696" height="522">
+                </picture>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секція: Наші роботи (портфоліо) -->
+    <section id="projects" class="projects">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header text-center">
+          <h2 class="fw-bold">Наші роботи: ремонт, встановлення та регулювання вікон у Києві</h2>
+          <p>Реальні приклади виконаних проєктів за останні роки — від термінового ремонту до комплексного скління</p>
+        </div>
+
+        <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
+          <ul class="portfolio-flters d-flex flex-wrap justify-content-center mb-4" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">Всі роботи</li>
+            <li data-filter=".filter-remodeling">Ремонт вікон</li>
+            <li data-filter=".filter-construction">Встановлення вікон</li>
+            <li data-filter=".filter-repairs">Регулювання вікон</li>
+            <li data-filter=".filter-design">Додаткові послуги</li>
+          </ul>
+
+          <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
+              <a href="/assets/img/projects/projects-9.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+                <div class="portfolio-content">
+                  <div class="portfolio-img">
+                    <picture><source srcset="/assets/img/projects/projects-9.webp" type="image/webp"><img src="/assets/img/projects/projects-9.jpg" alt="Ремонт фурнітури пластикових вікон Київ" loading="lazy"></picture>
+                    <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
+                  </div>
+                  <div class="portfolio-info">
+                    <span class="portfolio-tag">Ремонт</span>
+                    <h3>Ремонт фурнітури</h3>
+                    <p>Повне відновлення механізмів вікна та дверей</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
+              <a href="/assets/img/projects/projects-1.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+                <div class="portfolio-content">
+                  <div class="portfolio-img">
+                    <picture><source srcset="/assets/img/projects/projects-1.webp" type="image/webp"><img src="/assets/img/projects/projects-1.jpg" alt="Встановлення енергозберігаючого склопакета Київ" loading="lazy"></picture>
+                    <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
+                  </div>
+                  <div class="portfolio-info">
+                    <span class="portfolio-tag">Встановлення</span>
+                    <h3>Заміна склопакета</h3>
+                    <p>Встановлення нового енергозберігаючого пакета</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
+              <a href="/assets/img/projects/projects-10.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+                <div class="portfolio-content">
+                  <div class="portfolio-img">
+                    <picture><source srcset="/assets/img/projects/projects-10.webp" type="image/webp"><img src="/assets/img/projects/projects-10.jpg" alt="Регулювання балконних дверей Київ" loading="lazy"></picture>
+                    <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
+                  </div>
+                  <div class="portfolio-info">
+                    <span class="portfolio-tag">Регулювання</span>
+                    <h3>Регулювання балконних дверей</h3>
+                    <p>Усунення провисання та заїдання</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-design">
+              <a href="/assets/img/projects/projects-8.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+                <div class="portfolio-content">
+                  <div class="portfolio-img">
+                    <picture><source srcset="/assets/img/projects/projects-8.webp" type="image/webp"><img src="/assets/img/projects/projects-8.jpg" alt="Встановлення дитячої ручки на вікно Київ" loading="lazy"></picture>
+                    <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
+                  </div>
+                  <div class="portfolio-info">
+                    <span class="portfolio-tag">Додаткові</span>
+                    <h3>Встановлення дитячої ручки</h3>
+                    <p>Монтаж ручки з замком для безпеки дітей</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
+              <a href="/assets/img/projects/projects-12.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+                <div class="portfolio-content">
+                  <div class="portfolio-img">
+                    <picture><source srcset="/assets/img/projects/projects-12.webp" type="image/webp"><img src="/assets/img/projects/projects-12.jpg" alt="Заміна ущільнювача на вікнах Київ" loading="lazy"></picture>
+                    <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
+                  </div>
+                  <div class="portfolio-info">
+                    <span class="portfolio-tag">Ремонт</span>
+                    <h3>Заміна ущільнювача</h3>
+                    <p>Усунення протягів та продування</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
+              <a href="/assets/img/projects/projects-11.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+                <div class="portfolio-content">
+                  <div class="portfolio-img">
+                    <picture><source srcset="/assets/img/projects/projects-11.webp" type="image/webp"><img src="/assets/img/projects/projects-11.jpg" alt="Ремонт дверного замка Київ" loading="lazy"></picture>
+                    <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
+                  </div>
+                  <div class="portfolio-info">
+                    <span class="portfolio-tag">Встановлення</span>
+                    <h3>Ремонт дверного замка</h3>
+                    <p>Відновлення роботи замка вхідної групи</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
+              <a href="/assets/img/projects/projects-2.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+                <div class="portfolio-content">
+                  <div class="portfolio-img">
+                    <picture><source srcset="/assets/img/projects/projects-2.webp" type="image/webp"><img src="/assets/img/projects/projects-2.jpg" alt="Сезонне регулювання пластикових вікон Київ" loading="lazy"></picture>
+                    <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
+                  </div>
+                  <div class="portfolio-info">
+                    <span class="portfolio-tag">Регулювання</span>
+                    <h3>Сезонне регулювання</h3>
+                    <p>Переведення вікон у зимовий/літній режим</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-design">
+              <a href="/assets/img/projects/projects-6.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+                <div class="portfolio-content">
+                  <div class="portfolio-img">
+                    <picture><source srcset="/assets/img/projects/projects-6.webp" type="image/webp"><img src="/assets/img/projects/projects-6.jpg" alt="Встановлення москітних сіток Київ" loading="lazy"></picture>
+                    <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
+                  </div>
+                  <div class="portfolio-info">
+                    <span class="portfolio-tag">Додаткові</span>
+                    <h3>Москітні сітки</h3>
+                    <p>Виготовлення та монтаж усіх типів сіток</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
+              <a href="/assets/img/projects/projects-7.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+                <div class="portfolio-content">
+                  <div class="portfolio-img">
+                    <picture><source srcset="/assets/img/projects/projects-7.webp" type="image/webp"><img src="/assets/img/projects/projects-7.jpg" alt="Чистка та змащування фурнітури вікон Київ" loading="lazy"></picture>
+                    <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
+                  </div>
+                  <div class="portfolio-info">
+                    <span class="portfolio-tag">Ремонт</span>
+                    <h3>Чистка фурнітури</h3>
+                    <p>Профілактична чистка та змащування механізмів</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
+              <a href="/assets/img/projects/projects-3.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+                <div class="portfolio-content">
+                  <div class="portfolio-img">
+                    <picture><source srcset="/assets/img/projects/projects-3.webp" type="image/webp"><img src="/assets/img/projects/projects-3.jpg" alt="Монтаж зовнішніх відливів на вікна Київ" loading="lazy"></picture>
+                    <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
+                  </div>
+                  <div class="portfolio-info">
+                    <span class="portfolio-tag">Встановлення</span>
+                    <h3>Монтаж відливів</h3>
+                    <p>Заміна або встановлення зовнішніх відливів</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
+              <a href="/assets/img/projects/projects-4.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+                <div class="portfolio-content">
+                  <div class="portfolio-img">
+                    <picture><source srcset="/assets/img/projects/projects-4.webp" type="image/webp"><img src="/assets/img/projects/projects-4.jpg" alt="Ремонт пластикових вікон після злому Київ" loading="lazy"></picture>
+                    <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
+                  </div>
+                  <div class="portfolio-info">
+                    <span class="portfolio-tag">Регулювання</span>
+                    <h3>Ремонт після злому</h3>
+                    <p>Відновлення вікна та фурнітури після спроби злому</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-design">
+              <a href="/assets/img/projects/projects-5.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+                <div class="portfolio-content">
+                  <div class="portfolio-img">
+                    <picture><source srcset="/assets/img/projects/projects-5.webp" type="image/webp"><img src="/assets/img/projects/projects-5.jpg" alt="Встановлення сітки Антикішка на вікна Київ" loading="lazy"></picture>
+                    <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
+                  </div>
+                  <div class="portfolio-info">
+                    <span class="portfolio-tag">Додаткові</span>
+                    <h3>Сітка Антикішка</h3>
+                    <p>Встановлення посилених сіток для захисту від тварин</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секція: Відгуки клієнтів -->
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header text-center">
+          <h2 class="fw-bold">Відгуки клієнтів про ремонт та встановлення вікон у Києві</h2>
+          <p>Реальні відгуки від задоволених клієнтів — подивіться, що говорять про нашу роботу</p>
+        </div>
+
+        <div class="slides-2 swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item rounded-4">
+                  <picture>
+                    <source srcset="/assets/img/testimonials/testimonials-1.webp" type="image/webp">
+                    <img src="/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="Відгук Анни про усунення протягів з вікон у Києві" loading="lazy">
+                  </picture>
+                  <h3>Анна</h3>
+                  <h4>Власниця квартири в Києві</h4>
+                  <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                  <p><i class="bi bi-quote quote-icon-left"></i> Майстер приїхав вчасно, швидко діагностував причину протягу та замінив ущільнювач. У квартирі одразу стало тепліше. Велике дякую за оперативність! <i class="bi bi-quote quote-icon-right"></i></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item rounded-4">
+                  <picture>
+                    <source srcset="/assets/img/testimonials/testimonials-2.webp" type="image/webp">
+                    <img src="/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="Відгук Марини про регулювання пластикових вікон у приватному будинку Київ" loading="lazy">
+                  </picture>
+                  <h3>Марина</h3>
+                  <h4>Власниця приватного будинку</h4>
+                  <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                  <p><i class="bi bi-quote quote-icon-left"></i> Потрібне було регулювання всіх вікон у будинку після зими. Роботу виконали акуратно, без пилу та бруду. Вікна закриваються як нові. Рекомендую. <i class="bi bi-quote quote-icon-right"></i></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item rounded-4">
+                  <picture>
+                    <source srcset="/assets/img/testimonials/testimonials-3.webp" type="image/webp">
+                    <img src="/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="Відгук Олени про заміну фурнітури на балконних дверях Київ" loading="lazy">
+                  </picture>
+                  <h3>Олена</h3>
+                  <h4>Офісне приміщення в центрі Києва</h4>
+                  <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                  <p><i class="bi bi-quote quote-icon-left"></i> Зламалася фурнітура на балконних дверях, майстер замінив її на посилену MACO. Працює відмінно, тепер немає проблем із закриванням. Дякую за якісні деталі. <i class="bi bi-quote quote-icon-right"></i></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item rounded-4">
+                  <picture>
+                    <source srcset="/assets/img/testimonials/testimonials-4.webp" type="image/webp">
+                    <img src="/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="Відгук Віталія про заміну розбитого склопакета Київ" loading="lazy">
+                  </picture>
+                  <h3>Віталій</h3>
+                  <h4>Власник гаража</h4>
+                  <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                  <p><i class="bi bi-quote quote-icon-left"></i> Звертався для заміни розбитого склопакета. Зробили все за один день. Швидко, професійно, з гарантією. 5 з 5. <i class="bi bi-quote quote-icon-right"></i></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Фінальний CTA -->
+    <section id="final-cta" class="py-0 pb-5 section-bg" data-aos="fade-up">
+      <div class="container">
+        <div class="p-4 p-md-5 rounded-4 shadow-lg text-center position-relative overflow-hidden" style="background: linear-gradient(135deg, #2a3d47 0%, #1a252b 100%); border: 1px solid rgba(254, 185, 0, 0.3);">
+          <div class="position-relative">
+            <div class="mb-4"><i class="bi bi-house-gear-fill text-warning" style="font-size: 3.5rem;"></i></div>
+            <h3 class="text-white mb-3" style="font-weight: 700; font-size: 2.2rem;">Готові повернути комфорт у свою оселю?</h3>
+            <div class="row justify-content-center mb-4">
+              <div class="col-lg-8">
+                <p class="text-white-50" style="font-size: 1.15rem;">Замовте <span class="text-white">безкоштовну консультацію</span> майстра вже сьогодні. Ми проведемо діагностику, розрахуємо вартість та надамо гарантію до 5 років на всі роботи.</p>
+              </div>
+            </div>
+            <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+              <a href="/contact" class="btn btn-warning px-5 py-3 fw-bold shadow-sm d-inline-flex align-items-center justify-content-center"><i class="bi bi-pencil-square me-2"></i> Викликати майстра на замір</a>
+              <a href="tel:+380660575202" class="btn btn-outline-light px-5 py-3 fw-bold d-inline-flex align-items-center justify-content-center"><i class="bi bi-telephone-outbound text-warning me-2"></i> Швидка консультація</a>
+            </div>
+            <div class="mt-4 d-flex align-items-center justify-content-center flex-wrap gap-4">
+              <div class="d-flex align-items-center text-white-50 small"><i class="bi bi-check2-circle me-2 text-warning"></i> Працюємо по всьому Києву</div>
+              <div class="d-flex align-items-center text-white-50 small"><i class="bi bi-check2-circle me-2 text-warning"></i> Оригінальні комплектуючі</div>
+              <div class="d-flex align-items-center text-white-50 small"><i class="bi bi-check2-circle me-2 text-warning"></i> Оплата єВідновлення</div>
+            </div>
           </div>
         </div>
       </div>

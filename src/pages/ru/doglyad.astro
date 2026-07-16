@@ -3,61 +3,21 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "UWS — Установка и Ремонт Окон Киев",
-  "image": "https://uws.com.ua/assets/img/logo.png",
-  "telephone": [
-    "+380660575202",
-    "+380989478772",
-    "+380633664769"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "",
-    "addressLocality": "Киев",
-    "addressRegion": "Киевская область",
-    "postalCode": "01001",
-    "addressCountry": "UA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 50.4501,
-    "longitude": 30.5234
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens": "09:00",
-    "closes": "20:00"
-  },
-  "description": "Профессиональная установка металлопластиковых окон, дверей и балконов. Ремонт, регулировка, обслуживание в Киеве и области. Гарантия до 5 лет.",
-  "url": "https://uws.com.ua/ru/",
-  "priceRange": "$$",
-  "sameAs": [
-    "https://www.facebook.com/uws.kyiv",
-    "https://www.instagram.com/uws_kyiv"
-  ]
-};
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Установка и Ремонт Окон Киев',
+  description: 'Профессиональная установка металлопластиковых окон, дверей и балконов. Ремонт, регулировка, обслуживание в Киеве и области. Гарантия до 5 лет.',
+  url: 'https://uws.com.ua/ru/doglyad',
+});
 
 const mainHtml = `<!-- Компактный баннер -->
-  <div class="page-header-mini d-flex align-items-center"
-    style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+  <div class="page-header-mini d-flex align-items-center">
     <div class="container position-relative">
     </div>
   </div>
 
-  <main id="main">
+  <main id="main" class="page-inner">
 
     <!-- Единый H1 – главный заголовок страницы -->
     <section id="care-hero" class="py-5 bg-light">
@@ -267,7 +227,7 @@ const mainHtml = `<!-- Компактный баннер -->
             </div>
 
             <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
-              <a href="contact.html#contact" class="btn btn-warning px-5 py-3 fw-bold shadow">
+              <a href="/ru/contact#contact" class="btn btn-warning px-5 py-3 fw-bold shadow">
                 <i class="bi bi-calendar-check me-2"></i> Вызвать мастера на сервис
               </a>
               <a href="viber://chat?number=%2B380730705280" class="btn btn-outline-light px-5 py-3 fw-bold">
@@ -298,7 +258,7 @@ const mainHtml = `<!-- Компактный баннер -->
   canonicalPath={"/ru/doglyad"}
   structuredData={structuredData}
 >
-  <Header lang="ru" activePage="doglyad" />
+  <Header lang="ru" activePage="doglyad" headerClass="header-solid" />
 
   <Fragment set:html={mainHtml} />
 

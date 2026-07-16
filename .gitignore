@@ -14,3 +14,8 @@ Thumbs.db
 
 # Astro
 .astro/
+
+# Marketing / design source files
+*.psd
+design-concept-*.html
+send_marketing.py

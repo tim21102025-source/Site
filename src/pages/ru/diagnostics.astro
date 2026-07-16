@@ -3,61 +3,21 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "UWS — Установка и Ремонт Окон Киев",
-  "image": "https://uws.com.ua/assets/img/logo.png",
-  "telephone": [
-    "+380660575202",
-    "+380989478772",
-    "+380633664769"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "",
-    "addressLocality": "Киев",
-    "addressRegion": "Киевская область",
-    "postalCode": "01001",
-    "addressCountry": "UA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 50.4501,
-    "longitude": 30.5234
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens": "09:00",
-    "closes": "20:00"
-  },
-  "description": "Профессиональная установка металлопластиковых окон, дверей и балконов. Ремонт, регулировка, обслуживание в Киеве и области. Гарантия до 5 лет.",
-  "url": "https://uws.com.ua/ru/",
-  "priceRange": "$$",
-  "sameAs": [
-    "https://www.facebook.com/uws.kyiv",
-    "https://www.instagram.com/uws_kyiv"
-  ]
-};
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Установка и Ремонт Окон Киев',
+  description: 'Профессиональная установка металлопластиковых окон, дверей и балконов. Ремонт, регулировка, обслуживание в Киеве и области. Гарантия до 5 лет.',
+  url: 'https://uws.com.ua/ru/diagnostics',
+});
 
 const mainHtml = `<!-- Компактный баннер -->
-  <div class="page-header-mini d-flex align-items-center"
-    style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+  <div class="page-header-mini d-flex align-items-center">
     <div class="container position-relative">
     </div>
   </div>
 
-  <main id="main">
+  <main id="main" class="page-inner">
 
     <!-- Вступительный блок с H1 -->
     <section id="diagnostics-hero" class="py-5 bg-light">
@@ -264,7 +224,7 @@ const mainHtml = `<!-- Компактный баннер -->
           <p class="lead mb-5 opacity-90">
             Не ждите, пока проблема станет критической. Закажите профессиональный осмотр уже сегодня — бесплатно.
           </p>
-          <a href="contact.html#contact" class="btn btn-warning btn-lg px-5 py-4 fw-bold shadow-lg fs-5">
+          <a href="/ru/contact#contact" class="btn btn-warning btn-lg px-5 py-4 fw-bold shadow-lg fs-5">
             <i class="bi bi-calendar-plus me-2"></i> Записаться на диагностику
           </a>
         </div>
@@ -281,7 +241,7 @@ const mainHtml = `<!-- Компактный баннер -->
   canonicalPath={"/ru/diagnostics"}
   structuredData={structuredData}
 >
-  <Header lang="ru" activePage="diagnostics" />
+  <Header lang="ru" activePage="diagnostics" headerClass="header-solid" />
 
   <Fragment set:html={mainHtml} />
 

@@ -42,7 +42,7 @@ const structuredData = {
     "closes": "20:00"
   },
   "description": "Професійний ремонт, регулювання та встановлення металопластикових вікон у Києві. Відповіді на часті питання клієнтів, гарантія до 5 років.",
-  "url": "https://uws.com.ua/faq.html",
+  "url": "https://uws.com.ua/faq",
   "priceRange": "$$",
   "sameAs": [
     "https://www.facebook.com/uws.kyiv",
@@ -50,7 +50,7 @@ const structuredData = {
   ]
 };
 
-const mainHtml = `<div class="page-header-mini d-flex align-items-center" style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
+const mainHtml = `<div class="page-header-mini d-flex align-items-center">
       <div class="container position-relative"></div>
     </div>
 
@@ -668,9 +668,11 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center" style=
   canonicalPath={"/faq"}
   structuredData={structuredData}
 >
-  <Header lang="uk" activePage="faq" />
+  <Header lang="uk" activePage="faq" headerClass="header-solid" />
 
-  <Fragment set:html={mainHtml} />
+  <main id="main" class="page-inner">
+    <Fragment set:html={mainHtml} />
+  </main>
 
   <ContactModal lang="uk" />
   <Footer lang="uk" />

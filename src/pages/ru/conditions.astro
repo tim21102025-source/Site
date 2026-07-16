@@ -3,50 +3,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactModal from '../../components/ContactModal.astro';
+import { getServiceStructuredData } from '../../lib/structuredData';
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "UWS — Установка, Ремонт Окон Киев",
-  "url": "https://uws.com.ua/ru/conditions",
-  "telephone": [
-    "+380660575202",
-    "+380989478772",
-    "+380633664769"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Киев",
-    "addressCountry": "UA"
-  },
-  "openingHours": "Mo-Su 09:00-20:00",
-  "description": "Прозрачные условия предоставления услуг: гарантия до 5 лет на ремонт и установку металлопластиковых окон, дверей, балконов. Участник программы єВідновлення.",
-  "service": {
-    "@type": "Service",
-    "serviceType": "Ремонт и установка окон",
-    "provider": {
-      "@type": "Organization",
-      "name": "UWS"
-    },
-    "areaServed": "Киев и Киевская область",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Гарантийные обязательства",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Гарантия на выполненные работы"
-          },
-          "priceCurrency": "UAH",
-          "price": "0",
-          "availability": "https://schema.org/InStock"
-        }
-      ]
-    }
-  }
-};
+const structuredData = getServiceStructuredData({
+  name: 'UWS — Установка, Ремонт Окон Киев',
+  description: 'Прозрачные условия предоставления услуг: гарантия до 5 лет на ремонт и установку металлопластиковых окон, дверей, балконов. Участник программы єВідновлення.',
+  url: 'https://uws.com.ua/ru/conditions',
+});
 
 const mainHtml = `<div class="page-header-mini d-flex align-items-center"
     style="background-image: url('/assets/img/breadcrumbs-bg.jpg');">
@@ -54,7 +17,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
     </div>
   </div>
 
-  <main id="main">
+  <main id="main" class="page-inner">
 
     <!-- Єдиний вступний блок з H1 -->
     <section id="terms-hero" class="py-5">
@@ -252,7 +215,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
               <p class="text-muted mb-4 fw-medium">
                 Гарантия действует при соблюдении правил эксплуатации и своевременном обращении за сервисом.
               </p>
-              <a href="contact.html#contact" class="btn btn-warning btn-lg px-5 py-3 fw-bold shadow">
+              <a href="/ru/contact#contact" class="btn btn-warning btn-lg px-5 py-3 fw-bold shadow">
                 <i class="bi bi-file-earmark-check me-2"></i>Получить официальный расчет с гарантией
               </a>
             </div>
@@ -338,7 +301,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
             Бесплатный выезд мастера, фиксированная цена в договоре, официальная гарантия до 5 лет и возможность оплаты по
             программе <strong>єВідновлення</strong>.
           </p>
-          <a href="contact.html#contact" class="btn btn-warning btn-lg px-5 py-3 fw-bold shadow">
+          <a href="/ru/contact#contact" class="btn btn-warning btn-lg px-5 py-3 fw-bold shadow">
             <i class="bi bi-clipboard-check me-2"></i> Заказать выезд и договор
           </a>
         </div>
@@ -355,7 +318,7 @@ const mainHtml = `<div class="page-header-mini d-flex align-items-center"
   canonicalPath={"/ru/conditions"}
   structuredData={structuredData}
 >
-  <Header lang="ru" activePage="conditions" />
+  <Header lang="ru" activePage="conditions" headerClass="header-solid" />
 
   <Fragment set:html={mainHtml} />
 

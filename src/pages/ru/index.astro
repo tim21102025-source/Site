@@ -76,12 +76,12 @@ const mainHtml = `<!-- Головний блок (Hero) -->
 
     <!-- Карусель фонових зображень – без змін -->
     <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-      <div class="carousel-item active" style="background-image: url(/assets/img/hero-carousel/hero-carousel-1.jpg)">
+      <div class="carousel-item active" style="background-image: url(/assets/img/hero-carousel/hero-carousel-1.webp)">
       </div>
-      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-2.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-3.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-4.jpg)"></div>
-      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-5.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-2.webp)"></div>
+      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-3.webp)"></div>
+      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-4.webp)"></div>
+      <div class="carousel-item" style="background-image: url(/assets/img/hero-carousel/hero-carousel-5.webp)"></div>
 
       <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
         <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
@@ -195,7 +195,7 @@ const mainHtml = `<!-- Головний блок (Hero) -->
                   <div class="input-group">
                     <span class="input-group-text" style="background: #f8f9fa; border-radius: 8px 0 0 8px;">+38</span>
                     <input type="tel" class="form-control" name="phone" placeholder="066 057 52 02"
-                      pattern="^(\\s*\\d){10}\\s*\$" required
+                      pattern="^(\\s*\\d){10}\\s*$" required
                       oninvalid="this.setCustomValidity('Введите корректный номер телефона (10 цифр)')"
                       oninput="this.setCustomValidity('')" style="border-radius: 0 8px 8px 0; padding: 12px;">
                   </div>
@@ -273,7 +273,7 @@ const mainHtml = `<!-- Головний блок (Hero) -->
                 <p class="text-muted small">Монтаж энергоэффективных систем по стандартам ДСТУ. Гарантия теплоизоляции
                   и долговечности.</p>
                 <hr class="my-3 opacity-10">
-                <a href="/ru/service-details-install.html" class="stretched-link text-warning fw-bold text-decoration-none">
+                <a href="/ru/service-details-install" class="stretched-link text-warning fw-bold text-decoration-none">
                   Подробнее <i class="bi bi-chevron-right small"></i>
                 </a>
               </div>
@@ -296,7 +296,7 @@ const mainHtml = `<!-- Головний блок (Hero) -->
                 <p class="text-muted small">Устранение сквозняков, замена фурнитуры и регулировка. Возвращаем
                   функциональность за один визит.</p>
                 <hr class="my-3 opacity-10">
-                <a href="/ru/service-details-repair.html" class="stretched-link text-warning fw-bold text-decoration-none">
+                <a href="/ru/service-details-repair" class="stretched-link text-warning fw-bold text-decoration-none">
                   Подробнее <i class="bi bi-chevron-right small"></i>
                 </a>
               </div>
@@ -319,7 +319,7 @@ const mainHtml = `<!-- Головний блок (Hero) -->
                 <p class="text-muted small">Комплексное остекление, утепление и внутренняя отделка. Превращаем балкон
                   в уютную комнату.</p>
                 <hr class="my-3 opacity-10">
-                <a href="/ru/service-details-balkony.html" class="stretched-link text-warning fw-bold text-decoration-none">
+                <a href="/ru/service-details-balkony" class="stretched-link text-warning fw-bold text-decoration-none">
                   Подробнее <i class="bi bi-chevron-right small"></i>
                 </a>
               </div>
@@ -342,7 +342,7 @@ const mainHtml = `<!-- Головний блок (Hero) -->
                 <p class="text-muted small">Замена разбитых или энергосберегающих пакетов. Улучшение шумоизоляции и
                   энергоэффективности.</p>
                 <hr class="my-3 opacity-10">
-                <a href="/ru/service-details-glass.html" class="stretched-link text-warning fw-bold text-decoration-none">
+                <a href="/ru/service-details-glass" class="stretched-link text-warning fw-bold text-decoration-none">
                   Подробнее <i class="bi bi-chevron-right small"></i>
                 </a>
               </div>
@@ -365,7 +365,7 @@ const mainHtml = `<!-- Головний блок (Hero) -->
                 <p class="text-muted small">Все виды сеток: рамочные, рулонные, «Антикошка». Изготовление по вашим
                   размерам за 1-2 дня.</p>
                 <hr class="my-3 opacity-10">
-                <a href="/ru/service-details-moskitki.html"
+                <a href="/ru/service-details-moskitki"
                   class="stretched-link text-warning fw-bold text-decoration-none">
                   Подробнее <i class="bi bi-chevron-right small"></i>
                 </a>
@@ -389,7 +389,7 @@ const mainHtml = `<!-- Головний блок (Hero) -->
                 <p class="text-muted small">Профессиональный подбор и монтаж доводчиков на пластиковые и металлические
                   двери. Плавность хода гарантирована.</p>
                 <hr class="my-3 opacity-10">
-                <a href="/ru/service-details-dovodyachi.html"
+                <a href="/ru/service-details-dovodyachi"
                   class="stretched-link text-warning fw-bold text-decoration-none">
                   Подробнее <i class="bi bi-chevron-right small"></i>
                 </a>
@@ -408,7 +408,7 @@ const mainHtml = `<!-- Головний блок (Hero) -->
             <p class="mb-0 text-muted">Предоставляем официальные документы и принимаем оплату картой для восстановления
               вашего жилья.</p>
           </div>
-          <a href="/ru/vidnovlennya.html" class="btn btn-warning fw-bold px-4">Узнать больше</a>
+          <a href="/ru/vidnovlennya" class="btn btn-warning fw-bold px-4">Узнать больше</a>
         </div>
 
       </div>
@@ -541,7 +541,7 @@ const mainHtml = `<!-- Головний блок (Hero) -->
                     <strong>Регулировка:</strong> Максимальный зимний прижим.
                   </li>
                 </ul>
-                <a href="/ru/contact.html#contact"
+                <a href="/ru/contact#contact"
                   class="btn btn-warning fw-bold mt-3 align-self-start py-2 px-4 shadow-sm">
                   Устранить сквозняки сейчас
                 </a>
@@ -550,7 +550,7 @@ const mainHtml = `<!-- Головний блок (Hero) -->
                 <picture>
                   <source srcset="/assets/img/features-1.webp" type="image/webp">
                   <img src="/assets/img/features-1.jpg" alt="Устранение сквозняков из пластиковых окон Киев"
-                  class="img-fluid rounded-4 shadow" loading="lazy">
+                  class="img-fluid rounded-4 shadow" loading="lazy" width="1024" height="768">
                 </picture>
               </div>
             </div>
@@ -573,7 +573,7 @@ const mainHtml = `<!-- Головний блок (Hero) -->
                     <strong>Профилактика:</strong> Чистка + смазка в подарок.
                   </li>
                 </ul>
-                <a href="/ru/contact.html#contact" class="btn btn-warning fw-bold mt-3 align-self-start py-2 px-4">
+                <a href="/ru/contact#contact" class="btn btn-warning fw-bold mt-3 align-self-start py-2 px-4">
                   Заказать ремонт фурнитуры
                 </a>
               </div>
@@ -581,7 +581,7 @@ const mainHtml = `<!-- Головний блок (Hero) -->
                 <picture>
                   <source srcset="/assets/img/features-2.webp" type="image/webp">
                   <img src="/assets/img/features-2.jpg" alt="Замена фурнитуры пластиковых окон Киев"
-                  class="img-fluid rounded-4 shadow" loading="lazy">
+                  class="img-fluid rounded-4 shadow" loading="lazy" width="840" height="630">
                 </picture>
               </div>
             </div>
@@ -603,7 +603,7 @@ const mainHtml = `<!-- Головний блок (Hero) -->
                     <strong>Результат:</strong> Сухие окна и здоровый микроклимат.
                   </li>
                 </ul>
-                <a href="/ru/contact.html#contact" class="btn btn-warning fw-bold mt-3 align-self-start py-2 px-4">
+                <a href="/ru/contact#contact" class="btn btn-warning fw-bold mt-3 align-self-start py-2 px-4">
                   Решить проблему конденсата
                 </a>
               </div>
@@ -611,7 +611,7 @@ const mainHtml = `<!-- Головний блок (Hero) -->
                 <picture>
                   <source srcset="/assets/img/features-3.webp" type="image/webp">
                   <img src="/assets/img/features-3.jpg" alt="Устранение конденсата на пластиковых окнах Киев"
-                  class="img-fluid rounded-4 shadow" loading="lazy">
+                  class="img-fluid rounded-4 shadow" loading="lazy" width="841" height="631">
                 </picture>
               </div>
             </div>
@@ -633,7 +633,7 @@ const mainHtml = `<!-- Головний блок (Hero) -->
                     <strong>Настройка:</strong> Устраняем причину заедания механизма.
                   </li>
                 </ul>
-                <a href="/ru/contact.html#contact" class="btn btn-warning fw-bold mt-3 align-self-start py-2 px-4">
+                <a href="/ru/contact#contact" class="btn btn-warning fw-bold mt-3 align-self-start py-2 px-4">
                   Вызвать мастера срочно
                 </a>
               </div>
@@ -641,7 +641,7 @@ const mainHtml = `<!-- Головний блок (Hero) -->
                 <picture>
                   <source srcset="/assets/img/features-4.webp" type="image/webp">
                   <img src="/assets/img/features-4.jpg" alt="Разблокирование и ремонт заедания пластиковых окон Киев"
-                  class="img-fluid rounded-4 shadow" loading="lazy">
+                  class="img-fluid rounded-4 shadow" loading="lazy" width="696" height="522">
                 </picture>
               </div>
             </div>
@@ -674,38 +674,30 @@ const mainHtml = `<!-- Головний блок (Hero) -->
       <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
         <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-          <a href="/assets/img/projects/projects-9.jpg" class="glightbox portfolio-link"
-            data-gallery="portfolio-gallery">
-            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <picture>
-                <source srcset="/assets/img/projects/projects-9.webp" type="image/webp">
-                <img src="/assets/img/projects/projects-9.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                alt="Ремонт фурнитуры пластиковых окон Киев" loading="lazy">
-              </picture>
-              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                <i class="bi bi-zoom-in text-white fs-1"></i>
+          <a href="/assets/img/projects/projects-9.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+            <div class="portfolio-content">
+              <div class="portfolio-img">
+                <picture><source srcset="/assets/img/projects/projects-9.webp" type="image/webp"><img src="/assets/img/projects/projects-9.jpg" alt="Ремонт фурнитуры пластиковых окон Киев" loading="lazy"></picture>
+                <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
               </div>
               <div class="portfolio-info">
+                <span class="portfolio-tag">Ремонт</span>
                 <h3>Ремонт фурнитуры</h3>
-                <p>Полное восстановление механизмов окна и дверей в Киеве</p>
+                <p>Полное восстановление механизмов окна и дверей</p>
               </div>
             </div>
           </a>
         </div>
 
         <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-          <a href="/assets/img/projects/projects-1.jpg" class="glightbox portfolio-link"
-            data-gallery="portfolio-gallery">
-            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <picture>
-                <source srcset="/assets/img/projects/projects-1.webp" type="image/webp">
-                <img src="/assets/img/projects/projects-1.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                alt="Установка энергосберегающего стеклопакета Киев" loading="lazy">
-              </picture>
-              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                <i class="bi bi-zoom-in text-white fs-1"></i>
+          <a href="/assets/img/projects/projects-1.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+            <div class="portfolio-content">
+              <div class="portfolio-img">
+                <picture><source srcset="/assets/img/projects/projects-1.webp" type="image/webp"><img src="/assets/img/projects/projects-1.jpg" alt="Установка энергосберегающего стеклопакета Киев" loading="lazy"></picture>
+                <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
               </div>
               <div class="portfolio-info">
+                <span class="portfolio-tag">Установка</span>
                 <h3>Замена стеклопакета</h3>
                 <p>Установка нового энергосберегающего пакета</p>
               </div>
@@ -714,18 +706,14 @@ const mainHtml = `<!-- Головний блок (Hero) -->
         </div>
 
         <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
-          <a href="/assets/img/projects/projects-10.jpg" class="glightbox portfolio-link"
-            data-gallery="portfolio-gallery">
-            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <picture>
-                <source srcset="/assets/img/projects/projects-10.webp" type="image/webp">
-                <img src="/assets/img/projects/projects-10.jpg" class="img-fluid w-100 h-100"
-                style="object-fit: cover;" alt="Регулировка балконных дверей Киев" loading="lazy">
-              </picture>
-              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                <i class="bi bi-zoom-in text-white fs-1"></i>
+          <a href="/assets/img/projects/projects-10.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+            <div class="portfolio-content">
+              <div class="portfolio-img">
+                <picture><source srcset="/assets/img/projects/projects-10.webp" type="image/webp"><img src="/assets/img/projects/projects-10.jpg" alt="Регулировка балконных дверей Киев" loading="lazy"></picture>
+                <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
               </div>
               <div class="portfolio-info">
+                <span class="portfolio-tag">Регулировка</span>
                 <h3>Регулировка балконных дверей</h3>
                 <p>Устранение провисания и заедания</p>
               </div>
@@ -734,18 +722,14 @@ const mainHtml = `<!-- Головний блок (Hero) -->
         </div>
 
         <div class="col-lg-4 col-md-6 portfolio-item filter-design">
-          <a href="/assets/img/projects/projects-8.jpg" class="glightbox portfolio-link"
-            data-gallery="portfolio-gallery">
-            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <picture>
-                <source srcset="/assets/img/projects/projects-8.webp" type="image/webp">
-                <img src="/assets/img/projects/projects-8.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                alt="Установка детской ручки на окно Киев" loading="lazy">
-              </picture>
-              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                <i class="bi bi-zoom-in text-white fs-1"></i>
+          <a href="/assets/img/projects/projects-8.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+            <div class="portfolio-content">
+              <div class="portfolio-img">
+                <picture><source srcset="/assets/img/projects/projects-8.webp" type="image/webp"><img src="/assets/img/projects/projects-8.jpg" alt="Установка детской ручки на окно Киев" loading="lazy"></picture>
+                <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
               </div>
               <div class="portfolio-info">
+                <span class="portfolio-tag">Дополнительные</span>
                 <h3>Установка детской ручки</h3>
                 <p>Монтаж ручки с замком для безопасности детей</p>
               </div>
@@ -754,18 +738,14 @@ const mainHtml = `<!-- Головний блок (Hero) -->
         </div>
 
         <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-          <a href="/assets/img/projects/projects-12.jpg" class="glightbox portfolio-link"
-            data-gallery="portfolio-gallery">
-            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <picture>
-                <source srcset="/assets/img/projects/projects-12.webp" type="image/webp">
-                <img src="/assets/img/projects/projects-12.jpg" class="img-fluid w-100 h-100"
-                style="object-fit: cover;" alt="Замена уплотнителя на окнах Киев" loading="lazy">
-              </picture>
-              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                <i class="bi bi-zoom-in text-white fs-1"></i>
+          <a href="/assets/img/projects/projects-12.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+            <div class="portfolio-content">
+              <div class="portfolio-img">
+                <picture><source srcset="/assets/img/projects/projects-12.webp" type="image/webp"><img src="/assets/img/projects/projects-12.jpg" alt="Замена уплотнителя на окнах Киев" loading="lazy"></picture>
+                <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
               </div>
               <div class="portfolio-info">
+                <span class="portfolio-tag">Ремонт</span>
                 <h3>Замена уплотнителя</h3>
                 <p>Устранение сквозняков и продувания</p>
               </div>
@@ -774,18 +754,14 @@ const mainHtml = `<!-- Головний блок (Hero) -->
         </div>
 
         <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-          <a href="/assets/img/projects/projects-11.jpg" class="glightbox portfolio-link"
-            data-gallery="portfolio-gallery">
-            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <picture>
-                <source srcset="/assets/img/projects/projects-11.webp" type="image/webp">
-                <img src="/assets/img/projects/projects-11.jpg" class="img-fluid w-100 h-100"
-                style="object-fit: cover;" alt="Ремонт дверного замка Киев" loading="lazy">
-              </picture>
-              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                <i class="bi bi-zoom-in text-white fs-1"></i>
+          <a href="/assets/img/projects/projects-11.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+            <div class="portfolio-content">
+              <div class="portfolio-img">
+                <picture><source srcset="/assets/img/projects/projects-11.webp" type="image/webp"><img src="/assets/img/projects/projects-11.jpg" alt="Ремонт дверного замка Киев" loading="lazy"></picture>
+                <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
               </div>
               <div class="portfolio-info">
+                <span class="portfolio-tag">Установка</span>
                 <h3>Ремонт дверного замка</h3>
                 <p>Восстановление работы замка входной группы</p>
               </div>
@@ -794,18 +770,14 @@ const mainHtml = `<!-- Головний блок (Hero) -->
         </div>
 
         <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
-          <a href="/assets/img/projects/projects-2.jpg" class="glightbox portfolio-link"
-            data-gallery="portfolio-gallery">
-            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <picture>
-                <source srcset="/assets/img/projects/projects-2.webp" type="image/webp">
-                <img src="/assets/img/projects/projects-2.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                alt="Сезонная регулировка пластиковых окон Киев" loading="lazy">
-              </picture>
-              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                <i class="bi bi-zoom-in text-white fs-1"></i>
+          <a href="/assets/img/projects/projects-2.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+            <div class="portfolio-content">
+              <div class="portfolio-img">
+                <picture><source srcset="/assets/img/projects/projects-2.webp" type="image/webp"><img src="/assets/img/projects/projects-2.jpg" alt="Сезонная регулировка пластиковых окон Киев" loading="lazy"></picture>
+                <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
               </div>
               <div class="portfolio-info">
+                <span class="portfolio-tag">Регулировка</span>
                 <h3>Сезонная регулировка</h3>
                 <p>Перевод окон в зимний/летний режим</p>
               </div>
@@ -814,18 +786,14 @@ const mainHtml = `<!-- Головний блок (Hero) -->
         </div>
 
         <div class="col-lg-4 col-md-6 portfolio-item filter-design">
-          <a href="/assets/img/projects/projects-6.jpg" class="glightbox portfolio-link"
-            data-gallery="portfolio-gallery">
-            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <picture>
-                <source srcset="/assets/img/projects/projects-6.webp" type="image/webp">
-                <img src="/assets/img/projects/projects-6.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                alt="Установка москитных сеток Киев" loading="lazy">
-              </picture>
-              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                <i class="bi bi-zoom-in text-white fs-1"></i>
+          <a href="/assets/img/projects/projects-6.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+            <div class="portfolio-content">
+              <div class="portfolio-img">
+                <picture><source srcset="/assets/img/projects/projects-6.webp" type="image/webp"><img src="/assets/img/projects/projects-6.jpg" alt="Установка москитных сеток Киев" loading="lazy"></picture>
+                <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
               </div>
               <div class="portfolio-info">
+                <span class="portfolio-tag">Дополнительные</span>
                 <h3>Москитные сетки</h3>
                 <p>Изготовление и монтаж всех типов сеток</p>
               </div>
@@ -834,18 +802,14 @@ const mainHtml = `<!-- Головний блок (Hero) -->
         </div>
 
         <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-          <a href="/assets/img/projects/projects-7.jpg" class="glightbox portfolio-link"
-            data-gallery="portfolio-gallery">
-            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <picture>
-                <source srcset="/assets/img/projects/projects-7.webp" type="image/webp">
-                <img src="/assets/img/projects/projects-7.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                alt="Чистка и смазка фурнитуры окон Киев" loading="lazy">
-              </picture>
-              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                <i class="bi bi-zoom-in text-white fs-1"></i>
+          <a href="/assets/img/projects/projects-7.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+            <div class="portfolio-content">
+              <div class="portfolio-img">
+                <picture><source srcset="/assets/img/projects/projects-7.webp" type="image/webp"><img src="/assets/img/projects/projects-7.jpg" alt="Чистка и смазка фурнитуры окон Киев" loading="lazy"></picture>
+                <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
               </div>
               <div class="portfolio-info">
+                <span class="portfolio-tag">Ремонт</span>
                 <h3>Чистка фурнитуры</h3>
                 <p>Профилактическая чистка и смазка механизмов</p>
               </div>
@@ -854,18 +818,14 @@ const mainHtml = `<!-- Головний блок (Hero) -->
         </div>
 
         <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-          <a href="/assets/img/projects/projects-3.jpg" class="glightbox portfolio-link"
-            data-gallery="portfolio-gallery">
-            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <picture>
-                <source srcset="/assets/img/projects/projects-3.webp" type="image/webp">
-                <img src="/assets/img/projects/projects-3.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                alt="Монтаж внешних отливов на окна Киев" loading="lazy">
-              </picture>
-              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                <i class="bi bi-zoom-in text-white fs-1"></i>
+          <a href="/assets/img/projects/projects-3.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+            <div class="portfolio-content">
+              <div class="portfolio-img">
+                <picture><source srcset="/assets/img/projects/projects-3.webp" type="image/webp"><img src="/assets/img/projects/projects-3.jpg" alt="Монтаж внешних отливов на окна Киев" loading="lazy"></picture>
+                <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
               </div>
               <div class="portfolio-info">
+                <span class="portfolio-tag">Установка</span>
                 <h3>Монтаж отливов</h3>
                 <p>Замена или установка внешних отливов</p>
               </div>
@@ -874,18 +834,14 @@ const mainHtml = `<!-- Головний блок (Hero) -->
         </div>
 
         <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
-          <a href="/assets/img/projects/projects-4.jpg" class="glightbox portfolio-link"
-            data-gallery="portfolio-gallery">
-            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <picture>
-                <source srcset="/assets/img/projects/projects-4.webp" type="image/webp">
-                <img src="/assets/img/projects/projects-4.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                alt="Ремонт пластиковых окон после взлома Киев" loading="lazy">
-              </picture>
-              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                <i class="bi bi-zoom-in text-white fs-1"></i>
+          <a href="/assets/img/projects/projects-4.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+            <div class="portfolio-content">
+              <div class="portfolio-img">
+                <picture><source srcset="/assets/img/projects/projects-4.webp" type="image/webp"><img src="/assets/img/projects/projects-4.jpg" alt="Ремонт пластиковых окон после взлома Киев" loading="lazy"></picture>
+                <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
               </div>
               <div class="portfolio-info">
+                <span class="portfolio-tag">Регулировка</span>
                 <h3>Ремонт после взлома</h3>
                 <p>Восстановление окна и фурнитуры после попытки взлома</p>
               </div>
@@ -894,18 +850,14 @@ const mainHtml = `<!-- Головний блок (Hero) -->
         </div>
 
         <div class="col-lg-4 col-md-6 portfolio-item filter-design">
-          <a href="/assets/img/projects/projects-5.jpg" class="glightbox portfolio-link"
-            data-gallery="portfolio-gallery">
-            <div class="portfolio-content h-100 position-relative overflow-hidden rounded-3 shadow">
-              <picture>
-                <source srcset="/assets/img/projects/projects-5.webp" type="image/webp">
-                <img src="/assets/img/projects/projects-5.jpg" class="img-fluid w-100 h-100" style="object-fit: cover;"
-                alt="Установка сетки Антикошка на окна Киев" loading="lazy">
-              </picture>
-              <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                <i class="bi bi-zoom-in text-white fs-1"></i>
+          <a href="/assets/img/projects/projects-5.jpg" class="glightbox portfolio-link" data-gallery="portfolio-gallery">
+            <div class="portfolio-content">
+              <div class="portfolio-img">
+                <picture><source srcset="/assets/img/projects/projects-5.webp" type="image/webp"><img src="/assets/img/projects/projects-5.jpg" alt="Установка сетки Антикошка на окна Киев" loading="lazy"></picture>
+                <div class="portfolio-img-overlay"><span class="portfolio-view-btn"><i class="bi bi-arrow-up-right"></i></span></div>
               </div>
               <div class="portfolio-info">
+                <span class="portfolio-tag">Дополнительные</span>
                 <h3>Сетка Антикошка</h3>
                 <p>Установка усиленных сеток для защиты от животных</p>
               </div>
@@ -1062,7 +1014,7 @@ const mainHtml = `<!-- Головний блок (Hero) -->
         </div>
 
         <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
-          <a href="contact.html#contact"
+          <a href="/ru/contact#contact"
             class="btn btn-warning px-5 py-3 fw-bold shadow-sm d-inline-flex align-items-center justify-content-center">
             <i class="bi bi-pencil-square me-2"></i> Вызвать мастера на замер
           </a>
@@ -1095,7 +1047,7 @@ const mainHtml = `<!-- Головний блок (Hero) -->
   lang="ru"
   title={"UWS — Установка и Ремонт Окон Киев | Регулировка Пластиковых Окон"}
   description={"Установка металлопластиковых окон, дверей, балконов в Киеве. Ремонт, регулировка, замена фурнитуры, уплотнителя, стеклопакетов. Гарантия до 5 лет, бесплатный выезд мастера."}
-  canonicalPath={"/ru/index"}
+  canonicalPath="/ru"
   structuredData={structuredData}
 >
   <Header lang="ru" activePage="home" />
