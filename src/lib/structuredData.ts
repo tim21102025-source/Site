@@ -12,7 +12,6 @@ const base = {
   telephone: ["+380660575202", "+380989478772", "+380633664769"],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "",
     addressLocality: "Київ",
     addressRegion: "Київська область",
     postalCode: "01001",

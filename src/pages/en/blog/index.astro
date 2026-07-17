@@ -1,0 +1,206 @@
+﻿---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import ContactModal from '../../../components/ContactModal.astro';
+
+const posts = (await getCollection('blog-en'))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const tabs = ['All', 'Installation', 'Repair', 'Maintenance', 'Tips'];
+
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Blog about windows, repair and installation",
+  "description": "Useful articles about choosing, installing, repairing and maintaining plastic windows.",
+  "url": "https://uws.com.ua/en/blog",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": posts.map((p, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "url": `https://uws.com.ua/en/blog/${p.id}`,
+      "name": p.data.title
+    }))
+  }
+};
+---
+
+<BaseLayout
+  lang="en"
+  title="Windows Blog, Repair & Installation | UWS Kyiv"
+  description="Useful articles about choosing, installing, repairing and maintaining plastic windows. Tips from UWS masters with 10+ years of experience."
+  canonicalPath="/en/blog"
+  structuredData={blogSchema}
+>
+  <Header lang="en" activePage="blog" headerClass="header-solid" />
+
+  <main id="main" class="page-inner">
+    <section class="blog py-5">
+      <div class="container" data-aos="fade-up">
+
+        <header class="text-center mb-4">
+          <h1 class="display-5 fw-bold text-dark">Our Blog</h1>
+          <p class="lead text-muted mt-3">Useful articles about windows, repair, installation and maintenance</p>
+        </header>
+
+        <div class="blog-filters mb-5">
+          <div class="blog-filters-inner" id="blog-filters">
+            <div class="blog-filters-track">
+              <div class="blog-filters-indicator" id="filter-indicator"></div>
+              {tabs.map((tab, i) => (
+                <button class={`blog-filter-btn ${i === 0 ? 'active' : ''}`}
+                  data-category={tab === 'All' ? 'all' : tab}>
+                  {tab}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <p class="blog-count text-center mb-4" id="post-count">Showing {posts.length} articles</p>
+
+        <div class="row g-4" id="blog-grid">
+          {posts.map((post) => (
+            <div class="col-lg-4 col-md-6 blog-card-wrapper" data-category={post.data.category}>
+              <article class="blog-card bg-white rounded-4 overflow-hidden shadow-sm h-100 d-flex flex-column">
+                <div class="blog-card-img-wrap position-relative overflow-hidden">
+                  <picture>
+                    <source srcset={post.data.image.replace('.jpg', '.webp')} type="image/webp">
+                    <img src={post.data.image} alt={post.data.title} class="img-fluid w-100" loading="lazy">
+                  </picture>
+                  <span class="blog-card-date">{post.data.date}</span>
+                  <span class="blog-card-category">{post.data.category}</span>
+                </div>
+                <div class="blog-card-body d-flex flex-column flex-grow-1">
+                  <h2 class="blog-card-title">
+                    <a href={`/en/blog/${post.id}`}>{post.data.title}</a>
+                  </h2>
+                  <p class="blog-card-excerpt flex-grow-1">{post.data.description}</p>
+                  <a href={`/en/blog/${post.id}`} class="blog-card-link mt-auto">
+                    Read more <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </article>
+            </div>
+          ))}
+        </div>
+
+        <div id="no-results" class="text-center py-5 d-none">
+          <i class="bi bi-journal-text" style="font-size: 3rem; color: #c5c9cf;"></i>
+          <h3 class="mt-3 fw-bold" style="color: #52565e;">No articles found</h3>
+          <p style="color: #838893;">There are no articles in this category yet. Try another one.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="contact py-0 pb-5">
+      <div class="container">
+        <div class="p-4 p-md-5 rounded-4 shadow-lg text-center" style="background: linear-gradient(135deg, #2a3d47, #1a252b); border: 1px solid rgba(254,185,0,0.3);">
+          <h3 class="text-white mb-3" style="font-weight: 700;">Have questions about windows?</h3>
+          <p class="text-white-50 mb-4">Call us — our master will provide a free consultation</p>
+          <a href="/en/contact" class="btn btn-warning px-5 py-3 fw-bold text-dark">
+            <i class="bi bi-chat-left-text-fill me-2"></i> Get a consultation
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <ContactModal lang="en" />
+  <Footer lang="en" />
+</BaseLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btns = document.querySelectorAll('.blog-filter-btn');
+    const indicator = document.getElementById('filter-indicator');
+    const cards = document.querySelectorAll('.blog-card-wrapper');
+    const countEl = document.getElementById('post-count');
+    const noResults = document.getElementById('no-results');
+    const grid = document.getElementById('blog-grid');
+    const totalPosts = cards.length;
+
+    function moveIndicator(el) {
+      if (!indicator || !el) return;
+      indicator.style.width = el.offsetWidth + 'px';
+      indicator.style.transform = `translateX(${el.offsetLeft}px)`;
+    }
+
+    const activeBtn = document.querySelector('.blog-filter-btn.active');
+    if (activeBtn) moveIndicator(activeBtn);
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        moveIndicator(btn);
+
+        const cat = btn.dataset.category;
+        let visible = 0;
+
+        cards.forEach(card => {
+          const show = cat === 'all' || card.dataset.category === cat;
+          card.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+
+        if (countEl) {
+          countEl.textContent = cat === 'all'
+            ? `Showing ${totalPosts} articles`
+            : `Showing ${visible} ${visible === 1 ? 'article' : 'articles'}`;
+        }
+
+        if (noResults) noResults.classList.toggle('d-none', visible > 0);
+        if (grid) grid.classList.toggle('d-none', visible === 0);
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      const current = document.querySelector('.blog-filter-btn.active');
+      if (current) moveIndicator(current);
+    });
+  });
+</script>
+
+<style>
+  .blog-filters { display: flex; justify-content: center; }
+  .blog-filters-inner { width: 100%; max-width: 720px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0; display: flex; justify-content: center; }
+  .blog-filters-inner::-webkit-scrollbar { display: none; }
+  .blog-filters-track { position: relative; display: inline-flex; gap: 4px; padding: 5px; background: #e8eaed; border-radius: 14px; width: max-content; }
+  .blog-filters-indicator { position: absolute; top: 5px; left: 0; height: calc(100% - 10px); background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.08), 0 2px 12px rgba(0,0,0,0.04); transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 1; pointer-events: none; }
+  .blog-filter-btn { position: relative; z-index: 2; border: none; outline: none; padding: 10px 22px; border-radius: 10px; font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 14px; color: #6b7280; background: transparent; white-space: nowrap; cursor: pointer; transition: color 0.3s ease; line-height: 1; }
+  .blog-filter-btn:hover:not(.active) { color: #374151; }
+  .blog-filter-btn.active { color: #1a252b; font-weight: 600; }
+  .blog-count { font-size: 14px; color: #838893; font-weight: 500; }
+  .blog-card { transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid rgba(0,0,0,0.04); }
+  .blog-card:hover { transform: translateY(-6px); box-shadow: 0 14px 35px rgba(0,0,0,0.1); }
+  .blog-card-img-wrap { height: 220px; }
+  .blog-card-img-wrap img { height: 100%; width: 100%; object-fit: cover; transition: transform 0.5s ease; }
+  .blog-card:hover .blog-card-img-wrap img { transform: scale(1.05); }
+  .blog-card-date { position: absolute; bottom: 12px; left: 12px; background: rgba(0,0,0,0.65); color: #fff; font-size: 12px; font-weight: 500; padding: 5px 12px; border-radius: 6px; backdrop-filter: blur(4px); letter-spacing: 0.2px; }
+  .blog-card-category { position: absolute; top: 12px; right: 12px; background: #feb900; color: #1a252b; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.4px; }
+  .blog-card-body { padding: 20px 24px 24px; }
+  .blog-card-title { font-size: 18px; font-weight: 700; line-height: 1.4; margin-bottom: 10px; color: #1a252b; }
+  .blog-card-title a { color: inherit; text-decoration: none; transition: color 0.25s ease; }
+  .blog-card-title a:hover { color: #feb900; }
+  .blog-card-excerpt { font-size: 14px; line-height: 1.65; color: #6c757d; margin-bottom: 16px; }
+  .blog-card-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: #838893; text-decoration: none; transition: color 0.25s ease; }
+  .blog-card-link i { font-size: 13px; transition: transform 0.25s ease; }
+  .blog-card-link:hover { color: #feb900; }
+  .blog-card-link:hover i { transform: translateX(4px); }
+  @media (max-width: 992px) { .blog-card-img-wrap { height: 200px; } }
+  @media (max-width: 768px) {
+    .blog-filters-inner { max-width: 100%; padding: 0; }
+    .blog-filters-track { width: auto; padding: 4px; gap: 2px; }
+    .blog-filter-btn { padding: 9px 16px; font-size: 13px; }
+    .blog-card-img-wrap { height: 180px; }
+    .blog-card-title { font-size: 16px; }
+    .blog-card-body { padding: 16px 18px 20px; }
+    .blog-card-excerpt { font-size: 13px; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  }
+  @media (max-width: 576px) { .blog-filter-btn { padding: 8px 14px; font-size: 13px; } }
+</style>

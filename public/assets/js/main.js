@@ -118,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const scrollTop = document.querySelector('.scroll-top');
   if (scrollTop) {
     const togglescrollTop = function () {
+      if (document.body.classList.contains('nav-open')) return;
       window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
     }
     window.addEventListener('load', togglescrollTop);

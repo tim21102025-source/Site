@@ -1,0 +1,360 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactModal from '../../components/ContactModal.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const allPosts = await getCollection('blog');
+const relatedPosts = allPosts
+  .filter(p => p.id !== post.id && p.data.category === post.data.category)
+  .slice(0, 3);
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "author": { "@type": "Person", "name": post.data.author },
+  "datePublished": post.data.date,
+  "dateModified": post.data.date,
+  "publisher": {
+    "@type": "Organization",
+    "name": "UWS — Встановлення та Ремонт Вікон",
+    "logo": { "@type": "ImageObject", "url": "https://uws.com.ua/assets/img/logo.png" }
+  },
+  "image": `https://uws.com.ua${post.data.image}`,
+  "mainEntityOfPage": { "@type": "WebPage", "@id": `https://uws.com.ua/blog/${post.id}` }
+};
+
+const faqSchema = post.data.faq.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": post.data.faq.map(f => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+  }))
+} : null;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Головна", "item": "https://uws.com.ua/"},
+    {"@type": "ListItem", "position": 2, "name": "Блог", "item": "https://uws.com.ua/blog"},
+    {"@type": "ListItem", "position": 3, "name": post.data.title, "item": `https://uws.com.ua/blog/${post.id}`}
+  ]
+};
+---
+
+<BaseLayout
+  lang="uk"
+  title={`${post.data.title} | UWS Блог`}
+  description={post.data.description}
+  canonicalPath={`/blog/${post.id}`}
+  ogType="article"
+  structuredData={articleSchema}
+>
+  <Header lang="uk" activePage="blog" headerClass="header-solid" />
+
+  <div id="reading-progress" style="position: fixed; top: 0; left: 0; width: 0; height: 3px; background: #feb900; z-index: 9999; transition: width 0.1s;"></div>
+
+  <main id="main" class="page-inner">
+    <section class="blog py-5">
+      <div class="container" data-aos="fade-up">
+
+        <nav aria-label="breadcrumb" class="mb-4">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Головна</a></li>
+            <li class="breadcrumb-item"><a href="/blog" class="text-decoration-none">Блог</a></li>
+            <li class="breadcrumb-item"><a href={`/blog?category=${post.data.category.toLowerCase()}`} class="text-decoration-none">{post.data.category}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{post.data.title.slice(0, 40)}...</li>
+          </ol>
+        </nav>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+            <article class="blog-details bg-white rounded-4 overflow-hidden">
+
+              <div class="post-img overflow-hidden">
+                <picture>
+                  <source srcset={post.data.image.replace('.jpg', '.webp')} type="image/webp">
+                  <img src={post.data.image} alt={post.data.title} class="img-fluid w-100" style="height: 400px; object-fit: cover;" loading="eager">
+                </picture>
+              </div>
+
+              <div class="p-4">
+                <h1 class="title">{post.data.title}</h1>
+
+                <div class="meta-top mt-3">
+                  <ul>
+                    <li><i class="bi bi-calendar3"></i><span>{post.data.date}</span></li>
+                    <li><i class="bi bi-person"></i><span>{post.data.author}</span></li>
+                    <li><i class="bi bi-clock"></i><span>{post.data.readTime}</span></li>
+                    <li><i class="bi bi-folder"></i><span>{post.data.category}</span></li>
+                  </ul>
+                </div>
+
+                <div class="content mt-4">
+                  <Content />
+
+                  <div class="meta-bottom mt-5 pt-3 border-top">
+                    <div class="d-flex flex-wrap align-items-center gap-3">
+                      <div>
+                        <i class="bi bi-folder me-1"></i>
+                        <span>{post.data.category}</span>
+                      </div>
+                      <div>
+                        <i class="bi bi-tags me-1"></i>
+                        <span>{post.data.tags.join(', ')}</span>
+                      </div>
+                      <div class="share ms-auto d-flex align-items-center gap-2">
+                        <i class="bi bi-share"></i>
+                        <a href={`https://www.facebook.com/sharer/sharer.php?u=https://uws.com.ua/blog/${post.id}`} target="_blank" rel="noopener" aria-label="Поділитися у Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href={`https://t.me/share/url?url=https://uws.com.ua/blog/${post.id}`} target="_blank" rel="noopener" aria-label="Поділитися у Telegram"><i class="bi bi-telegram"></i></a>
+                        <a href={`https://wa.me/?text=${encodeURIComponent(post.data.title)}%20https://uws.com.ua/blog/${post.id}`} target="_blank" rel="noopener" aria-label="Поділитися у WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            {post.data.faq.length > 0 && (
+              <div id="faq" class="mt-4">
+                <div class="bg-white rounded-4 p-4 shadow-sm">
+                  <h2 class="fw-bold mb-4 h4"><i class="bi bi-patch-question text-warning me-2"></i>Часті питання</h2>
+                  <div class="accordion accordion-flush" id="blogFaq">
+                    {post.data.faq.map((item, i) => (
+                      <div class="accordion-item shadow-sm mb-3 rounded-3 border">
+                        <h3 class="accordion-header">
+                          <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target={`#bfaq${i}`}>
+                            {item.question}
+                          </button>
+                        </h3>
+                        <div id={`bfaq${i}`} class="accordion-collapse collapse" data-bs-parent="#blogFaq">
+                          <div class="accordion-body text-muted">{item.answer}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <div class="post-author mt-4 bg-white rounded-4">
+              <div class="d-flex align-items-center p-4">
+                <picture>
+                  <source srcset="/assets/img/blog/blog-author.webp" type="image/webp">
+                  <img src="/assets/img/blog/blog-author.jpg" alt={post.data.author} class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
+                </picture>
+                <div class="ms-3">
+                  <h4>{post.data.author}</h4>
+                  <p class="small text-muted mb-1">Сервісний інженер UWS, 8 років досвіду.</p>
+                  <a href="/blog" class="small text-decoration-none" style="color: #feb900;">Всі статті <i class="bi bi-arrow-right" style="font-size: 12px;"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="sidebar">
+
+              <div class="sidebar-item d-none d-lg-block">
+                <div class="p-4 rounded-4 border-start border-4 border-warning" style="background: #f5f6f7;">
+                  <h3 class="sidebar-title mb-3">Зміст статті</h3>
+                  <nav class="toc-nav">
+                    <ul class="list-unstyled mb-0" id="toc-list">
+                      {post.data.toc.map((item) => (
+                        <li class="toc-item mb-2">
+                          <a href={`#${item.id}`} class="text-decoration-none d-flex align-items-center py-1 toc-link" style="color: #52565e; font-size: 14px;">
+                            <i class="bi bi-chevron-right text-warning me-2" style="font-size: 10px;"></i>
+                            {item.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+
+              <div class="sidebar-item d-lg-none mb-3">
+                <div class="p-3 rounded-4 border" style="background: #f5f6f7;">
+                  <button class="btn w-100 d-flex align-items-center justify-content-between fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#toc-mobile" style="color: #52565e; font-size: 15px;">
+                    <span><i class="bi bi-list-ul text-warning me-2"></i>Зміст статті</span>
+                    <i class="bi bi-chevron-down"></i>
+                  </button>
+                  <div class="collapse mt-3" id="toc-mobile">
+                    <nav class="toc-nav">
+                      <ul class="list-unstyled mb-0">
+                        {post.data.toc.map((item) => (
+                          <li class="toc-item mb-2">
+                            <a href={`#${item.id}`} class="text-decoration-none d-flex align-items-center py-1 toc-link" style="color: #52565e; font-size: 14px;">
+                              <i class="bi bi-chevron-right text-warning me-2" style="font-size: 10px;"></i>
+                              {item.title}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sidebar-item mt-4">
+                <div class="p-4 rounded-4" style="background: linear-gradient(135deg, #2a3d47, #1a252b); border: 1px solid rgba(254,185,0,0.3);">
+                  <p class="text-white fw-bold mb-2 text-center">Знайшли проблему?</p>
+                  <p class="text-white-50 small text-center mb-3">Майстер безкоштовно проаналізує фото та назве ціну</p>
+                  <div class="d-flex flex-column gap-2">
+                    <a href="https://t.me/+380730705280" class="btn btn-sm text-white w-100 fw-bold py-2" style="background-color: #0088cc; border-radius: 8px;">
+                      <i class="bi bi-telegram"></i> Telegram
+                    </a>
+                    <a href="viber://chat?number=%2B380730705280" class="btn btn-sm text-white w-100 fw-bold py-2" style="background-color: #7360f2; border-radius: 8px;">
+                      <i class="bi bi-chat-dots"></i> Viber
+                    </a>
+                    <a href="tel:+380660575202" class="btn btn-sm btn-warning w-100 fw-bold py-2 text-dark" style="border-radius: 8px;">
+                      <i class="bi bi-telephone-outbound me-1"></i> Зателефонувати
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sidebar-item mt-4">
+                <h3 class="sidebar-title">Теги</h3>
+                <div class="tags">
+                  <ul>
+                    {post.data.tags.slice(0, 6).map(tag => (
+                      <li><a href={`/blog?tag=${tag}`}>{tag}</a></li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        {relatedPosts.length > 0 && (
+          <div class="mt-5">
+            <h3 class="fw-bold mb-4">Ще читають</h3>
+            <div class="row gy-4">
+              {relatedPosts.map((rp) => (
+                <div class="col-lg-4 col-md-6">
+                  <article class="post-item bg-white rounded-4 overflow-hidden shadow-sm h-100 d-flex flex-column">
+                    <div class="position-relative overflow-hidden">
+                      <picture>
+                        <source srcset={rp.data.image.replace('.jpg', '.webp')} type="image/webp">
+                        <img src={rp.data.image} alt={rp.data.title} class="img-fluid w-100" style="height: 180px; object-fit: cover; transition: transform 0.5s;" loading="lazy">
+                      </picture>
+                    </div>
+                    <div class="p-3 d-flex flex-column flex-grow-1">
+                      <span class="badge rounded-pill px-2 py-1 mb-2 align-self-start" style="background: rgba(254,185,0,0.15); color: #b8860b; font-size: 11px; font-weight: 600;">
+                        {rp.data.category}
+                      </span>
+                      <h4 style="font-size: 16px; font-weight: 700; line-height: 1.3;">
+                        <a href={`/blog/${rp.id}`} class="text-decoration-none related-link" style="color: #52565e;">{rp.data.title}</a>
+                      </h4>
+                    </div>
+                  </article>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+      </div>
+    </section>
+
+    <section class="contact py-0 pb-5">
+      <div class="container">
+        <div class="p-4 p-md-5 rounded-4 shadow-lg text-center" style="background: linear-gradient(135deg, #2a3d47, #1a252b); border: 1px solid rgba(254,185,0,0.3);">
+          <h3 class="text-white mb-3" style="font-weight: 700;">Вікно тече або продуває?</h3>
+          <p class="text-white-50 mb-4">Безкоштовна діагностика — майстер приїде та визначить проблему</p>
+          <a href="/contact" class="btn btn-warning px-5 py-3 fw-bold text-dark">
+            <i class="bi bi-chat-left-text-fill me-2"></i> Викликати майстра
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <ContactModal lang="uk" />
+  <Footer lang="uk" />
+</BaseLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Strip {#id} from headings and set as id attribute
+    document.querySelectorAll('.content h2, .content h3, .content h4').forEach(h => {
+      const text = h.textContent;
+      const match = text.match(/\s*\{#([a-zA-Z0-9_-]+)\}\s*$/);
+      if (match) {
+        h.id = match[1];
+        h.textContent = text.replace(/\s*\{#[a-zA-Z0-9_-]+\}\s*$/, '');
+      }
+    });
+
+    const progress = document.getElementById('reading-progress');
+    const article = document.querySelector('.blog-details');
+    if (progress && article) {
+      window.addEventListener('scroll', () => {
+        const rect = article.getBoundingClientRect();
+        const total = article.scrollHeight - window.innerHeight;
+        const current = -rect.top;
+        const pct = Math.min(Math.max((current / total) * 100, 0), 100);
+        progress.style.width = pct + '%';
+      });
+    }
+
+    const tocLinks = document.querySelectorAll('.toc-link');
+    const sections = [];
+    tocLinks.forEach(link => {
+      const id = link.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) sections.push({ id, el, link });
+    });
+
+    function updateToc() {
+      let current = sections[0];
+      for (const s of sections) {
+        if (s.el.getBoundingClientRect().top <= 120) current = s;
+      }
+      tocLinks.forEach(l => { l.style.fontWeight = '400'; l.style.color = '#52565e'; });
+      if (current) {
+        current.link.style.fontWeight = '700';
+        current.link.style.color = '#feb900';
+      }
+    }
+
+    window.addEventListener('scroll', updateToc);
+    updateToc();
+  });
+</script>
+
+<style>
+  .post-item { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  .post-item:hover { transform: translateY(-6px); box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
+  .post-item:hover img { transform: scale(1.05); }
+  .related-link { transition: color 0.3s ease; }
+  .related-link:hover { color: #feb900 !important; }
+  .share a { transition: color 0.3s ease; color: #838893; }
+  .share a:hover { color: #feb900; }
+  .toc-link { transition: color 0.2s ease, font-weight 0.2s ease; }
+</style>

@@ -55,11 +55,10 @@ h6 {
 section {
   padding: 80px 0;
   overflow: hidden;
-  scroll-margin-top: -80px;
 }
 
 [id] {
-  scroll-margin-top: -80px;
+  scroll-margin-top: 100px;
 }
 
 .section-bg {
@@ -193,6 +192,12 @@ section {
 .scroll-top.active {
   visibility: visible;
   opacity: 1;
+}
+
+body.nav-open .scroll-top {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 /*--------------------------------------------------------------

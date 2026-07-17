@@ -8,8 +8,10 @@ interface Props {
   canonicalPath: string;
   ogTitle?: string;
   ogDescription?: string;
+  ogType?: string;
   structuredData?: Record<string, any>;
   preloadImage?: string;
+  robotsNoindex?: boolean;
 }
 
 const {
@@ -19,8 +21,10 @@ const {
   canonicalPath,
   ogTitle = title,
   ogDescription = description,
+  ogType = 'website',
   structuredData,
   preloadImage,
+  robotsNoindex = false,
 } = Astro.props;
 
 const t = ui[lang];
@@ -35,6 +39,7 @@ const canonicalUrl = `${t.canonicalBase}${canonicalPath}`;
 
   <title>{title}</title>
   <meta name="description" content={description} />
+  {robotsNoindex && <meta name="robots" content="noindex, nofollow" />}
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://tg-proxy-master.tim21102025.workers.dev; frame-src 'none';">
 
   <!-- Open Graph -->
@@ -42,8 +47,8 @@ const canonicalUrl = `${t.canonicalBase}${canonicalPath}`;
   <meta property="og:description" content={ogDescription}>
   <meta property="og:image" content={t.ogImage}>
   <meta property="og:url" content={canonicalUrl}>
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content={lang === 'uk' ? 'uk_UA' : 'ru_UA'}>
+  <meta property="og:type" content={ogType}>
+  <meta property="og:locale" content={lang === 'uk' ? 'uk_UA' : lang === 'ru' ? 'ru_RU' : 'en_US'}>
   <meta property="og:site_name" content={t.ogSiteName}>
 
   <!-- Twitter Card -->
@@ -95,13 +100,26 @@ const canonicalUrl = `${t.canonicalBase}${canonicalPath}`;
   <!-- Canonical & i18n -->
   <link rel="canonical" href={canonicalUrl} />
   {(() => {
-    const ukPath = lang === 'uk' ? canonicalPath : canonicalPath.replace(/^\/ru/, '');
-    const ruPath = `/ru${ukPath}`;
+    const isEn = lang === 'en';
+    const isRu = lang === 'ru';
+    const base = t.canonicalBase;
+    let ukPath = canonicalPath;
+    let ruPath = `/ru${canonicalPath}`;
+    let enPath = `/en${canonicalPath}`;
+    if (isRu) {
+      ukPath = canonicalPath.replace(/^\/ru/, '') || '/';
+      enPath = `/en${ukPath}`;
+    }
+    if (isEn) {
+      ukPath = canonicalPath.replace(/^\/en/, '') || '/';
+      ruPath = `/ru${ukPath}`;
+    }
     return (
       <>
-        <link rel="alternate" hreflang="uk" href={`${t.canonicalBase}${ukPath}`} />
-        <link rel="alternate" hreflang="ru" href={`${t.canonicalBase}${ruPath}`} />
-        <link rel="alternate" hreflang="x-default" href={`${t.canonicalBase}${ukPath}`} />
+        <link rel="alternate" hreflang="uk" href={`${base}${ukPath}`} />
+        <link rel="alternate" hreflang="ru" href={`${base}${ruPath}`} />
+        <link rel="alternate" hreflang="en" href={`${base}${enPath}`} />
+        <link rel="alternate" hreflang="x-default" href={`${base}${ukPath}`} />
       </>
     );
   })()}
