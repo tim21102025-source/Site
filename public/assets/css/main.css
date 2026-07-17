@@ -5118,3 +5118,38 @@ a:hover {
     font-size: 1.2rem !important;
   }
 }
+
+/* Blog article — mobile padding */
+@media (max-width: 768px) {
+  .blog .blog-details {
+    padding: 16px;
+  }
+  .blog .blog-details .post-img {
+    margin: -16px -16px 16px -16px;
+  }
+  .blog .blog-details .title {
+    font-size: 22px;
+  }
+  .blog .blog-details .content blockquote {
+    padding: 30px 20px;
+  }
+  .blog .blog-details .content blockquote p {
+    font-size: 18px;
+  }
+  .blog .post-author {
+    padding: 16px;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .blog .blog-details {
+    padding: 12px;
+  }
+  .blog .blog-details .post-img {
+    margin: -12px -12px 12px -12px;
+  }
+  .blog .blog-details .title {
+    font-size: 20px;
+  }
+}
