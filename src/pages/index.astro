@@ -103,7 +103,9 @@ const structuredData = getServiceStructuredData({
                 <div class="col-md-12 form-group">
                   <div class="input-group">
                     <span class="input-group-text" style="background: #f8f9fa; border-radius: 8px 0 0 8px;">+38</span>
-                    <input type="tel" class="form-control" name="phone" placeholder="066 057 52 02" pattern="^(\\s*\\d){10}\\s*$" required style="border-radius: 0 8px 8px 0; padding: 12px;">
+                    <input type="tel" class="form-control" name="phone" placeholder="066 057 52 02" pattern="[0-9]{10}" required
+                      oninvalid="this.setCustomValidity('Введіть 10 цифр номера')" oninput="this.setCustomValidity('')" autocomplete="tel"
+                      style="border-radius: 0 8px 8px 0; padding: 12px;">
                   </div>
                 </div>
                 <div class="col-md-12 form-group">
