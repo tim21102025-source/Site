@@ -355,7 +355,14 @@ document.addEventListener('submit', async function (e) {
     const result = await response.json();
 
     if (result.ok) {
-      if (success) success.style.display = 'block';
+      // Показуємо модалку успіху якщо є, або inline повідомлення
+      const successModal = document.getElementById('successModal');
+      if (successModal) {
+        const modal = new bootstrap.Modal(successModal);
+        modal.show();
+      } else if (success) {
+        success.style.display = 'block';
+      }
 
       // GA4 conversion event
       if (typeof gtag === 'function') {
