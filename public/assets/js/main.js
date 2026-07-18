@@ -310,7 +310,27 @@ document.addEventListener('submit', async function (e) {
   try {
     const name = form.name.value;
     const phone = form.phone.value;
-    const message = form.message.value;
+    const userMsg = form.message.value.trim();
+
+    // Збираємо повідомлення
+    let parts = [];
+
+    // Джерело звернення (для landing pages)
+    const sourceField = form.querySelector('input[name="source"]');
+    if (sourceField && sourceField.value) {
+      parts.push(`[Джерело: ${sourceField.value}]`);
+    }
+
+    // Дані калькулятора якщо є (для landing pages)
+    const calcField = form.querySelector('input[name="calc_data"]');
+    if (calcField && calcField.value) {
+      parts.push(calcField.value);
+    }
+
+    // Текст користувача
+    if (userMsg) parts.push(userMsg);
+
+    let message = parts.join('\n\n') || 'Заявка з сайту';
 
     let response;
 
@@ -336,8 +356,23 @@ document.addEventListener('submit', async function (e) {
 
     if (result.ok) {
       if (success) success.style.display = 'block';
+
+      // GA4 conversion event
+      if (typeof gtag === 'function') {
+        gtag('event', 'form_submit', {
+          event_category: 'landing',
+          event_label: form.querySelector('input[name="source"]')?.value || 'unknown'
+        });
+      }
+
       form.reset();
       selectedFiles = [];
+
+      // Для landing — очищуємо бейдж та calc_data після reset
+      const calcBadge = form.querySelector('#calc-badge');
+      if (calcBadge) calcBadge.classList.add('d-none');
+      const calcDataField = form.querySelector('#calc-data-input');
+      if (calcDataField) calcDataField.value = '';
       // Очищуємо прев'ю (шукаємо обидва можливі ID)
       document.querySelectorAll('[id*="file-preview"]').forEach(el => el.innerHTML = '');
       

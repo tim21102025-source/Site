@@ -1,0 +1,906 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const landingSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Встановлення пластикових вікон у Києві",
+  "description": "Професійне встановлення металопластикових вікон у Києві та області. Безкоштовний вимір, гарантія 5 років, монтаж за 1 день.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "UWS — Встановлення та Ремонт Вікон",
+    "telephone": "+380660575202",
+    "address": { "@type": "PostalAddress", "addressLocality": "Київ", "addressCountry": "UA" }
+  },
+  "areaServed": { "@type": "City", "name": "Київ" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "UAH",
+    "price": "7500",
+    "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "UAH", "minPrice": "5500" }
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Скільки коштує встановлення пластикового вікна?", acceptedAnswer: { "@type": "Answer", text: "Ціна залежить від розміру та комплектації. Стандартне вікно — від 5 500 грн, енергозберігаюче — від 7 500 грн, шумозахисне — від 9 500 грн. Точна вартість — після безкоштовного виміру майстром." }},
+    { "@type": "Question", "name": "Скільки часу займає встановлення вікон?", acceptedAnswer: { "@type": "Answer", text: "Монтаж одного вікна — 1-2 години. Встановлення вікон у квартирі (3-5 вікон) — за 1 день. Виготовлення вікон — від 3 до 7 робочих днів після виміру." }},
+    { "@type": "Question", "name": "Чи надаєте ви гарантію?", acceptedAnswer: { "@type": "Answer", text: "Так, ми надаємо гарантію 5 років на монтаж та комплектуючі. Видаємо офіційний договір та чек. У разі проблем — безкоштовно усуваємо." }},
+    { "@type": "Question", "name": "Чи потрібно робити ремонт після встановлення?", acceptedAnswer: { "@type": "Answer", text: "Ні. Наші майстри працюють акуратно, використовують пиловловлювачі. Після монтажу прибирають за собою. Ремонт після нас не потрібен." }},
+    { "@type": "Question", "name": "Чи можна встановлювати вікна взимку?", acceptedAnswer: { "@type": "Answer", text: "Так, ми встановлюємо вікна цілий рік. Використовуємо морозостійку монтажну піну та дотримуємося технології при температурах до -15°С." }},
+    { "@type": "Question", "name": "Які документи ви надаєте?", acceptedAnswer: { "@type": "Answer", text: "Офіційний договір, рахунок-фактуру, акт виконаних робіт, гарантійний талон на 5 років." }}
+  ]
+};
+---
+
+<BaseLayout
+  lang="uk"
+  title="Встановлення пластикових вікон у Києві від 5500 грн | UWS"
+  description="Встановлення пластикових вікон у Києві: від 5500 грн/вікно. Безкоштовний вимір, монтаж за 1 день, гарантія 5 років. Зателефонуйте зараз!"
+  canonicalPath="/landing/vstanovlennya-vikon"
+  structuredData={landingSchema}
+  robotsNoindex={true}
+>
+
+  <Header lang="uk" activePage="home" headerClass="header-solid" />
+
+  <main style="padding-top: 60px;">
+
+    <!-- Hero -->
+    <section style="background: linear-gradient(135deg, #1a252b 0%, #2a3d47 100%); padding: 60px 0 50px; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('/assets/img/hero-carousel/hero-carousel-1.webp') center/cover; opacity: 0.12;"></div>
+      <div class="container position-relative" style="z-index: 2;">
+        <div class="row align-items-center gy-4">
+          <div class="col-lg-7">
+            <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-3" style="background: rgba(254,185,0,0.15); border: 1px solid rgba(254,185,0,0.3);">
+              <span class="badge bg-warning text-dark rounded-pill" style="font-size: 11px;">АКЦІЯ</span>
+              <span style="color: #feb900; font-size: 13px; font-weight: 500;">Знижка 15% на монтаж при замовленні до <span id="hero-deadline">кінця тижня</span></span>
+            </div>
+            <h1 style="color: #fff; font-size: 40px; font-weight: 800; line-height: 1.12; margin-bottom: 16px;">
+              Встановлення пластикових<br>вікон у Києві
+            </h1>
+            <p style="color: #feb900; font-size: 22px; font-weight: 700; margin-bottom: 8px;">Від 5 500 грн за вікно з монтажем</p>
+            <p style="color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.6; max-width: 500px; margin-bottom: 24px;">
+              Безкоштовний вимір · Монтаж за 1 день · Гарантія 5 років · Без передоплати
+            </p>
+            <div class="d-flex flex-wrap gap-3 mb-4">
+              <a href="#calculator" class="btn btn-warning btn-lg px-5 py-3 fw-bold text-dark" style="border-radius: 10px; font-size: 16px;">
+                <i class="bi bi-calculator me-2"></i> Розрахувати вартість
+              </a>
+              <a href="tel:+380660575202" class="btn btn-outline-light btn-lg px-4 py-3 fw-bold" style="border-radius: 10px; font-size: 16px;">
+                <i class="bi bi-telephone me-2"></i> Зателефонувати
+              </a>
+            </div>
+            <div class="d-flex align-items-center gap-2" style="color: rgba(255,255,255,0.5); font-size: 13px;">
+              <i class="bi bi-clock me-1"></i> Середній час відповіді — 12 хвилин
+            </div>
+          </div>
+          <div class="col-lg-5 d-none d-lg-block">
+            <div class="rounded-4 overflow-hidden shadow-lg position-relative" style="border: 2px solid rgba(254,185,0,0.3);">
+              <img src="/assets/img/hero-carousel/hero-carousel-2.webp" alt="Встановлення вікон UWS" class="img-fluid w-100" style="height: 320px; object-fit: cover;">
+              <div class="position-absolute bottom-0 start-0 end-0 p-3" style="background: linear-gradient(transparent, rgba(0,0,0,0.7));">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="d-flex" style="color: #feb900;">★★★★★</div>
+                  <span style="color: #fff; font-size: 13px;">4.9/5 · 120+ відгуків</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust strip -->
+    <section style="background: #f5f6f7; padding: 18px 0; border-bottom: 1px solid #e9ecef;">
+      <div class="container">
+        <div class="row text-center gy-3">
+          <div class="col-6 col-md-3">
+            <div class="fw-bold" style="color: #1a252b; font-size: 22px;">8+ років</div>
+            <div style="color: #838893; font-size: 12px;">досвіду в Києві</div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="fw-bold" style="color: #1a252b; font-size: 22px;">2 500+ вікон</div>
+            <div style="color: #838893; font-size: 12px;">встановлено</div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="fw-bold" style="color: #1a252b; font-size: 22px;">4.9/5 рейтинг</div>
+            <div style="color: #838893; font-size: 12px;">120+ відгуків Google</div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="fw-bold" style="color: #1a252b; font-size: 22px;">Гарантія 5 років</div>
+            <div style="color: #838893; font-size: 12px;">офіційний договір</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Before / After -->
+    <section style="padding: 60px 0;" class="fade-in">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-2" style="color: #1a252b; font-size: 28px;">Наші роботи: до та після</h2>
+        <p class="text-center mb-5" style="color: #838893; font-size: 15px;">Реальні фото наших встановлених вікон у клієнтів</p>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="rounded-4 overflow-hidden position-relative" style="height: 240px;">
+              <img src="/assets/img/hero-carousel/hero-carousel-3.webp" alt="До встановлення вікон" class="img-fluid w-100 h-100" style="object-fit: cover;">
+              <div class="position-absolute top-0 start-0 m-2">
+                <span class="badge bg-danger text-white px-2 py-1" style="font-size: 11px;">ДО</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="rounded-4 overflow-hidden position-relative" style="height: 240px;">
+              <img src="/assets/img/hero-carousel/hero-carousel-4.webp" alt="Після встановлення вікон" class="img-fluid w-100 h-100" style="object-fit: cover;">
+              <div class="position-absolute top-0 start-0 m-2">
+                <span class="badge bg-success text-white px-2 py-1" style="font-size: 11px;">ПІСЛЯ</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="rounded-4 overflow-hidden position-relative" style="height: 240px;">
+              <img src="/assets/img/hero-carousel/hero-carousel-5.webp" alt="Результат роботи UWS" class="img-fluid w-100 h-100" style="object-fit: cover;">
+              <div class="position-absolute top-0 start-0 m-2">
+                <span class="badge bg-warning text-dark px-2 py-1" style="font-size: 11px;">РЕЗУЛЬТАТ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section style="padding: 60px 0; background: #f5f6f7;">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-2" style="color: #1a252b; font-size: 28px;">Як ми працюємо</h2>
+        <p class="text-center mb-5" style="color: #838893; font-size: 15px;">Від заявки до нових вікон — 3 прості кроки</p>
+        <div class="row gy-4">
+          <div class="col-md-4 text-center">
+            <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle" style="width: 64px; height: 64px; background: rgba(254,185,0,0.12);">
+              <span class="fw-bold" style="color: #feb900; font-size: 26px;">1</span>
+            </div>
+            <h3 class="fw-bold mb-2" style="color: #1a252b; font-size: 17px;">Заявка та вимір</h3>
+            <p style="color: #6c757d; font-size: 14px; line-height: 1.6;">Зателефонуйте або залиште заявку. Майстер безкоштовно приїде та зробить точний вимір.</p>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle" style="width: 64px; height: 64px; background: rgba(254,185,0,0.12);">
+              <span class="fw-bold" style="color: #feb900; font-size: 26px;">2</span>
+            </div>
+            <h3 class="fw-bold mb-2" style="color: #1a252b; font-size: 17px;">Виготовлення</h3>
+            <p style="color: #6c757d; font-size: 14px; line-height: 1.6;">Виготовляємо вікна за 3-7 робочих днів. Ви отримуєте точну дату монтажу.</p>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle" style="width: 64px; height: 64px; background: rgba(254,185,0,0.12);">
+              <span class="fw-bold" style="color: #feb900; font-size: 26px;">3</span>
+            </div>
+            <h3 class="fw-bold mb-2" style="color: #1a252b; font-size: 17px;">Монтаж за 1 день</h3>
+            <p style="color: #6c757d; font-size: 14px; line-height: 1.6;">Встановлюємо вікна за 1 день. Прибираємо за собою. Ви приймаєте роботу.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculator -->
+    <section id="calculator" style="padding: 60px 0; background: linear-gradient(180deg, #f5f6f7 0%, #fff 100%);">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="d-inline-block px-3 py-1 rounded-pill mb-3" style="background: rgba(254,185,0,0.12); color: #b8860b; font-size: 12px; font-weight: 600;">ОНЛАЙН-КАЛЬКУЛЯТОР</span>
+          <h2 class="fw-bold mb-2" style="color: #1a252b; font-size: 28px;">Розрахуйте вартість за 30 секунд</h2>
+          <p style="color: #838893; font-size: 15px;">Оберіть параметри — дізнаєтеся ціну миттєво</p>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="calc-wrapper bg-white rounded-4 p-4 p-md-5 shadow-sm">
+
+              <!-- Step 1: Window type cards -->
+              <div class="mb-4">
+                <label class="d-block fw-bold mb-3" style="color: #1a252b; font-size: 14px;">
+                  <span class="d-inline-flex align-items-center justify-content-center rounded-circle me-2" style="width: 22px; height: 22px; background: #feb900; color: #1a252b; font-size: 12px; font-weight: 700;">1</span>
+                  Тип вікна
+                </label>
+                <div class="row g-3" id="calc-type-cards">
+                  <div class="col-md-4">
+                    <div class="calc-card d-block rounded-3 p-3 text-center h-100" data-value="5500" style="border: 2px solid #e9ecef; transition: all 0.25s ease; cursor: pointer; position: relative;">
+                      <div class="mb-2" style="font-size: 28px;">🏠</div>
+                      <div class="fw-bold" style="color: #1a252b; font-size: 14px;">Стандарт</div>
+                      <div style="color: #838893; font-size: 12px; line-height: 1.4;">Однокамерний<br>склопакет</div>
+                      <div class="fw-bold mt-2" style="color: #feb900; font-size: 18px;">від 5 500</div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="calc-card d-block rounded-3 p-3 text-center h-100" data-value="7500" style="border: 2px solid #feb900; background: rgba(254,185,0,0.04); transition: all 0.25s ease; cursor: pointer; position: relative;">
+                      <div class="position-absolute" style="top: -8px; right: -8px;"><span class="badge bg-warning text-dark px-2 py-1 rounded-pill" style="font-size: 10px;">ХІТ</span></div>
+                      <div class="mb-2" style="font-size: 28px;">⚡</div>
+                      <div class="fw-bold" style="color: #1a252b; font-size: 14px;">Енергозберігаюче</div>
+                      <div style="color: #838893; font-size: 12px; line-height: 1.4;">Двокамерний<br>i-glass</div>
+                      <div class="fw-bold mt-2" style="color: #feb900; font-size: 18px;">від 7 500</div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="calc-card d-block rounded-3 p-3 text-center h-100" data-value="9500" style="border: 2px solid #e9ecef; transition: all 0.25s ease; cursor: pointer; position: relative;">
+                      <div class="mb-2" style="font-size: 28px;">🔇</div>
+                      <div class="fw-bold" style="color: #1a252b; font-size: 14px;">Шумозахисне</div>
+                      <div style="color: #838893; font-size: 12px; line-height: 1.4;">Трикамерний<br>42 дБ</div>
+                      <div class="fw-bold mt-2" style="color: #feb900; font-size: 18px;">від 9 500</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 2: Quantity -->
+              <div class="mb-4">
+                <label class="d-block fw-bold mb-3" style="color: #1a252b; font-size: 14px;">
+                  <span class="d-inline-flex align-items-center justify-content-center rounded-circle me-2" style="width: 22px; height: 22px; background: #feb900; color: #1a252b; font-size: 12px; font-weight: 700;">2</span>
+                  Кількість вікон
+                </label>
+                <div class="d-flex align-items-center gap-3">
+                  <button type="button" class="calc-qty-btn btn d-flex align-items-center justify-content-center" onclick="calcQty(-1)" style="width: 48px; height: 48px; border-radius: 12px; border: 2px solid #e9ecef; background: #fff; color: #1a252b; font-size: 22px; font-weight: 600; transition: all 0.2s;">−</button>
+                  <div class="position-relative">
+                    <span id="calc-qty" class="fw-bold" style="color: #1a252b; font-size: 32px; min-width: 50px; text-align: center; display: block;">1</span>
+                    <span style="color: #adb5bd; font-size: 11px; display: block; text-align: center;">вікон</span>
+                  </div>
+                  <button type="button" class="calc-qty-btn btn d-flex align-items-center justify-content-center" onclick="calcQty(1)" style="width: 48px; height: 48px; border-radius: 12px; border: 2px solid #e9ecef; background: #fff; color: #1a252b; font-size: 22px; font-weight: 600; transition: all 0.2s;">+</button>
+                  <div class="ms-3 d-flex gap-2">
+                    <button type="button" class="btn btn-sm rounded-pill" onclick="setQty(1)" style="border: 1px solid #dee2e6; color: #6c757d; font-size: 12px;">1</button>
+                    <button type="button" class="btn btn-sm rounded-pill" onclick="setQty(3)" style="border: 1px solid #dee2e6; color: #6c757d; font-size: 12px;">3</button>
+                    <button type="button" class="btn btn-sm rounded-pill" onclick="setQty(5)" style="border: 1px solid #dee2e6; color: #6c757d; font-size: 12px;">5</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 3: Options -->
+              <div class="mb-4">
+                <label class="d-block fw-bold mb-3" style="color: #1a252b; font-size: 14px;">
+                  <span class="d-inline-flex align-items-center justify-content-center rounded-circle me-2" style="width: 22px; height: 22px; background: #feb900; color: #1a252b; font-size: 12px; font-weight: 700;">3</span>
+                  Додаткові послуги
+                </label>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="calc-option d-flex align-items-center gap-3 p-3 rounded-3" data-option="demontazh" style="border: 2px solid #feb900; background: rgba(254,185,0,0.04); cursor: pointer; transition: all 0.25s ease;">
+                      <div class="calc-option-check d-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width: 24px; height: 24px; background: #feb900; border: 2px solid #feb900; transition: all 0.2s;">
+                        <i class="bi bi-check-lg" style="color: #1a252b; font-size: 14px;"></i>
+                      </div>
+                      <div>
+                        <div class="fw-bold" style="color: #1a252b; font-size: 14px;">Демонтаж старого вікна</div>
+                        <div style="color: #838893; font-size: 12px;">+500 грн за вікно</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="calc-option d-flex align-items-center gap-3 p-3 rounded-3" data-option="pidvikonnya" style="border: 2px solid #feb900; background: rgba(254,185,0,0.04); cursor: pointer; transition: all 0.25s ease;">
+                      <div class="calc-option-check d-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width: 24px; height: 24px; background: #feb900; border: 2px solid #feb900; transition: all 0.2s;">
+                        <i class="bi bi-check-lg" style="color: #1a252b; font-size: 14px;"></i>
+                      </div>
+                      <div>
+                        <div class="fw-bold" style="color: #1a252b; font-size: 14px;">Підвіконня + відливи</div>
+                        <div style="color: #838893; font-size: 12px;">+800 грн за вікно</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Result -->
+              <div class="calc-result p-4 rounded-3" style="background: linear-gradient(135deg, #1a252b, #2a3d47); border: 1px solid rgba(254,185,0,0.2);">
+                <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                  <div>
+                    <div style="color: rgba(255,255,255,0.6); font-size: 13px; margin-bottom: 4px;">Орієнтовна вартість:</div>
+                    <div class="d-flex align-items-baseline gap-2">
+                      <span class="fw-bold" style="color: #feb900; font-size: 36px; line-height: 1;" id="calc-total">8 300</span>
+                      <span style="color: rgba(255,255,255,0.5); font-size: 16px;">грн</span>
+                    </div>
+                    <div id="calc-breakdown" style="color: rgba(255,255,255,0.4); font-size: 12px; margin-top: 6px;">7 500 × 1 + 500 + 800</div>
+                  </div>
+                  <div class="text-end">
+                    <a href="#form" id="btn-calc-submit" class="btn btn-warning px-4 py-3 fw-bold rounded-3 d-inline-flex align-items-center" style="font-size: 15px;">
+                      <i class="bi bi-send me-2"></i> Отримати розрахунок
+                    </a>
+                    <div style="color: rgba(255,255,255,0.4); font-size: 11px; margin-top: 6px;">*Безкоштовний вимір — ціна не зміниться</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculator summary strip -->
+    <div id="calc-summary" class="d-none" style="position: sticky; top: 60px; z-index: 100; background: rgba(254,185,0,0.97); backdrop-filter: blur(8px); padding: 12px 0; box-shadow: 0 4px 16px rgba(254,185,0,0.3);">
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+          <div class="d-flex align-items-center gap-3 flex-wrap">
+            <span class="fw-bold text-dark" style="font-size: 14px;">
+              <i class="bi bi-calculator me-1"></i> <span id="summary-type">Енергозберігаюче</span>
+            </span>
+            <span style="color: rgba(0,0,0,0.3);">|</span>
+            <span class="text-dark" style="font-size: 14px;">
+              <span id="summary-qty">1</span> вікно · Демонтаж · Підвіконня
+            </span>
+          </div>
+          <div class="d-flex align-items-center gap-3">
+            <span class="fw-bold text-dark" style="font-size: 20px;" id="summary-total">8 300 грн</span>
+            <a href="#form" class="btn btn-dark btn-sm fw-bold px-4 py-2" style="border-radius: 8px; font-size: 13px;">
+              Залишити заявку <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prices -->
+    <section style="padding: 60px 0; background: #f5f6f7;">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-2" style="color: #1a252b; font-size: 28px;">Ціни на встановлення вікон</h2>
+        <p class="text-center mb-5" style="color: #838893; font-size: 15px;">Прозорі ціни без прихованих платежів</p>
+        <div class="row gy-4 justify-content-center">
+          <div class="col-md-4">
+            <div class="bg-white rounded-4 p-4 h-100 shadow-sm" style="border: 1px solid #e9ecef;">
+              <span class="badge rounded-pill px-3 py-1 mb-3" style="background: rgba(254,185,0,0.15); color: #b8860b; font-size: 12px;">ЕКОНОМ</span>
+              <h3 class="fw-bold mb-1" style="color: #1a252b; font-size: 19px;">Стандартне вікно</h3>
+              <p style="color: #838893; font-size: 13px;">Однокамерний склопакет</p>
+              <div class="my-3">
+                <span class="fw-bold" style="color: #feb900; font-size: 34px;">від 5 500</span>
+                <span style="color: #838893; font-size: 14px;"> грн</span>
+              </div>
+              <ul class="list-unstyled mb-4">
+                <li class="d-flex align-items-center gap-2 mb-2" style="font-size: 13px; color: #52565e;"><i class="bi bi-check-lg" style="color: #feb900;"></i> Безкоштовний вимір</li>
+                <li class="d-flex align-items-center gap-2 mb-2" style="font-size: 13px; color: #52565e;"><i class="bi bi-check-lg" style="color: #feb900;"></i> Демонтаж + монтаж</li>
+                <li class="d-flex align-items-center gap-2 mb-2" style="font-size: 13px; color: #52565e;"><i class="bi bi-check-lg" style="color: #feb900;"></i> Відливи + підвіконня</li>
+                <li class="d-flex align-items-center gap-2" style="font-size: 13px; color: #52565e;"><i class="bi bi-check-lg" style="color: #feb900;"></i> Гарантія 5 років</li>
+              </ul>
+              <a href="#form" class="btn w-100 fw-bold py-2 pkg-select-btn" data-package="Стандартне вікно (від 5 500 грн)" style="background: #f5f6f7; color: #1a252b; border-radius: 8px;">Обрати</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="bg-white rounded-4 p-4 h-100 shadow-sm position-relative" style="border: 2px solid #feb900;">
+              <div class="position-absolute top-0 end-0 translate-middle-y"><span class="badge bg-warning text-dark px-3 py-1 rounded-pill fw-bold" style="font-size: 11px;">ХІТ</span></div>
+              <span class="badge rounded-pill px-3 py-1 mb-3" style="background: rgba(254,185,0,0.15); color: #b8860b; font-size: 12px;">ОПТИМАЛЬНИЙ</span>
+              <h3 class="fw-bold mb-1" style="color: #1a252b; font-size: 19px;">Енергозберігаюче</h3>
+              <p style="color: #838893; font-size: 13px;">Двокамерний склопакет</p>
+              <div class="my-3">
+                <span class="fw-bold" style="color: #feb900; font-size: 34px;">від 7 500</span>
+                <span style="color: #838893; font-size: 14px;"> грн</span>
+              </div>
+              <ul class="list-unstyled mb-4">
+                <li class="d-flex align-items-center gap-2 mb-2" style="font-size: 13px; color: #52565e;"><i class="bi bi-check-lg" style="color: #feb900;"></i> Все з пакету "Стандарт"</li>
+                <li class="d-flex align-items-center gap-2 mb-2" style="font-size: 13px; color: #52565e;"><i class="bi bi-check-lg" style="color: #feb900;"></i> Енергозберігаюче покриття</li>
+                <li class="d-flex align-items-center gap-2 mb-2" style="font-size: 13px; color: #52565e;"><i class="bi bi-check-lg" style="color: #feb900;"></i> Фурнітура MACO</li>
+                <li class="d-flex align-items-center gap-2" style="font-size: 13px; color: #52565e;"><i class="bi bi-check-lg" style="color: #feb900;"></i> Мікропровітрювання</li>
+              </ul>
+              <a href="#form" class="btn btn-warning w-100 fw-bold py-2 text-dark pkg-select-btn" data-package="Енергозберігаюче (від 7 500 грн)" style="border-radius: 8px;">Обрати</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="bg-white rounded-4 p-4 h-100 shadow-sm" style="border: 1px solid #e9ecef;">
+              <span class="badge rounded-pill px-3 py-1 mb-3" style="background: rgba(254,185,0,0.15); color: #b8860b; font-size: 12px;">ПРЕМІУМ</span>
+              <h3 class="fw-bold mb-1" style="color: #1a252b; font-size: 19px;">Шумозахисне</h3>
+              <p style="color: #838893; font-size: 13px;">Трикамерний склопакет</p>
+              <div class="my-3">
+                <span class="fw-bold" style="color: #feb900; font-size: 34px;">від 9 500</span>
+                <span style="color: #838893; font-size: 14px;"> грн</span>
+              </div>
+              <ul class="list-unstyled mb-4">
+                <li class="d-flex align-items-center gap-2 mb-2" style="font-size: 13px; color: #52565e;"><i class="bi bi-check-lg" style="color: #feb900;"></i> Все з пакету "Оптимальний"</li>
+                <li class="d-flex align-items-center gap-2 mb-2" style="font-size: 13px; color: #52565e;"><i class="bi bi-check-lg" style="color: #feb900;"></i> Трикамерний склопакет</li>
+                <li class="d-flex align-items-center gap-2 mb-2" style="font-size: 13px; color: #52565e;"><i class="bi bi-check-lg" style="color: #feb900;"></i> Шумозахист до 42 дБ</li>
+                <li class="d-flex align-items-center gap-2" style="font-size: 13px; color: #52565e;"><i class="bi bi-check-lg" style="color: #feb900;"></i> Антивзломна фурнітура</li>
+              </ul>
+              <a href="#form" class="btn w-100 fw-bold py-2 pkg-select-btn" data-package="Шумозахисне (від 9 500 грн)" style="background: #f5f6f7; color: #1a252b; border-radius: 8px;">Обрати</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why us -->
+    <section style="padding: 60px 0;" class="fade-in">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-5" style="color: #1a252b; font-size: 28px;">Чому обирають UWS</h2>
+        <div class="row gy-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="text-center p-3">
+              <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle" style="width: 56px; height: 56px; background: rgba(254,185,0,0.12);">
+                <i class="bi bi-rulers" style="color: #feb900; font-size: 22px;"></i>
+              </div>
+              <h4 class="fw-bold mb-2" style="color: #1a252b; font-size: 15px;">Точний вимір</h4>
+              <p style="color: #6c757d; font-size: 13px; line-height: 1.5;">Точність до 1 мм. Гарантія ідеальної посадки вікна.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="text-center p-3">
+              <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle" style="width: 56px; height: 56px; background: rgba(254,185,0,0.12);">
+                <i class="bi bi-tools" style="color: #feb900; font-size: 22px;"></i>
+              </div>
+              <h4 class="fw-bold mb-2" style="color: #1a252b; font-size: 15px;">Монтаж за 1 день</h4>
+              <p style="color: #6c757d; font-size: 13px; line-height: 1.5;">Швидко, акуратно, без бруду та пилу.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="text-center p-3">
+              <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle" style="width: 56px; height: 56px; background: rgba(254,185,0,0.12);">
+                <i class="bi bi-shield-check" style="color: #feb900; font-size: 22px;"></i>
+              </div>
+              <h4 class="fw-bold mb-2" style="color: #1a252b; font-size: 15px;">Гарантія 5 років</h4>
+              <p style="color: #6c757d; font-size: 13px; line-height: 1.5;">Офіційний договір та чек.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="text-center p-3">
+              <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle" style="width: 56px; height: 56px; background: rgba(254,185,0,0.12);">
+                <i class="bi bi-cash-stack" style="color: #feb900; font-size: 22px;"></i>
+              </div>
+              <h4 class="fw-bold mb-2" style="color: #1a252b; font-size: 15px;">Без передоплати</h4>
+              <p style="color: #6c757d; font-size: 13px; line-height: 1.5;">Оплачуєте після встановлення.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section style="padding: 60px 0; background: #f5f6f7;" class="fade-in">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-2" style="color: #1a252b; font-size: 28px;">Що кажуть наші клієнти</h2>
+        <p class="text-center mb-5" style="color: #838893; font-size: 15px;">120+ відгуків у Google · Рейтинг 4.9/5</p>
+        <div class="row gy-4">
+          <div class="col-md-4">
+            <div class="bg-white rounded-4 p-4 h-100 shadow-sm">
+              <div class="d-flex align-items-center mb-3">
+                <div class="rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 48px; height: 48px; background: linear-gradient(135deg, #feb900, #f59e0b); color: #1a252b; font-weight: 700; font-size: 18px; box-shadow: 0 2px 8px rgba(254,185,0,0.3);">О</div>
+                <div>
+                  <strong class="fw-bold" style="color: #1a252b; font-size: 14px;">Олена М.</strong>
+                  <div style="color: #feb900; font-size: 12px;">★★★★★ <span style="color: #adb5bd; font-size: 11px;">Google</span></div>
+                </div>
+              </div>
+              <p style="color: #52565e; font-size: 13px; line-height: 1.6; margin: 0;">Замовили 5 вікон для квартири. Все встановили за один день. Раніше з вікон дуло — зараз тепло та тихо. Зекономили на опаленні!</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="bg-white rounded-4 p-4 h-100 shadow-sm">
+              <div class="d-flex align-items-center mb-3">
+                <div class="rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 48px; height: 48px; background: linear-gradient(135deg, #3b82f6, #2563eb); color: #fff; font-weight: 700; font-size: 18px; box-shadow: 0 2px 8px rgba(59,130,246,0.3);">А</div>
+                <div>
+                  <strong class="fw-bold" style="color: #1a252b; font-size: 14px;">Андрій К.</strong>
+                  <div style="color: #feb900; font-size: 12px;">★★★★★ <span style="color: #adb5bd; font-size: 11px;">Google</span></div>
+                </div>
+              </div>
+              <p style="color: #52565e; font-size: 13px; line-height: 1.6; margin: 0;">Шукав недорогі вікна для дачі. Адекватна ціна, якісний монтаж. Навіть прибрали за собою. Рекомендую!</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="bg-white rounded-4 p-4 h-100 shadow-sm">
+              <div class="d-flex align-items-center mb-3">
+                <div class="rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 48px; height: 48px; background: linear-gradient(135deg, #10b981, #059669); color: #fff; font-weight: 700; font-size: 18px; box-shadow: 0 2px 8px rgba(16,185,129,0.3);">І</div>
+                <div>
+                  <strong class="fw-bold" style="color: #1a252b; font-size: 14px;">Ірина В.</strong>
+                  <div style="color: #feb900; font-size: 12px;">★★★★★ <span style="color: #adb5bd; font-size: 11px;">Google</span></div>
+                </div>
+              </div>
+              <p style="color: #52565e; font-size: 13px; line-height: 1.6; margin: 0;">Ставили вікна на балкон. Швидко та акуратно. Жодного бруду в квартирі. Дякую за якість!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About brand -->
+    <section style="padding: 60px 0; background: #f5f6f7;" class="fade-in">
+      <div class="container">
+        <div class="row align-items-center gy-4">
+          <div class="col-lg-6">
+            <div class="d-flex align-items-center mb-4">
+              <picture>
+                <source srcset="/assets/img/logo.webp" type="image/webp">
+                <img src="/assets/img/logo.png" alt="UWS" style="height: 56px;" class="me-3">
+              </picture>
+              <div>
+                <span class="d-inline-block px-3 py-1 rounded-pill" style="background: rgba(254,185,0,0.12); color: #b8860b; font-size: 12px; font-weight: 600;">ПРО НАС</span>
+              </div>
+            </div>
+            <h2 class="fw-bold mb-3" style="color: #1a252b; font-size: 28px;">UWS — ваш надійний партнер у Києві</h2>
+            <p style="color: #6c757d; font-size: 15px; line-height: 1.7; margin-bottom: 16px;">
+              Ми — команда сертифікованих майстрів з 8+ роками досвіду в установленні та ремонті пластикових вікон у Києві та області. Працюємо з провідними виробниками: Rehau, KBE, Veka, Salamander.
+            </p>
+            <p style="color: #6c757d; font-size: 15px; line-height: 1.7; margin-bottom: 24px;">
+              Наша місія — забезпечити кожну оселю теплом, тишею та безпекою. Ми не просто встановлюємо вікна — ми створюємо комфорт, на який можна покластися.
+            </p>
+            <div class="d-flex flex-wrap gap-3 mb-4">
+              <div class="d-flex align-items-center gap-2" style="color: #52565e; font-size: 14px;">
+                <i class="bi bi-patch-check-fill" style="color: #feb900;"></i> Сертифіковані майстри
+              </div>
+              <div class="d-flex align-items-center gap-2" style="color: #52565e; font-size: 14px;">
+                <i class="bi bi-patch-check-fill" style="color: #feb900;"></i> Оригінальні комплектуючі
+              </div>
+              <div class="d-flex align-items-center gap-2" style="color: #52565e; font-size: 14px;">
+                <i class="bi bi-patch-check-fill" style="color: #feb900;"></i> Офіційний договір та чек
+              </div>
+            </div>
+            <a href="/" class="btn btn-outline-dark px-4 py-2 fw-bold d-inline-flex align-items-center" style="border-radius: 8px; font-size: 14px;">
+              Дізнатися більше про компанію <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="bg-white rounded-3 p-4 text-center shadow-sm h-100">
+                  <div style="font-size: 32px; margin-bottom: 8px;">🏗️</div>
+                  <div class="fw-bold" style="color: #1a252b; font-size: 22px;">2 500+</div>
+                  <div style="color: #838893; font-size: 13px;">Вікон встановлено</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="bg-white rounded-3 p-4 text-center shadow-sm h-100">
+                  <div style="font-size: 32px; margin-bottom: 8px;">⭐</div>
+                  <div class="fw-bold" style="color: #1a252b; font-size: 22px;">4.9/5</div>
+                  <div style="color: #838893; font-size: 13px;">Рейтинг Google</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="bg-white rounded-3 p-4 text-center shadow-sm h-100">
+                  <div style="font-size: 32px; margin-bottom: 8px;">🛡️</div>
+                  <div class="fw-bold" style="color: #1a252b; font-size: 22px;">5 років</div>
+                  <div style="color: #838893; font-size: 13px;">Гарантія</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="bg-white rounded-3 p-4 text-center shadow-sm h-100">
+                  <div style="font-size: 32px; margin-bottom: 8px;">📍</div>
+                  <div class="fw-bold" style="color: #1a252b; font-size: 22px;">Київ</div>
+                  <div style="color: #838893; font-size: 13px;">та область</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section style="padding: 60px 0;">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-5" style="color: #1a252b; font-size: 28px;">Часті питання</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="accordion accordion-flush" id="landingFaq">
+              <div class="accordion-item mb-3 rounded-3 border shadow-sm">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" style="font-size: 15px; color: #1a252b;">
+                    Скільки коштує встановлення пластикового вікна?
+                  </button>
+                </h3>
+                <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#landingFaq">
+                  <div class="accordion-body" style="color: #52565e; font-size: 14px; line-height: 1.7;">
+                    Ціна залежить від розміру та комплектації. Стандартне вікно — від 5 500 грн, енергозберігаюче — від 7 500 грн, шумозахисне — від 9 500 грн. Точна вартість — після безкоштовного виміру майстром. Жодних прихованих платежів.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item mb-3 rounded-3 border shadow-sm">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" style="font-size: 15px; color: #1a252b;">
+                    Скільки часу займає встановлення вікон?
+                  </button>
+                </h3>
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#landingFaq">
+                  <div class="accordion-body" style="color: #52565e; font-size: 14px; line-height: 1.7;">
+                    Монтаж одного вікна — 1-2 години. Встановлення вікон у квартирі (3-5 вікон) — за 1 день. Виготовлення вікон — від 3 до 7 робочих днів після виміру.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item mb-3 rounded-3 border shadow-sm">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" style="font-size: 15px; color: #1a252b;">
+                    Чи потрібно робити ремонт після встановлення?
+                  </button>
+                </h3>
+                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#landingFaq">
+                  <div class="accordion-body" style="color: #52565e; font-size: 14px; line-height: 1.7;">
+                    Ні. Наші майстри працюють акуратно, використовують пиловловлювачі. Після монтажу прибирають за собою. Ремонт після нас не потрібен.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item mb-3 rounded-3 border shadow-sm">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" style="font-size: 15px; color: #1a252b;">
+                    Чи можна встановлювати вікна взимку?
+                  </button>
+                </h3>
+                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#landingFaq">
+                  <div class="accordion-body" style="color: #52565e; font-size: 14px; line-height: 1.7;">
+                    Так, ми встановлюємо вікна цілий рік. Використовуємо морозостійку монтажну піну та дотримуємося технології при температурах до -15°С.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item rounded-3 border shadow-sm">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" style="font-size: 15px; color: #1a252b;">
+                    Які документи ви надаєте?
+                  </button>
+                </h3>
+                <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#landingFaq">
+                  <div class="accordion-body" style="color: #52565e; font-size: 14px; line-height: 1.7;">
+                    Офіційний договір, рахунок-фактуру, акт виконаних робіт, гарантійний талон на 5 років.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Form section -->
+    <section id="form" style="padding: 60px 0; background: linear-gradient(135deg, #1a252b 0%, #2a3d47 100%);">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-5">
+            <div class="text-center mb-4">
+              <h2 class="fw-bold" style="color: #fff; font-size: 28px;">Залиште заявку на вимір</h2>
+              <p style="color: rgba(255,255,255,0.6); font-size: 15px; margin-top: 10px;">Майстер зателефонує протягом 15 хвилин</p>
+            </div>
+            <div class="bg-white rounded-4 p-4 p-md-5 shadow-lg">
+              <form id="landingForm" class="telegram-form">
+                <div class="mb-3">
+                  <div class="position-relative">
+                    <i class="bi bi-person" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #adb5bd; font-size: 16px;"></i>
+                    <input type="text" name="name" class="form-control" placeholder="Ваше ім'я" required
+                      oninvalid="this.setCustomValidity('Введіть ім'я')" oninput="this.setCustomValidity('')" autocomplete="name"
+                      style="border-radius: 10px; padding: 13px 14px 13px 42px; border: 1.5px solid #e0e0e0; font-size: 15px; transition: border-color 0.2s, box-shadow 0.2s;">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <div class="position-relative">
+                    <i class="bi bi-telephone" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #adb5bd; font-size: 16px; z-index: 2;"></i>
+                    <span style="position: absolute; left: 38px; top: 50%; transform: translateY(-50%); color: #6c757d; font-size: 15px; z-index: 2;">+38</span>
+                    <input type="tel" class="form-control" name="phone" placeholder="066 057 52 02" pattern="[0-9]{10}" required
+                      oninvalid="this.setCustomValidity('Введіть коректний номер')" oninput="this.setCustomValidity('')" autocomplete="tel"
+                      style="border-radius: 10px; padding: 13px 14px 13px 72px; border: 1.5px solid #e0e0e0; font-size: 15px; transition: border-color 0.2s, box-shadow 0.2s;">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <div class="position-relative">
+                    <i class="bi bi-chat-dots" style="position: absolute; left: 14px; top: 14px; color: #adb5bd; font-size: 16px;"></i>
+                    <textarea class="form-control" name="message" rows="4" id="landing-message"
+                      placeholder="Залиште ваші питання або уточнення (необов'язково)"
+                      oninput="this.setCustomValidity('')"
+                      style="border-radius: 10px; padding: 13px 14px 13px 42px; border: 1.5px solid #e0e0e0; font-size: 14px; resize: none; transition: border-color 0.2s, box-shadow 0.2s;"></textarea>
+                    <div id="calc-badge" class="d-none position-absolute" style="top: 8px; right: 8px;">
+                      <span class="badge bg-warning text-dark px-2 py-1 rounded-pill" style="font-size: 10px;">
+                        <i class="bi bi-calculator me-1"></i>з калькулятора
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <input type="text" name="source" value="landing-install" style="display:none !important">
+                <input type="text" name="hp_field" style="display:none !important" tabindex="-1" autocomplete="off">
+                <input type="hidden" name="calc_data" id="calc-data-input" value="">
+
+                <button type="submit" class="btn btn-warning w-100 py-3 fw-bold rounded-3 shadow-sm" style="font-size: 16px;">
+                  <i class="bi bi-send me-2"></i> Безкоштовний вимір
+                </button>
+
+                <div class="loading mt-3 text-center" style="display:none;" role="status">
+                  <div class="spinner-border spinner-border-sm text-warning me-2"></div>Надсилаємо...
+                </div>
+                <div class="sent-message mt-3 text-success text-center" style="display:none;" role="alert">
+                  <i class="bi bi-check-circle-fill me-1"></i>Заявку надіслано! Зателефонуємо протягом 15 хвилин.
+                </div>
+
+                <!-- Trust signals near CTA -->
+                <div class="d-flex flex-wrap justify-content-center gap-3 mt-3 pt-3" style="border-top: 1px solid #f0f0f0;">
+                  <div class="d-flex align-items-center gap-1" style="color: #838893; font-size: 12px;">
+                    <i class="bi bi-shield-check" style="color: #28a745;"></i> Без передоплати
+                  </div>
+                  <div class="d-flex align-items-center gap-1" style="color: #838893; font-size: 12px;">
+                    <i class="bi bi-clock" style="color: #28a745;"></i> Відповідь за 15 хв
+                  </div>
+                  <div class="d-flex align-items-center gap-1" style="color: #838893; font-size: 12px;">
+                    <i class="bi bi-award" style="color: #28a745;"></i> Гарантія 5 років
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+              <a href="tel:+380660575202" class="btn btn-outline-light btn-sm px-3 py-2 d-flex align-items-center" style="border-radius: 8px; font-size: 13px;">
+                <i class="bi bi-telephone me-1"></i> Зателефонувати
+              </a>
+              <a href="https://t.me/+380730705280" class="btn btn-sm px-3 py-2 d-flex align-items-center text-white" style="background: #0088cc; border-radius: 8px; font-size: 13px;">
+                <i class="bi bi-telegram me-1"></i> Telegram
+              </a>
+              <a href="viber://chat?number=%2B380730705280" class="btn btn-sm px-3 py-2 d-flex align-items-center text-white" style="background: #7360f2; border-radius: 8px; font-size: 13px;">
+                <i class="bi bi-chat-dots me-1"></i> Viber
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer lang="uk" />
+
+  <!-- Sticky CTA bar (bottom) -->
+  <div id="sticky-cta" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 999; background: rgba(26,37,43,0.97); backdrop-filter: blur(12px); border-top: 1px solid rgba(254,185,0,0.3); padding: 10px 0; transform: translateY(100%); transition: transform 0.3s ease;">
+    <div class="container d-flex align-items-center justify-content-between gap-2">
+      <a href="tel:+380660575202" class="btn btn-warning btn-sm fw-bold px-3 py-2 text-dark flex-grow-1 d-flex align-items-center justify-content-center" style="border-radius: 8px; font-size: 13px;">
+        <i class="bi bi-telephone-fill me-1"></i> Зателефонувати
+      </a>
+      <a href="#form" class="btn btn-sm fw-bold px-3 py-2 text-white flex-grow-1 d-flex align-items-center justify-content-center" style="border-radius: 8px; font-size: 13px; background: #feb900; color: #1a252b;">
+        <i class="bi bi-send me-1"></i> Залишити заявку
+      </a>
+    </div>
+  </div>
+
+
+  <script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const state = { type: '7500', qty: 1, demontazh: true, pidvikonnya: true };
+    const typeNames = { '5500': 'Стандартне', '7500': 'Енергозберігаюче', '9500': 'Шумозахисне' };
+    const typePrices = { '5500': 5500, '7500': 7500, '9500': 9500 };
+    let selectedPackage = null;
+
+    // Smooth scroll
+    document.querySelectorAll('a[href="#form"], a[href="#calculator"]').forEach(a => {
+      a.addEventListener('click', e => { e.preventDefault(); document.getElementById(a.getAttribute('href').slice(1))?.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+    });
+
+    // Sticky CTA + summary
+    const stickyCta = document.getElementById('sticky-cta');
+    const calcSection = document.getElementById('calculator');
+    const formSection = document.getElementById('form');
+    const summaryEl = document.getElementById('calc-summary');
+    window.addEventListener('scroll', () => {
+      if (stickyCta) {
+        const calcRect = calcSection?.getBoundingClientRect();
+        const formTop = formSection?.offsetTop || Infinity;
+        if ((calcRect && calcRect.bottom > 100) || window.scrollY > formTop - 600) stickyCta.style.transform = 'translateY(100%)';
+        else stickyCta.style.transform = window.scrollY > 400 ? 'translateY(0)' : 'translateY(100%)';
+      }
+      if (summaryEl && calcSection) {
+        const calcRect = calcSection.getBoundingClientRect();
+        const formTop = formSection?.offsetTop || Infinity;
+        summaryEl.classList.toggle('d-none', !(calcRect.bottom < 0 && window.scrollY < formTop - 200));
+      }
+    });
+
+    // Calculator type cards
+    document.querySelectorAll('.calc-card').forEach(card => {
+      card.addEventListener('click', () => {
+        state.type = card.dataset.value;
+        document.querySelectorAll('.calc-card').forEach(c => { c.style.borderColor = '#e9ecef'; c.style.background = 'transparent'; });
+        card.style.borderColor = '#feb900';
+        card.style.background = 'rgba(254,185,0,0.04)';
+        updateDisplay();
+      });
+    });
+
+    // Quantity
+    window.calcQty = function(d) { state.qty = Math.max(1, Math.min(20, state.qty + d)); document.getElementById('calc-qty').textContent = state.qty; updateDisplay(); };
+    window.setQty = function(v) { state.qty = Math.max(1, Math.min(20, v)); document.getElementById('calc-qty').textContent = state.qty; updateDisplay(); };
+
+    // Options
+    document.querySelectorAll('.calc-option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        const key = opt.dataset.option;
+        state[key] = !state[key];
+        const check = opt.querySelector('.calc-option-check');
+        const icon = opt.querySelector('i');
+        opt.style.borderColor = state[key] ? '#feb900' : '#e9ecef';
+        opt.style.background = state[key] ? 'rgba(254,185,0,0.04)' : 'transparent';
+        check.style.background = state[key] ? '#feb900' : 'transparent';
+        check.style.borderColor = state[key] ? '#feb900' : '#dee2e6';
+        icon.style.color = state[key] ? '#1a252b' : 'transparent';
+        updateDisplay();
+      });
+    });
+
+    // Тільки оновлює візуал — НЕ чіпає textarea
+    function updateDisplay() {
+      const price = typePrices[state.type];
+      const dCost = state.demontazh ? 500 : 0;
+      const pCost = state.pidvikonnya ? 800 : 0;
+      const total = (price + dCost + pCost) * state.qty;
+
+      const totalEl = document.getElementById('calc-total');
+      const cur = parseInt(totalEl.textContent.replace(/\s/g, ''));
+      const diff = total - cur;
+      if (diff !== 0) {
+        let s = 0; const inc = diff / 20;
+        const iv = setInterval(() => { s++; totalEl.textContent = Math.round(cur + inc * s).toLocaleString('uk-UA'); if (s >= 20) { totalEl.textContent = total.toLocaleString('uk-UA'); clearInterval(iv); } }, 15);
+      }
+
+      let parts = [price.toLocaleString('uk-UA') + (state.qty > 1 ? ' × ' + state.qty : '')];
+      if (state.demontazh) parts.push('+' + (dCost * state.qty).toLocaleString('uk-UA') + ' демонтаж');
+      if (state.pidvikonnya) parts.push('+' + (pCost * state.qty).toLocaleString('uk-UA') + ' підвіконня');
+      document.getElementById('calc-breakdown').textContent = parts.join('  ');
+
+      document.getElementById('summary-type').textContent = typeNames[state.type];
+      document.getElementById('summary-qty').textContent = state.qty;
+      document.getElementById('summary-total').textContent = total.toLocaleString('uk-UA') + ' грн';
+    }
+
+    // Будує повідомлення з калькулятора
+    function buildCalcMessage() {
+      const price = typePrices[state.type];
+      const dCost = state.demontazh ? 500 : 0;
+      const pCost = state.pidvikonnya ? 800 : 0;
+      const total = (price + dCost + pCost) * state.qty;
+      let msg = 'Розрахунок з калькулятора:\nТип: ' + typeNames[state.type] + '\nКількість: ' + state.qty + ' вікон\n';
+      if (state.demontazh) msg += 'Демонтаж: так (+' + (dCost * state.qty).toLocaleString('uk-UA') + ' грн)\n';
+      if (state.pidvikonnya) msg += 'Підвіконня + відливи: так (+' + (pCost * state.qty).toLocaleString('uk-UA') + ' грн)\n';
+      msg += 'Орієнтовна сума: ' + total.toLocaleString('uk-UA') + ' грн\nПрошу розрахувати точну вартість';
+      return msg;
+    }
+
+    // "Отримати розрахунок" — прив'язує дані калькулятора
+    document.getElementById('btn-calc-submit').addEventListener('click', (e) => {
+      e.preventDefault();
+      const msg = buildCalcMessage();
+      document.getElementById('calc-data-input').value = msg;
+      showFormBadge();
+      document.getElementById('form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // Пакети "Ціни на встановлення" — прив'язує вибір
+    document.querySelectorAll('.pkg-select-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        selectedPackage = btn.dataset.package;
+        document.getElementById('calc-data-input').value = 'Обраний пакет: ' + selectedPackage;
+        showFormBadge();
+        document.getElementById('form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Показує бейдж що дані прив'язані
+    function showFormBadge() {
+      const badge = document.getElementById('calc-badge');
+      if (badge) {
+        badge.classList.remove('d-none');
+        badge.innerHTML = '<span class="badge bg-success text-white px-2 py-1 rounded-pill" style="font-size: 10px;"><i class="bi bi-check-circle me-1"></i>дані прив\'язано</span>';
+      }
+    }
+
+    updateDisplay();
+
+    const dateStr = new Date(Date.now() + 7 * 86400000).toLocaleDateString('uk-UA', { day: 'numeric', month: 'long' });
+    document.getElementById('hero-deadline').textContent = dateStr;
+
+    const obs = new IntersectionObserver((es) => { es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('fade-in-visible'); obs.unobserve(e.target); } }); }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  });
+  </script>
+
+  <style>
+    .cursor-pointer { cursor: pointer; }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in-visible { opacity: 1; transform: translateY(0); }
+    .calc-card:hover { border-color: #feb900 !important; box-shadow: 0 4px 16px rgba(254,185,0,0.15); }
+    .calc-qty-btn:hover { border-color: #feb900 !important; color: #feb900 !important; background: rgba(254,185,0,0.06) !important; }
+    .calc-qty-btn:active { transform: scale(0.92); }
+    .calc-option:hover { border-color: #feb900 !important; }
+    #calc-total { transition: color 0.3s; }
+    .calc-result { position: relative; overflow: hidden; }
+    .calc-result::before { content: ''; position: absolute; top: -50%; right: -20%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(254,185,0,0.08) 0%, transparent 70%); pointer-events: none; }
+    .telegram-form .form-control:focus,
+    .telegram-form input:focus,
+    .telegram-form textarea:focus {
+      border-color: #feb900 !important;
+      box-shadow: 0 0 0 3px rgba(254,185,0,0.12) !important;
+      outline: none !important;
+    }
+    .btn-warning { transition: transform 0.2s, box-shadow 0.2s; }
+    .btn-warning:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(254,185,0,0.35); }
+    .btn-warning:active { transform: translateY(0); }
+    .btn-sm.rounded-pill { transition: all 0.2s; }
+    .btn-sm.rounded-pill:hover { background: #feb900 !important; color: #1a252b !important; border-color: #feb900 !important; }
+  </style>
+
+</BaseLayout>
