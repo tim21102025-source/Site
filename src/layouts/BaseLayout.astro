@@ -63,7 +63,8 @@ const canonicalUrl = `${t.canonicalBase}${canonicalPath}`;
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-QMT9NJ5M5H');
+    const gaConfig = { debug_mode: new URLSearchParams(window.location.search).get('debug_mode') === 'true' };
+    gtag('config', 'G-QMT9NJ5M5H', gaConfig);
   </script>
 
   {structuredData && (
