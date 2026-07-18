@@ -302,10 +302,16 @@ document.addEventListener('submit', async function (e) {
   const btn = form.querySelector('button[type="submit"]');
   const filePreview = document.getElementById('file-preview') || document.getElementById('modal-file-preview');
 
+  // Зберігаємо оригінальний текст кнопки
+  const originalBtnText = btn.innerHTML;
+
+  // Показуємо стан завантаження на кнопці
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status"></span>Надсилаємо...';
+  btn.style.opacity = '0.8';
   if (loading) loading.style.display = 'block';
   if (success) success.style.display = 'none';
   if (errorMsg) errorMsg.style.display = 'none';
-  btn.disabled = true;
 
   try {
     const name = form.name.value;
@@ -355,15 +361,6 @@ document.addEventListener('submit', async function (e) {
     const result = await response.json();
 
     if (result.ok) {
-      // Показуємо модалку успіху якщо є, або inline повідомлення
-      const successModal = document.getElementById('successModal');
-      if (successModal) {
-        const modal = new bootstrap.Modal(successModal);
-        modal.show();
-      } else if (success) {
-        success.style.display = 'block';
-      }
-
       // GA4 conversion event
       if (typeof gtag === 'function') {
         gtag('event', 'form_submit', {
@@ -382,15 +379,29 @@ document.addEventListener('submit', async function (e) {
       if (calcDataField) calcDataField.value = '';
       // Очищуємо прев'ю (шукаємо обидва можливі ID)
       document.querySelectorAll('[id*="file-preview"]').forEach(el => el.innerHTML = '');
-      
-      // Якщо форма в модалці — закриваємо її через 3 сек
-      const modalElement = form.closest('.modal');
-      if (modalElement) {
+
+      // Закриваємо модалку форми якщо вона в модалці
+      const formModal = form.closest('.modal');
+      if (formModal) {
+        const formModalInstance = bootstrap.Modal.getInstance(formModal);
+        if (formModalInstance) formModalInstance.hide();
+      }
+
+      // Показуємо модалку успіху
+      const successModal = document.getElementById('successModal');
+      if (successModal) {
+        const modal = new bootstrap.Modal(successModal);
+        modal.show();
+        // Автозакриття через 3 сек
+        successModal.addEventListener('hidden.bs.modal', () => {
+          modal.dispose();
+        }, { once: true });
         setTimeout(() => {
-          const modalInstance = bootstrap.Modal.getInstance(modalElement);
-          if (modalInstance) modalInstance.hide();
-          if (success) success.style.display = 'none';
+          modal.hide();
         }, 3000);
+      } else if (success) {
+        success.style.display = 'block';
+        setTimeout(() => { success.style.display = 'none'; }, 3000);
       }
     } else {
       throw new Error(result.description || "Server Error");
@@ -407,6 +418,8 @@ document.addEventListener('submit', async function (e) {
   } finally {
     if (loading) loading.style.display = 'none';
     btn.disabled = false;
+    btn.innerHTML = originalBtnText;
+    btn.style.opacity = '1';
   }
 });
 
