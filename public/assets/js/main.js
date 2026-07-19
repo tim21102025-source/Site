@@ -361,12 +361,26 @@ document.addEventListener('submit', async function (e) {
     const result = await response.json();
 
     if (result.ok) {
-      // GA4 conversion event
+      // GA4 — специфічні події для кожної форми
       if (typeof gtag === 'function') {
-        gtag('event', 'form_submit', {
-          event_category: 'landing',
-          event_label: form.querySelector('input[name="source"]')?.value || 'unknown'
-        });
+        let eventName = 'form_submit';
+        let params = {};
+
+        if (form.id === 'footerTelegramForm') {
+          eventName = 'quick_message_submit';
+          params = { form_location: 'contact_modal' };
+        } else if (form.id === 'landingForm') {
+          eventName = 'landing_form_submit';
+          params = { form_location: 'landing', source: form.querySelector('input[name="source"]')?.value || 'unknown' };
+        } else if (form.closest('.contact-page') || form.closest('section.contact')) {
+          eventName = 'contact_page_submit';
+          params = { form_location: 'contact_page' };
+        } else {
+          eventName = 'contact_form_submit';
+          params = { form_location: 'main_page' };
+        }
+
+        gtag('event', eventName, params);
       }
 
       form.reset();
@@ -472,4 +486,44 @@ function initFilePicker(inputId, previewId) {
 document.addEventListener('DOMContentLoaded', () => {
   initFilePicker('files', 'file-preview');         // Основна форма
   initFilePicker('modal-files', 'modal-file-preview'); // Модальне вікно
+
+  /**
+   * GA4 — трекінг кліків: телефони, пошта, месенджери
+   */
+  if (typeof gtag === 'function') {
+    // Телефони: tel:
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+      link.addEventListener('click', () => {
+        gtag('event', 'phone_click', {
+          phone_number: link.href.replace('tel:', ''),
+          page_path: window.location.pathname
+        });
+      });
+    });
+
+    // Пошта: mailto:
+    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+      link.addEventListener('click', () => {
+        gtag('event', 'email_click', {
+          email: link.href.replace('mailto:', ''),
+          page_path: window.location.pathname
+        });
+      });
+    });
+
+    // Месенджери: viber, telegram, whatsapp
+    document.querySelectorAll('a[href*="viber:"], a[href*="t.me"], a[href*="wa.me"]').forEach(link => {
+      link.addEventListener('click', () => {
+        let messenger = 'unknown';
+        if (link.href.includes('viber:')) messenger = 'viber';
+        else if (link.href.includes('t.me')) messenger = 'telegram';
+        else if (link.href.includes('wa.me')) messenger = 'whatsapp';
+
+        gtag('event', 'messenger_click', {
+          messenger_type: messenger,
+          page_path: window.location.pathname
+        });
+      });
+    });
+  }
 });
