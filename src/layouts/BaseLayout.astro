@@ -40,7 +40,7 @@ const canonicalUrl = `${t.canonicalBase}${canonicalPath}`;
   <title>{title}</title>
   <meta name="description" content={description} />
   {robotsNoindex && <meta name="robots" content="noindex, nofollow" />}
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://tg-proxy-master.tim21102025.workers.dev; frame-src 'none';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://region1.google-analytics.com https://region2.google-analytics.com https://region3.google-analytics.com https://region4.google-analytics.com https://region5.google-analytics.com https://tg-proxy-master.tim21102025.workers.dev; frame-src 'none';">
 
   <!-- Open Graph -->
   <meta property="og:title" content={ogTitle}>
